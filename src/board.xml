@@ -5,9 +5,149 @@
     </GO>
 
     <Property>
+        <name>Mediterranean Avenue</name>
+        <price>60</price>
+        <rent>2</rent>
+        <color>brown</color>
+    </Property>
+    <Property>
+        <name>Baltic Avenue</name>
+        <price>60</price>
+        <rent>4</rent>
+        <color>brown</color>
+    </Property>
+    <Property>
+        <name>Oriental Avenue</name>
+        <price>100</price>
+        <rent>6</rent>
+        <color>light blue</color>
+    </Property>
+    <Property>
+        <name>Vermont Avenue</name>
+        <price>100</price>
+        <rent>6</rent>
+        <color>light blue</color>
+    </Property>
+    <Property>
+        <name>Connecticut Avenue</name>
+        <price>120</price>
+        <rent>8</rent>
+        <color>light blue</color>
+    </Property>
+    <Property>
+        <name>St. Charles Place</name>
+        <price>140</price>
+        <rent>10</rent>
+        <color>pink</color>
+    </Property>
+    <Property>
+        <name>States Avenue</name>
+        <price>140</price>
+        <rent>10</rent>
+        <color>pink</color>
+    </Property>
+    <Property>
+        <name>Virginia Avenue</name>
+        <price>160</price>
+        <rent>12</rent>
+        <color>pink</color>
+    </Property>
+    <Property>
+        <name>St. James Place</name>
+        <price>180</price>
+        <rent>14</rent>
+        <color>Orange</color>
+    </Property>
+    <Property>
+        <name>Tennessee Avenue</name>
+        <price>180</price>
+        <rent>14</rent>
+        <color>Orange</color>
+    </Property>
+    <Property>
+        <name>New York Avenue</name>
+        <price>200</price>
+        <rent>16</rent>
+        <color>Orange</color>
+    </Property>
+    <Property>
+        <name>Kentucky Avenue</name>
+        <price>220</price>
+        <rent>18</rent>
+        <color>red</color>
+    </Property>
+    <Property>
+        <name>Indiana Avenue</name>
+        <price>220</price>
+        <rent>18</rent>
+        <color>red</color>
+    </Property>
+    <Property>
+        <name>Illinois Avenue</name>
+        <price>240</price>
+        <rent>20</rent>
+        <color>red</color>
+    </Property>
+    <Property>
+        <name>Atlantic Avenue</name>
+        <price>260</price>
+        <rent>22</rent>
+        <color>yellow</color>
+    </Property>
+    <Property>
+        <name>Ventnor Avenue</name>
+        <price>260</price>
+        <rent>22</rent>
+        <color>yellow</color>
+    </Property>
+    <Property>
         <name></name>
         <price></price>
-        <rent>[ , , , ,]</rent>
+        <rent></rent>
+        <color></color>
     </Property>
+    <Property>
+        <name></name>
+        <price></price>
+        <rent></rent>
+        <color></color>
+    </Property>
+    <Property>
+        <name></name>
+        <price></price>
+        <rent></rent>
+        <color></color>
+    </Property>
+    <Property>
+        <name></name>
+        <price></price>
+        <rent></rent>
+        <color></color>
+    </Property>
+    <Property>
+        <name></name>
+        <price></price>
+        <rent></rent>
+        <color></color>
+    </Property>
+    <Property>
+        <name></name>
+        <price></price>
+        <rent></rent>
+        <color></color>
+    </Property>
+    <Property>
+        <name></name>
+        <price></price>
+        <rent></rent>
+        <color></color>
+    </Property>
+    <Property>
+        <name></name>
+        <price></price>
+        <rent></rent>
+        <color></color>
+    </Property>
+
 
 </board>

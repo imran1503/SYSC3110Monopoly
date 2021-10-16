@@ -17,6 +17,8 @@ public class Player {
 
     private int balance;
 
+    private int ownsXtrains;
+
     /**
      * The player's name
      */
@@ -43,6 +45,7 @@ public class Player {
         this.color = color;
         ownsBothUtil = false;
         balance = startingMoney; // Should be 1000$
+        ownsXtrains=0;
     }
 
     /**
@@ -54,6 +57,13 @@ public class Player {
         return color;
     }
 
+    public int getOwnsXtrains() {
+        return ownsXtrains;
+    }
+
+    public void setOwnsXtrains(int ownsXtrains) {
+        this.ownsXtrains = ownsXtrains;
+    }
 
     /**
      * Creates a new Player

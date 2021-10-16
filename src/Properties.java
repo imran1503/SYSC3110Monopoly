@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Properties {
     private String name;
     private int rent; //To account for houses / hotels
@@ -5,14 +7,16 @@ public class Properties {
     private int price;
     private int numHouses;
     private int numHotels;
+    private Color color;
 
-    public Properties( String name, int rent, Player owner, int price){
+    public Properties( String name, int rent, Player owner, int price, Color color){
         this.name = name;
         this.rent = rent;
         this.owner = owner;
         this.price = price;
         numHouses = 0;
         numHotels = 0;
+        this.color = color;
     }
 
     public String getName() {
