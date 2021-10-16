@@ -1,17 +1,17 @@
 public class Utilities extends Properties{
 
-    public Utilities(String name, int[] rentArray, Player owner, int price) {
-        super(name, rentArray, owner, price);
+    public Utilities(String name, int rent, Player owner, int price) {
+        super(name, rent, owner, price);
     }
 
 
     @Override
     public int getRent() {
-        if (getOwner().getOwnsBothUtil() == true) {
-            return getRentArray()[1];
+        if (getOwner().getOwnsBothUtil()) {
+            return (int)(this.getrentVar()*2.5);
         }
         else{
-            return getRentArray()[0];
+            return this.getrentVar();
         }
     }
 }

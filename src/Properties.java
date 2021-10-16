@@ -1,14 +1,14 @@
 public class Properties {
     private String name;
-    private int[] rent; //To account for houses / hotels
+    private int rent; //To account for houses / hotels
     private Player owner;
     private int price;
     private int numHouses;
     private int numHotels;
 
-    public Properties( String name, int[] rentArray, Player owner, int price){
+    public Properties( String name, int rent, Player owner, int price){
         this.name = name;
-        this.rent = rentArray;
+        this.rent = rent;
         this.owner = owner;
         this.price = price;
         numHouses = 0;
@@ -19,27 +19,17 @@ public class Properties {
         return name;
     }
 
-    public int[] getRentArray(){
+
+    public int getrentVar(){
         return rent;
     }
-
     public int getRent() {
-        if (numHouses == 1) {
-            return rent[1];
-        }
-        else if (numHouses == 2) {
-            return rent[2];
-        }
-        else if (numHouses == 3) {
-            return rent[3];
-        }
-        else if (numHouses == 0) {
-            return rent[4];
-        }
-        else if (numHotels == 1){
-            return rent[5];
-        }
-        return rent[0];
+        if (numHouses == 1) { return (int)(rent*1.1); }
+        else if (numHouses == 2) { return (int)(rent*1.2); }
+        else if (numHouses == 3) { return (int)(rent*1.3); }
+        else if (numHouses == 4) { return (int)(rent*1.4); }
+        else if (numHotels == 1) { return (int)(rent*1.5); }
+        else { return rent; }
     }
 
     public Player getOwner() {

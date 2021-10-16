@@ -15,6 +15,8 @@ public class Player {
 
     private Boolean ownsBothUtil;
 
+    private int balance;
+
     /**
      * The player's name
      */
@@ -35,11 +37,12 @@ public class Player {
      *
      * @param name sets the players name to this parameter
      */
-    public Player(String name, Color color) {
+    public Player(String name, Color color, int startingMoney) {
         controlledProperties = new ArrayList<>();
         this.name = name;
         this.color = color;
         ownsBothUtil = false;
+        balance = startingMoney; // Should be 1000$
     }
 
     /**
@@ -59,9 +62,9 @@ public class Player {
      * @param color The player color
      * @return
      */
-    public static Player newPlayer(String name, Color color) {
+    public static Player newPlayer(String name, Color color, int startingMoney) {
 
-        return new Player(name, color);
+        return new Player(name, color, startingMoney);
     }
 
 
@@ -94,5 +97,13 @@ public class Player {
 
     public void setOwnsBothUtil(Boolean ownsBothUtil) {
         this.ownsBothUtil = ownsBothUtil;
+    }
+
+    public void addToBalance(int amount){
+        balance += amount;
+    }
+
+    public void removeToBalance(int amount){
+        balance -= amount;
     }
 }

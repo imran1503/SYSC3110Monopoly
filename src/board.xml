@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<board>
+    <GO>
+        <name>GO</name>
+    </GO>
+
+    <Property>
+        <name></name>
+        <price></price>
+        <rent>[ , , , ,]</rent>
+    </Property>
+
+</board>
