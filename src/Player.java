@@ -13,6 +13,8 @@ public class Player {
      */
     private List<Properties> controlledProperties;
 
+    private Boolean ownsBothUtil;
+
     /**
      * The player's name
      */
@@ -26,7 +28,7 @@ public class Player {
     /**
      * Indicates whether the player is AI controlled
      */
-    private Boolean ai;
+    //private Boolean ai;
 
     /**
      * Constructor for the Player object
@@ -37,6 +39,7 @@ public class Player {
         controlledProperties = new ArrayList<>();
         this.name = name;
         this.color = color;
+        ownsBothUtil = false;
     }
 
     /**
@@ -83,5 +86,13 @@ public class Player {
      */
     public int getControlledProperties() {
         return controlledProperties.size();
+    }
+
+    public Boolean getOwnsBothUtil() {
+        return ownsBothUtil;
+    }
+
+    public void setOwnsBothUtil(Boolean ownsBothUtil) {
+        this.ownsBothUtil = ownsBothUtil;
     }
 }
