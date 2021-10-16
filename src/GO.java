@@ -1,6 +1,6 @@
 public class GO extends Properties{
-    public GO(String name, int[] rentArray, Player owner, int price) {
-        super(name, null, null, 0);
+    public GO(String name, int rent, Player owner, int price) {
+        super(name, 0, null, 0);
     }
 
     public void giveMoney(Player player) {
