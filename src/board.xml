@@ -10,18 +10,47 @@
         <rent>2</rent>
         <color>brown</color>
     </Property>
+
+    <Property>
+        <name>Community Chest</name>
+        <price>0</price>
+        <rent>0</rent>
+        <color>white</color>
+    </Property>
+
     <Property>
         <name>Baltic Avenue</name>
         <price>60</price>
         <rent>4</rent>
         <color>brown</color>
     </Property>
+
+    <IncomeTax>
+        <name>Income Tax</name>
+        <color>white</color>
+    </IncomeTax>
+
+    <Railroad>
+        <name>Reading Railroad</name>
+        <price>200</price>
+        <rent>25</rent>
+        <color>white</color>
+    </Railroad>
+
     <Property>
         <name>Oriental Avenue</name>
         <price>100</price>
         <rent>6</rent>
         <color>light blue</color>
     </Property>
+
+    <Property>
+        <name>Chance</name>
+        <price>0</price>
+        <rent>0</rent>
+        <color>white</color>
+    </Property>
+
     <Property>
         <name>Vermont Avenue</name>
         <price>100</price>
@@ -40,6 +69,14 @@
         <rent>10</rent>
         <color>pink</color>
     </Property>
+
+    <Utilites>
+        <name>Electric Company</name>
+        <price>150</price>
+        <rent>4</rent> //4 * roll
+        <color>white</color>
+    </Utilites>
+
     <Property>
         <name>States Avenue</name>
         <price>140</price>
@@ -52,12 +89,26 @@
         <rent>12</rent>
         <color>pink</color>
     </Property>
+    <Railroad>
+        <name>Pennsylvania Railroad</name>
+        <price>200</price>
+        <rent>25</rent>
+        <color>white</color>
+    </Railroad>
     <Property>
         <name>St. James Place</name>
         <price>180</price>
         <rent>14</rent>
         <color>Orange</color>
     </Property>
+
+    <Property>
+        <name>Community Chest</name>
+        <price>0</price>
+        <rent>0</rent>
+        <color>white</color>
+    </Property>
+
     <Property>
         <name>Tennessee Avenue</name>
         <price>180</price>
@@ -70,12 +121,28 @@
         <rent>16</rent>
         <color>Orange</color>
     </Property>
+
+    <Property>
+        <name>Free Parking</name>
+        <price>0</price>
+        <rent>0</rent>
+        <color>white</color>
+    </Property>
+
     <Property>
         <name>Kentucky Avenue</name>
         <price>220</price>
         <rent>18</rent>
         <color>red</color>
     </Property>
+
+    <Property>
+        <name>Chance</name>
+        <price>0</price>
+        <rent>0</rent>
+        <color>white</color>
+    </Property>
+
     <Property>
         <name>Indiana Avenue</name>
         <price>220</price>
@@ -88,6 +155,14 @@
         <rent>20</rent>
         <color>red</color>
     </Property>
+
+    <Railroad>
+        <name>B. &amp; O. Railroad</name>
+        <price>200</price>
+        <rent>25</rent>
+        <color>white</color>
+    </Railroad>
+
     <Property>
         <name>Atlantic Avenue</name>
         <price>260</price>
@@ -100,54 +175,71 @@
         <rent>22</rent>
         <color>yellow</color>
     </Property>
+
+    <Utilites>
+        <name>Water Works</name>
+        <price>150</price>
+        <rent>4</rent>
+        <color>white</color>
+    </Utilites>
+
     <Property>
-        <name></name>
-        <price></price>
-        <rent></rent>
-        <color></color>
+        <name>Marvin Gardens</name>
+        <price>280</price>
+        <rent>24</rent>
+        <color>yellow</color>
     </Property>
     <Property>
-        <name></name>
-        <price></price>
-        <rent></rent>
-        <color></color>
+        <name>Pacific Avenue</name>
+        <price>300</price>
+        <rent>26</rent>
+        <color>green</color>
     </Property>
     <Property>
-        <name></name>
-        <price></price>
-        <rent></rent>
-        <color></color>
-    </Property>
-    <Property>
-        <name></name>
-        <price></price>
-        <rent></rent>
-        <color></color>
-    </Property>
-    <Property>
-        <name></name>
-        <price></price>
-        <rent></rent>
-        <color></color>
-    </Property>
-    <Property>
-        <name></name>
-        <price></price>
-        <rent></rent>
-        <color></color>
-    </Property>
-    <Property>
-        <name></name>
-        <price></price>
-        <rent></rent>
-        <color></color>
-    </Property>
-    <Property>
-        <name></name>
-        <price></price>
-        <rent></rent>
-        <color></color>
+        <name>North Carolina Avenue</name>
+        <price>300</price>
+        <rent>26</rent>
+        <color>green</color>
     </Property>
 
+    <Property>
+        <name>Community Chest</name>
+        <price>0</price>
+        <rent>0</rent>
+        <color>white</color>
+    </Property>
 
+    <Property>
+        <name>Pennsylvania Avenue</name>
+        <price>320</price>
+        <rent>28</rent>
+        <color>green</color>
+    </Property>
+
+    <Railroad>
+        <name>Short Line</name>
+        <price>200</price>
+        <rent>25</rent>
+        <color>white</color>
+    </Railroad>
+
+    <Property>
+        <name>Chance</name>
+        <price>0</price>
+        <rent>0</rent>
+        <color>white</color>
+    </Property>
+
+    <Property>
+        <name>Park Place</name>
+        <price>350</price>
+        <rent>35</rent>
+        <color>dark blue</color>
+    </Property>
+    <Property>
+        <name>Boardwalk</name>
+        <price>400</price>
+        <rent>50</rent>
+        <color>dark blue</color>
+    </Property>
 </board>

@@ -113,7 +113,7 @@ public class Player {
         balance += amount;
     }
 
-    public void removeToBalance(int amount){
+    public void removefromBalance(int amount){
         balance -= amount;
     }
 }

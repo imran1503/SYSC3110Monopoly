@@ -1,7 +1,9 @@
+import java.awt.*;
+
 public class Utilities extends Properties{
 
-    public Utilities(String name, int rent, Player owner, int price) {
-        super(name, rent, owner, price);
+    public Utilities(String name, int rent, Player owner, int price, Color colour) {
+        super(name, rent, owner, price, colour);
     }
 
 
