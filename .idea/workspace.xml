@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Start game cycle. Created play(), welcomeMessage(), operateCommand()">
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Added functionality of looping with current player until player passes turn">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634681741380</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added functionality of looping with current player until player passes turn">
+      <created>1634683254481</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634683254481</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -62,6 +68,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start game cycle. Created play(), welcomeMessage(), operateCommand()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start game cycle. Created play(), welcomeMessage(), operateCommand()" />
+    <MESSAGE value="Added functionality of looping with current player until player passes turn" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality of looping with current player until player passes turn" />
   </component>
 </project>
