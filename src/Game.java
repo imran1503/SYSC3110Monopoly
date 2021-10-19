@@ -41,16 +41,24 @@ public class Game {
     }
 
     private boolean operateCommand(String command) {
-        if (command.equals("quite")) {
+        boolean playerInProgress = true;
+        if (command.equals("quit")) {
             return false;
         } if (command.equals("roll")) {
-            roll(); // Need to find out which player is currently playing and roll for that player
-        } if (command.equals("purchase property")){
-            purchaseProperty(); // Need to find out which player is currently playing and roll for that player
-        } if (command.equals("purchase house") || command.equals("purchase hotel")){
-            purchaseHouseOrHotel(); // Need to find out which player is currently playing and roll for that player
-        }
-        else {
+            roll();
+            while (playerInProgress){
+                if (command.equals("purchase property")){
+                    purchaseProperty();
+                } else if (command.equals("purchase house") || command.equals("purchase hotel")){
+                    purchaseHouseOrHotel();
+                } else if (command.equals("pass turn")){
+                    passPlayerTurn();
+                    playerInProgress = false;
+                } else {
+                    System.out.println("No such command exists!");
+                }
+            }
+        } else {
             System.out.println("No such command exists!");
         }
 
