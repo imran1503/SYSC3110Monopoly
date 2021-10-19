@@ -25,6 +25,11 @@ public class Player {
     private String name;
 
     /**
+     * The player's integer position on the board
+     */
+    private int positon;
+
+    /**
      * The color representing the player on the game board
      */
     private Color color;
@@ -46,6 +51,7 @@ public class Player {
         ownsBothUtil = false;
         balance = startingMoney; // Should be 1000$
         ownsXtrains=0;
+        this.positon = 0;
     }
 
     /**
@@ -53,9 +59,9 @@ public class Player {
      *
      * @return The color of the player
      */
-    public Color getColor() {
-        return color;
-    }
+    public Color getColor() { return color; }
+
+    public String getName(){return name;}
 
     public int getOwnsXtrains() {
         return ownsXtrains;
@@ -65,6 +71,18 @@ public class Player {
         this.ownsXtrains = ownsXtrains;
     }
 
+    public int getPositon(){
+        return positon;
+    }
+
+    /**
+     * Changes position of player to the new position
+     *
+     * @param newPosition The amount to move forward
+     */
+    public void setPosition(int newPosition){
+        this.positon = newPosition;
+    }
     /**
      * Creates a new Player
      *
@@ -108,6 +126,8 @@ public class Player {
     public void setOwnsBothUtil(Boolean ownsBothUtil) {
         this.ownsBothUtil = ownsBothUtil;
     }
+
+    public int getBalance(){return balance;}
 
     public void addToBalance(int amount){
         balance += amount;

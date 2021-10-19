@@ -8,21 +8,18 @@ public class Properties {
     private int numHouses;
     private int numHotels;
     private Color color;
+    private int location; //Location on the board
 
-    public Properties( String name, int rent, Player owner, int price, Color color){
+    public Properties( String name, int rent, int price, Color color, int location){
         this.name = name;
         this.rent = rent;
-        this.owner = owner;
+        this.owner = null;
         this.price = price;
         numHouses = 0;
         numHotels = 0;
         this.color = color;
+        this.location = location;
     }
-
-    public String getName() {
-        return name;
-    }
-
 
     public int getrentVar(){
         return rent;
@@ -36,6 +33,12 @@ public class Properties {
         else { return rent; }
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getLocation(){return location;}
+
     public Player getOwner() {
         return owner;
     }
@@ -47,6 +50,8 @@ public class Properties {
     public int getPrice() {
         return price;
     }
+
+    public Color getColor(){return color;}
 
     public void setName(String name) {
         this.name = name;
@@ -67,4 +72,6 @@ public class Properties {
     public void setNumHotels(int numHotels) {
         this.numHotels = numHotels;
     }
+
+    public int getHousePrice(){return ((price*numHouses)/10);}
 }

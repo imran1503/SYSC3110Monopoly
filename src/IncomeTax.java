@@ -1,5 +1,8 @@
-public class IncomeTax {
-    public void takeMoney(Player player) {
-        player.removefromBalance(200);
+import java.awt.*;
+
+public class IncomeTax extends Properties{
+    public IncomeTax() {
+        super("IncomeTax", 200, 0, null,3);
     }
+
 }

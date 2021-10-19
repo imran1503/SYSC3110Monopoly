@@ -1,8 +1,8 @@
 import java.awt.*;
 
 public class Railroads extends Properties{
-    public Railroads(String name, int rent, Player owner, int price, Color color) {
-        super(name, rent, owner, price, color);
+    public Railroads(String name, int rent, Player owner, int price, Color color, int location) {
+        super(name, rent, price,color,location);
     }
 
 
