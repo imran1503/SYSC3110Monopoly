@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.lang.Math;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Game {
     private ArrayList<Player> players;
@@ -10,11 +11,50 @@ public class Game {
     private Enumeration gameState; //todo roll & move, purchase, house/hotel, end turn.
     private HashMap<Color, ArrayList<Properties>> colorPropertiesArrayList;
     private Player currentPlayer;
+    private Scanner reader; // for taking command input
 
     public Game( ){
         this.players = new ArrayList<Player>();
         this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
+    }
+
+    /**
+     * play start while loops until game is not in progress.
+     */
+    public void play() {
+        welcomeMessage();
+        boolean gameInProgress = true;
+        while (gameInProgress) {
+            String command = reader.nextLine();
+            gameInProgress = operateCommand(command);
+        }
+    }
+
+    /**
+     * Print out the opening message for the players on game start.
+     */
+    private void welcomeMessage() {
+        System.out.println("Welcome to the game of Monopoly!");
+        System.out.println();
+        System.out.println("Player 1 goes first, begin by typing roll command");
+    }
+
+    private boolean operateCommand(String command) {
+        if (command.equals("quite")) {
+            return false;
+        } if (command.equals("roll")) {
+            roll(); // Need to find out which player is currently playing and roll for that player
+        } if (command.equals("purchase property")){
+            purchaseProperty(); // Need to find out which player is currently playing and roll for that player
+        } if (command.equals("purchase house") || command.equals("purchase hotel")){
+            purchaseHouseOrHotel(); // Need to find out which player is currently playing and roll for that player
+        }
+        else {
+            System.out.println("No such command exists!");
+        }
+
+        return true;
     }
 
     public void addPlayer(Player player){players.add(player);}
