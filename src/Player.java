@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Models a RISK player.
@@ -95,7 +94,6 @@ public class Player {
         return new Player(name, color, startingMoney);
     }
 
-
     /**
      * @param property
      */
@@ -115,8 +113,8 @@ public class Player {
      *
      * @return the size of the controlledTerritories list
      */
-    public int getControlledProperties() {
-        return controlledProperties.size();
+    public List<Properties> getControlledProperties() {
+        return controlledProperties;
     }
 
     public Boolean getOwnsBothUtil() {
