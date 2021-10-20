@@ -46,13 +46,13 @@ public class Game {
         if (command.equals("quite")) {
             return false;
         } if (command.equals("roll")) {
-            nextRoll = roll(); // Need to find out which player is currently playing and roll for that player
+            nextRoll = roll();
             Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
             if((propertyOn.getOwner()!=null)&&(!propertyOn.getOwner().equals(currentPlayer))){
                 propertyOn.payRent(currentPlayer);
             }
         } if (command.equals("purchase property")){
-            purchaseProperty(); // Need to find out which player is currently playing and roll for that player
+            purchaseProperty();
         } //if (command.equals("purchase house") || command.equals("purchase hotel")){
             //purchaseHouseOrHotel(); // Need to find out which player is currently playing and roll for that player
         //}
