@@ -144,4 +144,3 @@ public class Player {
 
     public void setBankruptStatus(Boolean status){bankruptStatus=status;}
 }
-
