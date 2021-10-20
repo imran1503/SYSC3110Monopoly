@@ -2,6 +2,7 @@
 <board>
     <GO>
         <name>GO</name>
+        <color>white</color>
         <index>0</index>
     </GO>
 
