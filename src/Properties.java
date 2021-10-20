@@ -33,6 +33,17 @@ public class Properties {
         else { return rent; }
     }
 
+    public void payRent(Player payingPlayer){
+        System.out.println(payingPlayer.getName()+" pays "+this.getRent()+" to "+owner.getName()+" on "+name);
+        if(payingPlayer.getBalance() < this.getRent()){
+            payingPlayer.removefromBalance(payingPlayer.getBalance());
+            payingPlayer.setBankruptStatus(true);
+            payingPlayer.removeAllControlledProperties();
+            System.out.println(payingPlayer.getName()+" goes Bankrupt!");
+        }
+        owner.addToBalance(this.getRent());
+    }
+
     public String getName() {
         return name;
     }

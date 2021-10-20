@@ -12,11 +12,13 @@ public class Game {
     private HashMap<Color, ArrayList<Properties>> colorPropertiesArrayList;
     private Player currentPlayer;
     private Scanner reader; // for taking command input
+    private Boolean nextRoll;
 
     public Game( ){
         this.players = new ArrayList<Player>();
         this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
+        this.nextRoll = null;
     }
 
     /**
@@ -44,11 +46,27 @@ public class Game {
         if (command.equals("quite")) {
             return false;
         } if (command.equals("roll")) {
-            roll(); // Need to find out which player is currently playing and roll for that player
+            nextRoll = roll(); // Need to find out which player is currently playing and roll for that player
+            Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
+            if((propertyOn.getOwner()!=null)&&(!propertyOn.getOwner().equals(currentPlayer))){
+                propertyOn.payRent(currentPlayer);
+            }
         } if (command.equals("purchase property")){
             purchaseProperty(); // Need to find out which player is currently playing and roll for that player
-        } if (command.equals("purchase house") || command.equals("purchase hotel")){
-            purchaseHouseOrHotel(); // Need to find out which player is currently playing and roll for that player
+        } //if (command.equals("purchase house") || command.equals("purchase hotel")){
+            //purchaseHouseOrHotel(); // Need to find out which player is currently playing and roll for that player
+        //}
+        if(command.equals("pass turn")){
+            if(nextRoll == null){
+                System.out.println(currentPlayer.getName()+" still did not roll yet. Roll first before passing.");
+            }
+            if(nextRoll == true){
+                System.out.println(currentPlayer.getName()+" needs to roll again before passing turn. Rolled a double previously.");
+            }
+            else{
+                passPlayerTurn();
+                nextRoll = null;
+            }
         }
         else {
             System.out.println("No such command exists!");
@@ -85,11 +103,14 @@ public class Game {
         else{
             currentPlayer = players.get(1+indexOfCurrentPlayer);
         }
+        if(currentPlayer.getBankruptStatus()){
+            passPlayerTurn();
+        }
     }
 
     public void addProperty(Properties property){propertiesArrayList.add(property);}
 
-    public void roll(){
+    public boolean roll(){
         int totalNumOfSpaces = 40;
         int randomRoll1 = ((int)((Math.random()*60)%6) + 1);
         int randomRoll2 = ((int)((Math.random()*77)%6) + 1);
@@ -101,6 +122,10 @@ public class Game {
         else{
             currentPlayer.setPosition(randomRoll1 + randomRoll2+ playerPosition);
         }
+        if(randomRoll1 == randomRoll2){
+            return true;
+        }
+        return false;
     }
 
     public void purchaseProperty(){

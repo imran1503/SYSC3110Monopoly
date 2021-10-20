@@ -18,19 +18,13 @@ public class Player {
 
     private int ownsXtrains;
 
-    /**
-     * The player's name
-     */
+    /*** The player's name*/
     private String name;
 
-    /**
-     * The player's integer position on the board
-     */
+    /**The player's integer position on the board*/
     private int positon;
 
-    /**
-     * The color representing the player on the game board
-     */
+    /**The color representing the player on the game board*/
     private Color color;
 
     /**
@@ -38,6 +32,8 @@ public class Player {
      */
     //private Boolean ai;
 
+    /** Status of player if Banrupt or not. If false then not bankrupt, If true then Bankrupt*/
+    private Boolean bankruptStatus;
     /**
      * Constructor for the Player object
      *
@@ -51,6 +47,7 @@ public class Player {
         balance = startingMoney; // Should be 1000$
         ownsXtrains=0;
         this.positon = 0;
+        this.bankruptStatus = false;
     }
 
     /**
@@ -117,6 +114,14 @@ public class Player {
         return controlledProperties;
     }
 
+    public void removeAllControlledProperties(){
+        for(int i = 0; i < controlledProperties.size(); i++){
+            controlledProperties.get(i).setOwner(null);
+            controlledProperties.get(i).setNumHouses(0);
+            controlledProperties.get(i).setNumHotels(0);
+        }
+    }
+
     public Boolean getOwnsBothUtil() {
         return ownsBothUtil;
     }
@@ -134,4 +139,9 @@ public class Player {
     public void removefromBalance(int amount){
         balance -= amount;
     }
+
+    public Boolean getBankruptStatus(){return bankruptStatus;}
+
+    public void setBankruptStatus(Boolean status){bankruptStatus=status;}
 }
+
