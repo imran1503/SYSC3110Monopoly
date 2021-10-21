@@ -30,7 +30,6 @@
         <index>3</index>
     </Property>
 
-    <!--todo: IncomeTax default constructor sets color to null, whereas white here. On purpose?-->
     <IncomeTax>
         <name>Income Tax</name>
         <color>white</color>
