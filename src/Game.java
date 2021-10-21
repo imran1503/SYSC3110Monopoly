@@ -30,6 +30,9 @@ public class Game {
         while (gameInProgress) {
             String command = reader.nextLine();
             gameInProgress = operateCommand(command);
+            if(gameInProgress) {
+                gameInProgress = checkNumOfActivePlayers();
+            }
         }
     }
 
@@ -44,6 +47,7 @@ public class Game {
 
     private boolean operateCommand(String command) {
         if (command.equals("quit")) {
+            System.out.println("Player has quit the game.");
             return false;
         } if (command.equals("roll")) {
             nextRoll = roll();
@@ -84,6 +88,9 @@ public class Game {
                 nextRoll = null;
             }
         }
+        if(command.equals("check game state")){
+            printCurrentState();
+        }
         else {
             System.out.println("No such command exists!");
         }
@@ -104,6 +111,7 @@ public class Game {
             Player player = players.get(i);
             System.out.println("******\n"+player.getName() + " position is currently at "+propertiesArrayList.get(player.getPositon()).getName());
             System.out.println("Balance is "+ player.getBalance());
+            System.out.println("Bankrupt Status = "+player.getBankruptStatus());
             int getNumOfProperties = player.getControlledProperties().size();
             System.out.println("List of Owned Properties:");
             for(int j=0; j<getNumOfProperties; j++){
@@ -204,6 +212,25 @@ public class Game {
             currentPlayer.removefromBalance(property.getHousePrice());
             property.setNumHouses((1+numOfHouseCurrent));
         }}}}}
+    }
+
+    /**
+     * Return false if number players that are not bankrupt equal to 1. Else returns true.
+     * @return Boolean false to end game, true to continue.
+     */
+    public Boolean checkNumOfActivePlayers(){
+        int totalNumPlayers = players.size();
+        int totalBankruptPlayers = 0;
+        for(int i=0; i<totalNumPlayers;i++) {
+            if(players.get(i).getBankruptStatus()){
+                totalBankruptPlayers +=1;
+            }
+        }
+        if((totalNumPlayers-totalBankruptPlayers)==1){
+            System.out.println("The Game has ended. "+currentPlayer.getName()+"wins!");
+            return false;
+        }
+        return true;
     }
 
 }
