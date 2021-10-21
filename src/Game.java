@@ -13,12 +13,18 @@ public class Game {
     private Player currentPlayer;
     private Scanner reader; // for taking command input
     private Boolean nextRoll;
+    private int turnCount;
+    private Jail jail;
+    private final Color ORANGE = new Color(255,69,0);
 
     public Game( ){
         this.players = new ArrayList<Player>();
         this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
         this.nextRoll = null;
+        this.turnCount=0;
+
+        this.jail = new Jail("jail", 0, 0, ORANGE, 10);
     }
 
     /**
@@ -32,7 +38,9 @@ public class Game {
             gameInProgress = operateCommand(command);
             if(gameInProgress) {
                 gameInProgress = checkNumOfActivePlayers();
+
             }
+            turnCount+=1;
         }
     }
 
@@ -54,6 +62,10 @@ public class Game {
             Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
             if(!propertyOn.getOwner().equals(currentPlayer)){
                 propertyOn.payRent(currentPlayer);
+            }
+            if(currentPlayer.getInJail() == true){
+                // TODO Send to jail
+                goToJail(currentPlayer, turnCount);
             }
         } if (command.equals("purchase property")){
             purchaseProperty();
@@ -232,5 +244,16 @@ public class Game {
         }
         return true;
     }
+
+    public int getTurnCount() {
+        return turnCount;
+    }
+
+    public void goToJail(Player player, int turncount){
+        player.setInJail(true);
+            jail.timeInJail(player, turncount);
+            //TODO in mainloop, check isInJail, if so roll doubles to leave for 3 turns, then on 3rd fail, pay 50 to resume normally
+
+        }
 
 }

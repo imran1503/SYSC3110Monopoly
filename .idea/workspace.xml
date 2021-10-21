@@ -19,13 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Added functionality of looping with current player until player passes turn">
-      <change beforePath="$PROJECT_DIR$/src/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.xml" afterDir="false" />
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Added Indexs and Jail to Board.xml">
+      <change afterPath="$PROJECT_DIR$/src/Jail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,7 +79,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634683254481</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added Indexs and Jail to Board.xml">
+      <created>1634774025511</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1634774025511</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Indexs and Jail to Board.xml">
+      <created>1634774250251</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1634774250251</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,12 +111,25 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start game cycle. Created play(), welcomeMessage(), operateCommand()" />
     <MESSAGE value="Added functionality of looping with current player until player passes turn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functionality of looping with current player until player passes turn" />
+    <MESSAGE value="Added Indexs and Jail to Board.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Indexs and Jail to Board.xml" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1634849909933">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634849909933" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1634774004084">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634774004084" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1634774253690">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634774253690" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634848847974">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634848847974" />
   </component>
 </project>

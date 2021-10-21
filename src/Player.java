@@ -27,6 +27,8 @@ public class Player {
     /**The color representing the player on the game board*/
     private Color color;
 
+    private Boolean inJail;
+
     /**
      * Indicates whether the player is AI controlled
      */
@@ -48,6 +50,7 @@ public class Player {
         ownsXtrains=0;
         this.positon = 0;
         this.bankruptStatus = false;
+        this.inJail = false;
     }
 
     /**
@@ -69,6 +72,14 @@ public class Player {
 
     public int getPositon(){
         return positon;
+    }
+
+    public Boolean getInJail() {
+        return inJail;
+    }
+
+    public void setInJail(Boolean inJail) {
+        this.inJail = inJail;
     }
 
     /**
