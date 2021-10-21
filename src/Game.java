@@ -43,19 +43,35 @@ public class Game {
     }
 
     private boolean operateCommand(String command) {
-        if (command.equals("quite")) {
+        if (command.equals("quit")) {
             return false;
         } if (command.equals("roll")) {
             nextRoll = roll();
             Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
-            if((propertyOn.getOwner()!=null)&&(!propertyOn.getOwner().equals(currentPlayer))){
+            if(!propertyOn.getOwner().equals(currentPlayer)){
                 propertyOn.payRent(currentPlayer);
             }
         } if (command.equals("purchase property")){
             purchaseProperty();
-        } //if (command.equals("purchase house") || command.equals("purchase hotel")){
-        //purchaseHouseOrHotel(); // Need to find out which player is currently playing and roll for that player
-        //}
+        } if (command.equals("purchase house") || command.equals("purchase hotel")){
+            System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
+            String propertyName = reader.nextLine();
+            Boolean propertyExists = false;
+            int propertyIndex = -1;
+            for(int i =0; i<propertiesArrayList.size();i++){
+                if(propertiesArrayList.get(i).getName().equals(propertyName)){
+                    propertyExists = true;
+                    propertyIndex = i;
+                }
+            }
+            if(propertyExists){
+                purchaseHouseOrHotel(propertiesArrayList.get(propertyIndex));
+            }
+            else{
+                System.out.println("Property: "+propertyName+", Does not exists");
+            }
+          // Need to find out which player is currently playing and roll for that player
+        }
         if(command.equals("pass turn")){
             if(nextRoll == null){
                 System.out.println(currentPlayer.getName()+" still did not roll yet. Roll first before passing.");
@@ -71,7 +87,9 @@ public class Game {
         else {
             System.out.println("No such command exists!");
         }
-
+        if(currentPlayer.getBankruptStatus()){
+            passPlayerTurn();
+        }
         return true;
     }
 
@@ -106,6 +124,7 @@ public class Game {
         if(currentPlayer.getBankruptStatus()){
             passPlayerTurn();
         }
+        System.out.println("It's Now "+currentPlayer.getName()+" turn.");
     }
 
     public void addProperty(Properties property){propertiesArrayList.add(property);}

@@ -41,7 +41,9 @@ public class Properties {
             payingPlayer.removeAllControlledProperties();
             System.out.println(payingPlayer.getName()+" goes Bankrupt!");
         }
-        owner.addToBalance(this.getRent());
+        if(owner != null) {
+            owner.addToBalance(this.getRent());
+        }
     }
 
     public String getName() {
