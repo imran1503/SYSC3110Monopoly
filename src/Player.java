@@ -155,7 +155,15 @@ public class Player {
     }
 
     public void removefromBalance(int amount){
-        balance -= amount;
+        if(balance < amount){
+            this.balance = 0;
+            this.bankruptStatus = true;
+            this.removeAllControlledProperties();
+            System.out.println(this.name+" goes Bankrupt!");
+        }
+        else{
+            balance -= amount;
+        }
     }
 
     public Boolean getBankruptStatus(){return bankruptStatus;}
