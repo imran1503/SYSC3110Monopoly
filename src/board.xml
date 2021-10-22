@@ -30,11 +30,11 @@
         <index>3</index>
     </Property>
 
-    <IncomeTax>
+    <Tax>
         <name>Income Tax</name>
         <color>white</color>
         <index>4</index>
-    </IncomeTax>
+    </Tax>
 
     <Railroad>
         <name>Reading Railroad</name>
@@ -228,7 +228,7 @@
     </Property>
 
     <GoToJail>
-        <name>Go To Jail</name>
+        <name>GoToJail</name>
         <color>white</color>
         <index>30</index>
     </GoToJail>
@@ -288,11 +288,11 @@
         <index>37</index>
     </Property>
 
-    <LuxuryTax>
+    <Tax>
         <name>Luxury Tax</name>
         <color>white</color>
         <index>38</index>
-    </LuxuryTax>
+    </Tax>
 
     <Property>
         <name>Boardwalk</name>
