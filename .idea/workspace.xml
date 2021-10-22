@@ -20,10 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Added board.xsd">
-      <change afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Properties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,31 +128,5 @@
     <MESSAGE value="Started Jail Functionality." />
     <MESSAGE value="Added board.xsd" />
     <option name="LAST_COMMIT_MESSAGE" value="Added board.xsd" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1634849909933">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634849909933" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1634774004084">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634774004084" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1634859844581">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634859844580" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1634861635111">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634861635111" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634848847974">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634848847974" />
-    <state x="1920" y="0" width="1456" height="847" maximized="true" key="dock-window-1" timestamp="1634868667729">
-      <screen x="1920" y="0" width="1440" height="860" />
-    </state>
-    <state x="1920" y="0" width="1456" height="847" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634868667729" />
   </component>
 </project>

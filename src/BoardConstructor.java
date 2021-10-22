@@ -18,7 +18,6 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
-import
 public class BoardConstructor {
 
     private Board board;
@@ -59,8 +58,11 @@ public class BoardConstructor {
                 NodeList TaxList = doc.getElementsByTagName("Tax");
                 NodeList utilitiesList = doc.getElementsByTagName("Utilites");
                 NodeList railroadList = doc.getElementsByTagName("Railroad");
+                NodeList goList = doc.getElementsByTagName("GO");
+                NodeList jailList = doc.getElementsByTagName("Jail");
+                NodeList goToJailList = doc.getElementsByTagName("GoToJail");
 
-                //iterates through continents
+                //iterates through Properties
                 for (int itr = 0; itr < propertyList.getLength(); itr++) {
                     Node propertyNode = propertyList.item(itr);
                     if (propertyNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -83,8 +85,8 @@ public class BoardConstructor {
                         Element TaxElement = (Element) TaxNode;
                         Properties newProperties = new Properties(TaxElement.getElementsByTagName("name").item(0).getTextContent(),
                                 new Color( Integer.parseInt(TaxElement.getElementsByTagName("color").item(0).getTextContent()),  //R
-                                        Integer.parseInt(TaxElement.getElementsByTagName("color").item(1).getTextContent()),  //G
-                                        Integer.parseInt(TaxElement.getElementsByTagName("color").item(2).getTextContent())), //B
+                                        Integer.parseInt(TaxElement.getElementsByTagName("color").item(1).getTextContent()),     //G
+                                        Integer.parseInt(TaxElement.getElementsByTagName("color").item(2).getTextContent())),    //B
                                 Integer.parseInt(TaxElement.getElementsByTagName("index").item(0).getTextContent())
                         );
                         board.addProperties(newProperties);
@@ -123,36 +125,49 @@ public class BoardConstructor {
                     }
                 }
 
-
-
-                //iterates through borders
-                for (int itr = 0; itr < borderList.getLength(); itr++) {
-                    Node node = borderList.item(itr);
-                    if (node.getNodeType() == Node.ELEMENT_NODE) {
-                        Element eElement = (Element) node;
-                        NodeList nodeList = eElement.getElementsByTagName("territory");
-
-                        Territory t1 = board.findTerritoryByName(nodeList.item(0).getTextContent());
-                        Territory t2 = board.findTerritoryByName(nodeList.item(1).getTextContent());
-
-                        if (t1 != null && t2 != null && !t1.getNeighbours().contains(t2)) joinTerritories(t1, t2);
+                for (int itr = 0; itr < goList.getLength(); itr++) {
+                    Node goNode = goList.item(itr);
+                    if (goNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element goElement = (Element) goNode;
+                        Properties newProperties = new Properties(goElement.getElementsByTagName("name").item(0).getTextContent(),
+                                new Color( Integer.parseInt(goElement.getElementsByTagName("color").item(0).getTextContent()),  //R
+                                        Integer.parseInt(goElement.getElementsByTagName("color").item(1).getTextContent()),  //G
+                                        Integer.parseInt(goElement.getElementsByTagName("color").item(2).getTextContent())), //B
+                                Integer.parseInt(goElement.getElementsByTagName("index").item(0).getTextContent())
+                        );
+                        board.addProperties(newProperties);
                     }
                 }
 
-                for (int itr = 0; itr < lineList.getLength(); itr++) {
-                    Node node = lineList.item(itr);
-                    if (node.getNodeType() == Node.ELEMENT_NODE) {
-                        Element eElement = (Element) node;
-                        NodeList pointList = eElement.getElementsByTagName("point");
-
-                        String[] point1 = pointList.item(0).getTextContent().split(",");
-                        String[] point2 = pointList.item(1).getTextContent().split(",");
-
-                        List<Integer> line = Arrays.asList(Integer.parseInt(point1[0]), Integer.parseInt(point1[1]), Integer.parseInt(point2[0]), Integer.parseInt(point2[1]));
-
-                        board.addLine(line);
+                for (int itr = 0; itr < jailList.getLength(); itr++) {
+                    Node jailNode = jailList.item(itr);
+                    if (jailNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element jailElement = (Element) jailNode;
+                        Properties newProperties = new Properties(jailElement.getElementsByTagName("name").item(0).getTextContent(),
+                                new Color( Integer.parseInt(jailElement.getElementsByTagName("color").item(0).getTextContent()),  //R
+                                        Integer.parseInt(jailElement.getElementsByTagName("color").item(1).getTextContent()),  //G
+                                        Integer.parseInt(jailElement.getElementsByTagName("color").item(2).getTextContent())), //B
+                                Integer.parseInt(jailElement.getElementsByTagName("index").item(0).getTextContent())
+                        );
+                        board.addProperties(newProperties);
                     }
                 }
+
+                for (int itr = 0; itr < goToJailList.getLength(); itr++) {
+                    Node goToJailNode = goToJailList.item(itr);
+                    if (goToJailNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element goToJailElement = (Element) goToJailNode;
+                        Properties newProperties = new Properties(goToJailElement.getElementsByTagName("name").item(0).getTextContent(),
+                                new Color( Integer.parseInt(goToJailElement.getElementsByTagName("color").item(0).getTextContent()),  //R
+                                        Integer.parseInt(goToJailElement.getElementsByTagName("color").item(1).getTextContent()),  //G
+                                        Integer.parseInt(goToJailElement.getElementsByTagName("color").item(2).getTextContent())), //B
+                                Integer.parseInt(goToJailElement.getElementsByTagName("index").item(0).getTextContent())
+                        );
+                        board.addProperties(newProperties);
+                    }
+                }
+
+
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
