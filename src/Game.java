@@ -59,14 +59,30 @@ public class Game {
             return false;
         } if (command.equals("roll")) {
             nextRoll = roll();
-            Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
-            if(!propertyOn.getOwner().equals(currentPlayer)){
-                propertyOn.payRent(currentPlayer);
+            if(currentPlayer.getInJail() == true) {
+                if(nextRoll && (currentPlayer.getTurnsInJail()!=0)){
+                    currentPlayer.setInJail(false);
+                    currentPlayer.setTurnsInJail(0);
+                    System.out.println(currentPlayer.getName()+" is out of jail.");
+                }
+                else{
+                    if(currentPlayer.getTurnsInJail() == 3){
+                        currentPlayer.removefromBalance(50);
+                        currentPlayer.setInJail(false);
+                        currentPlayer.setTurnsInJail(0);
+                        System.out.println(currentPlayer.getName()+" Payed $50 to get out of jail.");
+                    }
+                    currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail()+1); //add 1 to time in jail for player.
+                    passPlayerTurn();
+                }
             }
-            if(currentPlayer.getInJail() == true){
-                // TODO Send to jail
-                goToJail(currentPlayer, turnCount);
+            else {
+                Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
+                if (!propertyOn.getOwner().equals(currentPlayer)) {
+                    propertyOn.payRent(currentPlayer);
+                }
             }
+
         } if (command.equals("purchase property")){
             purchaseProperty();
         } if (command.equals("purchase house") || command.equals("purchase hotel")){
@@ -124,6 +140,7 @@ public class Game {
             System.out.println("******\n"+player.getName() + " position is currently at "+propertiesArrayList.get(player.getPositon()).getName());
             System.out.println("Balance is "+ player.getBalance());
             System.out.println("Bankrupt Status = "+player.getBankruptStatus());
+            System.out.println("In Jail Status = "+player.getInJail());
             int getNumOfProperties = player.getControlledProperties().size();
             System.out.println("List of Owned Properties:");
             for(int j=0; j<getNumOfProperties; j++){
@@ -149,17 +166,29 @@ public class Game {
 
     public void addProperty(Properties property){propertiesArrayList.add(property);}
 
+    /**
+     * Rolls 2 dices with interger values between 1 and 6.
+     * If player is not in jail, the player's position on board will update according to total roll value.
+     * Returns true if both both dices are the same value, otherwise false.
+     * @return Boolean true if double, else false.
+     */
     public boolean roll(){
         int totalNumOfSpaces = 40;
         int randomRoll1 = ((int)((Math.random()*60)%6) + 1);
         int randomRoll2 = ((int)((Math.random()*77)%6) + 1);
         int playerPosition = currentPlayer.getPositon();
-        if((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces){
-            currentPlayer.setPosition((randomRoll1+randomRoll2+ playerPosition) - totalNumOfSpaces);
-            currentPlayer.addToBalance(200); //Passing Go
+        if(((playerPosition + randomRoll1 + randomRoll2) == 30)&&!currentPlayer.getInJail()){
+            currentPlayer.setInJail(true); //Postion for Go to Jail on Board is 30 and Jail is 10.
+            currentPlayer.setPosition(10);
+            System.out.println(currentPlayer.getName()+" has been set to Jail, roll a double to get out of Jail next turn.");
         }
-        else{
-            currentPlayer.setPosition(randomRoll1 + randomRoll2+ playerPosition);
+        if(!currentPlayer.getInJail()) {
+            if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) {
+                currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
+                currentPlayer.addToBalance(200); //Passing Go
+            } else {
+                currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);
+            }
         }
         if(randomRoll1 == randomRoll2){
             return true;
@@ -248,12 +277,5 @@ public class Game {
     public int getTurnCount() {
         return turnCount;
     }
-
-    public void goToJail(Player player, int turncount){
-        player.setInJail(true);
-            jail.timeInJail(player, turncount);
-            //TODO in mainloop, check isInJail, if so roll doubles to leave for 3 turns, then on 3rd fail, pay 50 to resume normally
-
-        }
 
 }

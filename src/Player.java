@@ -29,6 +29,8 @@ public class Player {
 
     private Boolean inJail;
 
+    private int turnsInJail;
+
     /**
      * Indicates whether the player is AI controlled
      */
@@ -51,6 +53,7 @@ public class Player {
         this.positon = 0;
         this.bankruptStatus = false;
         this.inJail = false;
+        this.turnsInJail = 0;
     }
 
     /**
@@ -81,6 +84,10 @@ public class Player {
     public void setInJail(Boolean inJail) {
         this.inJail = inJail;
     }
+
+    public int getTurnsInJail(){return turnsInJail;}
+
+    public void setTurnsInJail(int turn){turnsInJail = turn;}
 
     /**
      * Changes position of player to the new position
