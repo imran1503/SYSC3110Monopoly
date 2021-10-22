@@ -19,12 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Started Jail Functionality.">
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Added board.xsd">
       <change afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/board.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Properties.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634850725145</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added board.xsd">
+      <created>1634861631151</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1634861631151</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,7 +128,8 @@
     <MESSAGE value="Added functionality of looping with current player until player passes turn" />
     <MESSAGE value="Added Indexs and Jail to Board.xml" />
     <MESSAGE value="Started Jail Functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started Jail Functionality." />
+    <MESSAGE value="Added board.xsd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added board.xsd" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1634849909933">
@@ -137,13 +144,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634859844580" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1634850728262">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1634861635111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634850728262" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634861635111" />
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634848847974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634848847974" />
+    <state x="1920" y="0" width="1456" height="847" maximized="true" key="dock-window-1" timestamp="1634868667729">
+      <screen x="1920" y="0" width="1440" height="860" />
+    </state>
+    <state x="1920" y="0" width="1456" height="847" maximized="true" key="dock-window-1/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1634868667729" />
   </component>
 </project>

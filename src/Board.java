@@ -5,6 +5,6 @@ public class Board {
 
 
 
-    private void addProperties(Properties newProperties) {
+    public void addProperties(Properties newProperties) {
     }
 }

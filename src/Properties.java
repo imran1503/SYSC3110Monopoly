@@ -21,6 +21,15 @@ public class Properties {
         this.location = location;
     }
 
+    public Properties(String name, Color color, int location) {
+        this.name = name;
+        this.owner = null;
+        numHouses = 0;
+        numHotels = 0;
+        this.color = color;
+        this.location = location;
+    }
+
     public int getrentVar(){
         return rent;
     }
