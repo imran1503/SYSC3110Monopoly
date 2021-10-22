@@ -13,7 +13,6 @@ public class Game {
     private Player currentPlayer;
     private Scanner reader; // for taking command input
     private Boolean nextRoll;
-    private int turnCount;
     private Jail jail;
     private final Color ORANGE = new Color(255,69,0);
 
@@ -22,7 +21,6 @@ public class Game {
         this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
         this.nextRoll = null;
-        this.turnCount=0;
 
         this.jail = new Jail("jail", 0, 0, ORANGE, 10);
     }
@@ -40,7 +38,6 @@ public class Game {
                 gameInProgress = checkNumOfActivePlayers();
 
             }
-            turnCount+=1;
         }
     }
 
@@ -273,9 +270,4 @@ public class Game {
         }
         return true;
     }
-
-    public int getTurnCount() {
-        return turnCount;
-    }
-
 }
