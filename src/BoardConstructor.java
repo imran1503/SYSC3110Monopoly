@@ -44,7 +44,6 @@ public class BoardConstructor {
     public boolean loadBoardFromMapFile(Board board) {
         if (true) {
             try {
-                System.out.println("test2");
                 File file = new File("src/board.xml");
                 //an instance of factory that gives a document builder
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -179,7 +178,6 @@ public class BoardConstructor {
 
                 return true;
             } catch (Exception e) {
-                e.printStackTrace();
             }
         }
         return false;
