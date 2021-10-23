@@ -74,13 +74,14 @@ public class Game {
      */
     private void welcomeMessage() {
         System.out.println("Welcome to the game of Monopoly!");
+        System.out.println("Type 'help' if you ever need a command list with explanation.");
         System.out.println();
         System.out.println("Player 1 goes first, begin by typing roll command");
     }
 
     private boolean operateCommand(String command) {
         if (command.equals("quit")) {
-            System.out.println("Player has quit the game.");
+            System.out.println("Game has ended.");
             return false;
         }
         if (command.equals("roll")) {
@@ -147,10 +148,20 @@ public class Game {
         else if (command.equals("check game state")) {
             printCurrentState();
         }
+        else if (command.equals("help")) {
+            System.out.println("All commands are below with brief explanation:");
+            System.out.println("'quit' - Ends the game immediately");
+            System.out.println("'roll' - Rolls a number die for current player");
+            System.out.println("'purchase property' - Purchases property for current player, the property is the position player is on");
+            System.out.println("'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased");
+            System.out.println("'pass turn' - Current player's turn ends, passes turn to next player");
+            System.out.println("'check game state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status ");
+        }
         else {
             System.out.println("No such command exists!");
         }
         if(currentPlayer.getBankruptStatus()){
+            System.out.println("Current player has bankrupted!");
             passPlayerTurn();
         }
         return true;
