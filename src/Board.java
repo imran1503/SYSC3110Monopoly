@@ -14,7 +14,7 @@ public class Board {
      * Returns the user input source of the Board
      * @return The user input source of the Board
      */
-    public boardInput getUserInputSource() {
+    public String getUserInputSource() {
         return userInputSource;
     }
 
@@ -25,14 +25,14 @@ public class Board {
     /**
      * The source of user input the board will ask for while performing actions (attack, fortify, etc.)
      */
-    private boardInput userInputSource;
+    private String userInputSource;
 
 
     /**
      * Constructor for Board
      * @param userInputSource the boardInput that the Board will ask for user input when needed
      */
-    public Board(boardInput userInputSource) {
+    public Board(String userInputSource) {
         this.propertiesArrayList = new ArrayList<>();
         this.players = new ArrayList<>();
         this.userInputSource = userInputSource;
@@ -46,7 +46,7 @@ public class Board {
      * @param gameIsNew If true, the Board will be generated from a map file. If false, it will be generated from a save file
      * @return The newly created Board
      */
-    public static Board newBoard(boardInput userInputSource, boolean gameIsNew){
+    public static Board newBoard(String userInputSource, boolean gameIsNew){
         Board board = new Board(userInputSource);
         BoardConstructor boardConstructor = new BoardConstructor();
 
@@ -55,14 +55,14 @@ public class Board {
         if(gameIsNew){
             int MIN_PLAYERS = 0;
             int MAX_PLAYERS = 0;
-            int numPlayers = userInputSource.getIntInput("Enter the number of players", MIN_PLAYERS, MAX_PLAYERS);
+           // int numPlayers = Integer.parseInt("Enter the number of players", MIN_PLAYERS, MAX_PLAYERS); //TODO Scanner IO
             ArrayList<Player> players = new ArrayList<>();
             //Object[] options = {"Human", "AI"};
             for(int i = 0; i < numPlayers; i++){
-                players.add(Player.newPlayer(userInputSource.getStringInput("Enter a name for the " + i + "th player",
+                players.add(Player.newPlayer(("Enter a name for the " + i + "th player",
                   Board.players.get(i).getName() + " player"),
                              Board.players.get(i).getColor(),
-                 1500));
+                 1500));   //TODO scanner for name
                 
             }
             board.players = players;

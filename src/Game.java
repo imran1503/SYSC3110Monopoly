@@ -16,34 +16,14 @@ public class Game {
     private Jail jail;
     private final Color ORANGE = new Color(255,69,0);
     private Board board;
-    private boardInput boardInput;
+    private String boardInput;
 
     public Game( ){
         this.players = new ArrayList<Player>();
         this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
         this.nextRoll = null;
-        this.boardInput = new boardInput() {
-            @Override
-            public String getStringInput(String prompt, String defaultValue) {
-                return null;
-            }
-
-            @Override
-            public int getIntInput(String prompt, int min, int max) {
-                return 0;
-            }
-
-            @Override
-            public int getOption(String prompt, Object[] options) {
-                return 0;
-            }
-
-            @Override
-            public boardInput getStringInput(String s) {
-                return null;
-            }
-        };
+        this.boardInput = new String();
         this.board = new Board(boardInput);
         this.jail = new Jail("jail", 0, 0, ORANGE, 10);
     }
@@ -54,7 +34,7 @@ public class Game {
     public void play() {
         welcomeMessage();
 
-        Board.newBoard( (boardInput.getStringInput("What Board file do you want to use?") ), true);
+        Board.newBoard( ("board.xml") , true); // TODO If some wrong is typed, default is "board.xml", scanner.
         boolean gameInProgress = true;
         while (gameInProgress) {
             String command = reader.nextLine();
@@ -298,9 +278,9 @@ public class Game {
 
 
 
-    public void main(String args[]){
-        play();
-
+    public static void main(String args[]){
+        Game game = new Game();
+        game.play();
     }
 
 

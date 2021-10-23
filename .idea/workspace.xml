@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/boardInput.java" afterDir="false" />
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Started BoardConstructor, has alot of errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +53,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab 8" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Game" />
+      <module name="SYSC3110Monopoly" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Game" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -144,5 +156,27 @@
     <MESSAGE value="Added board.xsd" />
     <MESSAGE value="Maybe? Finished BoardConstructor.java" />
     <option name="LAST_COMMIT_MESSAGE" value="Maybe? Finished BoardConstructor.java" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="938" height="338" key="GridCell.Tab.0.bottom" timestamp="1635013239973">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635013239973" />
+    <state width="938" height="338" key="GridCell.Tab.0.center" timestamp="1635013239973">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="338" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635013239973" />
+    <state width="938" height="338" key="GridCell.Tab.0.left" timestamp="1635013239973">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="338" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635013239973" />
+    <state width="938" height="338" key="GridCell.Tab.0.right" timestamp="1635013239973">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="338" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635013239973" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1635012870771">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635012870771" />
   </component>
 </project>
