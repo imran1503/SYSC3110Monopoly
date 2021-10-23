@@ -53,7 +53,6 @@ public class Game {
         this.currentPlayer = players.get(0);
 
         boardConstructor.loadBoardFromMapFile(board);
-        System.out.println("test1");
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");// TODO If some wrong is typed, default is "board.xml", scanner.
         board.setIsValid(true);
         this.propertiesArrayList = board.getPropertiesArrayList();
@@ -245,6 +244,7 @@ public class Game {
             currentPlayer.removefromBalance(landedOnProperty.getPrice());
             landedOnProperty.setOwner(currentPlayer);
             currentPlayer.gainTerritory(landedOnProperty);
+            System.out.println(currentPlayer.getName() + " purchased "+landedOnProperty.getName()+", remaining Balance:"+currentPlayer.getBalance());
         }}}}
     }
 

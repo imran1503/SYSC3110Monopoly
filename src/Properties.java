@@ -10,7 +10,7 @@ public class Properties {
     private Color color;
     private int location; //Location on the board
 
-    public Properties( String name, int rent, int price, Color color, int location){
+    public Properties( String name, int price, int rent, Color color, int location){
         Player bank = new Player("bank",Color.white,1000000);
         this.name = name;
         this.rent = rent;
