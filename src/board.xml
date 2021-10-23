@@ -67,6 +67,7 @@
         <color>135,206,250</color>
         <index>8</index>
     </Property>
+    
     <Property>
         <name>Connecticut Avenue</name>
         <price>120</price>
@@ -104,6 +105,7 @@
         <color>255,105,180</color>
         <index>13</index>
     </Property>
+    
     <Property>
         <name>Virginia Avenue</name>
         <price>160</price>
@@ -111,6 +113,7 @@
         <color>255,105,180</color>
         <index>14</index>
     </Property>
+    
     <Railroad>
         <name>Pennsylvania Railroad</name>
         <price>200</price>
@@ -118,6 +121,7 @@
         <color>255,255,255</color>
         <index>15</index>
     </Railroad>
+    
     <Property>
         <name>St. James Place</name>
         <price>180</price>
@@ -141,6 +145,7 @@
         <color>255,140,0</color>
         <index>18</index>
     </Property>
+    
     <Property>
         <name>New York Avenue</name>
         <price>200</price>
@@ -180,6 +185,7 @@
         <color>255,0,0</color>
         <index>23</index>
     </Property>
+    
     <Property>
         <name>Illinois Avenue</name>
         <price>240</price>
@@ -203,6 +209,7 @@
         <color>255,255,0</color>
         <index>26</index>
     </Property>
+    
     <Property>
         <name>Ventnor Avenue</name>
         <price>260</price>
@@ -240,6 +247,7 @@
         <color>0,128,0</color>
         <index>31</index>
     </Property>
+    
     <Property>
         <name>North Carolina Avenue</name>
         <price>300</price>
