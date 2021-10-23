@@ -23,7 +23,7 @@ public class Game {
         this.players = new ArrayList<Player>();
         this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
-        this.nextRoll = null;
+        this.nextRoll = true;
         //this.boardInput = new String();
         this.board = new Board("board.xml");
         this.jail = new Jail("jail", 0, 0, ORANGE, 10);
@@ -49,7 +49,7 @@ public class Game {
             players.add(newPlayer);
         }
         this.players = players;
-        board.setPlayers(players);
+
         this.currentPlayer = players.get(0);
 
         boardConstructor.loadBoardFromMapFile(board);
@@ -82,66 +82,69 @@ public class Game {
         if (command.equals("quit")) {
             System.out.println("Player has quit the game.");
             return false;
-        } if (command.equals("roll")) {
-            nextRoll = roll();
-            if(currentPlayer.getInJail() == true) {
-                if(nextRoll && (currentPlayer.getTurnsInJail()!=0)){
+        }
+        if (command.equals("roll")) {
+            if(nextRoll) {
+                nextRoll = roll();
+            }
+            else{
+                System.out.println(currentPlayer.getName()+" can NOT roll again. Pass your turn or buy property.");
+            }
+            if ((currentPlayer.getInJail() == true)){
+                Boolean isDouble = roll();
+                if (isDouble && (currentPlayer.getTurnsInJail() != 0)) {
                     currentPlayer.setInJail(false);
                     currentPlayer.setTurnsInJail(0);
-                    System.out.println(currentPlayer.getName()+" is out of jail.");
-                }
-                else{
-                    if(currentPlayer.getTurnsInJail() == 3){
+                    System.out.println(currentPlayer.getName() + " is out of jail.");
+                } else {
+                    if (currentPlayer.getTurnsInJail() == 3) {
                         currentPlayer.removefromBalance(50);
                         currentPlayer.setInJail(false);
                         currentPlayer.setTurnsInJail(0);
-                        System.out.println(currentPlayer.getName()+" Payed $50 to get out of jail.");
+                        System.out.println(currentPlayer.getName() + " Payed $50 to get out of jail.");
                     }
-                    currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail()+1); //add 1 to time in jail for player.
+                    currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1); //add 1 to time in jail for player.
                     passPlayerTurn();
                 }
-            }
-            else {
+            } else {
                 Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
                 if (!propertyOn.getOwner().equals(currentPlayer)) {
                     propertyOn.payRent(currentPlayer);
                 }
             }
 
-        } if (command.equals("purchase property")){
+        }
+        else if (command.equals("purchase property")) {
             purchaseProperty();
-        } if (command.equals("purchase house") || command.equals("purchase hotel")){
+        }
+        else if (command.equals("purchase house") || command.equals("purchase hotel")) {
             System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
             String propertyName = reader.nextLine();
             Boolean propertyExists = false;
             int propertyIndex = -1;
-            for(int i =0; i<propertiesArrayList.size();i++){
-                if(propertiesArrayList.get(i).getName().equals(propertyName)){
+            for (int i = 0; i < propertiesArrayList.size(); i++) {
+                if (propertiesArrayList.get(i).getName().equals(propertyName)) {
                     propertyExists = true;
                     propertyIndex = i;
                 }
             }
-            if(propertyExists){
+            if (propertyExists) {
                 purchaseHouseOrHotel(propertiesArrayList.get(propertyIndex));
+            } else {
+                System.out.println("Property: " + propertyName + ", Does not exists");
             }
-            else{
-                System.out.println("Property: "+propertyName+", Does not exists");
-            }
-          // Need to find out which player is currently playing and roll for that player
+            // Need to find out which player is currently playing and roll for that player
         }
-        if(command.equals("pass turn")){
-            if(nextRoll == null){
-                System.out.println(currentPlayer.getName()+" still did not roll yet. Roll first before passing.");
-            }
-            if(nextRoll == true){
-                System.out.println(currentPlayer.getName()+" needs to roll again before passing turn. Rolled a double previously.");
-            }
-            else{
+        else if (command.equals("pass turn")) {
+
+            if (nextRoll == true) {
+                System.out.println(currentPlayer.getName() + " needs to roll again before passing turn. Rolled a double previously.");
+            } else {
                 passPlayerTurn();
-                nextRoll = null;
+                nextRoll = true;
             }
         }
-        if(command.equals("check game state")){
+        else if (command.equals("check game state")) {
             printCurrentState();
         }
         else {
@@ -216,8 +219,10 @@ public class Game {
             }
         }
         if(randomRoll1 == randomRoll2){
+            System.out.println("You rolled a double, you can roll again.");
             return true;
         }
+        System.out.println(currentPlayer.getName()+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
         return false;
     }
 
@@ -230,7 +235,7 @@ public class Game {
         else{ if(landedOnProperty.getOwner().equals(currentPlayer)){
             System.out.println("This property belongs to you already, Property Name: "+landedOnProperty.getName());
         }
-        else{ if(landedOnProperty.getOwner().getName() != null){
+        else{ if(!landedOnProperty.getOwner().getName().equals("bank")){
             System.out.println("This property belongs to someone else, Property Name: "+landedOnProperty.getName());
         }
         else{ if(currentPlayer.getBalance() < landedOnProperty.getPrice()){

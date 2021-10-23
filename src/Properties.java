@@ -44,10 +44,12 @@ public class Properties {
     }
 
     public void payRent(Player payingPlayer){
-        System.out.println(payingPlayer.getName()+" pays "+this.getRent()+" to "+owner.getName()+" on "+name);
-        payingPlayer.removefromBalance(this.getRent());
-        if(owner != null) {
-            owner.addToBalance(this.getRent());
+        if(!owner.getName().equals("bank")) {
+            System.out.println(payingPlayer.getName() + " pays " + this.getRent() + " to " + owner.getName() + " on " + name);
+            payingPlayer.removefromBalance(this.getRent());
+            if (owner != null) {
+                owner.addToBalance(this.getRent());
+            }
         }
     }
 

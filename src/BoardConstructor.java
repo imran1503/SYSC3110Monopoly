@@ -65,6 +65,11 @@ public class BoardConstructor {
                 NodeList jailList = doc.getElementsByTagName("Jail");
                 NodeList goToJailList = doc.getElementsByTagName("GoToJail");
 
+                for(int i = 0; i < 40; i++){
+                    Properties property = new Properties("None",0,0,Color.white,i);
+                    board.getPropertiesArrayList().add(property);
+                }
+
                 //iterates through Properties
                 for (int itr = 0; itr < propertyList.getLength(); itr++) {
                     Node propertyNode = propertyList.item(itr);
@@ -79,7 +84,7 @@ public class BoardConstructor {
                                                                   Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent())
                                                                   );
 
-                        board.getPropertiesArrayList().add(newProperties);
+                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
                     }
                 }
 
@@ -93,7 +98,7 @@ public class BoardConstructor {
                                         Integer.parseInt(TaxElement.getElementsByTagName("b").item(0).getTextContent())),    //B
                                 Integer.parseInt(TaxElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().add(newProperties);
+                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
                     }
                 }
 
@@ -109,7 +114,7 @@ public class BoardConstructor {
                                         Integer.parseInt(railroadElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(railroadElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().add(newProperties);
+                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
                     }
                 }
 
@@ -125,7 +130,7 @@ public class BoardConstructor {
                                         Integer.parseInt(utilitiesElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(utilitiesElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().add(newProperties);
+                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
                     }
                 }
 
@@ -139,7 +144,7 @@ public class BoardConstructor {
                                         Integer.parseInt(goElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(goElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().add(newProperties);
+                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
                     }
                 }
 
@@ -153,7 +158,7 @@ public class BoardConstructor {
                                         Integer.parseInt(jailElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(jailElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().add(newProperties);
+                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
                     }
                 }
 
@@ -167,7 +172,7 @@ public class BoardConstructor {
                                         Integer.parseInt(goToJailElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(goToJailElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().add(newProperties);
+                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
                     }
                 }
 
