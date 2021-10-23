@@ -30,6 +30,10 @@ public class Board {
      */
     private String userInputSource;
 
+    public void setIsValid(Boolean valid){this.isValid = valid;}
+
+    public void setPlayers(ArrayList<Player> playersForBoard){Board.players = playersForBoard;}
+
 
     /**
      * Constructor for Board
@@ -59,7 +63,7 @@ public class Board {
         BoardConstructor boardConstructor = new BoardConstructor();
 
         String filename = "Board.xml";
-                //userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);
+        //userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);
 
         /**
          * if(gameIsNew){

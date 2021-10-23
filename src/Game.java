@@ -17,6 +17,7 @@ public class Game {
     private final Color ORANGE = new Color(255,69,0);
     private Board board;
     private String boardInput;
+    private BoardConstructor boardConstructor;
 
     public Game( ){
         this.players = new ArrayList<Player>();
@@ -24,8 +25,12 @@ public class Game {
         this.currentPlayer = null;
         this.nextRoll = null;
         //this.boardInput = new String();
-        this.board = new Board("Board.xml");
+        this.board = new Board("board.xml");
         this.jail = new Jail("jail", 0, 0, ORANGE, 10);
+        this.reader = new Scanner(System.in);
+        this.boardConstructor = new BoardConstructor();
+
+
     }
 
     /**
@@ -34,7 +39,7 @@ public class Game {
     public void play() {
         int MAX_PLAYERS = 0;
         System.out.println("Enter the total number of Players playing");
-        MAX_PLAYERS = reader.nextInt();
+        MAX_PLAYERS = Integer.parseInt(reader.nextLine());
         ArrayList<Player> players = new ArrayList<>();
         //Object[] options = {"Human", "AI"};
         for(int i = 0; i < MAX_PLAYERS; i++){
@@ -44,8 +49,14 @@ public class Game {
             players.add(newPlayer);
         }
         this.players = players;
+        board.setPlayers(players);
+        this.currentPlayer = players.get(0);
 
-        Board.newBoard( ("board.xml") , true); // TODO If some wrong is typed, default is "board.xml", scanner.
+        boardConstructor.loadBoardFromMapFile(board);
+        System.out.println("test1");
+        boardConstructor.validateXMLSchema("board.xsd", "board.xml");// TODO If some wrong is typed, default is "board.xml", scanner.
+        board.setIsValid(true);
+        this.propertiesArrayList = board.getPropertiesArrayList();
         welcomeMessage();
         boolean gameInProgress = true;
         while (gameInProgress) {

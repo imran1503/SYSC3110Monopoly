@@ -11,9 +11,10 @@ public class Properties {
     private int location; //Location on the board
 
     public Properties( String name, int rent, int price, Color color, int location){
+        Player bank = new Player("bank",Color.white,1000000);
         this.name = name;
         this.rent = rent;
-        this.owner = null;
+        this.owner = bank;
         this.price = price;
         numHouses = 0;
         numHotels = 0;
