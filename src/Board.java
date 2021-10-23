@@ -1,10 +1,13 @@
 
+import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Board {
 
 
+    private Scanner reader;
     private BoardConstructor boardConstructor;
     private static ArrayList<Player> players;
     private ArrayList<Properties> propertiesArrayList;
@@ -47,32 +50,43 @@ public class Board {
      * @return The newly created Board
      */
     public static Board newBoard(String userInputSource, boolean gameIsNew){
+        Color red = Color.RED;
+        Color green = Color.GREEN;
+        Color blue = Color.BLUE;
+        Color yellow = Color.YELLOW;
+
         Board board = new Board(userInputSource);
         BoardConstructor boardConstructor = new BoardConstructor();
 
-        String filename = userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);
+        String filename = "Board.xml";
+                //userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);
 
-        if(gameIsNew){
-            int MIN_PLAYERS = 0;
+        /**
+         * if(gameIsNew){
+            int MIN_PLAYERS = 2;
             int MAX_PLAYERS = 0;
-           // int numPlayers = Integer.parseInt("Enter the number of players", MIN_PLAYERS, MAX_PLAYERS); //TODO Scanner IO
+            System.out.println("Enter the total number of Players playing");
+            MAX_PLAYERS = reader.nextInt();
+
             ArrayList<Player> players = new ArrayList<>();
             //Object[] options = {"Human", "AI"};
-            for(int i = 0; i < numPlayers; i++){
-                players.add(Player.newPlayer(("Enter a name for the " + i + "th player",
-                  Board.players.get(i).getName() + " player"),
-                             Board.players.get(i).getColor(),
-                 1500));   //TODO scanner for name
-                
+            for(int i = 0; i < MAX_PLAYERS; i++){
+                System.out.println("Enter the name of Player "+i);
+                String playerName = reader.nextLine();
+                Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
+                players.add(newPlayer);
+
             }
             board.players = players;
-            
-            board.isValid = boardConstructor.loadBoardFromMapFile(filename, board) 
+
+            board.isValid = boardConstructor.loadBoardFromMapFile(filename, board)
                             && boardConstructor.validateXMLSchema("board.xsd", "board.xml");
+
         }
         else{
             board.players = new ArrayList<>();
         }
+             */
 
         return board;
     }

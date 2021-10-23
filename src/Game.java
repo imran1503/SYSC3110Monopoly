@@ -23,8 +23,8 @@ public class Game {
         this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
         this.nextRoll = null;
-        this.boardInput = new String();
-        this.board = new Board(boardInput);
+        //this.boardInput = new String();
+        this.board = new Board("Board.xml");
         this.jail = new Jail("jail", 0, 0, ORANGE, 10);
     }
 
@@ -32,9 +32,21 @@ public class Game {
      * play start while loops until game is not in progress.
      */
     public void play() {
-        welcomeMessage();
+        int MAX_PLAYERS = 0;
+        System.out.println("Enter the total number of Players playing");
+        MAX_PLAYERS = reader.nextInt();
+        ArrayList<Player> players = new ArrayList<>();
+        //Object[] options = {"Human", "AI"};
+        for(int i = 0; i < MAX_PLAYERS; i++){
+            System.out.println("Enter the name of Player "+i);
+            String playerName = reader.nextLine();
+            Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
+            players.add(newPlayer);
+        }
+        this.players = players;
 
         Board.newBoard( ("board.xml") , true); // TODO If some wrong is typed, default is "board.xml", scanner.
+        welcomeMessage();
         boolean gameInProgress = true;
         while (gameInProgress) {
             String command = reader.nextLine();
@@ -275,8 +287,6 @@ public class Game {
         }
         return true;
     }
-
-
 
     public static void main(String args[]){
         Game game = new Game();
