@@ -15,13 +15,13 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class BoardConstructor {
 
     private Board board;
-
 
 
     public static boolean validateXMLSchema(String xsdPath, String xmlPath) {
@@ -75,7 +75,7 @@ public class BoardConstructor {
                                                                              Integer.parseInt(propertyElement.getElementsByTagName("color").item(2).getTextContent())), //B
                                                                   Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent())
                                                                   );
-                        board.addProperties(newProperties);
+                        board.getPropertiesArrayList().add(newProperties);
                     }
                 }
 
@@ -89,7 +89,7 @@ public class BoardConstructor {
                                         Integer.parseInt(TaxElement.getElementsByTagName("color").item(2).getTextContent())),    //B
                                 Integer.parseInt(TaxElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.addProperties(newProperties);
+                        board.getPropertiesArrayList().add(newProperties);
                     }
                 }
 
@@ -105,7 +105,7 @@ public class BoardConstructor {
                                         Integer.parseInt(railroadElement.getElementsByTagName("color").item(2).getTextContent())), //B
                                 Integer.parseInt(railroadElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.addProperties(newProperties);
+                        board.getPropertiesArrayList().add(newProperties);
                     }
                 }
 
@@ -121,7 +121,7 @@ public class BoardConstructor {
                                         Integer.parseInt(utilitiesElement.getElementsByTagName("color").item(2).getTextContent())), //B
                                 Integer.parseInt(utilitiesElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.addProperties(newProperties);
+                        board.getPropertiesArrayList().add(newProperties);
                     }
                 }
 
@@ -135,7 +135,7 @@ public class BoardConstructor {
                                         Integer.parseInt(goElement.getElementsByTagName("color").item(2).getTextContent())), //B
                                 Integer.parseInt(goElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.addProperties(newProperties);
+                        board.getPropertiesArrayList().add(newProperties);
                     }
                 }
 
@@ -149,7 +149,7 @@ public class BoardConstructor {
                                         Integer.parseInt(jailElement.getElementsByTagName("color").item(2).getTextContent())), //B
                                 Integer.parseInt(jailElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.addProperties(newProperties);
+                        board.getPropertiesArrayList().add(newProperties);
                     }
                 }
 
@@ -163,7 +163,7 @@ public class BoardConstructor {
                                         Integer.parseInt(goToJailElement.getElementsByTagName("color").item(2).getTextContent())), //B
                                 Integer.parseInt(goToJailElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.addProperties(newProperties);
+                        board.getPropertiesArrayList().add(newProperties);
                     }
                 }
 
