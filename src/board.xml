@@ -2,7 +2,7 @@
 <board>
     <GO>
         <name>GO</name>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>0</index>
     </GO>
 
@@ -10,7 +10,7 @@
         <name>Mediterranean Avenue</name>
         <price>60</price>
         <rent>2</rent>
-        <color>brown</color>
+        <color>139,69,19</color>
         <index>1</index>
     </Property>
 
@@ -18,7 +18,7 @@
         <name>Community Chest</name>
         <price>0</price>
         <rent>0</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>2</index>
     </Property>
 
@@ -26,13 +26,13 @@
         <name>Baltic Avenue</name>
         <price>60</price>
         <rent>4</rent>
-        <color>brown</color>
+        <color>139,69,19</color>
         <index>3</index>
     </Property>
 
     <Tax>
         <name>Income Tax</name>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>4</index>
     </Tax>
 
@@ -40,7 +40,7 @@
         <name>Reading Railroad</name>
         <price>200</price>
         <rent>25</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>5</index>
     </Railroad>
 
@@ -48,7 +48,7 @@
         <name>Oriental Avenue</name>
         <price>100</price>
         <rent>6</rent>
-        <color>light blue</color>
+        <color>135,206,250</color>
         <index>6</index>
     </Property>
 
@@ -56,7 +56,7 @@
         <name>Chance</name>
         <price>0</price>
         <rent>0</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>7</index>
     </Property>
 
@@ -64,20 +64,20 @@
         <name>Vermont Avenue</name>
         <price>100</price>
         <rent>6</rent>
-        <color>light blue</color>
+        <color>135,206,250</color>
         <index>8</index>
     </Property>
     <Property>
         <name>Connecticut Avenue</name>
         <price>120</price>
         <rent>8</rent>
-        <color>light blue</color>
+        <color>135,206,250</color>
         <index>9</index>
     </Property>
 
     <Jail>
         <name>Jail</name>
-        <color>orange</color>
+        <color>255,140,0</color>
         <index>10</index>
     </Jail>
 
@@ -85,7 +85,7 @@
         <name>St. Charles Place</name>
         <price>140</price>
         <rent>10</rent>
-        <color>pink</color>
+        <color>255,105,180</color>
         <index>11</index>
     </Property>
 
@@ -93,7 +93,7 @@
         <name>Electric Company</name>
         <price>150</price>
         <rent>4</rent> //4 * roll
-        <color>white</color>
+        <color>255,255,255</color>
         <index>12</index>
     </Utilites>
 
@@ -101,28 +101,28 @@
         <name>States Avenue</name>
         <price>140</price>
         <rent>10</rent>
-        <color>pink</color>
+        <color>255,105,180</color>
         <index>13</index>
     </Property>
     <Property>
         <name>Virginia Avenue</name>
         <price>160</price>
         <rent>12</rent>
-        <color>pink</color>
+        <color>255,105,180</color>
         <index>14</index>
     </Property>
     <Railroad>
         <name>Pennsylvania Railroad</name>
         <price>200</price>
         <rent>25</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>15</index>
     </Railroad>
     <Property>
         <name>St. James Place</name>
         <price>180</price>
         <rent>14</rent>
-        <color>Orange</color>
+        <color>255,140,0</color>
         <index>16</index>
     </Property>
 
@@ -130,7 +130,7 @@
         <name>Community Chest</name>
         <price>0</price>
         <rent>0</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>17</index>
     </Property>
 
@@ -138,14 +138,14 @@
         <name>Tennessee Avenue</name>
         <price>180</price>
         <rent>14</rent>
-        <color>Orange</color>
+        <color>255,140,0</color>
         <index>18</index>
     </Property>
     <Property>
         <name>New York Avenue</name>
         <price>200</price>
         <rent>16</rent>
-        <color>Orange</color>
+        <color>255,140,0</color>
         <index>19</index>
     </Property>
 
@@ -153,7 +153,7 @@
         <name>Free Parking</name>
         <price>0</price>
         <rent>0</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>20</index>
     </Property>
 
@@ -161,7 +161,7 @@
         <name>Kentucky Avenue</name>
         <price>220</price>
         <rent>18</rent>
-        <color>red</color>
+        <color>255,0,0</color>
         <index>21</index>
     </Property>
 
@@ -169,7 +169,7 @@
         <name>Chance</name>
         <price>0</price>
         <rent>0</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>22</index>
     </Property>
 
@@ -177,14 +177,14 @@
         <name>Indiana Avenue</name>
         <price>220</price>
         <rent>18</rent>
-        <color>red</color>
+        <color>255,0,0</color>
         <index>23</index>
     </Property>
     <Property>
         <name>Illinois Avenue</name>
         <price>240</price>
         <rent>20</rent>
-        <color>red</color>
+        <color>255,0,0</color>
         <index>24</index>
     </Property>
 
@@ -192,7 +192,7 @@
         <name>B. &amp; O. Railroad</name>
         <price>200</price>
         <rent>25</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>25</index>
     </Railroad>
 
@@ -200,14 +200,14 @@
         <name>Atlantic Avenue</name>
         <price>260</price>
         <rent>22</rent>
-        <color>yellow</color>
+        <color>255,255,0</color>
         <index>26</index>
     </Property>
     <Property>
         <name>Ventnor Avenue</name>
         <price>260</price>
         <rent>22</rent>
-        <color>yellow</color>
+        <color>255,255,0</color>
         <index>27</index>
     </Property>
 
@@ -215,7 +215,7 @@
         <name>Water Works</name>
         <price>150</price>
         <rent>4</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>28</index>
     </Utilites>
 
@@ -223,13 +223,13 @@
         <name>Marvin Gardens</name>
         <price>280</price>
         <rent>24</rent>
-        <color>yellow</color>
+        <color>255,255,0</color>
         <index>29</index>
     </Property>
 
     <GoToJail>
         <name>GoToJail</name>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>30</index>
     </GoToJail>
 
@@ -237,14 +237,14 @@
         <name>Pacific Avenue</name>
         <price>300</price>
         <rent>26</rent>
-        <color>green</color>
+        <color>0,128,0</color>
         <index>31</index>
     </Property>
     <Property>
         <name>North Carolina Avenue</name>
         <price>300</price>
         <rent>26</rent>
-        <color>green</color>
+        <color>0,128,0</color>
         <index>32</index>
     </Property>
 
@@ -252,7 +252,7 @@
         <name>Community Chest</name>
         <price>0</price>
         <rent>0</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>33</index>
     </Property>
 
@@ -260,7 +260,7 @@
         <name>Pennsylvania Avenue</name>
         <price>320</price>
         <rent>28</rent>
-        <color>green</color>
+        <color>0,128,0</color>
         <index>34</index>
     </Property>
 
@@ -268,7 +268,7 @@
         <name>Short Line</name>
         <price>200</price>
         <rent>25</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>35</index>
     </Railroad>
 
@@ -276,7 +276,7 @@
         <name>Chance</name>
         <price>0</price>
         <rent>0</rent>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>36</index>
     </Property>
 
@@ -284,13 +284,13 @@
         <name>Park Place</name>
         <price>350</price>
         <rent>35</rent>
-        <color>dark blue</color>
+        <color>0,0,128</color>
         <index>37</index>
     </Property>
 
     <Tax>
         <name>Luxury Tax</name>
-        <color>white</color>
+        <color>255,255,255</color>
         <index>38</index>
     </Tax>
 
@@ -298,7 +298,7 @@
         <name>Boardwalk</name>
         <price>400</price>
         <rent>50</rent>
-        <color>dark blue</color>
+        <color>0,0,128</color>
         <index>39</index>
     </Property>
 </board>
