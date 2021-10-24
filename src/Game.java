@@ -16,7 +16,6 @@ public class Game {
     private Jail jail;
     private final Color ORANGE = new Color(255,69,0);
     private Board board;
-    private String boardInput;
     private BoardConstructor boardConstructor;
 
     public Game( ){
@@ -24,13 +23,10 @@ public class Game {
         this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
         this.nextRoll = true;
-        //this.boardInput = new String();
         this.board = new Board("board.xml");
         this.jail = new Jail("jail", 0, 0, ORANGE, 10);
         this.reader = new Scanner(System.in);
         this.boardConstructor = new BoardConstructor();
-
-
     }
 
     /**
@@ -53,7 +49,7 @@ public class Game {
         this.currentPlayer = players.get(0);
 
         boardConstructor.loadBoardFromMapFile(board);
-        boardConstructor.validateXMLSchema("board.xsd", "board.xml");// TODO If some wrong is typed, default is "board.xml", scanner.
+        boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
         this.propertiesArrayList = board.getPropertiesArrayList();
         welcomeMessage();
@@ -133,7 +129,6 @@ public class Game {
             } else {
                 System.out.println("Property: " + propertyName + ", Does not exists");
             }
-            // Need to find out which player is currently playing and roll for that player
         }
         else if (command.equals("pass turn")) {
 
@@ -224,6 +219,7 @@ public class Game {
             if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) {
                 currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
                 currentPlayer.addToBalance(200); //Passing Go
+                System.out.println(currentPlayer.getName()+" has passed Go, Balance is now "+currentPlayer.getBalance());
             } else {
                 currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);
             }
