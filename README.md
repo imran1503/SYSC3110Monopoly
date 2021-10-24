@@ -101,6 +101,14 @@ List of Owned Properties:
 
 ### User Manual
 
+#### Playing the Game
+In order to interact with the program, the following commands are shown at the beginning of the game:
+   'quit' - Ends the game immediately
+   'roll' - Rolls a number die for current player
+   'purchase property' - Purchases property for current player, the property is the position player is on
+   'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased
+   'pass turn' - Current player's turn ends, passes turn to next player
+   'check game state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status 
 
 
 ### Important Design Decisions
