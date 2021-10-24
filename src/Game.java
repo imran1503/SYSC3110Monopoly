@@ -246,7 +246,8 @@ public class Game {
             }
         }
         if(randomRoll1 == randomRoll2){
-            System.out.println("You rolled a double, you can roll again.");
+            System.out.println(currentPlayer.getName()+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
+            System.out.println("You rolled a double, "+currentPlayer.getName()+" can roll again.");
             return true;
         }
         System.out.println(currentPlayer.getName()+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
@@ -290,19 +291,27 @@ public class Game {
                 owningEqualHouses = false;
             }
         }
-        if(!owningColorSet){
-            System.out.println(currentPlayer.getName()+" does NOT own the color set of this property, Property Name: "+property.getName());
+        if(property.getColor().equals(new Color(255,255,255))||property.getColor().equals(new Color(250,140,0))){
+            System.out.println("You can Not buy a house or hotel on this Property: "+property.getName());
         }
-        else{ if(!owningEqualHouses){
+        else if(!owningColorSet){
+            System.out.println(currentPlayer.getName()+" does NOT own the color set of this property, Missing Properties: ");
+            for(int i = 0; i < propertiesArrayList.size(); i++){
+                if(propertiesArrayList.get(i).getColor().equals(colorOfProperty)){
+                    System.out.println("- "+propertiesArrayList.get(i).getName());
+                }
+            }
+        }
+        else if(!owningEqualHouses){
             System.out.println(currentPlayer.getName()+" does NOT own enough of houses for the color set to buy more, Property Name: "+property.getName());
         }
-        else{ if(currentPlayer.getBalance() < property.getHousePrice()){
+        else if(currentPlayer.getBalance() < property.getHousePrice()){
             System.out.println(currentPlayer.getName()+" does Not have enough money to purchase this property, Property Name: "+property.getName());
         }
-        else{if(property.getNumHotels() == 1){
+        else if(property.getNumHotels() == 1){
             System.out.println("This property already has a hotel, property Name: "+property.getName());
         }
-        else{ if(numOfHouseCurrent == 4) {
+        else if(numOfHouseCurrent == 4) {
             currentPlayer.removefromBalance(property.getHousePrice());
             property.setNumHotels(1);
             property.setNumHouses(0);
@@ -310,7 +319,7 @@ public class Game {
         else{
             currentPlayer.removefromBalance(property.getHousePrice());
             property.setNumHouses((1+numOfHouseCurrent));
-        }}}}}
+        }
     }
 
     /**

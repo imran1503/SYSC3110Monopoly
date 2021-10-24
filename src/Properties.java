@@ -23,8 +23,9 @@ public class Properties {
     }
 
     public Properties(String name, Color color, int location) {
+        Player bank = new Player("bank",Color.white,1000000);
         this.name = name;
-        this.owner = null;
+        this.owner = bank;
         numHouses = 0;
         numHotels = 0;
         this.color = color;
@@ -44,7 +45,7 @@ public class Properties {
     }
 
     public void payRent(Player payingPlayer){
-        if(!owner.getName().equals("bank")) {
+        if(!owner.getName().equals("bank")||(location == 4)||(location == 38)){
             System.out.println(payingPlayer.getName() + " pays " + this.getRent() + " to " + owner.getName() + " on " + name);
             payingPlayer.removefromBalance(this.getRent());
             if (owner != null) {
