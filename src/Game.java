@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Game {
+    private static int MAX_PLAYERS = 0;
     private ArrayList<Player> players;
     private ArrayList<Properties> propertiesArrayList;
     private Enumeration gameState; //todo roll & move, purchase, house/hotel, end turn.
@@ -34,11 +35,23 @@ public class Game {
      * play start while loops until game is not in progress.
      */
     public void play() {
-        int MAX_PLAYERS = 0;
         welcomeMessage();
 
-        System.out.println("Enter the total number of Players playing");
-        MAX_PLAYERS = Integer.parseInt(reader.nextLine());
+        Boolean isInt = false;
+        while(!isInt){
+            System.out.println("Enter the total number of Players playing");
+            isInt = isInteger(reader.nextLine());
+            if(isInt){
+                if((MAX_PLAYERS > 8)||(MAX_PLAYERS < 2)){
+                    System.out.println("Total number entered is greater than 8 or less than 2, enter a new number less than 8 and more than 2");
+                    isInt = false;
+                }
+            }
+            else{
+                System.out.println("Enter an integer number like '4' , not a word.");
+            }
+        }
+
         ArrayList<Player> players = new ArrayList<>();
         //Object[] options = {"Human", "AI"};
         for(int i = 0; i < MAX_PLAYERS; i++){
@@ -84,6 +97,18 @@ public class Game {
 
             }
         }
+    }
+
+    public static boolean isInteger(String s) {
+        try {
+            MAX_PLAYERS = Integer.parseInt(s);
+        } catch(NumberFormatException e) {
+            return false;
+        } catch(NullPointerException e) {
+            return false;
+        }
+        // only got here if we didn't return false
+        return true;
     }
 
     /**
@@ -246,8 +271,7 @@ public class Game {
             }
         }
         if(randomRoll1 == randomRoll2){
-            System.out.println(currentPlayer.getName()+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
-            System.out.println("You rolled a double, "+currentPlayer.getName()+" can roll again.");
+            System.out.println("You rolled a double, you can roll again.");
             return true;
         }
         System.out.println(currentPlayer.getName()+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
@@ -291,27 +315,19 @@ public class Game {
                 owningEqualHouses = false;
             }
         }
-        if(property.getColor().equals(new Color(255,255,255))||property.getColor().equals(new Color(250,140,0))){
-            System.out.println("You can Not buy a house or hotel on this Property: "+property.getName());
+        if(!owningColorSet){
+            System.out.println(currentPlayer.getName()+" does NOT own the color set of this property, Property Name: "+property.getName());
         }
-        else if(!owningColorSet){
-            System.out.println(currentPlayer.getName()+" does NOT own the color set of this property, Missing Properties: ");
-            for(int i = 0; i < propertiesArrayList.size(); i++){
-                if(propertiesArrayList.get(i).getColor().equals(colorOfProperty)&&!propertiesArrayList.get(i).getOwner().equals(currentPlayer)){
-                    System.out.println("- "+propertiesArrayList.get(i).getName());
-                }
-            }
-        }
-        else if(!owningEqualHouses){
+        else{ if(!owningEqualHouses){
             System.out.println(currentPlayer.getName()+" does NOT own enough of houses for the color set to buy more, Property Name: "+property.getName());
         }
-        else if(currentPlayer.getBalance() < property.getHousePrice()){
+        else{ if(currentPlayer.getBalance() < property.getHousePrice()){
             System.out.println(currentPlayer.getName()+" does Not have enough money to purchase this property, Property Name: "+property.getName());
         }
-        else if(property.getNumHotels() == 1){
+        else{if(property.getNumHotels() == 1){
             System.out.println("This property already has a hotel, property Name: "+property.getName());
         }
-        else if(numOfHouseCurrent == 4) {
+        else{ if(numOfHouseCurrent == 4) {
             currentPlayer.removefromBalance(property.getHousePrice());
             property.setNumHotels(1);
             property.setNumHouses(0);
@@ -319,7 +335,7 @@ public class Game {
         else{
             currentPlayer.removefromBalance(property.getHousePrice());
             property.setNumHouses((1+numOfHouseCurrent));
-        }
+        }}}}}
     }
 
     /**
