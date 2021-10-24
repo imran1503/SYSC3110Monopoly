@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +189,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635107268528</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added color sets of properties into a list. Purchase house should now work.">
+      <created>1635107363574</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1635107363574</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fixed more gameplay bugs.">
+      <created>1635109143771</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1635109143771</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,6 +227,7 @@
     <MESSAGE value="Maybe? Finished BoardConstructor.java" />
     <MESSAGE value="working game-ish" />
     <MESSAGE value="added color sets of properties into a list. Purchase house should now work." />
-    <option name="LAST_COMMIT_MESSAGE" value="added color sets of properties into a list. Purchase house should now work." />
+    <MESSAGE value="Fixed more gameplay bugs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed more gameplay bugs." />
   </component>
 </project>
