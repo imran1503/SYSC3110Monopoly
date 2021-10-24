@@ -43,7 +43,7 @@ public class Game {
         ArrayList<Player> players = new ArrayList<>();
         //Object[] options = {"Human", "AI"};
         for(int i = 0; i < MAX_PLAYERS; i++){
-            System.out.println("Enter the name of Player "+i);
+            System.out.println("Enter the name of Player "+(i+1));
             String playerName = reader.nextLine();
             Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
             players.add(newPlayer);
@@ -84,7 +84,7 @@ public class Game {
             return false;
         }
         if (command.equals("roll")) {
-            if(nextRoll) {
+            if(nextRoll && (currentPlayer.getInJail() == false)) {
                 nextRoll = roll();
             }
             else{
@@ -95,7 +95,7 @@ public class Game {
                 if (isDouble && (currentPlayer.getTurnsInJail() != 0)) {
                     currentPlayer.setInJail(false);
                     currentPlayer.setTurnsInJail(0);
-                    System.out.println(currentPlayer.getName() + " is out of jail.");
+                    System.out.println(currentPlayer.getName() + " rolled a double and is out of jail.");
                 } else {
                     if (currentPlayer.getTurnsInJail() == 3) {
                         currentPlayer.removefromBalance(50);
