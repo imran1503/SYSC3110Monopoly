@@ -19,11 +19,36 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish" />
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a-Monoploy Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/BoardConstructor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/GO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/IncomeTax.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Jail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/LuxuryTax.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Properties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Railroads.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Utilities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/board.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/board.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/boardInput.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -39,6 +64,9 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1zk0ADrJ2oCQX0CFOLRPJJGpIcR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -154,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635024271554</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="working game-ish">
+      <created>1635100870700</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635100870700</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
