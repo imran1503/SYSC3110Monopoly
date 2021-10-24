@@ -174,7 +174,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635100870700</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added color sets of properties into a list. Purchase house should now work.">
+      <created>1635107228609</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1635107228609</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added color sets of properties into a list. Purchase house should now work.">
+      <created>1635107268528</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1635107268528</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,40 +211,7 @@
     <MESSAGE value="Added board.xsd" />
     <MESSAGE value="Maybe? Finished BoardConstructor.java" />
     <MESSAGE value="working game-ish" />
-    <option name="LAST_COMMIT_MESSAGE" value="working game-ish" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="414" y="175" width="1092" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1635105945743">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="414" y="175" width="1092" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635105945743" />
-    <state x="827" y="282" key="EnvironmentVariablesDialog" timestamp="1635105492511">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="827" y="282" key="EnvironmentVariablesDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635105492511" />
-    <state x="1151" y="312" key="FileChooserDialogImpl" timestamp="1635105943139">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1151" y="312" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635105943139" />
-    <state width="1877" height="712" key="GridCell.Tab.0.bottom" timestamp="1635106588452">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="712" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635106588452" />
-    <state width="1877" height="712" key="GridCell.Tab.0.center" timestamp="1635106588452">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="712" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635106588452" />
-    <state width="1877" height="712" key="GridCell.Tab.0.left" timestamp="1635106588452">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="712" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635106588452" />
-    <state width="1877" height="712" key="GridCell.Tab.0.right" timestamp="1635106588452">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="712" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635106588452" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1635105771673">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635105771673" />
+    <MESSAGE value="added color sets of properties into a list. Purchase house should now work." />
+    <option name="LAST_COMMIT_MESSAGE" value="added color sets of properties into a list. Purchase house should now work." />
   </component>
 </project>
