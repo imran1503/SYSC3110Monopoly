@@ -98,7 +98,7 @@
 
     <Jail>
         <name>Jail</name>
-        <r>255</r>
+        <r>250</r>
         <g>140</g>
         <b>0</b>
         <index>10</index>
