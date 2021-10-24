@@ -20,27 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a-Monoploy Project.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/BoardConstructor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/GO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/IncomeTax.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Jail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/LuxuryTax.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Properties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Railroads.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/Utilities.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/board.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/board.xsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/a-Monoploy Project/boardInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,14 +62,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-15.0.2" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-15" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Game" />
-      <module name="a-Monoploy Project" />
+      <module name="SYSC3110Monopoly" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -213,5 +201,39 @@
     <MESSAGE value="Maybe? Finished BoardConstructor.java" />
     <MESSAGE value="working game-ish" />
     <option name="LAST_COMMIT_MESSAGE" value="working game-ish" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" width="1092" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1635105945743">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" width="1092" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635105945743" />
+    <state x="827" y="282" key="EnvironmentVariablesDialog" timestamp="1635105492511">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="827" y="282" key="EnvironmentVariablesDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635105492511" />
+    <state x="1151" y="312" key="FileChooserDialogImpl" timestamp="1635105943139">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1151" y="312" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635105943139" />
+    <state width="1877" height="712" key="GridCell.Tab.0.bottom" timestamp="1635106588452">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="712" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635106588452" />
+    <state width="1877" height="712" key="GridCell.Tab.0.center" timestamp="1635106588452">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="712" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635106588452" />
+    <state width="1877" height="712" key="GridCell.Tab.0.left" timestamp="1635106588452">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="712" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635106588452" />
+    <state width="1877" height="712" key="GridCell.Tab.0.right" timestamp="1635106588452">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="712" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635106588452" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1635105771673">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1635105771673" />
   </component>
 </project>

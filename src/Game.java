@@ -34,6 +34,8 @@ public class Game {
      */
     public void play() {
         int MAX_PLAYERS = 0;
+        welcomeMessage();
+
         System.out.println("Enter the total number of Players playing");
         MAX_PLAYERS = Integer.parseInt(reader.nextLine());
         ArrayList<Player> players = new ArrayList<>();
@@ -44,15 +46,19 @@ public class Game {
             Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
             players.add(newPlayer);
         }
+
         this.players = players;
 
         this.currentPlayer = players.get(0);
-
+        operateCommand("help");
+        System.out.println();
         boardConstructor.loadBoardFromMapFile(board);
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
         this.propertiesArrayList = board.getPropertiesArrayList();
-        welcomeMessage();
+
+        System.out.println("Player 1 goes first, begin by typing roll command");
+
         boolean gameInProgress = true;
         while (gameInProgress) {
             String command = reader.nextLine();
@@ -71,7 +77,6 @@ public class Game {
         System.out.println("Welcome to the game of Monopoly!");
         System.out.println("Type 'help' if you ever need a command list with explanation.");
         System.out.println();
-        System.out.println("Player 1 goes first, begin by typing roll command");
     }
 
     private boolean operateCommand(String command) {

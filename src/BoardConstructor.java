@@ -21,7 +21,7 @@ import java.util.List;
 
 public class BoardConstructor {
 
-    private Board board1;
+    private Board board;
 
 
     public static boolean validateXMLSchema(String xsdPath, String xmlPath) {
@@ -34,7 +34,7 @@ public class BoardConstructor {
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(new File(xmlPath)));
         } catch (IOException | SAXException e) {
-            System.out.println("Exception: " + e.getMessage());
+            //System.out.println("Exception: " + e.getMessage());
             return false;
         }
         return true;
@@ -178,6 +178,7 @@ public class BoardConstructor {
 
                 return true;
             } catch (Exception e) {
+
             }
         }
         return false;
