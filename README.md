@@ -9,7 +9,7 @@
 ### Table of Contents:
 - [Quick Start](#quick-start)
 - [Deliverables](#deliverables)
-- [Example Gameplay](#Example-Gameplay)
+- [Issues](#issues)
 - [User Manual](#complete-user-manual)
     * [Playing the Game](#playing-the-game)
     * [The Map](#the-map)
