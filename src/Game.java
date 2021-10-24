@@ -27,6 +27,7 @@ public class Game {
         this.jail = new Jail("jail", 0, 0, ORANGE, 10);
         this.reader = new Scanner(System.in);
         this.boardConstructor = new BoardConstructor();
+        this.colorPropertiesArrayList = new HashMap<>();
     }
 
     /**
@@ -57,6 +58,26 @@ public class Game {
         board.setIsValid(true);
         this.propertiesArrayList = board.getPropertiesArrayList();
 
+        ArrayList<Color> colorsList = new ArrayList<>();
+        colorsList.add(new Color(255,255,255));
+        colorsList.add(new Color(136,69,19));
+        colorsList.add(new Color(135,206,250));
+        colorsList.add(new Color(250,140,0));
+        colorsList.add(new Color(255,105,180));
+        colorsList.add(new Color(255,140,0));
+        colorsList.add(new Color(255,0,0));
+        colorsList.add(new Color(255,255,0));
+        colorsList.add(new Color(0,128,0));
+        colorsList.add(new Color(0,0,128));
+        for(int i =0; i < colorsList.size(); i++){
+            ArrayList<Properties> tempPropertyList = new ArrayList<>();
+            for(int j = 0; j < propertiesArrayList.size(); j++){
+                if(colorsList.get(i).equals(propertiesArrayList.get(j).getColor())){
+                    tempPropertyList.add(propertiesArrayList.get(j));
+                }
+            }
+            colorPropertiesArrayList.put(colorsList.get(i),tempPropertyList);
+        }
         System.out.println("Player 1 goes first, begin by typing roll command");
 
         boolean gameInProgress = true;
