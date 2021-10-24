@@ -61,9 +61,14 @@ public class Game {
             players.add(newPlayer);
         }
 
+        //
+
         this.players = players;
 
-        this.currentPlayer = players.get(0);
+        // The player who goes first is determined randomly
+        int firstPlayerRandom = determineFirstPlayer();
+        this.currentPlayer = players.get(firstPlayerRandom - 1); // minus 1 because players' index starts at 0
+
         operateCommand("help");
         System.out.println();
         boardConstructor.loadBoardFromMapFile(board);
@@ -86,7 +91,9 @@ public class Game {
             }
             colorPropertiesArrayList.put(colorsList.get(i),tempPropertyList);
         }
-        System.out.println("Player 1 goes first, begin by typing roll command");
+
+        // Tell user which player starts the game (chosen at random)
+        System.out.println("Player " + firstPlayerRandom + " was chosen at random to start the game. Begin by typing roll.");
 
         boolean gameInProgress = true;
         while (gameInProgress) {
@@ -97,6 +104,17 @@ public class Game {
 
             }
         }
+    }
+
+    /**
+     * Determines which player starts the game at random.
+     * @return randomPlayer, player chosen at random to go first
+     */
+    public int determineFirstPlayer() {
+        int totalPlayers = players.size();
+        // generate a random number in the range 1 to totalPlayers inclusive
+        int randomPlayer = 1 + (int)(Math.random() * ((totalPlayers - 1) + 1));
+        return randomPlayer;
     }
 
     public static boolean isInteger(String s) {
@@ -130,6 +148,7 @@ public class Game {
                 nextRoll = roll();
             }
             else{
+
                 System.out.println(currentPlayer.getName()+" can NOT roll again. Pass your turn or buy property.");
             }
             if ((currentPlayer.getInJail() == true)){
@@ -240,7 +259,7 @@ public class Game {
         if(currentPlayer.getBankruptStatus()){
             passPlayerTurn();
         }
-        System.out.println("It's Now "+currentPlayer.getName()+" turn.");
+        System.out.println("It's Now "+currentPlayer.getName()+" turn to roll.");
     }
 
     public void addProperty(Properties property){propertiesArrayList.add(property);}
@@ -272,6 +291,7 @@ public class Game {
         }
         if(randomRoll1 == randomRoll2){
             System.out.println("You rolled a double, you can roll again.");
+            //todo tell player where they landed with their first roll before they roll again
             return true;
         }
         System.out.println(currentPlayer.getName()+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
