@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sx="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xs:element name="map">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Property" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <sx:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="price" type="xs:integer"/>
+                            <xs:element name="rent" type="xs:integer"/>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="index" type="xs:integer"/>
+                        </sx:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="GO">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="GO"/>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="index" type="xs:integer"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="GoToJail">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="GoToJail"/>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="index" type="xs:integer"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Tax"
+                            minOccurs="0"
+                            maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Tax"/>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="index" type="xs:integer"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Railroad" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <sx:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="price" type="xs:integer"/>
+                            <xs:element name="rent" type="xs:integer"/>
+                            <xs:element name="color" type="xs:string"/>
+                            <xs:element name="index" type="xs:integer"/>
+                        </sx:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
