@@ -297,7 +297,7 @@ public class Game {
         else if(!owningColorSet){
             System.out.println(currentPlayer.getName()+" does NOT own the color set of this property, Missing Properties: ");
             for(int i = 0; i < propertiesArrayList.size(); i++){
-                if(propertiesArrayList.get(i).getColor().equals(colorOfProperty)){
+                if(propertiesArrayList.get(i).getColor().equals(colorOfProperty)&&!propertiesArrayList.get(i).getOwner().equals(currentPlayer)){
                     System.out.println("- "+propertiesArrayList.get(i).getName());
                 }
             }
