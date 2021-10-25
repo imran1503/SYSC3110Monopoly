@@ -223,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635192458913</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="game.java improvements in number of getter method calls..">
+      <created>1635194165382</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1635194165382</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +256,7 @@
     <MESSAGE value="added color sets of properties into a list. Purchase house should now work." />
     <MESSAGE value="Fixed more gameplay bugs." />
     <MESSAGE value="Java Doc updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Java Doc updated" />
+    <MESSAGE value="game.java improvements in number of getter method calls.." />
+    <option name="LAST_COMMIT_MESSAGE" value="game.java improvements in number of getter method calls.." />
   </component>
 </project>

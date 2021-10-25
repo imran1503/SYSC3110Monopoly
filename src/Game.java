@@ -338,8 +338,10 @@ public class Game {
             }
         }
         if(randomRoll1 == randomRoll2){
-            System.out.println("You rolled a double, you can roll again.");
-            System.out.println(playerName+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
+            if(!currentPlayer.getInJail()) {
+                System.out.println("You rolled a double, you can roll again.");
+                System.out.println(playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertiesArrayList.get(currentPlayer.getPositon()).getName());
+            }
             return true;
         }
         System.out.println(playerName+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
