@@ -10,6 +10,15 @@ public class Properties {
     private Color color;
     private int location; //Location on the board
 
+    /**
+     * Properties Constructor. Outlines property information like name, price, rent,
+     * color, location.
+     * @param name name of property
+     * @param price price of property
+     * @param rent rent of property
+     * @param color color of property
+     * @param location location of property
+     */
     public Properties( String name, int price, int rent, Color color, int location){
         Player bank = new Player("bank",Color.white,1000000);
         this.name = name;
@@ -22,6 +31,13 @@ public class Properties {
         this.location = location;
     }
 
+    /**
+     * Second Properties constructor. This is like the first but without price and
+     * rent of the property.
+     * @param name name of property
+     * @param color color of property
+     * @param location location of property
+     */
     public Properties(String name, Color color, int location) {
         Player bank = new Player("bank",Color.white,1000000);
         this.name = name;
@@ -32,9 +48,18 @@ public class Properties {
         this.location = location;
     }
 
+    /**
+     * gets and returns rent variable
+     * @return rent variable
+     */
     public int getrentVar(){
         return rent;
     }
+
+    /**
+     * gets and returns rent variable
+     * @return rent variable
+     */
     public int getRent() {
         if (numHouses == 1) { return (int)(rent*1.1); }
         else if (numHouses == 2) { return (int)(rent*1.2); }
@@ -44,6 +69,11 @@ public class Properties {
         else { return rent; }
     }
 
+    /**
+     * Pays rent for player given payingPlayer parameter of class Player
+     * Removes respective money from balance.
+     * @param payingPlayer the player paying the rent
+     */
     public void payRent(Player payingPlayer){
         if(!owner.getName().equals("bank")||(location == 4)||(location == 38)){
             System.out.println(payingPlayer.getName() + " pays " + this.getRent() + " to " + owner.getName() + " on " + name);
@@ -54,45 +84,93 @@ public class Properties {
         }
     }
 
+    /**
+     * gets and returns name variable
+     * @return name variable
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * gets and returns location variable
+     * @return location variable
+     */
     public int getLocation(){return location;}
 
+    /**
+     * gets and returns owner variable
+     * @return owner variable
+     */
     public Player getOwner() {
         return owner;
     }
 
+    /**
+     * assigns given parameter to the owner variable
+     * @param owner of class Player
+     */
     public void setOwner(Player owner) {
         this.owner = owner;
     }
 
+    /**
+     * gets and returns price variable.
+     * @return price variable
+     */
     public int getPrice() {
         return price;
     }
 
+    /**
+     * gets and returns color variable.
+     * @return color variable.
+     */
     public Color getColor(){return color;}
 
+    /**
+     * assigns given parameter to the name variable
+     * @param name variable
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * gets and returns numHouses variable
+     * @return numHouses variable
+     */
     public int getNumHouses() {
         return numHouses;
     }
 
+    /**
+     * assigns given parameter to the numhouses Variable
+     * @param numHouses variable
+     */
     public void setNumHouses(int numHouses) {
         this.numHouses = numHouses;
     }
 
+    /**
+     * gets and returns numHotels variable
+     * @return numHotels variable
+     */
     public int getNumHotels() {
         return numHotels;
     }
 
+    /**
+     * assigns given parameter to numHotels variable
+     * @param numHotels variable
+     */
     public void setNumHotels(int numHotels) {
         this.numHotels = numHotels;
     }
 
+    /**
+     * calculates and returns housePrice
+     * @return housePrice
+     */
     public int getHousePrice(){return ((price*numHouses)/10);}
 }

@@ -19,6 +19,9 @@ public class Game {
     private Board board;
     private BoardConstructor boardConstructor;
 
+    /**
+     * Constructor for Game
+     */
     public Game( ){
         this.players = new ArrayList<Player>();
         this.propertiesArrayList = new ArrayList<Properties>();
@@ -117,6 +120,13 @@ public class Game {
         return randomPlayer;
     }
 
+    /**
+     * Implements try and Checks for catch exceptions to check if param is integer.
+     * Returns False If max_players does not work, and it catches either numberFormat or NullPointer
+     * exception, indicating param is not an integer. Otherwise returns true.
+     * @param s the scanned string to be checked
+     * @return boolean true if param is integer, return false if not
+     */
     public static boolean isInteger(String s) {
         try {
             MAX_PLAYERS = Integer.parseInt(s);
@@ -138,6 +148,11 @@ public class Game {
         System.out.println();
     }
 
+    /**
+     * operates game commands, takes in command and undergoes respective functionality and returns boolean of true or false
+     * @param command the command that the function will process
+     * @return boolean true if game still in progress, false if not.
+     */
     private boolean operateCommand(String command) {
         if (command.equals("quit")) {
             System.out.println("Game has ended.");
@@ -226,12 +241,23 @@ public class Game {
         return true;
     }
 
+    /**
+     * Appends player object to Player Arraylist.
+     * @param player param that is appended to arraylist
+     */
     public void addPlayer(Player player){players.add(player);}
 
+    /**
+     * Sets the player param to the current player variable
+     * @param player param that is set as currentPlayer
+     */
     public void setCurrentPlayer(Player player){
         currentPlayer = player;
     }
 
+    /**
+     * Print the game state of all players.
+     */
     public void printCurrentState(){
         for(int i=0; i<players.size();i++){
             Player player = players.get(i);
@@ -248,6 +274,10 @@ public class Game {
         }
     }
 
+    /**
+     * Passes player's turn. Ends the current player's turn and passes it onto the next player.
+     * Changes currentPlayer variable and
+     */
     public void passPlayerTurn(){
         int indexOfCurrentPlayer = players.indexOf(currentPlayer);
         if(indexOfCurrentPlayer == (players.size() - 1)){
@@ -262,10 +292,14 @@ public class Game {
         System.out.println("It's Now "+currentPlayer.getName()+" turn to roll.");
     }
 
+    /**
+     * Appends property variable of object Properties to propertiesArrayList.
+     * @param property param that is appended to propertiesArraylist
+     */
     public void addProperty(Properties property){propertiesArrayList.add(property);}
 
     /**
-     * Rolls 2 dices with interger values between 1 and 6.
+     * Rolls 2 dices with integer values between 1 and 6.
      * If player is not in jail, the player's position on board will update according to total roll value.
      * Returns true if both both dices are the same value, otherwise false.
      * @return Boolean true if double, else false.
@@ -298,6 +332,10 @@ public class Game {
         return false;
     }
 
+    /**
+     * Purchases property for currentPlayer based on player's position.
+     * Purchases property currentPlayer has landed on.
+     */
     public void purchaseProperty(){
         int playerPosition = currentPlayer.getPositon();
         Properties landedOnProperty = propertiesArrayList.get(playerPosition);
@@ -321,6 +359,10 @@ public class Game {
         }}}}
     }
 
+    /**
+     * Returns void. Purchases house or hotel, depends on what the player chooses to purchase.
+     * @param property param that is used to
+     */
     public void purchaseHouseOrHotel(Properties property){
         Boolean owningColorSet = true;
         Boolean owningEqualHouses = true;

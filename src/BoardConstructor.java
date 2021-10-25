@@ -23,7 +23,12 @@ public class BoardConstructor {
 
     private Board board;
 
-
+    /**
+     *
+     * @param xsdPath
+     * @param xmlPath
+     * @return
+     */
     public static boolean validateXMLSchema(String xsdPath, String xmlPath) {
 
         try {
