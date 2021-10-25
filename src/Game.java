@@ -320,25 +320,27 @@ public class Game {
         int randomRoll2 = ((int)((Math.random()*77)%6) + 1);
         int playerPosition = currentPlayer.getPositon();
         String playerName = currentPlayer.getName();
-        if(((playerPosition + randomRoll1 + randomRoll2) == 30)&&!currentPlayer.getInJail()){
+        Boolean jailStatus = currentPlayer.getInJail();
+        if(((playerPosition + randomRoll1 + randomRoll2) == 30)&&!jailStatus){
             currentPlayer.setInJail(true); //Postion for Go to Jail on Board is 30 and Jail is 10.
+            jailStatus = true;
             currentPlayer.setPosition(10);
             System.out.println(playerName+" has been set to Jail, roll a double to get out of Jail next turn.");
         }
-        if(!currentPlayer.getInJail()) {
+        if(!jailStatus) {
             if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) {
                 currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
                 currentPlayer.addToBalance(200); //Passing Go
                 System.out.println(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance());
-                playerPosition = currentPlayer.getPositon();
+                playerPosition = ((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
             } else {
                 currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);
-                playerPosition = currentPlayer.getPositon();
+                playerPosition = (randomRoll1 + randomRoll2 + playerPosition);
             }
         }
         String propertyName = propertiesArrayList.get(playerPosition).getName();
         if(randomRoll1 == randomRoll2){
-            if(!currentPlayer.getInJail()) {
+            if(!jailStatus) {
                 System.out.println("You rolled a double, you can roll again.");
                 System.out.println(playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertyName);
             }
