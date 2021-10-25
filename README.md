@@ -1,7 +1,7 @@
 # SYSC3110Monopoly
 ### Version: 1.0
 ### Authors:
-- Mahtab Ameli: @ameli-s19
+- Mahtab Ameli: @ameli-s19 and @MahtabAmeli
 - Shahrik Amin: @ShahrikAmin
 - Imran Latif: @imran1503
 - Muhammad Furqan: @mfurqan26
@@ -31,6 +31,9 @@ The deliverables for this milestone is as follows: readme file, source code in t
 
 ### Issues
 An issue we had was trying to make a funcnction that would accuratly verify a new XML Board, such that it had the 40 spaces, and was only composed of the basic types of spaces from the base game. I.e: Properties, utilities, Railroads, Chance, Community Chest, Tax, Jail. 
+
+Another issue would be that some of our functions repeatedly call other functions, as opposed to making one function call and storing in a variable. This issue is reflectd in the sequence diagrams. Another design issue we had as reflected in the UML class diagrams, is the tight dependence between different classes. The mentioned issues will be addressed with design changes in the upcoming milestones. 
+
 ### User Manual
 #### Objective
 The objective of the game is to be the last one standing (and richest)by buying property and raising it costs to others in order for them to go bankrupt first. 
