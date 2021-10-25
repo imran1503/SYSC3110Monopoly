@@ -401,7 +401,12 @@ public class Game {
             }
         }
         if(!owningColorSet){
-            System.out.println(playerName+" does NOT own the color set of this property, Property Name: "+propertyName);
+            System.out.println(playerName+" does NOT own the color set of this property, Missing Properties: ");
+            for(int i =0; i<sizeOfColorSet;i++){
+                if(!colorPropertiesArrayList.get(colorOfProperty).get(i).equals(property)){
+                    System.out.println("- "+colorPropertiesArrayList.get(colorOfProperty).get(i).getName());
+                }
+            }
         }
         else if(!owningEqualHouses){
             System.out.println(playerName+" does NOT own enough of houses for the color set to buy more, Property Name: "+propertyName);
