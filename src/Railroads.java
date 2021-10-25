@@ -1,5 +1,8 @@
 import java.awt.*;
 
+/**
+ * Class Railroad, is a special Property.
+ */
 public class Railroads extends Properties{
 
     /**

@@ -1,5 +1,8 @@
 import java.awt.*;
 
+/**
+ * Class Utilities, is a special Property.
+ */
 public class Utilities extends Properties{
 
     /**
