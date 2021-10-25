@@ -171,6 +171,10 @@ public class Game {
         if (command.equals("roll")) {
             if(nextRoll && (currentPlayer.getInJail() == false)) {
                 nextRoll = roll();
+                Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
+                if (!propertyOn.getOwner().equals(currentPlayer)) {
+                    propertyOn.payRent(currentPlayer);
+                }
             }
             else{
 
@@ -192,13 +196,7 @@ public class Game {
                     currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1); //add 1 to time in jail for player.
                     passPlayerTurn();
                 }
-            } else {
-                Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
-                if (!propertyOn.getOwner().equals(currentPlayer)) {
-                    propertyOn.payRent(currentPlayer);
-                }
             }
-
         }
         else if (command.equals("purchase property")) {
             purchaseProperty();

@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
-      <change beforePath="$PROJECT_DIR$/src/IncomeTax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IncomeTax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635194393321</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fixed bug for IncomeTax properties (price was 200, should be 0.) (rent was 0, should be 200)">
+      <created>1635194849120</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1635194849120</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -270,6 +278,7 @@
     <MESSAGE value="Fixed more gameplay bugs." />
     <MESSAGE value="Java Doc updated" />
     <MESSAGE value="game.java improvements in number of getter method calls.." />
-    <option name="LAST_COMMIT_MESSAGE" value="game.java improvements in number of getter method calls.." />
+    <MESSAGE value="fixed bug for IncomeTax properties (price was 200, should be 0.) (rent was 0, should be 200)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug for IncomeTax properties (price was 200, should be 0.) (rent was 0, should be 200)" />
   </component>
 </project>
