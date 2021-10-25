@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.lang.Math;
 import java.util.HashMap;
 import java.util.Scanner;
