@@ -11,22 +11,50 @@
 - [Deliverables](#deliverables)
 - [Issues](#issues)
 - [User Manual](#complete-user-manual)
+    * [Objective] (#objective)
     * [Playing the Game](#playing-the-game)
-    * [The Map](#the-map)
+    * [Core Gameplay Loop] (#core-gameplay-loop)
+    * [Jail] (#jail)
     * [Current Player Information](#current-player-information)
     * [Example Turn](#example-turn)
 - [Important Design Descisions](#important-design-decisions)
 - [Roadmap](#roadmap)
 
 ### Quick Start:
-To play RISK, run the main function in Parser.java, or if running from the jar file type:
+To play Monopoly, run the main function in Game.java, or if running from the jar file type:
 ```
 java -jar ????.jar
 ```
 
 ### Deliverables
 
-### Example Gameplay
+
+### Issues
+An issue we had was trying to make a funcnction that would accuratly verify a new XML Board, such that it had the 40 spaces, and was only composed of the basic types of spaces from the base game. I.e: Properties, utilities, Railroads, Chance, Community Chest, Tax, Jail. 
+### User Manual
+#### Objective
+The objective of the game is to be the last one standing (and richest)by buying property and raising it costs to others in order for them to go bankrupt first. 
+#### Playing the Game
+In order to interact with the program, the following commands are shown at the beginning of the game:
+'quit' - Ends the game immediately.
+'roll' - Rolls a number die for current player.
+'purchase property' - Purchases property for current player, the property is the position player is on.
+'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased.
+'pass turn' - Current player's turn ends, passes turn to next player.
+'check game state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status.
+  
+###### Core Gameplay Loop
+1.Rolling Dice to Move.
+2.Buying Properties and/or Paying Rent to the Owner.
+3.Build houses or hotels if someone owns all the properties of a colour.
+4.Pass Turn.
+###### Jail
+When a player is sent to jail by landing on the designated "Go to jail" space, they are moved diagonally across the board directly to the jail cell on the 10th space. They are unable to collect go while moving to the jail cell. A player that is in jail is required to stay for a maximum of 3 turns after entering jail. While in jail, every turn they are required to roll doubles in order to leave jail early. If they are unable to roll doubles by the third turn, they are required to pay $50 to the bank in order to be released. They do not reroll for movment when they leave jail, they take the roll that got them out, or that would have if it was a double on their final turn in jail. 
+         
+###### The Lack of:   Speed Dice, Chance Cards, Community Chest, Mortgaging property 
+We are not able to implement these features in this version of the game. 
+
+###### Example Turns
 Welcome to the game of Monopoly!
 Type 'help' if you ever need a command list with explanation.
 
@@ -98,28 +126,7 @@ In Jail Status = false
 List of Owned Properties:
 - St. Charles Place
 *****
-
-### User Manual
-
-#### Playing the Game
-In order to interact with the program, the following commands are shown at the beginning of the game:
-'quit' - Ends the game immediately.
-'roll' - Rolls a number die for current player.
-'purchase property' - Purchases property for current player, the property is the position player is on.
-'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased.
-'pass turn' - Current player's turn ends, passes turn to next player.
-'check game state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status.
-  
-  ###### The core gameplay loop is as follows:
--Rolling Dice to Move.
--Buying Properties and/or Paying Rent to the Owner.
--Build houses or hotels if someone owns all the properties of a colour.
--Pass Turn.
-  ###### Jail
-When a player is sent to jail by landing on the designated "Go to jail" space
-         
-    
 ### Important Design Decisions
-
+We decided that implementing the functionality of: Go, Jail, Railroads and utilities early would be in our best intrest. As it will save us time when implementing the harder features of the game later on.  
 
 ### Roadmap
