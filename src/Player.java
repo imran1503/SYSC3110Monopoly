@@ -38,10 +38,13 @@ public class Player {
 
     /** Status of player if Banrupt or not. If false then not bankrupt, If true then Bankrupt*/
     private Boolean bankruptStatus;
+
+
     /**
-     * Constructor for the Player object
      *
      * @param name sets the players name to this parameter
+     * @param color player's color set to this parameter
+     * @param startingMoney starting money of player is set to this parameter
      */
     public Player(String name, Color color, int startingMoney) {
         controlledProperties = new ArrayList<>();
@@ -63,31 +66,64 @@ public class Player {
      */
     public Color getColor() { return color; }
 
+    /**
+     * Gets and returns name of the player
+     * @return name the name of the player
+     */
     public String getName(){return name;}
 
+    /**
+     * gets number of Xtrains owned
+     * @return ownsXtrains num int of xtrains owned by player
+     */
     public int getOwnsXtrains() {
         return ownsXtrains;
     }
 
+    /**
+     * Sets number of player's owned Xtrains
+     * @param ownsXtrains the number of Xtrains
+     */
     public void setOwnsXtrains(int ownsXtrains) {
         this.ownsXtrains = ownsXtrains;
     }
 
+    /**
+     * gets and returns the board posiiton the player is landed on. this is an int value.
+     * @return position of the player on the board
+     */
     public int getPositon(){
         return positon;
     }
 
+    /**
+     * Gets boolean value of inJail. Returns whether the player is currently in jail or not.
+     * True if so, False if not.
+     * @return
+     */
     public Boolean getInJail() {
         return inJail;
     }
 
+    /**
+     * Set inJail value. set to true if player is sent to jail, false if not.
+     * @param inJail value indicating whether player is in jail or not
+     */
     public void setInJail(Boolean inJail) {
         this.inJail = inJail;
     }
 
+    /**
+     * Get turnsInJail int value of player
+     * @return turnsInJail int value
+     */
     public int getTurnsInJail(){return turnsInJail;}
 
-    public void setTurnsInJail(int turn){turnsInJail = turn;}
+    /**
+     * Set the turnsInJail for the player, assign it to turn variable of type int
+     * @param turn value for turnsInJail
+     */
+    public void setTurnsInJail(int turn){this.turnsInJail = turn;}
 
     /**
      * Changes position of player to the new position
@@ -97,6 +133,7 @@ public class Player {
     public void setPosition(int newPosition){
         this.positon = newPosition;
     }
+
     /**
      * Creates a new Player
      *
@@ -110,13 +147,15 @@ public class Player {
     }
 
     /**
-     * @param property
+     * Appends property onto controlledProperties ArrayList
+     * @param property the property param appended onto controlledProperties ArrayList
      */
     public void gainTerritory(Properties property) {
         controlledProperties.add(property);
     }
 
     /**
+     * Removes property param from
      * @param property
      */
     public void removeTerritory(Properties property) {
