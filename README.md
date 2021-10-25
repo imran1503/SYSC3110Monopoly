@@ -21,13 +21,13 @@
 - [Roadmap](#roadmap)
 
 ### Quick Start:
-To play Monopoly, run the main function in Game.java, or if running from the jar file type:
+To play Monopoly, run the main function in Game.java, or if you chose to run it from the jar file type:
 ```
-java -jar ????.jar
+java -jar Monopoly.jar
 ```
 
 ### Deliverables
-
+The deliverables for this milestone is as follows: readme file, source code in the form of a.jar file, UML diagrams, documentation. They are supposed to all in one zip file submitted on brightspace. 
 
 ### Issues
 An issue we had was trying to make a funcnction that would accuratly verify a new XML Board, such that it had the 40 spaces, and was only composed of the basic types of spaces from the base game. I.e: Properties, utilities, Railroads, Chance, Community Chest, Tax, Jail. 
@@ -130,3 +130,5 @@ List of Owned Properties:
 We decided that implementing the functionality of: Go, Jail, Railroads and utilities early would be in our best intrest. As it will save us time when implementing the harder features of the game later on.  
 
 ### Roadmap
+The next steps for this project will involve us moving from the console based interactions to a graphical user interface approach. 
+Much later in the projects life there will also be an option to add an AI player into your game. 
