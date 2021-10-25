@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class Player, Models a RISK player.
- * Each player controls a list of territories (controlledProperties)
+ * Class Player, Models a Monopoly player.
+ * Each player controls a list of Properties (controlledProperties)
  * ownsBothUtil, true if Player owns both utilities on the board in the game, else false.
  * Integer balance to store the balance a player has and can use.
  * Also owns a number train stations on the board (ownsXtrains).
