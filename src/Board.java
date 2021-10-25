@@ -6,12 +6,25 @@ import java.util.Scanner;
 
 public class Board {
 
-
     private Scanner reader;
     private BoardConstructor boardConstructor;
     private static ArrayList<Player> players;
     private ArrayList<Properties> propertiesArrayList;
     private boolean isValid;
+    /**
+     * The source of user input the board will ask for while performing actions (attack, fortify, etc.)
+     */
+    private String userInputSource;
+
+    /**
+     * Constructor for Board
+     * @param userInputSource the boardInput that the Board will ask for user input when needed
+     */
+    public Board(String userInputSource) {
+        this.propertiesArrayList = new ArrayList<>();
+        this.players = new ArrayList<>();
+        this.userInputSource = userInputSource;
+    }
 
     /**
      * Returns the user input source of the Board
@@ -25,27 +38,9 @@ public class Board {
         return propertiesArrayList;
     }
 
-    /**
-     * The source of user input the board will ask for while performing actions (attack, fortify, etc.)
-     */
-    private String userInputSource;
-
     public void setIsValid(Boolean valid){this.isValid = valid;}
 
     public void setPlayers(ArrayList<Player> playersForBoard){Board.players = playersForBoard;}
-
-
-    /**
-     * Constructor for Board
-     * @param userInputSource the boardInput that the Board will ask for user input when needed
-     */
-    public Board(String userInputSource) {
-        this.propertiesArrayList = new ArrayList<>();
-        this.players = new ArrayList<>();
-        this.userInputSource = userInputSource;
-    }
-
-
 
     /**
      * Creates a new Board using either a map or save file
