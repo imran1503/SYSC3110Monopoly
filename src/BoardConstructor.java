@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class BoardConstructor, board variable is the where the properties created will be stored in.
+ */
 public class BoardConstructor {
 
     private Board board;
@@ -46,6 +49,11 @@ public class BoardConstructor {
     }
 
 
+    /**
+     * Loads board from a file and parse it to create properties objects to store in board argument given.
+     * @param board the variable to store the created board in.
+     * @return true with board loaded successfully, else false
+     */
     public boolean loadBoardFromMapFile(Board board) {
         if (true) {
             try {

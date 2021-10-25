@@ -4,6 +4,13 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class Board, Scanner reader to store user inputs.
+ * boardConstructor to store board constructor of the board.
+ * players is List of players for the board.
+ * propertiesArrayList to store list of properties on the board.
+ * Boolean isValid to store if the board is valid or not.
+ */
 public class Board {
 
     private Scanner reader;
@@ -34,12 +41,24 @@ public class Board {
         return userInputSource;
     }
 
+    /**
+     * Getter method for ArrayList of Properties on the board
+     * @return ArrayList<Properties> properties
+     */
     public ArrayList<Properties> getPropertiesArrayList() {
         return propertiesArrayList;
     }
 
+    /**
+     * Setter method for isValid variable
+     * @param valid Boolean argument to set isValid attribute to.
+     */
     public void setIsValid(Boolean valid){this.isValid = valid;}
 
+    /**
+     * Setter method for list of players on the board
+     * @param playersForBoard ArrayList<Player> to set players on the board to.
+     */
     public void setPlayers(ArrayList<Player> playersForBoard){Board.players = playersForBoard;}
 
     /**

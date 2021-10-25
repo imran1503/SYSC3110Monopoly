@@ -1,5 +1,15 @@
 import java.awt.*;
 
+/**
+ * Class Properties. String name for name of property.
+ * Integer rent for rent to pay for the property if a non-owner player lands on it.
+ * owner variable is a Player who is the owner of the property.
+ * Integer price is the cost to purchase the property.
+ * Integer numHouses is number of houses on the property.
+ * Integer numHotels is number of hotels on the property.
+ * color is the color group of the property.
+ * Integer location is the location of the property on the board.
+ */
 public class Properties {
     private String name;
     private int rent; //To account for  houses / hotels

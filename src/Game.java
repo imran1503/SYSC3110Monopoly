@@ -5,11 +5,21 @@ import java.lang.Math;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * Class Game, int MAX_PLAYERS variable to store maxium number of players.
+ * ArrayList of Players to store all Players in the Game.
+ * ArrayList of Properties to store all properties in the Game.
+ * Hash Map with key for a color and value is a ArrayList properties that have the same color as key.
+ * currentPlayer variable to keep track of current player in the Game.
+ * reader variable to store input from users.
+ * nextRoll to store if current player will roll again (true) or not (false).
+ * board variable to store Board of the Game
+ * board Constructor to store constructor of the board.
+ */
 public class Game {
     private static int MAX_PLAYERS = 0;
     private ArrayList<Player> players;
     private ArrayList<Properties> propertiesArrayList;
-    private Enumeration gameState; //todo roll & move, purchase, house/hotel, end turn.
     private HashMap<Color, ArrayList<Properties>> colorPropertiesArrayList;
     private Player currentPlayer;
     private Scanner reader; // for taking command input
@@ -55,23 +65,22 @@ public class Game {
             }
         }
 
-        ArrayList<Player> players = new ArrayList<>();
         //Object[] options = {"Human", "AI"};
+
+        // Creates Players for the game with names based on user input.
         for(int i = 0; i < MAX_PLAYERS; i++){
             System.out.println("Enter the name of Player "+(i+1));
             String playerName = reader.nextLine();
             Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
-            players.add(newPlayer);
+            this.players.add(newPlayer);
         }
 
-        //
-
-        this.players = players;
 
         // The player who goes first is determined randomly
         int firstPlayerRandom = determineFirstPlayer();
         this.currentPlayer = players.get(firstPlayerRandom - 1); // minus 1 because players' index starts at 0
 
+        // Prints command list and creates the board with properties
         operateCommand("help");
         System.out.println();
         boardConstructor.loadBoardFromMapFile(board);
@@ -79,6 +88,7 @@ public class Game {
         board.setIsValid(true);
         this.propertiesArrayList = board.getPropertiesArrayList();
 
+        // Color List made and Properties grouped up by color into the Hash Map colorPropertiesArrayList
         ArrayList<Color> colorsList = new ArrayList<>();
         colorsList.add(new Color(255,255,255));colorsList.add(new Color(136,69,19));
         colorsList.add(new Color(135,206,250));colorsList.add(new Color(250,140,0));
@@ -95,7 +105,7 @@ public class Game {
             colorPropertiesArrayList.put(colorsList.get(i),tempPropertyList);
         }
 
-        // Tell user which player starts the game (chosen at random)
+        // Tell user which player starts the game (chosen at random) and Main Game loop below
         System.out.println("Player " + firstPlayerRandom + " was chosen at random to start the game. Begin by typing roll.");
 
         boolean gameInProgress = true;
@@ -276,7 +286,7 @@ public class Game {
 
     /**
      * Passes player's turn. Ends the current player's turn and passes it onto the next player.
-     * Changes currentPlayer variable and
+     * If next player is bankrupt, passes player's turn again.
      */
     public void passPlayerTurn(){
         int indexOfCurrentPlayer = players.indexOf(currentPlayer);
@@ -289,7 +299,9 @@ public class Game {
         if(currentPlayer.getBankruptStatus()){
             passPlayerTurn();
         }
-        System.out.println("It's Now "+currentPlayer.getName()+" turn to roll.");
+        else {
+            System.out.println("It's Now " + currentPlayer.getName() + " turn to roll.");
+        }
     }
 
     /**
