@@ -38,7 +38,7 @@ public class Game {
         this.currentPlayer = null;
         this.nextRoll = true;
         this.board = new Board("board.xml");
-        this.jail = new Jail("jail", 0, 0, ORANGE, 10);
+        this.jail = new Jail("jail", ORANGE, 10);
         this.reader = new Scanner(System.in);
         this.boardConstructor = new BoardConstructor();
         this.colorPropertiesArrayList = new HashMap<>();
