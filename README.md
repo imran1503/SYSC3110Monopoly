@@ -5,7 +5,7 @@
 - Shahrik Amin: @ShahrikAmin
 - Imran Latif: @imran1503
 - Muhammad Furqan: @mfurqan26
-
+				
 ### Table of Contents:
 - [Quick Start](#quick-start)
 - [Deliverables](#deliverables)
