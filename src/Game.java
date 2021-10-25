@@ -330,18 +330,21 @@ public class Game {
                 currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
                 currentPlayer.addToBalance(200); //Passing Go
                 System.out.println(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance());
+                playerPosition = currentPlayer.getPositon();
             } else {
                 currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);
+                playerPosition = currentPlayer.getPositon();
             }
         }
+        String propertyName = propertiesArrayList.get(playerPosition).getName();
         if(randomRoll1 == randomRoll2){
             if(!currentPlayer.getInJail()) {
                 System.out.println("You rolled a double, you can roll again.");
-                System.out.println(playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertiesArrayList.get(currentPlayer.getPositon()).getName());
+                System.out.println(playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertyName);
             }
             return true;
         }
-        System.out.println(playerName+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertiesArrayList.get(currentPlayer.getPositon()).getName());
+        System.out.println(playerName+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertyName);
         return false;
     }
 
