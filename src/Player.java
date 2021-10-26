@@ -136,7 +136,7 @@ public class Player {
      * Appends property onto controlledProperties ArrayList
      * @param property the property param appended onto controlledProperties ArrayList
      */
-    public void gainTerritory(Properties property) {
+    public void gainProperty(Properties property) {
         controlledProperties.add(property);
     }
 
@@ -144,7 +144,7 @@ public class Player {
      * Removes a given property from the controlledProperties List of the Player
      * @param property
      */
-    public void removeTerritory(Properties property) {
+    public void removeProperty(Properties property) {
         controlledProperties.remove(property);
     }
 

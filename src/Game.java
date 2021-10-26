@@ -374,7 +374,7 @@ public class Game {
         else {
             currentPlayer.removefromBalance(landedOnProperty.getPrice());
             landedOnProperty.setOwner(currentPlayer);
-            currentPlayer.gainTerritory(landedOnProperty);
+            currentPlayer.gainProperty(landedOnProperty);
             System.out.println(playerName + " purchased "+propertyName+", remaining Balance:"+currentPlayer.getBalance());
         }}}}
     }
