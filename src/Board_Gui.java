@@ -117,7 +117,7 @@ public class Board_Gui {
      *
      */
     private void createGamePanel() {
-        // westPanel contains the board's properties
+        // gamePanel contains the board's properties
         gamePanel = new JPanel(new GridLayout(8,5));
         //todo fix size so that gamePanel is always a square with same side length as
         // controlPanel's height
