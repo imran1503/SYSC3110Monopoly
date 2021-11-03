@@ -178,7 +178,7 @@ public class Board_Gui {
 
 
     /**
-     * displays GUI of the store.
+     * displays the GUI of the game.
      */
     public void displayGUI(){
         // todo set size so that the board is always a square and
