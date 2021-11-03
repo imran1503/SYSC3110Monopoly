@@ -67,7 +67,7 @@ public class Board_Gui {
     public Board_Gui() {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
         this.frame.setVisible(true);
-        this.frame.setResizable(false);
+        this.frame.setResizable(true);
         addBasePanels();
     }
 
@@ -76,7 +76,7 @@ public class Board_Gui {
      *
      */
     private void addBasePanels() {
-        // mainPanel placed on the frame. Contains gamePanel and controlPanel.
+         //mainPanel placed on the frame. Contains gamePanel and controlPanel.
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setPreferredSize(new Dimension(1200, 800));
 
@@ -87,7 +87,7 @@ public class Board_Gui {
         mainPanel.add(controlPanel, BorderLayout.EAST);
 
         frame.add(mainPanel);
-        //frame.revalidate();
+        frame.revalidate();
     }
 
     /**
@@ -105,60 +105,59 @@ public class Board_Gui {
         //todo: the code is heavily duplicated. Will fix later.
         for (int i = 0; i < 40;i++) {
 
-            int j = i;
 
 
-            if (j < 11) {
-                propertyPanels[j] = new JPanel(new BorderLayout());
+            if (i < 11) {
+                propertyPanels[i] = new JPanel(new BorderLayout());
                 // todo fix later
                 //setting a different background color for each propertyPanel to visually set them apart from each other for now
-                propertyPanels[j].setBackground(new Color(255 - (4*j), 255 - (4*j), 255 - (4*j)));
+                propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
 
                 //creating and adding an index label to each propertyPanel to see their order
-                propertyIndexLabels[j] = new JLabel();
-                propertyIndexLabels[j].setText("" + j);
-                propertyPanels[j].add(propertyIndexLabels[j]);
-                south.add(propertyPanels[j]);
-                j++;
+                propertyIndexLabels[i] = new JLabel();
+                propertyIndexLabels[i].setText("" + i);
+                propertyPanels[i].add(propertyIndexLabels[i]);
+                south.add(propertyPanels[i]);
+
             }
-            else if (j < 20) {
-                propertyPanels[j] = new JPanel(new BorderLayout());
+            else if (i < 20) {
+                propertyPanels[i] = new JPanel(new BorderLayout());
                 // todo fix later
                 //setting a different background color for each propertyPanel to visually set them apart from each other for now
-                propertyPanels[j].setBackground(new Color(255 - (4*j), 255 - (4*j), 255 - (4*j)));
+                propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
 
                 //creating and adding an index label to each propertyPanel to see their order
-                propertyIndexLabels[j] = new JLabel();
-                propertyIndexLabels[j].setText("" + j);
-                propertyPanels[j].add(propertyIndexLabels[j]);
-                west.add(propertyPanels[j]);
-                j++;
+                propertyIndexLabels[i] = new JLabel();
+                propertyIndexLabels[i].setText("" + i);
+                propertyPanels[i].add(propertyIndexLabels[i]);
+                west.add(propertyPanels[i]);
+
             }
-            else if (j < 31) {
-                propertyPanels[j] = new JPanel(new BorderLayout());
+            else if (i < 31) {
+                propertyPanels[i] = new JPanel(new BorderLayout());
                 // todo fix later
                 //setting a different background color for each propertyPanel to visually set them apart from each other for now
-                propertyPanels[j].setBackground(new Color(255 - (4*j), 255 - (4*j), 255 - (4*j)));
+                propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
 
                 //creating and adding an index label to each propertyPanel to see their order
-                propertyIndexLabels[j] = new JLabel();
-                propertyIndexLabels[j].setText("" + j);
-                propertyPanels[j].add(propertyIndexLabels[j]);
-                north.add(propertyPanels[j]);
-                j++;
+                propertyIndexLabels[i] = new JLabel();
+                propertyIndexLabels[i].setText("" + i);
+                propertyPanels[i].add(propertyIndexLabels[i]);
+                north.add(propertyPanels[i]);
+
             }
             else {
-                propertyPanels[j] = new JPanel(new BorderLayout());
+                propertyPanels[i] = new JPanel(new BorderLayout());
                 // todo fix later
                 //setting a different background color for each propertyPanel to visually set them apart from each other for now
-                propertyPanels[j].setBackground(new Color(255 - (4*j), 255 - (4*j), 255 - (4*j)));
+                propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
 
                 //creating and adding an index label to each propertyPanel to see their order
-                propertyIndexLabels[j] = new JLabel();
-                propertyIndexLabels[j].setText("" + j);
-                propertyPanels[j].add(propertyIndexLabels[j]);
-                east.add(propertyPanels[j]);
-                j++;
+                propertyIndexLabels[i] = new JLabel();
+                propertyIndexLabels[i].setText("" + i);
+                propertyPanels[i].add(propertyIndexLabels[i]);
+                east.add(propertyPanels[i]);
+
             }
 
         }
@@ -186,20 +185,21 @@ public class Board_Gui {
         center = new JPanel(new FlowLayout());
 
         north.setBackground(new Color(90,20,200));
-        north.setPreferredSize(new Dimension(800,140));
+        north.setPreferredSize(new Dimension(800,150));
         north.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
 
         east.setBackground(new Color(100,140,10));
-        east.setPreferredSize(new Dimension(140, 800));
+        east.setPreferredSize(new Dimension(150, 800));
         east.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
         west.setBackground(new Color(0,200,150));
-        west.setPreferredSize(new Dimension(140, 800));
-        //west.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        west.setPreferredSize(new Dimension(150, 800));
+        // todo: fix orientation of propertyPanels in the west panel
+        west.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
         south.setBackground(new Color(250,120,200));
-        south.setPreferredSize(new Dimension(800,140));
+        south.setPreferredSize(new Dimension(800,150));
         south.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         center.setBackground(new Color(190,250,250));
@@ -215,6 +215,7 @@ public class Board_Gui {
         gamePanel.add(center, BorderLayout.CENTER);
 
         createPropertyPanels();
+
     }
 
 
@@ -233,7 +234,7 @@ public class Board_Gui {
         controlPanel.setPreferredSize(new Dimension(300, 800));
         controlPanel.setBackground(new Color(215, 200, 131, 255));
 
-        // buttons for Roll, purchase Property, and Quit Game
+        // buttons for New Game, purchase Property, and Quit Game
         // todo add more buttons later
         newGameButton = new JButton("New Game");
         purchaseButton = new JButton("Purchase Property");
@@ -277,56 +278,5 @@ public class Board_Gui {
         frame.setSize(new Dimension(1200, 800));   //set size of the main frame
         closeFrame();
     }
-
-
-
-
-// commented out for now
-  /*  *//** creates gamePanel which contains all propertyPanels
-     *
-     *//*
-    private void createGamePanel() {
-        // gamePanel contains the board's properties
-        gamePanel = new JPanel(new GridLayout(8,5));
-        //todo fix size so that gamePanel is always a square with same side length as
-        // controlPanel's height
-        gamePanel.setSize(new Dimension(800, 800));
-        gamePanel.setBackground(new Color(255, 255, 255));
-        createPropertyPanels();
-    }*/
-
-
-
-    //todo old code that works
-/*    *//**
-     * Creates 41 propertyPanels and adds them to gamePanel.
-     *
-     *//*
-    private void createPropertyPanels() {
-        // Create 41 panels, one for each property
-        // and one for the large centre panel which does not include properties
-        this.propertyPanels = new JPanel[41];
-
-        //Create 41 JLabels, one for each propertyPanel
-        JLabel [] propertyIndexLabels = new JLabel[41];
-
-        for (int i = 0; i < 41;i++) {
-
-            propertyPanels[i] = new JPanel(new BorderLayout());
-
-            // todo fix later
-            //setting a different background color for each propertyPanel to visually set them apart from each other for now
-            propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
-
-            //creating and adding an index label to each propertyPanel to see their order
-            propertyIndexLabels[i] = new JLabel();
-            propertyIndexLabels[i].setText("" + i);
-            propertyPanels[i].add(propertyIndexLabels[i]);
-
-            //todo add propertyPanels to north, east, west, south
-            //gamePanel.add(propertyPanels[i]);
-        }
-    }*/
-
 
 }
