@@ -449,8 +449,10 @@ public class Game {
 
     public static void main(String args[]){
         Game game = new Game();
+        Board_Gui BG = new Board_Gui();
+
+        BG.displayGUI();
         game.play();
     }
-
 
 }
