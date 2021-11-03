@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Fixed minor issues in Board_Gui.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board_Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board_Gui.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +45,15 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -58,6 +67,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -89,6 +99,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1634676633434</updated>
+      <workItem from="1635932275632" duration="4007000" />
+      <workItem from="1635936345702" duration="255000" />
+      <workItem from="1635936856639" duration="7594000" />
+      <workItem from="1635953868660" duration="7837000" />
+      <workItem from="1635972153186" duration="680000" />
     </task>
     <task id="LOCAL-00001" summary="Start game cycle. Created play(), welcomeMessage(), operateCommand()">
       <created>1634681612345</created>
@@ -272,8 +287,32 @@
       <option name="project" value="LOCAL" />
       <updated>1635196220173</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added class Board_Gui and created an instance of it in Game.main to run the GUI from the main entry point.">
+      <created>1635935722167</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1635935722167</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Implemented approximate arrangement of propertyPanels in the GUI.">
+      <created>1635968369162</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1635968369162</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Fixed minor issues in Board_Gui.">
+      <created>1635970729066</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1635970729066</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -302,6 +341,9 @@
     <MESSAGE value="fixed bug for IncomeTax properties (price was 200, should be 0.) (rent was 0, should be 200)" />
     <MESSAGE value="fixed bug for roll, before was paying rent on a property already on if &quot;roll&quot; was typed while Player can not roll again." />
     <MESSAGE value="smaller improvements in num system calls." />
-    <option name="LAST_COMMIT_MESSAGE" value="smaller improvements in num system calls." />
+    <MESSAGE value="Added class Board_Gui and created an instance of it in Game.main to run the GUI from the main entry point." />
+    <MESSAGE value="Implemented approximate arrangement of propertyPanels in the GUI." />
+    <MESSAGE value="Fixed minor issues in Board_Gui." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed minor issues in Board_Gui." />
   </component>
 </project>

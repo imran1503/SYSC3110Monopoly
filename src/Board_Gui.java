@@ -78,7 +78,7 @@ public class Board_Gui {
     private void addBasePanels() {
          //mainPanel placed on the frame. Contains gamePanel and controlPanel.
         JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setPreferredSize(new Dimension(1200, 800));
+        mainPanel.setSize(new Dimension(1100, 800));
 
         createGamePanel();
         createControlPanel();
@@ -190,13 +190,13 @@ public class Board_Gui {
 
 
         east.setBackground(new Color(100,140,10));
-        east.setPreferredSize(new Dimension(150, 800));
+        east.setPreferredSize(new Dimension(150, 500));
         east.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
         west.setBackground(new Color(0,200,150));
-        west.setPreferredSize(new Dimension(150, 800));
+        west.setPreferredSize(new Dimension(150, 500));
         // todo: fix orientation of propertyPanels in the west panel
-        west.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        west.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         south.setBackground(new Color(250,120,200));
         south.setPreferredSize(new Dimension(800,150));
@@ -205,7 +205,6 @@ public class Board_Gui {
         center.setBackground(new Color(190,250,250));
         rollButton = new JButton("Roll Dice");
         center.add(rollButton);
-
 
 
         gamePanel.add(north, BorderLayout.NORTH);
@@ -275,7 +274,7 @@ public class Board_Gui {
     public void displayGUI(){
         // todo set size so that the board is always a square and
         //  arrangement of propertyPanels remain the same regardless of size
-        frame.setSize(new Dimension(1200, 800));   //set size of the main frame
+        frame.setSize(new Dimension(1100, 800));   //set size of the main frame
         closeFrame();
     }
 
