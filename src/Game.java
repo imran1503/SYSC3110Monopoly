@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
 import java.lang.Math;
-import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -138,7 +137,7 @@ public class Game {
      * @param command the command that the function will process
      * @return boolean true if game still in progress, false if not.
      */
-    private boolean operateCommand(Commands command) {
+    public boolean operateCommand(Commands command) {
         String playerName = currentPlayer.getName();
         if (command.equals(Commands.quit)) {
             System.out.println("Game has ended.");
