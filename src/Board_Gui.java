@@ -91,16 +91,16 @@ public class Board_Gui {
     }
 
     /**
-     * Creates 41 propertyPanels and adds them to gamePanel.
+     * Creates 40 propertyPanels and adds them to gamePanel.
      *
      */
     private void createPropertyPanels() {
-        // Create 41 panels, one for each property
+        // Create 40 panels, one for each property
         // and one for the large centre panel which does not include properties
-        this.propertyPanels = new JPanel[41];
+        this.propertyPanels = new JPanel[40];
 
         //Create 41 JLabels, one for each propertyPanel
-        JLabel [] propertyIndexLabels = new JLabel[41];
+        JLabel [] propertyIndexLabels = new JLabel[40];
 
         //todo: the code is heavily duplicated. Will fix later.
         for (int i = 0; i < 40;i++) {
