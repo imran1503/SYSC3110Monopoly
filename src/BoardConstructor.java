@@ -188,6 +188,22 @@ public class BoardConstructor {
                     }
                 }
 
+                // Color List made and Properties grouped up by color into the Hash Map colorPropertiesArrayList
+                ArrayList<Color> colorsList = new ArrayList<>();
+                colorsList.add(new Color(255,255,255));colorsList.add(new Color(136,69,19));
+                colorsList.add(new Color(135,206,250));colorsList.add(new Color(250,140,0));
+                colorsList.add(new Color(255,105,180));colorsList.add(new Color(255,140,0));
+                colorsList.add(new Color(255,0,0));colorsList.add(new Color(255,255,0));
+                colorsList.add(new Color(0,128,0));colorsList.add(new Color(0,0,128));
+                for(int i =0; i < colorsList.size(); i++){
+                    ArrayList<Properties> tempPropertyList = new ArrayList<>();
+                    for(int j = 0; j < board.getPropertiesArrayList().size(); j++){
+                        if(colorsList.get(i).equals(board.getProperty(j).getColor())){
+                            tempPropertyList.add(board.getProperty(j));
+                        }
+                    }
+                    board.addColorPropertySet(colorsList.get(i),tempPropertyList);
+                }
 
                 return true;
             } catch (Exception e) {

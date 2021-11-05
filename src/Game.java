@@ -18,8 +18,7 @@ import java.util.Scanner;
 public class Game {
     private static int MAX_PLAYERS = 0;
     private ArrayList<Player> players;
-    private ArrayList<Properties> propertiesArrayList;
-    private HashMap<Color, ArrayList<Properties>> colorPropertiesArrayList;
+
     private Player currentPlayer;
     private Scanner reader; // for taking command input
     private Boolean nextRoll;
@@ -33,14 +32,12 @@ public class Game {
      */
     public Game( ){
         this.players = new ArrayList<Player>();
-        this.propertiesArrayList = new ArrayList<Properties>();
         this.currentPlayer = null;
         this.nextRoll = true;
         this.board = new Board("board.xml");
         this.jail = new Jail("jail", ORANGE, 10);
         this.reader = new Scanner(System.in);
         this.boardConstructor = new BoardConstructor();
-        this.colorPropertiesArrayList = new HashMap<>();
     }
 
     /**
@@ -85,24 +82,7 @@ public class Game {
         boardConstructor.loadBoardFromMapFile(board);
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
-        this.propertiesArrayList = board.getPropertiesArrayList();
 
-        // Color List made and Properties grouped up by color into the Hash Map colorPropertiesArrayList
-        ArrayList<Color> colorsList = new ArrayList<>();
-        colorsList.add(new Color(255,255,255));colorsList.add(new Color(136,69,19));
-        colorsList.add(new Color(135,206,250));colorsList.add(new Color(250,140,0));
-        colorsList.add(new Color(255,105,180));colorsList.add(new Color(255,140,0));
-        colorsList.add(new Color(255,0,0));colorsList.add(new Color(255,255,0));
-        colorsList.add(new Color(0,128,0));colorsList.add(new Color(0,0,128));
-        for(int i =0; i < colorsList.size(); i++){
-            ArrayList<Properties> tempPropertyList = new ArrayList<>();
-            for(int j = 0; j < propertiesArrayList.size(); j++){
-                if(colorsList.get(i).equals(propertiesArrayList.get(j).getColor())){
-                    tempPropertyList.add(propertiesArrayList.get(j));
-                }
-            }
-            colorPropertiesArrayList.put(colorsList.get(i),tempPropertyList);
-        }
 
         // Tell user which player starts the game (chosen at random) and Main Game loop below
         System.out.println("Player " + firstPlayerRandom + " was chosen at random to start the game. Begin by typing roll.");
@@ -171,7 +151,7 @@ public class Game {
         if (command.equals("roll")) {
             if(nextRoll && (currentPlayer.getInJail() == false)) {
                 nextRoll = roll();
-                Properties propertyOn = propertiesArrayList.get(currentPlayer.getPositon());
+                Properties propertyOn = board.getProperty(currentPlayer.getPositon());
                 if (!propertyOn.getOwner().equals(currentPlayer)) {
                     propertyOn.payRent(currentPlayer);
                 }
@@ -206,14 +186,14 @@ public class Game {
             String propertyName = reader.nextLine();
             Boolean propertyExists = false;
             int propertyIndex = -1;
-            for (int i = 0; i < propertiesArrayList.size(); i++) {
-                if (propertiesArrayList.get(i).getName().equals(propertyName)) {
+            for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
+                if (board.getProperty(i).getName().equals(propertyName)) {
                     propertyExists = true;
                     propertyIndex = i;
                 }
             }
             if (propertyExists) {
-                purchaseHouseOrHotel(propertiesArrayList.get(propertyIndex));
+                purchaseHouseOrHotel(board.getProperty(propertyIndex));
             } else {
                 System.out.println("Property: " + propertyName + ", Does not exists");
             }
@@ -269,7 +249,7 @@ public class Game {
     public void printCurrentState(){
         for(int i=0; i<players.size();i++){
             Player player = players.get(i);
-            System.out.println("******\n"+player.getName() + " position is currently at "+propertiesArrayList.get(player.getPositon()).getName());
+            System.out.println("******\n"+player.getName() + " position is currently at "+board.getProperty(player.getPositon()).getName());
             System.out.println("Balance is "+ player.getBalance());
             System.out.println("Bankrupt Status = "+player.getBankruptStatus());
             System.out.println("In Jail Status = "+player.getInJail());
@@ -302,11 +282,6 @@ public class Game {
         }
     }
 
-    /**
-     * Appends property variable of object Properties to propertiesArrayList.
-     * @param property param that is appended to propertiesArraylist
-     */
-    public void addProperty(Properties property){propertiesArrayList.add(property);}
 
     /**
      * Rolls 2 dices with integer values between 1 and 6.
@@ -338,7 +313,7 @@ public class Game {
                 playerPosition = (randomRoll1 + randomRoll2 + playerPosition);
             }
         }
-        String propertyName = propertiesArrayList.get(playerPosition).getName();
+        String propertyName = board.getProperty(playerPosition).getName();
         if(randomRoll1 == randomRoll2){
             if(!jailStatus) {
                 System.out.println("You rolled a double, you can roll again.");
@@ -356,7 +331,7 @@ public class Game {
      */
     public void purchaseProperty(){
         int playerPosition = currentPlayer.getPositon();
-        Properties landedOnProperty = propertiesArrayList.get(playerPosition);
+        Properties landedOnProperty = board.getProperty(playerPosition);
         String propertyName = landedOnProperty.getName();
         String playerName = currentPlayer.getName();
         if(landedOnProperty.getPrice() == 0){
@@ -390,9 +365,9 @@ public class Game {
         Color colorOfProperty = property.getColor();
         String propertyName = property.getName();
         String playerName = currentPlayer.getName();
-        int sizeOfColorSet = colorPropertiesArrayList.get(colorOfProperty).size();
+        int sizeOfColorSet = board.getColorPropertiesArrayList().get(colorOfProperty).size();
         for(int i = 0; i < sizeOfColorSet; i++){
-            Properties propertySameColor = colorPropertiesArrayList.get(colorOfProperty).get(i);
+            Properties propertySameColor = board.getColorPropertiesArrayList().get(colorOfProperty).get(i);
             if(!propertySameColor.getOwner().equals(currentPlayer)){
                 owningColorSet = false;
             }
@@ -403,8 +378,8 @@ public class Game {
         if(!owningColorSet){
             System.out.println(playerName+" does NOT own the color set of this property, Missing Properties: ");
             for(int i =0; i<sizeOfColorSet;i++){
-                if(!colorPropertiesArrayList.get(colorOfProperty).get(i).equals(property)){
-                    System.out.println("- "+colorPropertiesArrayList.get(colorOfProperty).get(i).getName());
+                if(!board.getColorPropertiesArrayList().get(colorOfProperty).get(i).equals(property)){
+                    System.out.println("- "+board.getColorPropertiesArrayList().get(colorOfProperty).get(i).getName());
                 }
             }
         }

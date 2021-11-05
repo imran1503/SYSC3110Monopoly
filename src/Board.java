@@ -2,6 +2,7 @@
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -17,6 +18,7 @@ public class Board {
     private BoardConstructor boardConstructor;
     private static ArrayList<Player> players;
     private ArrayList<Properties> propertiesArrayList;
+    private HashMap<Color, ArrayList<Properties>> colorPropertiesArrayList;
     private boolean isValid;
     /**
      * The source of user input the board will ask for while performing actions (attack, fortify, etc.)
@@ -34,6 +36,21 @@ public class Board {
     }
 
     /**
+     * Add a Color set Property list to the board
+     * @param color Color of color set
+     * @param properties Property list to add
+     */
+    public void addColorPropertySet(Color color, ArrayList<Properties> properties){
+        colorPropertiesArrayList.put(color,properties);
+    }
+
+    /**
+     * Getter method for color properties arraylist
+     * @return HashMap<Color, ArrayList<Properties>
+     */
+    public HashMap<Color,ArrayList<Properties>> getColorPropertiesArrayList(){return colorPropertiesArrayList;}
+
+    /**
      * Returns the user input source of the Board
      * @return The user input source of the Board
      */
@@ -48,6 +65,13 @@ public class Board {
     public ArrayList<Properties> getPropertiesArrayList() {
         return propertiesArrayList;
     }
+
+    /**
+     * Returns a Property on a specific position from the Board
+     * @param position Integer location of property interested in
+     * @return Property on specific positon
+     */
+    public Properties getProperty(int position){ return propertiesArrayList.get(position); }
 
     /**
      * Setter method for isValid variable

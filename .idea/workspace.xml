@@ -19,9 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Changed dimensions of gamePanel to give it a square shape.">
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board_Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board_Gui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
