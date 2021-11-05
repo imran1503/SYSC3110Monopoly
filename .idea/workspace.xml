@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635972888867</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Refactored code to use List of Properties and color List of properties from board.java instead of in game.java">
+      <created>1636136947842</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1636136947842</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +362,7 @@
     <MESSAGE value="Added class Board_Gui and created an instance of it in Game.main to run the GUI from the main entry point." />
     <MESSAGE value="Implemented approximate arrangement of propertyPanels in the GUI." />
     <MESSAGE value="Fixed minor issues in Board_Gui." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed minor issues in Board_Gui." />
+    <MESSAGE value="Refactored code to use List of Properties and color List of properties from board.java instead of in game.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored code to use List of Properties and color List of properties from board.java instead of in game.java" />
   </component>
 </project>

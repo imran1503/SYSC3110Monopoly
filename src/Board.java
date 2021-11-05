@@ -33,6 +33,7 @@ public class Board {
         this.propertiesArrayList = new ArrayList<>();
         this.players = new ArrayList<>();
         this.userInputSource = userInputSource;
+        this.colorPropertiesArrayList = new HashMap<>();
     }
 
     /**
