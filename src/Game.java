@@ -22,6 +22,7 @@ public class Game {
     private Boolean nextRoll;
     private Board board;
     private BoardConstructor boardConstructor;
+    public enum Commands {quit, roll, passTurn, help, purchaseProperty, purchaseHouse, purchaseHotel}
 
     /**
      * Constructor for Game
@@ -72,7 +73,7 @@ public class Game {
         this.currentPlayer = players.get(firstPlayerRandom - 1); // minus 1 because players' index starts at 0
 
         // Prints command list and creates the board with properties
-        operateCommand("help");
+        operateCommand(Commands.help);
         System.out.println();
         boardConstructor.loadBoardFromMapFile(board);
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");
@@ -85,7 +86,7 @@ public class Game {
         boolean gameInProgress = true;
         while (gameInProgress) {
             String command = reader.nextLine();
-            gameInProgress = operateCommand(command);
+            gameInProgress = operateCommand(Commands.valueOf(command));
             if(gameInProgress) {
                 gameInProgress = checkNumOfActivePlayers();
 
@@ -137,13 +138,13 @@ public class Game {
      * @param command the command that the function will process
      * @return boolean true if game still in progress, false if not.
      */
-    private boolean operateCommand(String command) {
+    private boolean operateCommand(Commands command) {
         String playerName = currentPlayer.getName();
-        if (command.equals("quit")) {
+        if (command.equals(Commands.quit)) {
             System.out.println("Game has ended.");
             return false;
         }
-        if (command.equals("roll")) {
+        if (command.equals(Commands.roll)) {
             if(nextRoll && (currentPlayer.getInJail() == false)) {
                 nextRoll = roll();
                 Properties propertyOn = board.getProperty(currentPlayer.getPositon());
@@ -173,10 +174,10 @@ public class Game {
                 }
             }
         }
-        else if (command.equals("purchase property")) {
+        else if (command.equals(Commands.purchaseProperty)) {
             purchaseProperty();
         }
-        else if (command.equals("purchase house") || command.equals("purchase hotel")) {
+        else if (command.equals(Commands.purchaseHouse) || command.equals(Commands.purchaseHotel)) {
             System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
             String propertyName = reader.nextLine();
             Boolean propertyExists = false;
@@ -193,7 +194,7 @@ public class Game {
                 System.out.println("Property: " + propertyName + ", Does not exists");
             }
         }
-        else if (command.equals("pass turn")) {
+        else if (command.equals(Commands.passTurn)) {
 
             if (nextRoll == true) {
                 System.out.println(playerName + " needs to roll again before passing turn. Rolled a double previously.");
@@ -202,10 +203,7 @@ public class Game {
                 nextRoll = true;
             }
         }
-        else if (command.equals("check game state")) {
-            printCurrentState();
-        }
-        else if (command.equals("help")) {
+        else if (command.equals(Commands.help)) {
             System.out.println("All commands are below with brief explanation:");
             System.out.println("'quit' - Ends the game immediately");
             System.out.println("'roll' - Rolls a number die for current player");

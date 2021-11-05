@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +68,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab6" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -335,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636137521854</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Renamed magic numbers in roll() with meaningfull variable names in game.java">
+      <created>1636138269409</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1636138269410</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,6 +378,7 @@
     <MESSAGE value="Implemented approximate arrangement of propertyPanels in the GUI." />
     <MESSAGE value="Fixed minor issues in Board_Gui." />
     <MESSAGE value="Refactored code to use List of Properties and color List of properties from board.java instead of in game.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored code to use List of Properties and color List of properties from board.java instead of in game.java" />
+    <MESSAGE value="Renamed magic numbers in roll() with meaningfull variable names in game.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed magic numbers in roll() with meaningfull variable names in game.java" />
   </component>
 </project>
