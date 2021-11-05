@@ -6,7 +6,7 @@ import java.util.concurrent.Flow;
 
 
 /**
- * class Board_View models the graphical user interface for the board game Monopoly.
+ * class Board_Gui implements the graphical user interface for the board game Monopoly.
  *
  * @author Mahtab Ameli
  * @version 1.0
@@ -19,7 +19,7 @@ public class Board_Gui {
     private final JFrame frame;
 
     /**
-     * an array of JPanels, one for each Property.
+     * an array of JPanels, one for each Property (40 in total).
      */
     private JPanel [] propertyPanels;
 
@@ -105,8 +105,7 @@ public class Board_Gui {
         //todo: the code is heavily duplicated. Will fix later.
         for (int i = 0; i < 40;i++) {
 
-
-
+            // Properties 0 to 10 are added to the south panel
             if (i < 11) {
                 propertyPanels[i] = new JPanel(new BorderLayout());
                 // todo fix later
@@ -120,6 +119,7 @@ public class Board_Gui {
                 south.add(propertyPanels[i]);
 
             }
+            // Properties 11 to 19 are added to the west panel.
             else if (i < 20) {
                 propertyPanels[i] = new JPanel(new BorderLayout());
                 // todo fix later
@@ -133,6 +133,7 @@ public class Board_Gui {
                 west.add(propertyPanels[i]);
 
             }
+            // Properties 20 to 30 are added to the north panel.
             else if (i < 31) {
                 propertyPanels[i] = new JPanel(new BorderLayout());
                 // todo fix later
@@ -146,6 +147,7 @@ public class Board_Gui {
                 north.add(propertyPanels[i]);
 
             }
+            // Properties 31 to 39 are added to the east panel.
             else {
                 propertyPanels[i] = new JPanel(new BorderLayout());
                 // todo fix later
@@ -216,7 +218,6 @@ public class Board_Gui {
         createPropertyPanels();
 
     }
-
 
 
     /** creates controlPanel, which contains all controls and buttons

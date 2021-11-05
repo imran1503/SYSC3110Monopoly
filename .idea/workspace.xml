@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Fixed minor issues in Board_Gui.">
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Changed dimensions of gamePanel to give it a square shape.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board_Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board_Gui.java" afterDir="false" />
     </list>
@@ -103,7 +103,12 @@
       <workItem from="1635936345702" duration="255000" />
       <workItem from="1635936856639" duration="7594000" />
       <workItem from="1635953868660" duration="7837000" />
-      <workItem from="1635972153186" duration="680000" />
+      <workItem from="1635972153186" duration="967000" />
+      <workItem from="1636059631428" duration="1770000" />
+      <workItem from="1636081035022" duration="77000" />
+      <workItem from="1636081619851" duration="176000" />
+      <workItem from="1636081840733" duration="10000" />
+      <workItem from="1636111691079" duration="331000" />
     </task>
     <task id="LOCAL-00001" summary="Start game cycle. Created play(), welcomeMessage(), operateCommand()">
       <created>1634681612345</created>
@@ -308,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635970729066</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Fixed minor issues in Board_Gui.">
+      <created>1635972888867</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1635972888867</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
