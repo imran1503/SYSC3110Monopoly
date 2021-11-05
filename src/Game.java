@@ -449,7 +449,7 @@ public class Game {
 
     public static void main(String args[]){
         //Game game = new Game();
-        Board_Gui BG = new Board_Gui();
+        BoardView BG = new BoardView();
 
         BG.displayGUI();
         //game.play();

@@ -6,15 +6,15 @@ import java.util.concurrent.Flow;
 
 
 /**
- * class Board_Gui implements the graphical user interface for the board game Monopoly.
+ * class BoardView implements the graphical user interface's view for the board game Monopoly.
  *
  * @author Mahtab Ameli
  * @version 1.0
  */
-public class Board_Gui {
+public class BoardView {
 
     /**
-     * main frame for the GUI.
+     * main frame for the GUI's View.
      */
     private final JFrame frame;
 
@@ -64,7 +64,7 @@ public class Board_Gui {
      * constructor for the class.
      *
      */
-    public Board_Gui() {
+    public BoardView() {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
         this.frame.setVisible(true);
         this.frame.setResizable(true);
@@ -159,7 +159,6 @@ public class Board_Gui {
                 propertyIndexLabels[i].setText("" + i);
                 propertyPanels[i].add(propertyIndexLabels[i]);
                 east.add(propertyPanels[i]);
-
             }
 
         }
