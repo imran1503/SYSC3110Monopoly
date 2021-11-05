@@ -7,8 +7,6 @@ import java.util.Scanner;
 /**
  * Class Game, int MAX_PLAYERS variable to store maxium number of players.
  * ArrayList of Players to store all Players in the Game.
- * ArrayList of Properties to store all properties in the Game.
- * Hash Map with key for a color and value is a ArrayList properties that have the same color as key.
  * currentPlayer variable to keep track of current player in the Game.
  * reader variable to store input from users.
  * nextRoll to store if current player will roll again (true) or not (false).
@@ -22,8 +20,6 @@ public class Game {
     private Player currentPlayer;
     private Scanner reader; // for taking command input
     private Boolean nextRoll;
-    private Jail jail;
-    private final Color ORANGE = new Color(255,69,0);
     private Board board;
     private BoardConstructor boardConstructor;
 
@@ -35,7 +31,6 @@ public class Game {
         this.currentPlayer = null;
         this.nextRoll = true;
         this.board = new Board("board.xml");
-        this.jail = new Jail("jail", ORANGE, 10);
         this.reader = new Scanner(System.in);
         this.boardConstructor = new BoardConstructor();
     }
@@ -291,21 +286,27 @@ public class Game {
      */
     public boolean roll(){
         int totalNumOfSpaces = 40;
-        int randomRoll1 = ((int)((Math.random()*60)%6) + 1);
-        int randomRoll2 = ((int)((Math.random()*77)%6) + 1);
+        int numberOfSidesOnDice = 6;
+        int goToJailPosition = 30;
+        int jailPosition = 10;
+        int passingGoAmount = 200;
+
+        int randomRoll1 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1); // +1 to get range from 1 to 6.
+        int randomRoll2 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1);
         int playerPosition = currentPlayer.getPositon();
         String playerName = currentPlayer.getName();
+
         Boolean jailStatus = currentPlayer.getInJail();
-        if(((playerPosition + randomRoll1 + randomRoll2) == 30)&&!jailStatus){
-            currentPlayer.setInJail(true); //Postion for Go to Jail on Board is 30 and Jail is 10.
+        if(((playerPosition + randomRoll1 + randomRoll2) == goToJailPosition)&&!jailStatus){ // If player lands on Go to Jail
+            currentPlayer.setInJail(true);
             jailStatus = true;
-            currentPlayer.setPosition(10);
+            currentPlayer.setPosition(jailPosition);
             System.out.println(playerName+" has been set to Jail, roll a double to get out of Jail next turn.");
         }
         if(!jailStatus) {
-            if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) {
+            if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) { // if player passes Go
                 currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
-                currentPlayer.addToBalance(200); //Passing Go
+                currentPlayer.addToBalance(passingGoAmount);
                 System.out.println(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance());
                 playerPosition = ((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
             } else {

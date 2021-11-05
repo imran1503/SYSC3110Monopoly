@@ -11,10 +11,11 @@ import java.util.Scanner;
  * players is List of players for the board.
  * propertiesArrayList to store list of properties on the board.
  * Boolean isValid to store if the board is valid or not.
+ * Hash Map with key for a color and value is a ArrayList properties that have the same color as key.
  */
 public class Board {
 
-    private Scanner reader;
+    private static Scanner  reader;
     private BoardConstructor boardConstructor;
     private static ArrayList<Player> players;
     private ArrayList<Properties> propertiesArrayList;
@@ -104,8 +105,8 @@ public class Board {
         String filename = "Board.xml";
         //userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);
 
-        /**
-         * if(gameIsNew){
+
+         if(gameIsNew){
             int MIN_PLAYERS = 2;
             int MAX_PLAYERS = 0;
             System.out.println("Enter the total number of Players playing");
@@ -122,14 +123,14 @@ public class Board {
             }
             board.players = players;
 
-            board.isValid = boardConstructor.loadBoardFromMapFile(filename, board)
-                            && boardConstructor.validateXMLSchema("board.xsd", "board.xml");
+            //board.isValid = boardConstructor.loadBoardFromMapFile(filename, board)
+            //                && boardConstructor.validateXMLSchema("board.xsd", "board.xml");
 
         }
         else{
             board.players = new ArrayList<>();
         }
-             */
+
 
         return board;
     }
