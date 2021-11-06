@@ -170,7 +170,9 @@ public class BoardView {
 
         //todo fix size so that gamePanel is always a square with same side length as
         // controlPanel's height
-        gamePanel.setPreferredSize(new Dimension(800, 800));
+        Dimension size = Toolkit. getDefaultToolkit(). getScreenSize();
+        size.width = (int) (size.width *0.84);
+        gamePanel.setPreferredSize(size);
         gamePanel.setBackground(new Color(255, 255, 255));
 
         //gamePanel is made of 5  other panels: north, east, west, south, center
@@ -265,7 +267,8 @@ public class BoardView {
      * displays the GUI of the game.
      */
     public void displayGUI(){
-        frame.setSize(new Dimension(1100, 800));
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setSize(size);
         closeFrame();
     }
 
