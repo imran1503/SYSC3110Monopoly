@@ -115,14 +115,7 @@ public class BoardView {
         propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
         //creating and adding an index label to each propertyPanel to see their order
         propertyIndexLabels[i] = new JLabel();
-        try {
-
-           System.out.println(game.getBoard().getPropertiesArrayList().get(i).getName() + " " + i);
-        }
-        catch(IndexOutOfBoundsException e){
-            System.out.println("Nope. " + (i));
-        }
-        propertyIndexLabels[i].setText("" + i);
+        propertyIndexLabels[i].setText(game.getBoard().getPropertiesArrayList().get(i).getName());
         propertyPanels[i].add(propertyIndexLabels[i]);
         direction.add(propertyPanels[i]);
         /**
