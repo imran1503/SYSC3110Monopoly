@@ -97,7 +97,7 @@ public class BoardView {
         createControlPanel();
 
         mainPanel.add(gamePanel, BorderLayout.WEST);
-        mainPanel.add(controlPanel, BorderLayout.EAST);
+        //mainPanel.add(controlPanel, BorderLayout.EAST);
 
         frame.add(mainPanel);
         frame.revalidate();
@@ -112,19 +112,12 @@ public class BoardView {
     private void createPropertyPanelHelper(JPanel direction, int i, JLabel [] propertyIndexLabels){
         propertyPanels[i] = new JPanel(new BorderLayout());
         //setting a different background color for each propertyPanel to visually set them apart from each other for now
-        propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
+        propertyPanels[i].setBackground(game.getBoard().getProperty(i).getColor());
         //creating and adding an index label to each propertyPanel to see their order
         propertyIndexLabels[i] = new JLabel();
         propertyIndexLabels[i].setText(game.getBoard().getPropertiesArrayList().get(i).getName());
         propertyPanels[i].add(propertyIndexLabels[i]);
         direction.add(propertyPanels[i]);
-        /**
-        if( (i == 0) || i==10 || i == 20 || i == 30 ){
-            propertyIndexLabels[i].setSize(50, 50);
-            System.out.println(propertyIndexLabels[i].size());
-
-        }
-         **/
     }
 
 
@@ -149,7 +142,7 @@ public class BoardView {
             }
             // Properties 11 to 19 are added to the west panel.
             else if (i < 20) {
-                createPropertyPanelHelper(west, i, propertyIndexLabels);
+                createPropertyPanelHelper(west, 30 - i, propertyIndexLabels);
             }
             // Properties 20 to 30 are added to the north panel.
             else if (i < 31) {
@@ -171,7 +164,6 @@ public class BoardView {
         //todo fix size so that gamePanel is always a square with same side length as
         // controlPanel's height
         Dimension size = Toolkit. getDefaultToolkit(). getScreenSize();
-        size.width = (int) (size.width *0.84);
         gamePanel.setPreferredSize(size);
         gamePanel.setBackground(new Color(255, 255, 255));
 
@@ -199,10 +191,24 @@ public class BoardView {
         south.setPreferredSize(new Dimension(800,150));
         south.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
+        // todo add more buttons later
+        newGameButton = new JButton("New Game");
+        purchaseButton = new JButton("Purchase Property");
+        quitButton = new JButton("Quit Game");
+        passButton = new JButton("Pass turn");
+        helpButton = new JButton("Help");
+
+        //todo handle buttons later
+
         center.setBackground(new Color(190,250,250));
         // Roll Dice button appears in center of the board
         rollButton = new JButton("Roll Dice");
         center.add(rollButton);
+        center.add(newGameButton);
+        center.add(purchaseButton);
+        center.add(quitButton);
+        center.add(passButton);
+        center.add(helpButton);
 
         gamePanel.add(north, BorderLayout.NORTH);
         gamePanel.add(east, BorderLayout.EAST);
