@@ -116,6 +116,8 @@ public class BoardView {
         //creating and adding an index label to each propertyPanel to see their order
         propertyIndexLabels[i] = new JLabel();
         propertyIndexLabels[i].setText(game.getBoard().getPropertiesArrayList().get(i).getName());
+        propertyIndexLabels[i].setHorizontalAlignment(SwingConstants.CENTER);
+        propertyIndexLabels[i].setVerticalAlignment(SwingConstants.CENTER);
         propertyPanels[i].add(propertyIndexLabels[i]);
         direction.add(propertyPanels[i]);
     }

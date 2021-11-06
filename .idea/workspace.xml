@@ -341,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636138269410</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Fixed left side inverted Property names, moved buttons to middle.">
+      <created>1636235287654</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1636235287654</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,6 +386,7 @@
     <MESSAGE value="Fixed minor issues in Board_Gui." />
     <MESSAGE value="Refactored code to use List of Properties and color List of properties from board.java instead of in game.java" />
     <MESSAGE value="Renamed magic numbers in roll() with meaningfull variable names in game.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed magic numbers in roll() with meaningfull variable names in game.java" />
+    <MESSAGE value="Fixed left side inverted Property names, moved buttons to middle." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed left side inverted Property names, moved buttons to middle." />
   </component>
 </project>
