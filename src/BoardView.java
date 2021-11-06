@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 public class BoardView {
 
+    private Game game;
+
     /**
      * main frame for the GUI's View.
      */
@@ -42,6 +44,10 @@ public class BoardView {
      * user can press this button to purchase a property if applicable.
      */
     private JButton purchaseButton;
+    /**
+     * USer can press this button to see the rules and user guide.
+     */
+    private JButton helpButton;
 
     /**
      * user can press this button to start a new game.
@@ -68,10 +74,13 @@ public class BoardView {
      * constructor for the class.
      *
      */
-    public BoardView() {
+    public BoardView(Game game) {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
         this.frame.setVisible(true);
         this.frame.setResizable(true);
+        this.game = new Game();
+
+
         addBasePanels();
     }
 
@@ -106,9 +115,23 @@ public class BoardView {
         propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
         //creating and adding an index label to each propertyPanel to see their order
         propertyIndexLabels[i] = new JLabel();
+        try {
+
+           System.out.println(game.getBoard().getPropertiesArrayList().get(i).getName() + " " + i);
+        }
+        catch(IndexOutOfBoundsException e){
+            System.out.println("Nope. " + (i));
+        }
         propertyIndexLabels[i].setText("" + i);
         propertyPanels[i].add(propertyIndexLabels[i]);
         direction.add(propertyPanels[i]);
+        /**
+        if( (i == 0) || i==10 || i == 20 || i == 30 ){
+            propertyIndexLabels[i].setSize(50, 50);
+            System.out.println(propertyIndexLabels[i].size());
+
+        }
+         **/
     }
 
 
@@ -126,7 +149,6 @@ public class BoardView {
         //Create 40 JLabels, one for each propertyPanel
         JLabel [] propertyIndexLabels = new JLabel[40];
 
-        //todo: the code is heavily duplicated. Will fix later.
         for (int i = 0; i < 40; i++) {
             // Properties 0 to 10 are added to the south panel
             if (i < 11) {
@@ -215,12 +237,14 @@ public class BoardView {
         purchaseButton = new JButton("Purchase Property");
         quitButton = new JButton("Quit Game");
         passButton = new JButton("Pass turn");
+        helpButton = new JButton("Help");
 
         //todo handle buttons later
         controlPanel.add(newGameButton);
         controlPanel.add(purchaseButton);
         controlPanel.add(quitButton);
         controlPanel.add(passButton);
+        controlPanel.add(helpButton);
     }
 
 
@@ -251,5 +275,8 @@ public class BoardView {
         frame.setSize(new Dimension(1100, 800));
         closeFrame();
     }
+
+
+
 
 }

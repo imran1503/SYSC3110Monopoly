@@ -33,64 +33,18 @@ public class Game {
         this.board = new Board("board.xml");
         this.reader = new Scanner(System.in);
         this.boardConstructor = new BoardConstructor();
-    }
-
-    /**
-     * play start while loops until game is not in progress.
-     */
-    public void play() {
-        welcomeMessage();
-
-        Boolean isInt = false;
-        while(!isInt){
-            System.out.println("Enter the total number of Players playing");
-            isInt = isInteger(reader.nextLine());
-            if(isInt){
-                if((MAX_PLAYERS > 8)||(MAX_PLAYERS < 2)){
-                    System.out.println("Total number entered is greater than 8 or less than 2, enter a new number less than 8 and more than 2");
-                    isInt = false;
-                }
-            }
-            else{
-                System.out.println("Enter an integer number like '4' , not a word.");
-            }
-        }
-
-        //Object[] options = {"Human", "AI"};
-
-        // Creates Players for the game with names based on user input.
-        for(int i = 0; i < MAX_PLAYERS; i++){
-            System.out.println("Enter the name of Player "+(i+1));
-            String playerName = reader.nextLine();
-            Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
-            this.players.add(newPlayer);
-        }
-
-
-        // The player who goes first is determined randomly
-        int firstPlayerRandom = determineFirstPlayer();
-        this.currentPlayer = players.get(firstPlayerRandom - 1); // minus 1 because players' index starts at 0
-
-        // Prints command list and creates the board with properties
-        operateCommand(Commands.help);
-        System.out.println();
+        //creates the board
         boardConstructor.loadBoardFromMapFile(board);
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
+    }
 
 
-        // Tell user which player starts the game (chosen at random) and Main Game loop below
-        System.out.println("Player " + firstPlayerRandom + " was chosen at random to start the game. Begin by typing roll.");
-
-        boolean gameInProgress = true;
-        while (gameInProgress) {
-            String command = reader.nextLine();
-            gameInProgress = operateCommand(Commands.valueOf(command));
-            if(gameInProgress) {
-                gameInProgress = checkNumOfActivePlayers();
-
-            }
-        }
+    public BoardConstructor getBoardConstructor() {
+        return boardConstructor;
+    }
+    public Board getBoard() {
+        return board;
     }
 
     /**
@@ -421,8 +375,8 @@ public class Game {
     }
 
     public static void main(String args[]){
-        //Game game = new Game();
-        BoardView BG = new BoardView();
+        Game game = new Game();
+        BoardView BG = new BoardView( game);
 
         BG.displayGUI();
         //game.play();
