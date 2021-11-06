@@ -2,11 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 /**
  * class BoardView implements the graphical user interface's view for the board game Monopoly.
  *
- * @author Mahtab Ameli
+ * @author Mahtab Ameli, Imran Latif
  * @version 1.0
  */
 public class BoardView {
@@ -53,6 +54,11 @@ public class BoardView {
     private JButton quitButton;
 
     /**
+     * user can press this button to pass the turn to the next player.
+     */
+    private JButton passButton;
+
+    /**
      * Panels within the gamePanel.
      */
     private JPanel north, east, west, south, center;
@@ -89,10 +95,31 @@ public class BoardView {
     }
 
     /**
+     * This helper funtion is used to create all the labels and properties on the grid.
+     * @param direction The edge of the board we are creating labels on.
+     * @param i Which property i we are adding.
+     * @param propertyIndexLabels The list we are adding the labels to.
+     */
+    private void createPropertyPanelHelper(JPanel direction, int i, JLabel [] propertyIndexLabels){
+        propertyPanels[i] = new JPanel(new BorderLayout());
+        //setting a different background color for each propertyPanel to visually set them apart from each other for now
+        propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
+        //creating and adding an index label to each propertyPanel to see their order
+        propertyIndexLabels[i] = new JLabel();
+        propertyIndexLabels[i].setText("" + i);
+        propertyPanels[i].add(propertyIndexLabels[i]);
+        direction.add(propertyPanels[i]);
+    }
+
+
+    /**
      * Creates 40 propertyPanels and adds them to gamePanel.
      *
      */
     private void createPropertyPanels() {
+
+
+
         // Create 40 panels, one for each property
         this.propertyPanels = new JPanel[40];
 
@@ -103,44 +130,19 @@ public class BoardView {
         for (int i = 0; i < 40; i++) {
             // Properties 0 to 10 are added to the south panel
             if (i < 11) {
-                propertyPanels[i] = new JPanel(new BorderLayout());
-                //setting a different background color for each propertyPanel to visually set them apart from each other for now
-                propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
-                //creating and adding an index label to each propertyPanel to see their order
-                propertyIndexLabels[i] = new JLabel();
-                propertyIndexLabels[i].setText("" + i);
-                propertyPanels[i].add(propertyIndexLabels[i]);
-                south.add(propertyPanels[i]);
+                createPropertyPanelHelper(south, i, propertyIndexLabels);
             }
             // Properties 11 to 19 are added to the west panel.
             else if (i < 20) {
-                propertyPanels[i] = new JPanel(new BorderLayout());
-                //setting a different background color for each propertyPanel to visually set them apart from each other for now
-                propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
-                propertyIndexLabels[i] = new JLabel();
-                propertyIndexLabels[i].setText("" + i);
-                propertyPanels[i].add(propertyIndexLabels[i]);
-                west.add(propertyPanels[i]);
+                createPropertyPanelHelper(west, i, propertyIndexLabels);
             }
             // Properties 20 to 30 are added to the north panel.
             else if (i < 31) {
-                propertyPanels[i] = new JPanel(new BorderLayout());
-                //setting a different background color for each propertyPanel to visually set them apart from each other for now
-                propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
-                propertyIndexLabels[i] = new JLabel();
-                propertyIndexLabels[i].setText("" + i);
-                propertyPanels[i].add(propertyIndexLabels[i]);
-                north.add(propertyPanels[i]);
+                createPropertyPanelHelper(north, i, propertyIndexLabels);
             }
             // Properties 31 to 39 are added to the east panel.
             else {
-                propertyPanels[i] = new JPanel(new BorderLayout());
-                //setting a different background color for each propertyPanel to visually set them apart from each other for now
-                propertyPanels[i].setBackground(new Color(255 - (4*i), 255 - (4*i), 255 - (4*i)));
-                propertyIndexLabels[i] = new JLabel();
-                propertyIndexLabels[i].setText("" + i);
-                propertyPanels[i].add(propertyIndexLabels[i]);
-                east.add(propertyPanels[i]);
+                createPropertyPanelHelper(east, i,propertyIndexLabels);
             }
         }
     }
@@ -212,11 +214,13 @@ public class BoardView {
         newGameButton = new JButton("New Game");
         purchaseButton = new JButton("Purchase Property");
         quitButton = new JButton("Quit Game");
+        passButton = new JButton("Pass turn");
 
         //todo handle buttons later
         controlPanel.add(newGameButton);
         controlPanel.add(purchaseButton);
         controlPanel.add(quitButton);
+        controlPanel.add(passButton);
     }
 
 
