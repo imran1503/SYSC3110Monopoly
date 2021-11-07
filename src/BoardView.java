@@ -225,28 +225,23 @@ public class BoardView {
         purchaseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //get location(currPlayer)
-
-                //Check if prorerty owned by others, not bank
-
-                //if purchaseable, if currPlayer can afford, if so allow the purchase, else Alert he can't afford itm then ig he passes by it for the next player???????????
+                game.purchaseProperty();
 
             }
         });
 
-        quitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Eventually - Save Y/N
-
-                //default close operation
-            }
-        });
+        quitButton.addActionListener(e -> System.exit(0));
 
         passButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //currPlayer -> next   make new var: currPlayerRolled? T/F
+                if (game.getHasCurrPlayerRolled()){game.passPlayerTurn();}
+                else{
+                    if (JOptionPane.showConfirmDialog(frame, "You have not rolled yet. ")
+                            == JOptionPane.OK_OPTION) {}
+                }
+                game.setHasCurrPlayerRolled(false);
             }
         });
 
@@ -263,6 +258,44 @@ public class BoardView {
 
         createControlPanel();
         center.add(controlPanel);
+
+
+        rollButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Boolean nextRoll = true;
+                if(nextRoll && (game.getCurrentPlayer().getInJail() == false)) {
+                    nextRoll = game.roll();
+                    Properties propertyOn = game.getBoard().getProperty(game.getCurrentPlayer().getPositon());
+                    if (!propertyOn.getOwner().equals(game.getCurrentPlayer())) {
+                        propertyOn.payRent(game.getCurrentPlayer());
+                    }
+                }
+                else{
+
+                    System.out.println(game.getCurrentPlayer().getName()+" can NOT roll again. Pass your turn or buy property.");
+                }
+                if ((game.getCurrentPlayer().getInJail() == true)){
+                    Boolean isDouble = game.roll();
+                    if (isDouble && (game.getCurrentPlayer().getTurnsInJail() != 0)) {
+                        game.getCurrentPlayer().setInJail(false);
+                        game.getCurrentPlayer().setTurnsInJail(0);
+                        System.out.println(game.getCurrentPlayer().getName() + " rolled a double and is out of jail.");
+                    } else {
+                        if (game.getCurrentPlayer().getTurnsInJail() == 3) {
+                            game.getCurrentPlayer().removefromBalance(50);
+                            game.getCurrentPlayer().setInJail(false);
+                            game.getCurrentPlayer().setTurnsInJail(0);
+                            System.out.println(game.getCurrentPlayer().getName() + " Payed $50 to get out of jail.");
+                        }
+                        game.getCurrentPlayer().setTurnsInJail(game.getCurrentPlayer().getTurnsInJail() + 1); //add 1 to time in jail for player.
+                        // Manually pass turn. passPlayerTurn();
+                    }
+                }
+                game.setHasCurrPlayerRolled(true);
+
+            }
+        });
 
         gamePanel.add(north, BorderLayout.NORTH);
         gamePanel.add(east, BorderLayout.EAST);

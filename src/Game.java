@@ -22,6 +22,11 @@ public class Game {
     private Board board;
     private BoardConstructor boardConstructor;
     public enum Commands {quit, roll, passTurn, help, purchaseProperty, purchaseHouse, purchaseHotel}
+    private boolean HasCurrPlayerRolled;
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
 
     /**
      * Constructor for Game
@@ -37,8 +42,16 @@ public class Game {
         boardConstructor.loadBoardFromMapFile(board);
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
+        HasCurrPlayerRolled = false;
     }
 
+    public boolean getHasCurrPlayerRolled() {
+        return HasCurrPlayerRolled;
+    }
+
+    public void setHasCurrPlayerRolled(boolean setHasCurrPlayerRolled) {
+        this.HasCurrPlayerRolled = setHasCurrPlayerRolled;
+    }
 
     public BoardConstructor getBoardConstructor() {
         return boardConstructor;
@@ -48,6 +61,7 @@ public class Game {
     }
 
     public Player getPlayer(int playerIndex){return players.get(playerIndex);}
+
 
     /**
      * Determines which player starts the game at random.
