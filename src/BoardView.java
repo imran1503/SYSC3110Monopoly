@@ -71,6 +71,11 @@ public class BoardView {
     private JButton quitButton;
 
     /**
+     * User can press this to add or remove houses from a monopoly
+     */
+    private JButton modifyHouses;
+
+    /**
      * user can press this button to pass the turn to the next player.
      */
     private JButton passButton;
@@ -205,6 +210,7 @@ public class BoardView {
         quitButton = new JButton("Quit Game");
         passButton = new JButton("Pass turn");
         helpButton = new JButton("Help");
+        modifyHouses = new JButton("Add or remove houses");
 
         //todo handle buttons later
 
@@ -249,6 +255,28 @@ public class BoardView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Alert w/ button desc, but like it is not needed for this milestonse said by the ta in the discord chat.
+            }
+        });
+
+
+        modifyHouses.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
+                String propertyName =""; //TODO Get textinput JOption from new game to copy to here
+                Boolean propertyExists = false;
+                int propertyIndex = -1;
+                for (int i = 0; i < game.getBoard().getPropertiesArrayList().size(); i++) {
+                    if (game.getBoard().getProperty(i).getName().equals(propertyName)) {
+                        propertyExists = true;
+                        propertyIndex = i;
+                    }
+                }
+                if (propertyExists) {
+                    game.purchaseHouseOrHotel(game.getBoard().getProperty(propertyIndex));
+                } else {
+                    System.out.println("Property: " + propertyName + ", Does not exists");  //TODO Make alert
+                }
             }
         });
 
@@ -339,6 +367,7 @@ public class BoardView {
         quitButton = new JButton("Quit Game");
         passButton = new JButton("Pass turn");
         helpButton = new JButton("Help");
+        modifyHouses = new JButton("Add or remove houses");
 
         //todo handle buttons later
         buttonPanel.add(newGameButton);
@@ -346,6 +375,7 @@ public class BoardView {
         buttonPanel.add(quitButton);
         buttonPanel.add(passButton);
         buttonPanel.add(helpButton);
+        buttonPanel.add(modifyHouses);
         panelHolder[0][1].add(buttonPanel);
 
         int totalNumPlayers = 4;
