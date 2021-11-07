@@ -47,6 +47,8 @@ public class Game {
         return board;
     }
 
+    public Player getPlayer(int playerIndex){return players.get(playerIndex);}
+
     /**
      * Determines which player starts the game at random.
      * @return randomPlayer, player chosen at random to go first

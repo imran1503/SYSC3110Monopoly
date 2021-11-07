@@ -16,6 +16,10 @@ public class BoardView {
 
     private Game game;
 
+    private Boolean playersInitialized;
+
+    private JLabel[] playerLabelList;
+
     /**
      * main frame for the GUI's View.
      */
@@ -25,6 +29,11 @@ public class BoardView {
      * an array of JPanels, one for each Property (40 in total).
      */
     private JPanel [] propertyPanels;
+
+    /**
+     * an array of JPanels for each Player (4 total).
+     */
+    private JPanel[] playerPanels;
 
     /**
      * this panel contains the board's propertyPanels.
@@ -81,8 +90,9 @@ public class BoardView {
         this.frame.setVisible(true);
         this.frame.setResizable(true);
         this.game = new Game();
-
-
+        this.playersInitialized = false;
+        int totalNumberOfPlayers = 4;
+        this.playerPanels = new JPanel[totalNumberOfPlayers];
         addBasePanels();
     }
 
@@ -250,12 +260,9 @@ public class BoardView {
         center.setBackground(new Color(190,250,250));
         // Roll Dice button appears in center of the board
         rollButton = new JButton("Roll Dice");
-        center.add(rollButton);
-        center.add(newGameButton);
-        center.add(purchaseButton);
-        center.add(quitButton);
-        center.add(passButton);
-        center.add(helpButton);
+
+        createControlPanel();
+        center.add(controlPanel);
 
         gamePanel.add(north, BorderLayout.NORTH);
         gamePanel.add(east, BorderLayout.EAST);
@@ -275,12 +282,25 @@ public class BoardView {
     private void createControlPanel() {
         // controlPanel contains the buttons for starting a new game, purchasing property, and quiting the game.
         // The message windows that appear as a result of pressing these buttons will also appear on eastPanel
-        controlPanel = new JPanel(new FlowLayout());
+        int rows = 2;
+        int columns = 3;
+        controlPanel = new JPanel(new GridLayout(rows,columns));
+        JPanel[][] panelHolder = new JPanel[rows][columns];
+        for(int m = 0; m < rows; m++) {
+            for(int n = 0; n < columns; n++) {
+                panelHolder[m][n] = new JPanel();
+                controlPanel.add(panelHolder[m][n]);
+            }
+        }
         //todo fix size so that controlPanel in narrower than gamePanel but has same height. size currently incorrect.
-        controlPanel.setPreferredSize(new Dimension(300, 800));
+        Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
+        controlPanelSize.setSize(controlPanelSize.getWidth()*0.6,controlPanelSize.getHeight()*0.8);
+       controlPanel.setPreferredSize(controlPanelSize);
         controlPanel.setBackground(new Color(215, 200, 131, 255));
 
         // todo add more buttons later
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         newGameButton = new JButton("New Game");
         purchaseButton = new JButton("Purchase Property");
         quitButton = new JButton("Quit Game");
@@ -288,11 +308,22 @@ public class BoardView {
         helpButton = new JButton("Help");
 
         //todo handle buttons later
-        controlPanel.add(newGameButton);
-        controlPanel.add(purchaseButton);
-        controlPanel.add(quitButton);
-        controlPanel.add(passButton);
-        controlPanel.add(helpButton);
+        buttonPanel.add(newGameButton);
+        buttonPanel.add(purchaseButton);
+        buttonPanel.add(quitButton);
+        buttonPanel.add(passButton);
+        buttonPanel.add(helpButton);
+        panelHolder[0][1].add(buttonPanel);
+
+        int totalNumPlayers = 4;
+        for (int i=0; i<totalNumPlayers; i++){
+            createNewPlayerPanel(i);
+        }
+        panelHolder[0][0].add(playerPanels[0]);
+        panelHolder[1][0].add(playerPanels[1]);
+        panelHolder[0][2].add(playerPanels[2]);
+        panelHolder[1][2].add(playerPanels[3]);
+
     }
 
 
@@ -315,6 +346,53 @@ public class BoardView {
         });
     }
 
+    /**
+     * Creates panels for player objects
+     */
+    private void createNewPlayerPanel(int playerIndex){
+            int numOfLabels = 6;
+            playerLabelList = new JLabel[numOfLabels];
+            playerLabelList[0] = new JLabel("Name: ");
+            playerLabelList[1] = new JLabel("Balance: $");
+            playerLabelList[2] = new JLabel("Current location: ");
+            playerLabelList[3] = new JLabel("In Jail Status = ");
+            playerLabelList[4] = new JLabel("Bankrupt Status = ");
+            String controledProperties = "";
+            playerLabelList[5] = new JLabel("Owned Properties: " + controledProperties);
+            playerPanels[playerIndex] = new JPanel();
+            playerPanels[playerIndex].setLayout(new BoxLayout(playerPanels[playerIndex], BoxLayout.Y_AXIS));
+            for (int k = 0; k < numOfLabels; k++) {
+                playerPanels[playerIndex].add(playerLabelList[k]);
+            }
+
+    }
+
+    /**
+     * Update All Players Status
+     */
+    public void updateAllPlayersStatus(int numOfPlayers){
+        if(playersInitialized) {
+            int numOfLabels = 6;
+            playerLabelList = new JLabel[numOfLabels];
+            for(int i =0; i < numOfPlayers; i++){
+                Player currentPlayer = game.getPlayer(i);
+                playerLabelList[0] = new JLabel("Name: "+currentPlayer.getName() );
+                playerLabelList[1] = new JLabel("Balance: $"+currentPlayer.getBalance());
+                playerLabelList[2] = new JLabel("Current location: "+game.getBoard().getProperty(currentPlayer.getPositon()).getName());
+                playerLabelList[3] = new JLabel("In Jail Status = "+currentPlayer.getInJail());
+                playerLabelList[4] = new JLabel("Bankrupt Status = "+currentPlayer.getBankruptStatus());
+                String controledProperties = "";
+                for(int j = 0 ; j < currentPlayer.getControlledProperties().size(); j++){
+                    controledProperties += "- "+ currentPlayer.getControlledProperties().get(j).getName() + "\n";
+                }
+                playerLabelList[5] = new JLabel("Owned Properties: "+controledProperties);
+                playerPanels[i] = new JPanel(new GridBagLayout());
+                for(int k = 0; k < numOfLabels; k++){
+                    playerPanels[i].add(playerLabelList[k]);
+                }
+            }
+        }
+    }
 
     /**
      * displays the GUI of the game.
