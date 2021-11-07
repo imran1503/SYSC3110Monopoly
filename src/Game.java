@@ -20,6 +20,7 @@ public class Game {
     private Scanner reader; // for taking command input
     private Boolean nextRoll;
     private Board board;
+    private BoardView boardView;
     private BoardConstructor boardConstructor;
     public enum Commands {quit, roll, passTurn, help, purchaseProperty, purchaseHouse, purchaseHotel}
     private boolean HasCurrPlayerRolled;
@@ -43,6 +44,67 @@ public class Game {
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
         HasCurrPlayerRolled = false;
+        boardView = new BoardView(this);
+    }
+
+    /**
+     * play start while loops until game is not in progress.
+     */
+    public void play() {
+        //TODO welcomeMessage(); but as an alert
+
+        Boolean isInt = false;
+        while(!isInt){
+            boardView.setEventLabelText("Enter the total number of Players playing and press submit button");
+            //while(!boardView.getSubmitButtonPressed()){
+
+            //}
+            isInt = isInteger(boardView.getInputBoxText());
+            boardView.setSubmitButtonPressed(false);
+            if(isInt){
+                if((MAX_PLAYERS > 4)||(MAX_PLAYERS < 2)){
+                    boardView.setEventLabelText("Total number entered is greater than 4 or less than 2, enter a new number less than 8 and more than 2");
+                    isInt = false;
+                }
+            }
+            else{
+                boardView.setEventLabelText("Enter an integer number like '4' , not a word.");
+            }
+        }
+
+        //Object[] options = {"Human", "AI"};
+
+        // Creates Players for the game with names based on user input.
+        for(int i = 0; i < MAX_PLAYERS; i++){
+            boardView.setEventLabelText("Enter the name of Player "+(i+1));
+            // while(!boardView.getSubmitButtonPressed()){
+
+            //}
+            boardView.setSubmitButtonPressed(false);
+            String playerName = boardView.getInputBoxText();
+            Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
+            this.players.add(newPlayer);
+
+        }
+
+        boardView.updateAllPlayersStatus(4);
+        // The player who goes first is determined randomly
+        int firstPlayerRandom = determineFirstPlayer();
+        this.currentPlayer = players.get(firstPlayerRandom - 1); // minus 1 because players' index starts at 0
+
+        // Prints command list and creates the board with properties
+        operateCommand(Game.Commands.help); //
+
+        // Tell user which player starts the game (chosen at random) and Main Game loop below
+        boardView.setEventLabelText("Player " + firstPlayerRandom + " was chosen at random to start the game. Begin by typing roll.");
+
+        boolean gameInProgress = true;
+        while (gameInProgress) {
+            if(gameInProgress) {
+                gameInProgress = checkNumOfActivePlayers();
+
+            }
+        }
     }
 
     public boolean getHasCurrPlayerRolled() {
@@ -390,11 +452,11 @@ public class Game {
         return true;
     }
 
+    public BoardView getBoardView(){return boardView;}
+
     public static void main(String args[]){
         Game game = new Game();
-        BoardView BG = new BoardView( game);
-
-        BG.displayGUI();
+        game.getBoardView().displayGUI();
         //game.play();
     }
 

@@ -20,6 +20,16 @@ public class BoardView {
 
     private JLabel[] playerLabelList;
 
+    private JLabel eventLabel;
+
+    private JButton startButton;
+
+    private JButton submitButton;
+
+    private TextField userInputBox;
+
+    private Boolean submitButtonPressed;
+
     /**
      * main frame for the GUI's View.
      */
@@ -355,7 +365,7 @@ public class BoardView {
         }
         //todo fix size so that controlPanel in narrower than gamePanel but has same height. size currently incorrect.
         Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
-        controlPanelSize.setSize(controlPanelSize.getWidth()*0.6,controlPanelSize.getHeight()*0.8);
+        controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.5);
        controlPanel.setPreferredSize(controlPanelSize);
         controlPanel.setBackground(new Color(215, 200, 131, 255));
 
@@ -387,6 +397,23 @@ public class BoardView {
         panelHolder[0][2].add(playerPanels[2]);
         panelHolder[1][2].add(playerPanels[3]);
 
+        JPanel userInputPanel = new JPanel();
+        userInputPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        userInputBox = new TextField();
+        JLabel userHeaderLabel = new JLabel("Logs:");
+        eventLabel = new JLabel("Initial");
+        submitButton = new JButton("Submit");
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                submitButtonPressed = true;
+            }
+        });
+        userInputPanel.add(userHeaderLabel);
+        userInputPanel.add(eventLabel);
+        userInputPanel.add(userInputBox);
+        userHeaderLabel.add(submitButton);
+        panelHolder[1][1].add(userHeaderLabel);
     }
 
 
@@ -467,6 +494,17 @@ public class BoardView {
     }
 
 
+    public void setEventLabelText(String eventText) {
+        eventLabel.setText(eventText);
+    }
 
+    public String getInputBoxText() {
+        return userInputBox.getText();
+    }
 
+    public void setSubmitButtonPressed(boolean status) {
+        submitButtonPressed = status;
+    }
+
+    public Boolean getSubmitButtonPressed(){return submitButtonPressed;}
 }
