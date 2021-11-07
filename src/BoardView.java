@@ -412,8 +412,8 @@ public class BoardView {
         userInputPanel.add(userHeaderLabel);
         userInputPanel.add(eventLabel);
         userInputPanel.add(userInputBox);
-        userHeaderLabel.add(submitButton);
-        panelHolder[1][1].add(userHeaderLabel);
+        userInputPanel.add(submitButton);
+        panelHolder[1][1].add(userInputPanel);
     }
 
 
