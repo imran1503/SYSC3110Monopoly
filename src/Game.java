@@ -454,14 +454,12 @@ public class Game {
 
     public BoardView getBoardView(){return boardView;}
 
-    public void setBoardView(BoardView bd){boardView = bd;}
+    public void setBoardView(BoardView bd){this.boardView = bd;}
 
     public static void main(String args[]){
         Game game = new Game();
         BoardView boardView = new BoardView(game);
-        game.setBoardView(boardView);
         boardView.displayGUI();
-        //game.play();
     }
 
 }

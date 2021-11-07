@@ -28,7 +28,7 @@ public class BoardView {
 
     private TextField userInputBox;
 
-    private Boolean submitButtonPressed;
+    private static volatile Boolean submitButtonPressed;
 
     /**
      * main frame for the GUI's View.
@@ -109,6 +109,7 @@ public class BoardView {
         int totalNumberOfPlayers = 4;
         this.playerPanels = new JPanel[totalNumberOfPlayers];
         addBasePanels();
+        submitButtonPressed = false;
     }
 
     /**
@@ -372,6 +373,7 @@ public class BoardView {
         // todo add more buttons later
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        startButton = new JButton("Start Game");
         newGameButton = new JButton("New Game");
         purchaseButton = new JButton("Purchase Property");
         quitButton = new JButton("Quit Game");
@@ -379,7 +381,14 @@ public class BoardView {
         helpButton = new JButton("Help");
         modifyHouses = new JButton("Add or remove houses");
 
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                play();
+            }
+        });
         //todo handle buttons later
+        buttonPanel.add(startButton);
         buttonPanel.add(newGameButton);
         buttonPanel.add(purchaseButton);
         buttonPanel.add(quitButton);
@@ -400,8 +409,8 @@ public class BoardView {
         JPanel userInputPanel = new JPanel();
         userInputPanel.setLayout(new BoxLayout(userInputPanel, BoxLayout.Y_AXIS));
         userInputBox = new TextField();
-        JLabel userHeaderLabel = new JLabel("Logs:");
-        eventLabel = new JLabel("Initial");
+        JLabel userHeaderLabel = new JLabel("Log:");
+        eventLabel = new JLabel("-");
         submitButton = new JButton("Submit");
         submitButton.addActionListener(new ActionListener() {
             @Override
@@ -507,4 +516,64 @@ public class BoardView {
     }
 
     public Boolean getSubmitButtonPressed(){return submitButtonPressed;}
+
+    /**
+     * play start while loops until game is not in progress.
+     */
+    public void play() {
+        int MAX_PLAYERS = 0;
+        Boolean isInt = false;
+        while(!isInt){
+            eventLabel.setText("Enter the total number of Players playing and press submit button");
+            while(!submitButtonPressed){
+                try {
+                    Thread.sleep(200);
+                } catch(InterruptedException e) {
+                }
+            }
+            isInt = game.isInteger(userInputBox.getText());
+            submitButtonPressed = false;
+            if(isInt){
+                MAX_PLAYERS = Integer.parseInt(userInputBox.getText());
+                if((MAX_PLAYERS > 4)||(MAX_PLAYERS < 2)){
+                    eventLabel.setText("Total number entered is greater than 4 or less than 2, enter a new number less than 8 and more than 2");
+                    isInt = false;
+                }
+            }
+            else{
+                eventLabel.setText("Enter an integer number like '4' , not a word.");
+            }
+        }
+
+        //Object[] options = {"Human", "AI"};
+
+        // Creates Players for the game with names based on user input.
+        for(int i = 0; i < MAX_PLAYERS; i++){
+            eventLabel.setText("Enter the name of Player "+(i+1));
+            while(!submitButtonPressed){
+                try {
+                    Thread.sleep(200);
+                } catch(InterruptedException e) {
+                }
+            }
+            submitButtonPressed = false;
+            String playerName = userInputBox.getText();
+            Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
+            game.addPlayer(newPlayer);
+
+        }
+
+        this.updateAllPlayersStatus(4);
+        // The player who goes first is determined randomly
+        int firstPlayerRandom = game.determineFirstPlayer();
+        game.setCurrentPlayer(game.getPlayer(firstPlayerRandom - 1)); // minus 1 because players' index starts at 0
+
+        // Prints command list and creates the board with properties
+        //game.operateCommand(Game.Commands.help); //
+
+        // Tell user which player starts the game (chosen at random) and Main Game loop below
+        eventLabel.setText("Player " + firstPlayerRandom + " was chosen at random to start the game. Begin by typing roll.");
+
+    }
+
 }
