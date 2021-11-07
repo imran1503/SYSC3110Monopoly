@@ -19,7 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="working game-ish">
+    <list default="true" id="d25544fb-7c5c-46ac-ab00-36c079f700c8" name="Default Changelist" comment="Made it fullscreen.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
     </list>
@@ -68,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Year 4/Term 2/SYSC 2004/Lab 9 - Introduction to Swing GUIs/4.0 Lab Problem/4.1" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -76,7 +77,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-15.0.2" />
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-15" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="SYSC3110Monopoly" />
@@ -109,6 +110,9 @@
       <workItem from="1636081619851" duration="176000" />
       <workItem from="1636081840733" duration="10000" />
       <workItem from="1636111691079" duration="331000" />
+      <workItem from="1636223403716" duration="5395000" />
+      <workItem from="1636251605108" duration="2568000" />
+      <workItem from="1636254305273" duration="1000" />
     </task>
     <task id="LOCAL-00001" summary="Start game cycle. Created play(), welcomeMessage(), operateCommand()">
       <created>1634681612345</created>
@@ -341,14 +345,35 @@
       <option name="project" value="LOCAL" />
       <updated>1636138269410</updated>
     </task>
-    <task id="LOCAL-00034" summary="Fixed left side inverted Property names, moved buttons to middle.">
-      <created>1636235287654</created>
+    <task id="LOCAL-00034" summary="Optimized createPropertyPanels().&#10;Added Pass turn button.">
+      <created>1636225442938</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1636235287654</updated>
+      <updated>1636225442940</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Connecting View Controller">
+      <created>1636231206436</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1636231206436</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fixed helper function">
+      <created>1636231407572</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1636231407572</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Made it fullscreen.">
+      <created>1636232758230</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1636232758230</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +411,13 @@
     <MESSAGE value="Fixed minor issues in Board_Gui." />
     <MESSAGE value="Refactored code to use List of Properties and color List of properties from board.java instead of in game.java" />
     <MESSAGE value="Renamed magic numbers in roll() with meaningfull variable names in game.java" />
-    <MESSAGE value="Fixed left side inverted Property names, moved buttons to middle." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed left side inverted Property names, moved buttons to middle." />
+    <MESSAGE value="Optimized createPropertyPanels().&#10;Added Pass turn button." />
+    <MESSAGE value="Connecting View Controller" />
+    <MESSAGE value="Fixed helper function" />
+    <MESSAGE value="Made it fullscreen." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made it fullscreen." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

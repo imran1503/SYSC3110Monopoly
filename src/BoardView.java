@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -128,9 +130,6 @@ public class BoardView {
      *
      */
     private void createPropertyPanels() {
-
-
-
         // Create 40 panels, one for each property
         this.propertyPanels = new JPanel[40];
 
@@ -162,9 +161,6 @@ public class BoardView {
      */
     private void createGamePanel() {
         gamePanel = new JPanel(new BorderLayout());
-
-        //todo fix size so that gamePanel is always a square with same side length as
-        // controlPanel's height
         Dimension size = Toolkit. getDefaultToolkit(). getScreenSize();
         gamePanel.setPreferredSize(size);
         gamePanel.setBackground(new Color(255, 255, 255));
@@ -201,6 +197,55 @@ public class BoardView {
         helpButton = new JButton("Help");
 
         //todo handle buttons later
+
+        //Button Handlers
+        newGameButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Ask how many players?
+
+                //for amount of players, ask name
+
+                //Show what player starts first    show P.x = {boat, car,  dog, boot, penguin, hat}
+
+                //Set middle board of player info V(player)
+            }
+        });
+
+        purchaseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //get location(currPlayer)
+
+                //Check if prorerty owned by others, not bank
+
+                //if purchaseable, if currPlayer can afford, if so allow the purchase, else Alert he can't afford itm then ig he passes by it for the next player???????????
+
+            }
+        });
+
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Eventually - Save Y/N
+
+                //default close operation
+            }
+        });
+
+        passButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //currPlayer -> next   make new var: currPlayerRolled? T/F
+            }
+        });
+
+        helpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Alert w/ button desc, but like it is not needed for this milestonse said by the ta in the discord chat.
+            }
+        });
 
         center.setBackground(new Color(190,250,250));
         // Roll Dice button appears in center of the board
