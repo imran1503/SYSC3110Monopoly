@@ -44,7 +44,7 @@ public class Game {
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
         HasCurrPlayerRolled = false;
-        boardView = new BoardView(this);
+        boardView = null;
     }
 
     /**
@@ -454,9 +454,13 @@ public class Game {
 
     public BoardView getBoardView(){return boardView;}
 
+    public void setBoardView(BoardView bd){boardView = bd;}
+
     public static void main(String args[]){
         Game game = new Game();
-        game.getBoardView().displayGUI();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
+        boardView.displayGUI();
         //game.play();
     }
 

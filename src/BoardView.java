@@ -398,7 +398,7 @@ public class BoardView {
         panelHolder[1][2].add(playerPanels[3]);
 
         JPanel userInputPanel = new JPanel();
-        userInputPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        userInputPanel.setLayout(new BoxLayout(userInputPanel, BoxLayout.Y_AXIS));
         userInputBox = new TextField();
         JLabel userHeaderLabel = new JLabel("Logs:");
         eventLabel = new JLabel("Initial");
