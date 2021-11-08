@@ -4,7 +4,6 @@
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636321613942</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="trying play method in boardview and startgame button">
+      <created>1636323117174</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636323117174</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -92,6 +98,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Play method in game other changes like userInput panel added back" />
     <MESSAGE value="fixed some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed some bugs" />
+    <MESSAGE value="trying play method in boardview and startgame method" />
+    <MESSAGE value="trying play method in boardview and startgame button" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying play method in boardview and startgame button" />
   </component>
 </project>
