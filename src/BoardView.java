@@ -21,12 +21,6 @@ public class BoardView {
 
     private JButton startButton;
 
-    private JButton submitButton;
-
-    private JTextField userInputBox;
-
-    private static volatile Boolean submitButtonPressed;
-
     private int playerInitializeStage;
 
     private int MAX_PLAYERS;
@@ -112,7 +106,6 @@ public class BoardView {
         int totalNumberOfPlayers = 4;
         this.playerPanels = new JPanel[totalNumberOfPlayers];
         addBasePanels();
-        submitButtonPressed = false;
         this.playerInitializeStage = 0;
         this.MAX_PLAYERS = 0;
     }
@@ -154,6 +147,7 @@ public class BoardView {
         propertyPanels[i].add(propertyIndexLabels[i]);
         direction.add(propertyPanels[i]);
     }
+
 
 
     /**
@@ -403,52 +397,6 @@ public class BoardView {
         panelHolder[0][2].add(playerPanels[2]);
         panelHolder[1][2].add(playerPanels[3]);
 
-        JPanel userInputPanel = new JPanel();
-        userInputPanel.setLayout(new BoxLayout(userInputPanel, BoxLayout.Y_AXIS));
-        userInputBox = new JTextField();
-        userInputBox.setEnabled(true);
-        JLabel userHeaderLabel = new JLabel("Log:");
-        eventLabel = new JLabel();
-        eventLabel.setText("Initial     ");
-        submitButton = new JButton("Submit");
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                if(playerInitializeStage == 0) {
-                    if (game.isInteger(userInputBox.getText())) {
-                        MAX_PLAYERS = Integer.parseInt(userInputBox.getText());
-                        if ((MAX_PLAYERS > 4) || (MAX_PLAYERS < 2)) {
-                            eventLabel.setText("Total number entered is greater than 4 or less than 2, enter a new number less than 8 and more than 2");
-                        } else {
-                            playerInitializeStage = 1;
-                            eventLabel.setText("Enter the name of Player 1");
-                            return;
-                        }
-                    } else {
-                        eventLabel.setText("Enter an integer number like '4' , not a word.");
-                    }
-                }
-                if(playerInitializeStage == 1){
-                    if(MAX_PLAYERS > 0){
-                        String playerName = userInputBox.getText();
-                        Player newPlayer = new Player(playerName, new Color(10*MAX_PLAYERS,10*MAX_PLAYERS,10*MAX_PLAYERS), 1500);
-                        game.addPlayer(newPlayer);
-                        eventLabel.setText("Enter the name of Player "+(MAX_PLAYERS));
-                        MAX_PLAYERS--;
-                    }
-                    else{
-                        eventLabel.setText("All Players are initialized");
-                    }
-
-                }
-
-            }
-        });
-        userInputPanel.add(userHeaderLabel);
-        userInputPanel.add(eventLabel);
-        userInputPanel.add(userInputBox);
-        userInputPanel.add(submitButton);
-        panelHolder[1][1].add(userInputPanel);
 
         buttonPanel.add(startButton);
         buttonPanel.add(newGameButton);
@@ -565,65 +513,8 @@ public class BoardView {
         closeFrame();
     }
 
-
     public void setEventLabelText(String eventText) {
         eventLabel.setText(eventText);
-    }
-
-    public String getInputBoxText() {
-        return userInputBox.getText();
-    }
-
-    public void setSubmitButtonPressed(boolean status) {
-        submitButtonPressed = status;
-    }
-
-    public Boolean getSubmitButtonPressed(){return submitButtonPressed;}
-
-    /**
-     * play start while loops until game is not in progress.
-     */
-    public void play() {
-        int MAX_PLAYERS = 0;
-        System.out.println("test 1");
-        Boolean isInt = false;
-        eventLabel.setText("Enter the total number of Players playing and press submit button");
-        while(!isInt){
-
-            System.out.println("+"+submitButtonPressed);
-            if(submitButtonPressed) {
-
-                isInt = game.isInteger(userInputBox.getText());
-                submitButtonPressed = false;
-                if (isInt) {
-                    MAX_PLAYERS = Integer.parseInt(userInputBox.getText());
-                    if ((MAX_PLAYERS > 4) || (MAX_PLAYERS < 2)) {
-                        eventLabel.setText("Total number entered is greater than 4 or less than 2, enter a new number less than 8 and more than 2");
-                        isInt = false;
-                    }
-                }
-            }
-            else{
-                eventLabel.setText("Enter an integer number like '4' , not a word.");
-            }
-        }
-
-
-        //Object[] options = {"Human", "AI"};
-
-        // Creates Players for the game with names based on user input.
-
-        this.updateAllPlayersStatus(4);
-        // The player who goes first is determined randomly
-        int firstPlayerRandom = game.determineFirstPlayer();
-        game.setCurrentPlayer(game.getPlayer(firstPlayerRandom - 1)); // minus 1 because players' index starts at 0
-
-        // Prints command list and creates the board with properties
-        //game.operateCommand(Game.Commands.help); //
-
-        // Tell user which player starts the game (chosen at random) and Main Game loop below
-        eventLabel.setText("Player " + firstPlayerRandom + " was chosen at random to start the game. Begin by typing roll.");
-
     }
 
 }
