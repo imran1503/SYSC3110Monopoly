@@ -4,7 +4,6 @@ import org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.testng.annotations.BeforeTest;
 
 
 import java.awt.*;
@@ -18,13 +17,16 @@ public class GameTest {
 
 // todo this BeforeEach doesn't work. Also tried @BeforeAll. didn't work.
 
-/*    @BeforeEach
+    /*
+    @BeforeEach
     public void init(){
         game = new Game();
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
-    }*/
+    }
+    */
+
 
 
     @Test
@@ -74,6 +76,7 @@ public class GameTest {
         }
         Player pNotBankrupt  = new Player("PNotBankrupt", new Color(10,10,10), 1500);
         game.addPlayer(pNotBankrupt);
+        game.setCurrentPlayer(pNotBankrupt);
         pNotBankrupt.setBankruptStatus(false);
         assertEquals(false, game.checkNumOfActivePlayers());
     }
@@ -113,6 +116,18 @@ public class GameTest {
         game.addPlayer(p2);
         game.operateCommand(Game.Commands.passTurn);
         assertEquals(p2,game.getCurrentPlayer());
+    }
+
+    @Test
+    public void testPurchaseProperty(){
+        game = new Game();
+        p1 = new Player("P1", new Color(10,10,10),1500);
+        game.setCurrentPlayer(p1);
+        p1.setPosition(6);
+        game.operateCommand(Game.Commands.purchaseProperty);
+        Boolean actualValue = (p1.getControlledProperties().get(0).getName().equals("Oriental Avenue")) &&(p1.getBalance() == 1400);
+        assertEquals(true,actualValue);
+
     }
 
 
