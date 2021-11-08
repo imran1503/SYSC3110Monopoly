@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636323117174</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="player inventory ui started">
+      <created>1636330696196</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636330696196</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,6 +106,7 @@
     <MESSAGE value="fixed some bugs" />
     <MESSAGE value="trying play method in boardview and startgame method" />
     <MESSAGE value="trying play method in boardview and startgame button" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying play method in boardview and startgame button" />
+    <MESSAGE value="player inventory ui started" />
+    <option name="LAST_COMMIT_MESSAGE" value="player inventory ui started" />
   </component>
 </project>

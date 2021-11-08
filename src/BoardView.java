@@ -220,7 +220,7 @@ public class BoardView {
         south.setPreferredSize(new Dimension(800,150));
         south.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
-        /**
+
         // todo add more buttons later
         newGameButton = new JButton("New Game");
         purchaseButton = new JButton("Purchase Property");
@@ -297,11 +297,11 @@ public class BoardView {
             }
         });
 
-         **/
+
         center.setBackground(new Color(190,250,250));
         createControlPanel();
         center.add(controlPanel);
-        /**
+
         // Roll Dice button appears in center of the board
         rollButton = new JButton("Roll Dice");
 
@@ -346,7 +346,7 @@ public class BoardView {
             }
         });
 
-         */
+
         gamePanel.add(north, BorderLayout.NORTH);
         gamePanel.add(east, BorderLayout.EAST);
         gamePanel.add(west, BorderLayout.WEST);
