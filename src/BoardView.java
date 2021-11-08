@@ -231,10 +231,6 @@ public class BoardView {
         // Roll Dice button appears in center of the board
         rollButton = new JButton("Roll Dice");
 
-        createControlPanel();
-        center.add(controlPanel);
-
-
         rollButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -420,7 +416,6 @@ public class BoardView {
                 game.addPlayer(newPlayer3);
                 Player newPlayer4 = new Player(player4, new Color(100,100,0), 1500);
                 game.addPlayer(newPlayer4);
-                updateAllPlayersStatus(4);
             }
         });
         //todo handle buttons later
