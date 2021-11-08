@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Game {
     private static int MAX_PLAYERS = 0;
-    private ArrayList<Player> players;
+    public ArrayList<Player> players;
 
     private Player currentPlayer;
     private Scanner reader; // for taking command input

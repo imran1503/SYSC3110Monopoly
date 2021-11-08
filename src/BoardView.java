@@ -332,7 +332,6 @@ public class BoardView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 game.purchaseProperty();
-                game.operateCommand(Game.Commands.purchaseProperty);
 
             }
         });
@@ -363,7 +362,6 @@ public class BoardView {
         modifyHouses.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 //System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
                 String propertyName =""; //TODO Get textinput JOption from new game to copy to here
                 Boolean propertyExists = false;
@@ -418,7 +416,6 @@ public class BoardView {
                 game.addPlayer(newPlayer3);
                 Player newPlayer4 = new Player(player4, new Color(100,100,0), 1500);
                 game.addPlayer(newPlayer4);
-                updateAllPlayersStatus(4);
             }
         });
         //todo handle buttons later
