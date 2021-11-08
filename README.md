@@ -1,5 +1,5 @@
 # SYSC3110Monopoly
-### Version: 1.0
+### Version: 2.0
 ### Authors:
 - Mahtab Ameli: @ameli-s19 and @MahtabAmeli
 - Shahrik Amin: @ShahrikAmin
@@ -30,9 +30,7 @@ java -jar Monopoly.jar
 The deliverables for this milestone is as follows: readme file, source code in the form of a.jar file, UML diagrams, documentation. They are supposed to all in one zip file submitted on brightspace. 
 
 ### Issues
-An issue we had was trying to make a funcnction that would accuratly verify a new XML Board, such that it had the 40 spaces, and was only composed of the basic types of spaces from the base game. I.e: Properties, utilities, Railroads, Chance, Community Chest, Tax, Jail. 
-
-Another issue would be that some of our functions repeatedly call other functions, as opposed to making one function call and storing in a variable. This issue is reflectd in the sequence diagrams. Another design issue we had as reflected in the UML class diagrams, is the tight dependence between different classes. The mentioned issues will be addressed with design changes in the upcoming milestones. 
+An issue that is currently in our game is that the JLabels responsible for showing each players inventory are not updating, despite the JLabels updating to the correct value. For example the first label "Name: " would change to the 
 
 ### User Manual
 #### Objective
