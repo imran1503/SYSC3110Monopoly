@@ -117,24 +117,20 @@ public class GameTest {
         assertEquals( true, actualValue);
     }
 
-    //test case for when player is in jail and rolls a double. roll() must return false.
+    //test case for when player is in jail and rolls. Player should not move on the board and stay at Jail (position 10)
     @Test
     public void testRollCase3(){
         game = new Game();
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
+        p1.setPosition(10);
         p1.setInJail(true);
         game.addPlayer(p1);
+        game.roll();
 
-        game.setDiceValue1(2);
-        game.setDiceValue2(2);
-
-        Boolean actualValue = game.roll();
-        while(game.getDiceValue1() != game.getDiceValue2()){
-            actualValue = game.roll();
-        }
-        assertEquals( false, actualValue);
+        assertEquals( 10, p1.getPositon());
     }
+
 
     @Test
     public void testOperateCommandRoll(){
@@ -147,8 +143,9 @@ public class GameTest {
         assertNotEquals( 0,p1.getPositon());
     }
 
+    // Test operateCommand pass turn when next player (p2) is Not Bankrupt
     @Test
-    public void testOperateCommandPassTurn(){
+    public void testOperateCommandPassTurn1(){
         game = new Game();
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.addPlayer(p1);
@@ -161,8 +158,39 @@ public class GameTest {
         assertEquals(p2,game.getCurrentPlayer());
     }
 
+    // Test operateCommand pass turn when next player (p2) is Bankrupt
+    @Test
+    public void testOperateCommandPassTurn2(){
+        game = new Game();
+        p1 = new Player("P1", new Color(10,10,10),1500);
+        game.addPlayer(p1);
+        game.setCurrentPlayer(p1);
+
+        Player p2 = new Player("P2", new Color(20,20,20),1500);
+        p2.setBankruptStatus(true);
+        game.addPlayer(p2);
+        Player p3 = new Player("P3", new Color(10,10,10),1500);
+        game.addPlayer(p3);
+
+        // p1 rolls , passes turn, p2 is bankrupt so p3 is next current player.
+        game.operateCommand(Game.Commands.roll);
+        game.operateCommand(Game.Commands.passTurn);
+        assertEquals(p3,game.getCurrentPlayer());
+    }
+
     @Test
     public void testPurchaseProperty(){
+        game = new Game();
+        p1 = new Player("P1", new Color(10,10,10),1500);
+        game.setCurrentPlayer(p1);
+        p1.setPosition(6);
+        game.purchaseProperty();
+        Boolean actualValue = (p1.getControlledProperties().get(0).getName().equals("Oriental Avenue")) &&(p1.getBalance() == 1400);
+        assertEquals(true,actualValue);
+    }
+
+    @Test
+    public void testOperateCommandPurchaseProperty(){
         game = new Game();
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
@@ -170,20 +198,33 @@ public class GameTest {
         game.operateCommand(Game.Commands.purchaseProperty);
         Boolean actualValue = (p1.getControlledProperties().get(0).getName().equals("Oriental Avenue")) &&(p1.getBalance() == 1400);
         assertEquals(true,actualValue);
-
     }
 
-
+    // Test purchaseHouseOrHotel command when player does not have color set (so no houses bought)
     @Test
-    public void testPurchaseProperty(){
+    public void testPurchaseHouseOrHotel1(){
         game = new Game();
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
-        p1.setPosition(6);
-        game.operateCommand(Game.Commands.purchaseProperty);
-        Boolean actualValue = (p1.getControlledProperties().get(0).getName().equals("Oriental Avenue")) &&(p1.getBalance() == 1400);
-        assertEquals(true,actualValue);
-
+        p1.setPosition(1);
+        game.purchaseProperty();
+        game.purchaseHouseOrHotel(game.getBoard().getProperty(1));
+        assertEquals(0,game.getBoard().getProperty(1).getNumHouses());
     }
+
+    // Test purchaseHouseOrHotel command when player does have color set (so 1 house bought)
+    @Test
+    public void testPurchaseHouseOrHotel2(){
+        game = new Game();
+        p1 = new Player("P1", new Color(10,10,10),1500);
+        game.setCurrentPlayer(p1);
+        p1.setPosition(1);
+        game.purchaseProperty();
+        p1.setPosition(3);
+        game.purchaseProperty();
+        game.purchaseHouseOrHotel(game.getBoard().getProperty(1));
+        assertEquals(1,game.getBoard().getProperty(1).getNumHouses());
+    }
+
 
 }
