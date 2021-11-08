@@ -393,7 +393,6 @@ public class BoardView {
         panelHolder[0][2].add(playerPanels[2]);
         panelHolder[1][2].add(playerPanels[3]);
 
-
         buttonPanel.add(startButton);
         buttonPanel.add(newGameButton);
         buttonPanel.add(rollButton);
