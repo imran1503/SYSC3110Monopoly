@@ -92,7 +92,8 @@ public class GameTest {
         p1.setInJail(false);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
-        //game.set
+        game.roll();
+        assertNotEquals( 0,p1.getPositon());
     }
 
     //test case for when player is not in jail and rolls a double. roll() must return true.
