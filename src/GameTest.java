@@ -107,9 +107,6 @@ public class GameTest {
         p1.setInJail(false);
         game.addPlayer(p1);
 
-        game.setDiceValue1(2);
-        game.setDiceValue2(2);
-
         Boolean actualValue = game.roll();
         while(game.getDiceValue1() != game.getDiceValue2()){
             actualValue = game.roll();

@@ -47,6 +47,8 @@ public class Game {
         board.setIsValid(true);
         HasCurrPlayerRolled = false;
         boardView = null;
+        diceValue1 = -1;
+        diceValue2 = -2;
     }
 
     public boolean getHasCurrPlayerRolled() {
@@ -265,8 +267,8 @@ public class Game {
         int randomRoll1 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1); // +1 to get range from 1 to 6.
         int randomRoll2 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1);
 
-        diceValue1 = randomRoll1;
-        diceValue2 = randomRoll2;
+        this.diceValue1 = randomRoll1;
+        this.diceValue2 = randomRoll2;
 
         int playerPosition = currentPlayer.getPositon();
         String playerName = currentPlayer.getName();
@@ -416,7 +418,7 @@ public class Game {
      * @return
      */
     public int getDiceValue1() {
-        return diceValue2;
+        return diceValue1;
     }
 
     /**
