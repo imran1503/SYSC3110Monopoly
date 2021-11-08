@@ -216,14 +216,107 @@ public class BoardView {
 
 
         // todo add more buttons later
+
+
+        //todo handle buttons later
+
+        //Button Handlers
+
+
+
+        center.setBackground(new Color(190,250,250));
+        createControlPanel();
+        center.add(controlPanel);
+
+        // Roll Dice button appears in center of the board
+        rollButton = new JButton("Roll Dice");
+
+        createControlPanel();
+        center.add(controlPanel);
+
+
+        rollButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Boolean nextRoll = true;
+                if(nextRoll && (game.getCurrentPlayer().getInJail() == false)) {
+                    nextRoll = game.roll();
+                    Properties propertyOn = game.getBoard().getProperty(game.getCurrentPlayer().getPositon());
+                    if (!propertyOn.getOwner().equals(game.getCurrentPlayer())) {
+                        propertyOn.payRent(game.getCurrentPlayer());
+                    }
+                }
+                else{
+
+                    System.out.println(game.getCurrentPlayer().getName()+" can NOT roll again. Pass your turn or buy property.");
+                }
+                if ((game.getCurrentPlayer().getInJail() == true)){
+                    Boolean isDouble = game.roll();
+                    if (isDouble && (game.getCurrentPlayer().getTurnsInJail() != 0)) {
+                        game.getCurrentPlayer().setInJail(false);
+                        game.getCurrentPlayer().setTurnsInJail(0);
+                        System.out.println(game.getCurrentPlayer().getName() + " rolled a double and is out of jail.");
+                    } else {
+                        if (game.getCurrentPlayer().getTurnsInJail() == 3) {
+                            game.getCurrentPlayer().removefromBalance(50);
+                            game.getCurrentPlayer().setInJail(false);
+                            game.getCurrentPlayer().setTurnsInJail(0);
+                            System.out.println(game.getCurrentPlayer().getName() + " Payed $50 to get out of jail.");
+                        }
+                        game.getCurrentPlayer().setTurnsInJail(game.getCurrentPlayer().getTurnsInJail() + 1); //add 1 to time in jail for player.
+                        // Manually pass turn. passPlayerTurn();
+                    }
+                }
+                game.setHasCurrPlayerRolled(true);
+
+            }
+        });
+
+        gamePanel.add(north, BorderLayout.NORTH);
+        gamePanel.add(east, BorderLayout.EAST);
+        gamePanel.add(west, BorderLayout.WEST);
+        gamePanel.add(south, BorderLayout.SOUTH);
+        gamePanel.add(center, BorderLayout.CENTER);
+
+        createPropertyPanels();
+    }
+
+    /** creates controlPanel, which contains all controls and buttons
+     * including purchase property, and quit game
+     * todo: add a button that shows the players' states
+     *       and other necessary buttons
+     *
+     */
+    private void createControlPanel() {
+        // controlPanel contains the buttons for starting a new game, purchasing property, and quiting the game.
+        // The message windows that appear as a result of pressing these buttons will also appear on eastPanel
+        int rows = 2;
+        int columns = 3;
+        controlPanel = new JPanel(new GridLayout(rows,columns));
+        panelHolder = new JPanel[rows][columns];
+        for(int m = 0; m < rows; m++) {
+            for(int n = 0; n < columns; n++) {
+                panelHolder[m][n] = new JPanel();
+                controlPanel.add(panelHolder[m][n]);
+            }
+        }
+        //todo fix size so that controlPanel in narrower than gamePanel but has same height. size currently incorrect.
+        Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
+        controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.5);
+       controlPanel.setPreferredSize(controlPanelSize);
+        controlPanel.setBackground(new Color(215, 200, 131, 255));
+
+        // todo add more buttons later
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        startButton = new JButton("Start Game");
+        rollButton = new JButton("Roll");
         newGameButton = new JButton("New Game");
         purchaseButton = new JButton("Purchase Property");
         quitButton = new JButton("Quit Game");
         passButton = new JButton("Pass turn");
         helpButton = new JButton("Help");
         modifyHouses = new JButton("Add or remove houses");
-
-        //todo handle buttons later
 
         //Button Handlers
         newGameButton.addActionListener(new ActionListener() {
@@ -291,103 +384,6 @@ public class BoardView {
             }
         });
 
-
-        center.setBackground(new Color(190,250,250));
-        createControlPanel();
-        center.add(controlPanel);
-
-        // Roll Dice button appears in center of the board
-        rollButton = new JButton("Roll Dice");
-
-        createControlPanel();
-        center.add(controlPanel);
-
-
-        rollButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Boolean nextRoll = true;
-                if(nextRoll && (game.getCurrentPlayer().getInJail() == false)) {
-                    nextRoll = game.roll();
-                    Properties propertyOn = game.getBoard().getProperty(game.getCurrentPlayer().getPositon());
-                    if (!propertyOn.getOwner().equals(game.getCurrentPlayer())) {
-                        propertyOn.payRent(game.getCurrentPlayer());
-                    }
-                }
-                else{
-
-                    System.out.println(game.getCurrentPlayer().getName()+" can NOT roll again. Pass your turn or buy property.");
-                }
-                if ((game.getCurrentPlayer().getInJail() == true)){
-                    Boolean isDouble = game.roll();
-                    if (isDouble && (game.getCurrentPlayer().getTurnsInJail() != 0)) {
-                        game.getCurrentPlayer().setInJail(false);
-                        game.getCurrentPlayer().setTurnsInJail(0);
-                        System.out.println(game.getCurrentPlayer().getName() + " rolled a double and is out of jail.");
-                    } else {
-                        if (game.getCurrentPlayer().getTurnsInJail() == 3) {
-                            game.getCurrentPlayer().removefromBalance(50);
-                            game.getCurrentPlayer().setInJail(false);
-                            game.getCurrentPlayer().setTurnsInJail(0);
-                            System.out.println(game.getCurrentPlayer().getName() + " Payed $50 to get out of jail.");
-                        }
-                        game.getCurrentPlayer().setTurnsInJail(game.getCurrentPlayer().getTurnsInJail() + 1); //add 1 to time in jail for player.
-                        // Manually pass turn. passPlayerTurn();
-                    }
-                }
-                game.setHasCurrPlayerRolled(true);
-
-            }
-        });
-
-
-        gamePanel.add(north, BorderLayout.NORTH);
-        gamePanel.add(east, BorderLayout.EAST);
-        gamePanel.add(west, BorderLayout.WEST);
-        gamePanel.add(south, BorderLayout.SOUTH);
-        gamePanel.add(center, BorderLayout.CENTER);
-
-        createPropertyPanels();
-    }
-
-    /** creates controlPanel, which contains all controls and buttons
-     * including purchase property, and quit game
-     * todo: add a button that shows the players' states
-     *       and other necessary buttons
-     *
-     */
-    private void createControlPanel() {
-        // controlPanel contains the buttons for starting a new game, purchasing property, and quiting the game.
-        // The message windows that appear as a result of pressing these buttons will also appear on eastPanel
-        int rows = 2;
-        int columns = 3;
-        controlPanel = new JPanel(new GridLayout(rows,columns));
-        panelHolder = new JPanel[rows][columns];
-        for(int m = 0; m < rows; m++) {
-            for(int n = 0; n < columns; n++) {
-                panelHolder[m][n] = new JPanel();
-                controlPanel.add(panelHolder[m][n]);
-            }
-        }
-        //todo fix size so that controlPanel in narrower than gamePanel but has same height. size currently incorrect.
-        Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
-        controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.5);
-       controlPanel.setPreferredSize(controlPanelSize);
-        controlPanel.setBackground(new Color(215, 200, 131, 255));
-
-        // todo add more buttons later
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        startButton = new JButton("Start Game");
-        newGameButton = new JButton("New Game");
-        purchaseButton = new JButton("Purchase Property");
-        quitButton = new JButton("Quit Game");
-        passButton = new JButton("Pass turn");
-        helpButton = new JButton("Help");
-        modifyHouses = new JButton("Add or remove houses");
-
-
-
         int totalNumPlayers = 4;
         for (int i=0; i<totalNumPlayers; i++){
             createNewPlayerPanel(i);
@@ -400,6 +396,7 @@ public class BoardView {
 
         buttonPanel.add(startButton);
         buttonPanel.add(newGameButton);
+        buttonPanel.add(rollButton);
         buttonPanel.add(purchaseButton);
         buttonPanel.add(quitButton);
         buttonPanel.add(passButton);
