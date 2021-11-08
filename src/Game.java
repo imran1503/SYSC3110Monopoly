@@ -24,6 +24,8 @@ public class Game {
     private BoardConstructor boardConstructor;
     public enum Commands {quit, roll, passTurn, help, purchaseProperty, purchaseHouse, purchaseHotel}
     private boolean HasCurrPlayerRolled;
+    private int diceValue1;
+    private int diceValue2;
 
     public Player getCurrentPlayer() {
         return currentPlayer;
@@ -262,6 +264,10 @@ public class Game {
 
         int randomRoll1 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1); // +1 to get range from 1 to 6.
         int randomRoll2 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1);
+
+        diceValue1 = randomRoll1;
+        diceValue2 = randomRoll2;
+
         int playerPosition = currentPlayer.getPositon();
         String playerName = currentPlayer.getName();
 
@@ -395,6 +401,39 @@ public class Game {
     public BoardView getBoardView(){return boardView;}
 
     public void setBoardView(BoardView bd){this.boardView = bd;}
+
+
+    /**
+     * Sets diceValue1. Used for testing in gameTest.
+     * @return
+     */
+    public void setDiceValue1(int diceValue2) {
+        this.diceValue2 = diceValue2;
+    }
+
+    /**
+     * Returns diceValue1 which is set to a random int in roll()
+     * @return
+     */
+    public int getDiceValue1() {
+        return diceValue2;
+    }
+
+    /**
+     * Sets diceValue2. Used for testing in GameTest.
+     * @return
+     */
+    public void setDiceValue2(int diceValue2) {
+        this.diceValue2 = diceValue2;
+    }
+
+    /**
+     * Returns diceValue2 which is set to a random int in roll()
+     * @return
+     */
+    public int getDiceValue2() {
+        return diceValue2;
+    }
 
     public static void main(String args[]){
         Game game = new Game();
