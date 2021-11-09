@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Updated README.md">
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +52,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.Game">
@@ -153,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636331632137</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Updated README.md">
+      <created>1636423950660</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1636423950660</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,9 +181,22 @@
     <MESSAGE value="trying play method in boardview and startgame button" />
     <MESSAGE value="player inventory ui started" />
     <MESSAGE value="Moved button handlers to correct location" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved button handlers to correct location" />
+    <MESSAGE value="Updated README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1636424146300">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636424146300" />
+    <state x="690" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1636424105411">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636424105411" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1636424132193">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636424132193" />
     <state width="1877" height="35" key="GridCell.Tab.0.bottom" timestamp="1636423325006">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -202,6 +221,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636417906961" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1636423968152">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636423968152" />
     <state x="664" y="412" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1636417923804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
