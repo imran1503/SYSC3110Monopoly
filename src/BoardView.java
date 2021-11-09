@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 /**
  * class BoardView implements the graphical user interface's view for the board game Monopoly.
@@ -107,13 +106,9 @@ public class BoardView {
      */
     public BoardView(Game game) {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
-
         this.frame.setResizable(true);
         this.game = game;
         this.playersInitialized = false;
-        int totalNumberOfPlayers = 4;
-
-
         this.playerInitializeStage = 0;
         this.MAX_PLAYERS = 4;
         addBasePanels();
@@ -215,16 +210,6 @@ public class BoardView {
         south.setPreferredSize(new Dimension(800,150));
         south.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
-
-        // todo add more buttons later
-
-
-        //todo handle buttons later
-
-        //Button Handlers
-
-
-
         center.setBackground(new Color(190,250,250));
         int numOfLabels = 6;
         this.playerLabelList = new JLabel[numOfLabels][6];
@@ -242,12 +227,10 @@ public class BoardView {
 
     /** creates controlPanel, which contains all controls and buttons
      * including purchase property, and quit game
-     * todo: add a button that shows the players' states
-     *       and other necessary buttons
      *
      */
     private void createControlPanel() {
-        // controlPanel contains the buttons for starting a new game, purchasing property, and quiting the game.
+        // controlPanel contains the buttons for starting a new game, roll, purchasing property, and quiting the game.
         // The message windows that appear as a result of pressing these buttons will also appear on eastPanel
         int rows = 2;
         int columns = 3;
@@ -260,13 +243,11 @@ public class BoardView {
             }
         }
 
-        //todo fix size so that controlPanel in narrower than gamePanel but has same height. size currently incorrect.
         Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
         controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.5);
        controlPanel.setPreferredSize(controlPanelSize);
         controlPanel.setBackground(new Color(215, 200, 131, 255));
 
-        // todo add more buttons later
         this.buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         startButton = new JButton("Start Game");
@@ -317,7 +298,7 @@ public class BoardView {
         helpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Alert w/ button desc, but like it is not needed for this milestonse said by the ta in the discord chat.
+                //To do
             }
         });
 
@@ -326,8 +307,7 @@ public class BoardView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(playersInitialized) {
-                    //System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
-                    updateAllPlayersStatus(4);
+                    // To do
                 }
             }
         });
@@ -353,13 +333,13 @@ public class BoardView {
         panelHolder[1][2].add(playerPanels[3]);
 
         buttonPanel.add(startButton);
-        buttonPanel.add(newGameButton);
+        //buttonPanel.add(newGameButton);
         buttonPanel.add(rollButton);
         buttonPanel.add(purchaseButton);
-        buttonPanel.add(quitButton);
         buttonPanel.add(passButton);
-        buttonPanel.add(helpButton);
-        buttonPanel.add(modifyHouses);
+        buttonPanel.add(quitButton);
+        //buttonPanel.add(helpButton);
+        //buttonPanel.add(modifyHouses);   //To do, not implemented
         panelHolder[0][1].add(buttonPanel);
 
         startButton.addActionListener(new ActionListener() {
@@ -391,24 +371,22 @@ public class BoardView {
         JPanel userPanel = new JPanel();
         userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
         JLabel headerLabel = new JLabel("Logs:");
-        this.eventLabel = new JLabel("Starts the game by pressing the Start Game button.");
+        this.eventLabel = new JLabel("<html>Starts the game by pressing the Start Game button.<br>  <br> </html>");
         this.userInputBox = new JTextField();
         this.submitButton = new JButton("Submit");
 
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //To Do
             }
         });
 
         userPanel.add(headerLabel);
         userPanel.add(eventLabel);
-        userPanel.add(userInputBox);
-        userPanel.add(submitButton);
+        //userPanel.add(userInputBox);
+        //userPanel.add(submitButton);   //To do, not implemented
         panelHolder[1][1].add(userPanel);
-
-        //todo handle buttons later
 
     }
 
@@ -442,7 +420,7 @@ public class BoardView {
             playerLabelList[playerIndex][2] = new JLabel("Current location: ");
             playerLabelList[playerIndex][3] = new JLabel("In Jail Status = ");
             playerLabelList[playerIndex][4] = new JLabel("Bankrupt Status = ");
-            playerLabelList[playerIndex][5] = new JLabel("Owned Properties: ");
+            playerLabelList[playerIndex][5] = new JLabel("<html>Owned Properties:</html>");
             playerPanels[playerIndex] = new JPanel();
             playerPanels[playerIndex].setLayout(new BoxLayout(playerPanels[playerIndex], BoxLayout.Y_AXIS));
             for (int k = 0; k < numOfLabels; k++) {
@@ -454,7 +432,6 @@ public class BoardView {
      * Update All Players Status
      */
     public void updateAllPlayersStatus(int numOfPlayers){
-            int numOfLabels = 6;
             for(int i =0; i < numOfPlayers; i++){
                 Player currentPlayer = game.getPlayer(i);
                 playerLabelList[i][0].setText("Name: "+currentPlayer.getName());
@@ -465,9 +442,9 @@ public class BoardView {
                 playerLabelList[i][4].setText("Bankrupt Status = "+currentPlayer.getBankruptStatus());
                 String controledProperties = "";
                 for(int j = 0 ; j < currentPlayer.getControlledProperties().size(); j++){
-                    controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "\n");
+                    controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "<br>");
                 }
-                playerLabelList[i][5].setText("Owned Properties: "+controledProperties);
+                playerLabelList[i][5].setText("<html> Owned Properties: "+controledProperties+"</html");
             }
 
     }

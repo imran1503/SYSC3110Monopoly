@@ -172,7 +172,7 @@ public class Game {
         else if (command.equals(Commands.passTurn)) {
 
             if (nextRoll == true) {
-                boardView.setEventLabelText(playerName + " needs to roll again before passing turn. Rolled a double previously.");
+                boardView.setEventLabelText(playerName + " needs to roll again before passing turn.");
             } else {
                 passPlayerTurn();
                 nextRoll = true;
