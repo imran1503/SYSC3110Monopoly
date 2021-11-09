@@ -15,7 +15,7 @@ public class BoardView {
 
     private Boolean playersInitialized;
 
-    private JLabel[] playerLabelList;
+    private JLabel[][] playerLabelList;
 
     private JLabel eventLabel;
 
@@ -25,7 +25,11 @@ public class BoardView {
 
     private int MAX_PLAYERS;
 
+    private JPanel mainPanel;
+
     private JPanel[][] panelHolder;
+
+    private JPanel buttonPanel;
 
     /**
      * main frame for the GUI's View.
@@ -99,15 +103,16 @@ public class BoardView {
      */
     public BoardView(Game game) {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
-        this.frame.setVisible(true);
+
         this.frame.setResizable(true);
-        this.game = new Game();
+        this.game = game;
         this.playersInitialized = false;
         int totalNumberOfPlayers = 4;
-        this.playerPanels = new JPanel[totalNumberOfPlayers];
-        addBasePanels();
+
+
         this.playerInitializeStage = 0;
-        this.MAX_PLAYERS = 0;
+        this.MAX_PLAYERS = 4;
+        addBasePanels();
     }
 
     /**
@@ -116,17 +121,10 @@ public class BoardView {
      */
     private void addBasePanels() {
          //mainPanel placed on the frame. Contains gamePanel and controlPanel.
-        JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setSize(new Dimension(1100, 800));
-
+        mainPanel = new JPanel(new BorderLayout());
         createGamePanel();
-        createControlPanel();
-
         mainPanel.add(gamePanel, BorderLayout.WEST);
-        //mainPanel.add(controlPanel, BorderLayout.EAST);
-
         frame.add(mainPanel);
-        frame.revalidate();
     }
 
     /**
@@ -207,7 +205,6 @@ public class BoardView {
 
         west.setBackground(new Color(0,200,150));
         west.setPreferredSize(new Dimension(150, 500));
-        // todo: fix orientation of propertyPanels in the west panel
         west.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         south.setBackground(new Color(250,120,200));
@@ -225,6 +222,8 @@ public class BoardView {
 
 
         center.setBackground(new Color(190,250,250));
+        int numOfLabels = 6;
+        this.playerLabelList = new JLabel[numOfLabels][6];
         createControlPanel();
         center.add(controlPanel);
 
@@ -268,13 +267,15 @@ public class BoardView {
             }
         });
 
+        createPropertyPanels();
+
         gamePanel.add(north, BorderLayout.NORTH);
         gamePanel.add(east, BorderLayout.EAST);
         gamePanel.add(west, BorderLayout.WEST);
         gamePanel.add(south, BorderLayout.SOUTH);
         gamePanel.add(center, BorderLayout.CENTER);
 
-        createPropertyPanels();
+
     }
 
     /** creates controlPanel, which contains all controls and buttons
@@ -296,6 +297,7 @@ public class BoardView {
                 controlPanel.add(panelHolder[m][n]);
             }
         }
+
         //todo fix size so that controlPanel in narrower than gamePanel but has same height. size currently incorrect.
         Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
         controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.5);
@@ -303,7 +305,7 @@ public class BoardView {
         controlPanel.setBackground(new Color(215, 200, 131, 255));
 
         // todo add more buttons later
-        JPanel buttonPanel = new JPanel();
+        this.buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         startButton = new JButton("Start Game");
         rollButton = new JButton("Roll");
@@ -381,6 +383,7 @@ public class BoardView {
         });
 
         int totalNumPlayers = 4;
+        this.playerPanels = new JPanel[totalNumPlayers];
         for (int i=0; i<totalNumPlayers; i++){
             createNewPlayerPanel(i);
         }
@@ -416,8 +419,10 @@ public class BoardView {
                 game.addPlayer(newPlayer3);
                 Player newPlayer4 = new Player(player4, new Color(100,100,0), 1500);
                 game.addPlayer(newPlayer4);
+                updateAllPlayersStatus(4);
             }
         });
+
         //todo handle buttons later
 
     }
@@ -446,51 +451,38 @@ public class BoardView {
      * Creates panels for player objects
      */
     private void createNewPlayerPanel(int playerIndex){
-            int numOfLabels = 6;
-            playerLabelList = new JLabel[numOfLabels];
-            playerLabelList[0] = new JLabel("Name: ");
-            playerLabelList[1] = new JLabel("Balance: $");
-            playerLabelList[2] = new JLabel("Current location: ");
-            playerLabelList[3] = new JLabel("In Jail Status = ");
-            playerLabelList[4] = new JLabel("Bankrupt Status = ");
-            String controledProperties = "";
-            playerLabelList[5] = new JLabel("Owned Properties: " + controledProperties);
+        int numOfLabels = 6;
+            playerLabelList[playerIndex][0] = new JLabel("Name: ");
+            playerLabelList[playerIndex][1] = new JLabel("Balance: $");
+            playerLabelList[playerIndex][2] = new JLabel("Current location: ");
+            playerLabelList[playerIndex][3] = new JLabel("In Jail Status = ");
+            playerLabelList[playerIndex][4] = new JLabel("Bankrupt Status = ");
+            playerLabelList[playerIndex][5] = new JLabel("Owned Properties: ");
             playerPanels[playerIndex] = new JPanel();
             playerPanels[playerIndex].setLayout(new BoxLayout(playerPanels[playerIndex], BoxLayout.Y_AXIS));
             for (int k = 0; k < numOfLabels; k++) {
-                playerPanels[playerIndex].add(playerLabelList[k]);
+                playerPanels[playerIndex].add(playerLabelList[playerIndex][k]);
             }
-
     }
 
     /**
      * Update All Players Status
      */
     public void updateAllPlayersStatus(int numOfPlayers){
-        System.out.println("Test 1");
-
             int numOfLabels = 6;
-            playerLabelList = new JLabel[numOfLabels];
             for(int i =0; i < numOfPlayers; i++){
-                System.out.println("Test 3");
                 Player currentPlayer = game.getPlayer(i);
-                playerLabelList[0] = new JLabel("Name: "+currentPlayer.getName() );
-                System.out.println(currentPlayer.getName());
-                playerLabelList[1] = new JLabel("Balance: $"+currentPlayer.getBalance());
-                System.out.println(currentPlayer.getBalance());
-                playerLabelList[2] = new JLabel("Current location: "+game.getBoard().getProperty(currentPlayer.getPositon()).getName());
-                playerLabelList[3] = new JLabel("In Jail Status = "+currentPlayer.getInJail());
-                playerLabelList[4] = new JLabel("Bankrupt Status = "+currentPlayer.getBankruptStatus());
+                playerLabelList[i][0].setText("Name: "+currentPlayer.getName());
+                System.out.println(playerLabelList[i][0].getText());
+                playerLabelList[i][1].setText("Balance: $"+currentPlayer.getBalance());
+                playerLabelList[i][2].setText("Current location: "+game.getBoard().getProperty(currentPlayer.getPositon()).getName());
+                playerLabelList[i][3].setText("In Jail Status = "+currentPlayer.getInJail());
+                playerLabelList[i][4].setText("Bankrupt Status = "+currentPlayer.getBankruptStatus());
                 String controledProperties = "";
                 for(int j = 0 ; j < currentPlayer.getControlledProperties().size(); j++){
                     controledProperties += "- "+ currentPlayer.getControlledProperties().get(j).getName() + "\n";
                 }
-                playerLabelList[5] = new JLabel("Owned Properties: "+controledProperties);
-
-                for(int k = 0; k < numOfLabels; k++){
-                    playerPanels[i].removeAll();
-                    playerPanels[i].add(playerLabelList[k]);
-                }
+                playerLabelList[i][5].setText("Owned Properties: "+controledProperties);
             }
 
     }
@@ -501,6 +493,7 @@ public class BoardView {
     public void displayGUI(){
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setSize(size);
+        this.frame.setVisible(true);
         closeFrame();
     }
 
