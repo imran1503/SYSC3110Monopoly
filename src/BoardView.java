@@ -31,10 +31,6 @@ public class BoardView {
 
     private JPanel buttonPanel;
 
-    private JTextField userInputBox;
-
-    private JButton submitButton;
-
     /**
      * main frame for the GUI's View.
      */
@@ -139,9 +135,7 @@ public class BoardView {
      */
     private void createPropertyPanelHelper(JPanel direction, int i, JLabel [] propertyIndexLabels){
         propertyPanels[i] = new JPanel(new BorderLayout());
-        //setting a different background color for each propertyPanel to visually set them apart from each other for now
         propertyPanels[i].setBackground(game.getBoard().getProperty(i).getColor());
-        //creating and adding an index label to each propertyPanel to see their order
         propertyIndexLabels[i] = new JLabel();
         propertyIndexLabels[i].setText(game.getBoard().getPropertiesArrayList().get(i).getName());
         propertyIndexLabels[i].setHorizontalAlignment(SwingConstants.CENTER);
@@ -215,21 +209,51 @@ public class BoardView {
         south.setPreferredSize(new Dimension(800,150));
         south.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
-
-        // todo add more buttons later
-
-
-        //todo handle buttons later
-
-        //Button Handlers
-
-
-
         center.setBackground(new Color(190,250,250));
         int numOfLabels = 6;
         this.playerLabelList = new JLabel[numOfLabels][6];
         createControlPanel();
         center.add(controlPanel);
+
+        // Roll Dice button appears in center of the board
+        rollButton = new JButton("Roll Dice");
+
+        rollButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Boolean nextRoll = true;
+                if(nextRoll && (game.getCurrentPlayer().getInJail() == false)) {
+                    nextRoll = game.roll();
+                    Properties propertyOn = game.getBoard().getProperty(game.getCurrentPlayer().getPositon());
+                    if (!propertyOn.getOwner().equals(game.getCurrentPlayer())) {
+                        propertyOn.payRent(game.getCurrentPlayer());
+                    }
+                }
+                else{
+
+                    System.out.println(game.getCurrentPlayer().getName()+" can NOT roll again. Pass your turn or buy property.");
+                }
+                if ((game.getCurrentPlayer().getInJail() == true)){
+                    Boolean isDouble = game.roll();
+                    if (isDouble && (game.getCurrentPlayer().getTurnsInJail() != 0)) {
+                        game.getCurrentPlayer().setInJail(false);
+                        game.getCurrentPlayer().setTurnsInJail(0);
+                        System.out.println(game.getCurrentPlayer().getName() + " rolled a double and is out of jail.");
+                    } else {
+                        if (game.getCurrentPlayer().getTurnsInJail() == 3) {
+                            game.getCurrentPlayer().removefromBalance(50);
+                            game.getCurrentPlayer().setInJail(false);
+                            game.getCurrentPlayer().setTurnsInJail(0);
+                            System.out.println(game.getCurrentPlayer().getName() + " Payed $50 to get out of jail.");
+                        }
+                        game.getCurrentPlayer().setTurnsInJail(game.getCurrentPlayer().getTurnsInJail() + 1); //add 1 to time in jail for player.
+                        // Manually pass turn. passPlayerTurn();
+                    }
+                }
+                game.setHasCurrPlayerRolled(true);
+
+            }
+        });
 
         createPropertyPanels();
 
@@ -238,12 +262,12 @@ public class BoardView {
         gamePanel.add(west, BorderLayout.WEST);
         gamePanel.add(south, BorderLayout.SOUTH);
         gamePanel.add(center, BorderLayout.CENTER);
+
+
     }
 
     /** creates controlPanel, which contains all controls and buttons
-     * including purchase property, and quit game
-     * todo: add a button that shows the players' states
-     *       and other necessary buttons
+     * including purchase property, and quit game.
      *
      */
     private void createControlPanel() {
@@ -260,13 +284,11 @@ public class BoardView {
             }
         }
 
-        //todo fix size so that controlPanel in narrower than gamePanel but has same height. size currently incorrect.
         Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
         controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.5);
-       controlPanel.setPreferredSize(controlPanelSize);
+        controlPanel.setPreferredSize(controlPanelSize);
         controlPanel.setBackground(new Color(215, 200, 131, 255));
 
-        // todo add more buttons later
         this.buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         startButton = new JButton("Start Game");
@@ -295,10 +317,8 @@ public class BoardView {
         purchaseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(playersInitialized) {
-                    game.operateCommand(Game.Commands.purchaseProperty);
-                    updateAllPlayersStatus(4);
-                }
+                game.purchaseProperty();
+
             }
         });
 
@@ -307,10 +327,13 @@ public class BoardView {
         passButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(playersInitialized) {
-                    game.operateCommand(Game.Commands.passTurn);
-                    updateAllPlayersStatus(4);
+                //currPlayer -> next   make new var: currPlayerRolled? T/F
+                if (game.getHasCurrPlayerRolled()){game.passPlayerTurn();}
+                else{
+                    if (JOptionPane.showConfirmDialog(frame, "You have not rolled yet. ")
+                            == JOptionPane.OK_OPTION) {}
                 }
+                game.setHasCurrPlayerRolled(false);
             }
         });
 
@@ -325,19 +348,20 @@ public class BoardView {
         modifyHouses.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(playersInitialized) {
-                    //System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
-                    updateAllPlayersStatus(4);
+                //System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
+                String propertyName =""; //TODO Get textinput JOption from new game to copy to here
+                Boolean propertyExists = false;
+                int propertyIndex = -1;
+                for (int i = 0; i < game.getBoard().getPropertiesArrayList().size(); i++) {
+                    if (game.getBoard().getProperty(i).getName().equals(propertyName)) {
+                        propertyExists = true;
+                        propertyIndex = i;
+                    }
                 }
-            }
-        });
-
-        rollButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(playersInitialized) {
-                    game.operateCommand(Game.Commands.roll);
-                    updateAllPlayersStatus(4);
+                if (propertyExists) {
+                    game.purchaseHouseOrHotel(game.getBoard().getProperty(propertyIndex));
+                } else {
+                    System.out.println("Property: " + propertyName + ", Does not exists");  //TODO Make alert
                 }
             }
         });
@@ -365,51 +389,23 @@ public class BoardView {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                if(!playersInitialized) {
 
-                    String player1 = JOptionPane.showInputDialog("Enter the name of Player 1");
-                    String player2 = JOptionPane.showInputDialog("Enter the name of Player 2");
-                    String player3 = JOptionPane.showInputDialog("Enter the name of Player 3");
-                    String player4 = JOptionPane.showInputDialog("Enter the name of Player 4");
+                String player1= JOptionPane.showInputDialog("Enter the name of Player 1");
+                String player2= JOptionPane.showInputDialog("Enter the name of Player 2");
+                String player3= JOptionPane.showInputDialog("Enter the name of Player 3");
+                String player4= JOptionPane.showInputDialog("Enter the name of Player 4");
 
-                    Player newPlayer1 = new Player(player1, new Color(20, 20, 100), 1500);
-                    game.addPlayer(newPlayer1);
-                    Player newPlayer2 = new Player(player2, new Color(100, 20, 20), 1500);
-                    game.addPlayer(newPlayer2);
-                    Player newPlayer3 = new Player(player3, new Color(20, 100, 20), 1500);
-                    game.addPlayer(newPlayer3);
-                    Player newPlayer4 = new Player(player4, new Color(100, 100, 0), 1500);
-                    game.addPlayer(newPlayer4);
-                    updateAllPlayersStatus(4);
-                    game.setCurrentPlayer(newPlayer1);
-                    playersInitialized = true;
-                    eventLabel.setText(newPlayer1.getName() + " Goes first! Start your turn by pressing the roll button.");
-                }
+                Player newPlayer1 = new Player(player1, new Color(20,20,100), 1500);
+                game.addPlayer(newPlayer1);
+                Player newPlayer2 = new Player(player2, new Color(100,20,20), 1500);
+                game.addPlayer(newPlayer2);
+                Player newPlayer3 = new Player(player3, new Color(20,100,20), 1500);
+                game.addPlayer(newPlayer3);
+                Player newPlayer4 = new Player(player4, new Color(100,100,0), 1500);
+                game.addPlayer(newPlayer4);
+                updateAllPlayersStatus(4);
             }
         });
-
-        JPanel userPanel = new JPanel();
-        userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
-        JLabel headerLabel = new JLabel("Logs:");
-        this.eventLabel = new JLabel("Starts the game by pressing the Start Game button.");
-        this.userInputBox = new JTextField();
-        this.submitButton = new JButton("Submit");
-
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        userPanel.add(headerLabel);
-        userPanel.add(eventLabel);
-        userPanel.add(userInputBox);
-        userPanel.add(submitButton);
-        panelHolder[1][1].add(userPanel);
-
-        //todo handle buttons later
-
     }
 
 
@@ -465,7 +461,7 @@ public class BoardView {
                 playerLabelList[i][4].setText("Bankrupt Status = "+currentPlayer.getBankruptStatus());
                 String controledProperties = "";
                 for(int j = 0 ; j < currentPlayer.getControlledProperties().size(); j++){
-                    controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "\n");
+                    controledProperties += "- "+ currentPlayer.getControlledProperties().get(j).getName() + "\n";
                 }
                 playerLabelList[i][5].setText("Owned Properties: "+controledProperties);
             }
@@ -485,5 +481,4 @@ public class BoardView {
     public void setEventLabelText(String eventText) {
         eventLabel.setText(eventText);
     }
-
 }

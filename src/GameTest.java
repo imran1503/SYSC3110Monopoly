@@ -1,14 +1,8 @@
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.Test;
-import org.junit.Assert.*;
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 
-
+import org.junit.Test;
+import static org.junit.Assert.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+
 
 
 public class GameTest {
@@ -16,16 +10,14 @@ public class GameTest {
     Player p1;
 
 // todo this BeforeEach doesn't work. Also tried @BeforeAll. didn't work.
-
-    /*
-    @BeforeEach
+/*
+    @BeforeAll
     public void init(){
         game = new Game();
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
-    }
-    */
+    }*/
 
 
 
@@ -41,7 +33,7 @@ public class GameTest {
 
     // No player is bankrupt. CheckNumActivePlayers must return true.
     @Test
-    public void testCheckNumOfActivePlayersCase2() {
+    public void testCheckNumOfActivePlayers1() {
         game = new Game();
         for (int i = 0; i < 5; i++) {
             Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
@@ -53,7 +45,7 @@ public class GameTest {
 
     // 1 player is bankrupt. CheckNumActivePlayers must return true.
     @Test
-    public void testCheckNumOfActivePlayersCase1() {
+    public void testCheckNumOfActivePlayers2() {
         game = new Game();
         for (int i = 0; i < 5; i++) {
             Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
@@ -70,7 +62,7 @@ public class GameTest {
 
     // All but one players (the winner) are bankrupt. CheckNumActivePlayers must return false.
     @Test
-    public void testCheckNumOfActivePlayersCase3() {
+    public void testCheckNumOfActivePlayers3() {
         game = new Game();
         for (int i = 0; i < 5; i++) {
             Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
@@ -88,7 +80,7 @@ public class GameTest {
 
     // testing if player moves forward on the board after rolling
     @Test
-    public void testRollCase1(){
+    public void testRoll1(){
         game = new Game();
         p1 = new Player("P1", new Color(10,10,10),1500);
         p1.setInJail(false);
@@ -116,7 +108,7 @@ public class GameTest {
 
     //test case for when player is in jail and rolls. Player should not move on the board and stay at Jail (position 10)
     @Test
-    public void testRollCase3(){
+    public void testRoll3(){
         game = new Game();
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
