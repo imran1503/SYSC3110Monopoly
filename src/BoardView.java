@@ -295,8 +295,10 @@ public class BoardView {
         purchaseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game.operateCommand(Game.Commands.purchaseProperty);
-                updateAllPlayersStatus(4);
+                if(playersInitialized) {
+                    game.operateCommand(Game.Commands.purchaseProperty);
+                    updateAllPlayersStatus(4);
+                }
             }
         });
 
@@ -305,8 +307,10 @@ public class BoardView {
         passButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game.operateCommand(Game.Commands.passTurn);
-                updateAllPlayersStatus(4);
+                if(playersInitialized) {
+                    game.operateCommand(Game.Commands.passTurn);
+                    updateAllPlayersStatus(4);
+                }
             }
         });
 
@@ -321,16 +325,20 @@ public class BoardView {
         modifyHouses.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
-                updateAllPlayersStatus(4);
+                if(playersInitialized) {
+                    //System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
+                    updateAllPlayersStatus(4);
+                }
             }
         });
 
         rollButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game.operateCommand(Game.Commands.roll);
-                updateAllPlayersStatus(4);
+                if(playersInitialized) {
+                    game.operateCommand(Game.Commands.roll);
+                    updateAllPlayersStatus(4);
+                }
             }
         });
 
@@ -357,29 +365,33 @@ public class BoardView {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                if(!playersInitialized) {
 
-                String player1= JOptionPane.showInputDialog("Enter the name of Player 1");
-                String player2= JOptionPane.showInputDialog("Enter the name of Player 2");
-                String player3= JOptionPane.showInputDialog("Enter the name of Player 3");
-                String player4= JOptionPane.showInputDialog("Enter the name of Player 4");
+                    String player1 = JOptionPane.showInputDialog("Enter the name of Player 1");
+                    String player2 = JOptionPane.showInputDialog("Enter the name of Player 2");
+                    String player3 = JOptionPane.showInputDialog("Enter the name of Player 3");
+                    String player4 = JOptionPane.showInputDialog("Enter the name of Player 4");
 
-                Player newPlayer1 = new Player(player1, new Color(20,20,100), 1500);
-                game.addPlayer(newPlayer1);
-                Player newPlayer2 = new Player(player2, new Color(100,20,20), 1500);
-                game.addPlayer(newPlayer2);
-                Player newPlayer3 = new Player(player3, new Color(20,100,20), 1500);
-                game.addPlayer(newPlayer3);
-                Player newPlayer4 = new Player(player4, new Color(100,100,0), 1500);
-                game.addPlayer(newPlayer4);
-                updateAllPlayersStatus(4);
-                game.setCurrentPlayer(newPlayer1);
+                    Player newPlayer1 = new Player(player1, new Color(20, 20, 100), 1500);
+                    game.addPlayer(newPlayer1);
+                    Player newPlayer2 = new Player(player2, new Color(100, 20, 20), 1500);
+                    game.addPlayer(newPlayer2);
+                    Player newPlayer3 = new Player(player3, new Color(20, 100, 20), 1500);
+                    game.addPlayer(newPlayer3);
+                    Player newPlayer4 = new Player(player4, new Color(100, 100, 0), 1500);
+                    game.addPlayer(newPlayer4);
+                    updateAllPlayersStatus(4);
+                    game.setCurrentPlayer(newPlayer1);
+                    playersInitialized = true;
+                    eventLabel.setText(newPlayer1.getName() + " Goes first! Start your turn by pressing the roll button.");
+                }
             }
         });
 
         JPanel userPanel = new JPanel();
         userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
         JLabel headerLabel = new JLabel("Logs:");
-        this.eventLabel = new JLabel("Initial                        ");
+        this.eventLabel = new JLabel("Starts the game by pressing the Start Game button.");
         this.userInputBox = new JTextField();
         this.submitButton = new JButton("Submit");
 
