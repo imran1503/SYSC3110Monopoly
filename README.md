@@ -38,7 +38,7 @@ Due to other complications, there was not enough time to allocate to JUnit's ext
 #### Objective
 The objective of the game is to be the last one standing (and richest)by buying property and raising it costs to others in order for them to go bankrupt first. 
 #### Playing the Game
-In order to interact with the program, the following commands are shown at the beginning of the game:
+In order to interact with the program, the following buttons are shown at throughout the game:
 'quit' - Ends the game immediately.                                                                                                     // Buttons not commands
 'roll' - Rolls a number die for current player.
 'purchase property' - Purchases property for current player, the property is the position player is on.
