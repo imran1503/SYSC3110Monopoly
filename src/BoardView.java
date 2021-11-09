@@ -444,7 +444,7 @@ public class BoardView {
                 for(int j = 0 ; j < currentPlayer.getControlledProperties().size(); j++){
                     controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "<br>");
                 }
-                playerLabelList[i][5].setText("<html> Owned Properties: "+controledProperties+"</html");
+                playerLabelList[i][5].setText("<html> Owned Properties: "+controledProperties+"</html>");
             }
 
     }
