@@ -34,6 +34,7 @@ We have yet to implement a way for the player to visually recognize where they a
 
 Due to other complications, there was not enough time to allocate to JUnit's extensive corner case testing for all cases that exist in the model. 
 
+There is a issue with the property incomeTax. It doesn't take away the allotted 100$. 
 ### User Manual
 #### Objective
 The objective of the game is to be the last one standing (and richest)by buying property and raising it costs to others in order for them to go bankrupt first. 
@@ -58,16 +59,16 @@ When a player is sent to jail by landing on the designated "Go to jail" space, t
 We are not able to implement these features in this version of the game. 
 
 ###### Example Turns
->>Players press "Start Game", and then enter their names .
->>The game decides who gets to move first. 
->>Player 1 presses "Roll" to move. 
->>The PLayer is moved as far as they rolled. 
->>Player 1 presses "Purchsae Property", and the game removes the money from their account but adds the Deed to the player's inventory. 
->>Player 1 passes their turn by pressing "Pass Turn". 
+Players press "Start Game", and then enter their names .
+The game decides who gets to move first. 
+Player 1 presses "Roll" to move. 
+The PLayer is moved as far as they rolled. 
+Player 1 presses "Purchsae Property", and the game removes the money from their account but adds the Deed to the player's inventory. 
+Player 1 passes their turn by pressing "Pass Turn". 
 
 ### Important Design Decisions
 We decided that implementing the functionality of: Go, Jail, Railroads and utilities early would be in our best intrest. As it will save us time when implementing the harder features of the game later on.  
 
 ### Roadmap
 The next steps for this project will involve us creating an AI player that can play the game by reading the state of the board. 
-Much later in the projects life there will also be an save and load feature, so games can stop and pick right back up where they left off.. 
+Much later in the projects life there will also be an save and load feature, so games can stop and pick right back up where they left off.

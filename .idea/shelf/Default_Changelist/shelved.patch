@@ -1,0 +1,335 @@
+Index: src/Game.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.awt.*;\r\nimport java.util.ArrayList;\r\nimport java.lang.Math;\r\nimport java.util.Scanner;\r\n\r\n/**\r\n * Class Game, int MAX_PLAYERS variable to store maxium number of players.\r\n * ArrayList of Players to store all Players in the Game.\r\n * currentPlayer variable to keep track of current player in the Game.\r\n * reader variable to store input from users.\r\n * nextRoll to store if current player will roll again (true) or not (false).\r\n * board variable to store Board of the Game\r\n * board Constructor to store constructor of the board.\r\n */\r\npublic class Game {\r\n    private static int MAX_PLAYERS = 0;\r\n    private ArrayList<Player> players;\r\n\r\n    private Player currentPlayer;\r\n    private Scanner reader; // for taking command input\r\n    private Boolean nextRoll;\r\n    private Board board;\r\n    private BoardView boardView;\r\n    private BoardConstructor boardConstructor;\r\n    public enum Commands {quit, roll, passTurn, help, purchaseProperty, purchaseHouse, purchaseHotel}\r\n    private boolean HasCurrPlayerRolled;\r\n\r\n    public Player getCurrentPlayer() {\r\n        return currentPlayer;\r\n    }\r\n\r\n    /**\r\n     * Constructor for Game\r\n     */\r\n    public Game( ){\r\n        this.players = new ArrayList<Player>();\r\n        this.currentPlayer = null;\r\n        this.nextRoll = true;\r\n        this.board = new Board(\"board.xml\");\r\n        this.reader = new Scanner(System.in);\r\n        this.boardConstructor = new BoardConstructor();\r\n        //creates the board\r\n        boardConstructor.loadBoardFromMapFile(board);\r\n        boardConstructor.validateXMLSchema(\"board.xsd\", \"board.xml\");\r\n        board.setIsValid(true);\r\n        HasCurrPlayerRolled = false;\r\n        boardView = null;\r\n    }\r\n\r\n    public boolean getHasCurrPlayerRolled() {\r\n        return HasCurrPlayerRolled;\r\n    }\r\n\r\n    public void setHasCurrPlayerRolled(boolean setHasCurrPlayerRolled) {\r\n        this.HasCurrPlayerRolled = setHasCurrPlayerRolled;\r\n    }\r\n\r\n    public BoardConstructor getBoardConstructor() {\r\n        return boardConstructor;\r\n    }\r\n    public Board getBoard() {\r\n        return board;\r\n    }\r\n\r\n    public Player getPlayer(int playerIndex){return players.get(playerIndex);}\r\n\r\n\r\n    /**\r\n     * Determines which player starts the game at random.\r\n     * @return randomPlayer, player chosen at random to go first\r\n     */\r\n    public int determineFirstPlayer() {\r\n        int totalPlayers = players.size();\r\n        // generate a random number in the range 1 to totalPlayers inclusive\r\n        int randomPlayer = 1 + (int)(Math.random() * ((totalPlayers - 1) + 1));\r\n        return randomPlayer;\r\n    }\r\n\r\n    /**\r\n     * Implements try and Checks for catch exceptions to check if param is integer.\r\n     * Returns False If max_players does not work, and it catches either numberFormat or NullPointer\r\n     * exception, indicating param is not an integer. Otherwise returns true.\r\n     * @param s the scanned string to be checked\r\n     * @return boolean true if param is integer, return false if not\r\n     */\r\n    public static boolean isInteger(String s) {\r\n        try {\r\n            MAX_PLAYERS = Integer.parseInt(s);\r\n        } catch(NumberFormatException e) {\r\n            return false;\r\n        } catch(NullPointerException e) {\r\n            return false;\r\n        }\r\n        // only got here if we didn't return false\r\n        return true;\r\n    }\r\n\r\n    /**\r\n     * Print out the opening message for the players on game start.\r\n     */\r\n    private void welcomeMessage() {\r\n        System.out.println(\"Welcome to the game of Monopoly!\");\r\n        System.out.println(\"Type 'help' if you ever need a command list with explanation.\");\r\n        System.out.println();\r\n    }\r\n\r\n    /**\r\n     * operates game commands, takes in command and undergoes respective functionality and returns boolean of true or false\r\n     * @param command the command that the function will process\r\n     * @return boolean true if game still in progress, false if not.\r\n     */\r\n    public boolean operateCommand(Commands command) {\r\n        String playerName = currentPlayer.getName();\r\n        if (command.equals(Commands.quit)) {\r\n            System.out.println(\"Game has ended.\");\r\n            return false;\r\n        }\r\n        if (command.equals(Commands.roll)) {\r\n            if(nextRoll && (currentPlayer.getInJail() == false)) {\r\n                nextRoll = roll();\r\n                Properties propertyOn = board.getProperty(currentPlayer.getPositon());\r\n                if (!propertyOn.getOwner().equals(currentPlayer)) {\r\n                    propertyOn.payRent(currentPlayer);\r\n                }\r\n            }\r\n            else{\r\n\r\n                System.out.println(playerName+\" can NOT roll again. Pass your turn or buy property.\");\r\n            }\r\n            if ((currentPlayer.getInJail() == true)){\r\n                Boolean isDouble = roll();\r\n                if (isDouble && (currentPlayer.getTurnsInJail() != 0)) {\r\n                    currentPlayer.setInJail(false);\r\n                    currentPlayer.setTurnsInJail(0);\r\n                    System.out.println(playerName + \" rolled a double and is out of jail.\");\r\n                } else {\r\n                    if (currentPlayer.getTurnsInJail() == 3) {\r\n                        currentPlayer.removefromBalance(50);\r\n                        currentPlayer.setInJail(false);\r\n                        currentPlayer.setTurnsInJail(0);\r\n                        System.out.println(playerName + \" Payed $50 to get out of jail.\");\r\n                    }\r\n                    currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1); //add 1 to time in jail for player.\r\n                    passPlayerTurn();\r\n                }\r\n            }\r\n        }\r\n        else if (command.equals(Commands.purchaseProperty)) {\r\n            purchaseProperty();\r\n        }\r\n        else if (command.equals(Commands.purchaseHouse) || command.equals(Commands.purchaseHotel)) {\r\n            System.out.println(\"Type in the property name on which you would like to purchase a house/hotel on.\");\r\n            String propertyName = reader.nextLine();\r\n            Boolean propertyExists = false;\r\n            int propertyIndex = -1;\r\n            for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {\r\n                if (board.getProperty(i).getName().equals(propertyName)) {\r\n                    propertyExists = true;\r\n                    propertyIndex = i;\r\n                }\r\n            }\r\n            if (propertyExists) {\r\n                purchaseHouseOrHotel(board.getProperty(propertyIndex));\r\n            } else {\r\n                System.out.println(\"Property: \" + propertyName + \", Does not exists\");\r\n            }\r\n        }\r\n        else if (command.equals(Commands.passTurn)) {\r\n\r\n            if (nextRoll == true) {\r\n                System.out.println(playerName + \" needs to roll again before passing turn. Rolled a double previously.\");\r\n            } else {\r\n                passPlayerTurn();\r\n                nextRoll = true;\r\n            }\r\n        }\r\n        else if (command.equals(Commands.help)) {\r\n            System.out.println(\"All commands are below with brief explanation:\");\r\n            System.out.println(\"'quit' - Ends the game immediately\");\r\n            System.out.println(\"'roll' - Rolls a number die for current player\");\r\n            System.out.println(\"'purchase property' - Purchases property for current player, the property is the position player is on\");\r\n            System.out.println(\"'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased\");\r\n            System.out.println(\"'pass turn' - Current player's turn ends, passes turn to next player\");\r\n            System.out.println(\"'check game state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status \");\r\n        }\r\n        else {\r\n            System.out.println(\"No such command exists!\");\r\n        }\r\n        if(currentPlayer.getBankruptStatus()){\r\n            System.out.println(\"Current player has bankrupted!\");\r\n            passPlayerTurn();\r\n        }\r\n        return true;\r\n    }\r\n\r\n    /**\r\n     * Appends player object to Player Arraylist.\r\n     * @param player param that is appended to arraylist\r\n     */\r\n    public void addPlayer(Player player){players.add(player);}\r\n\r\n    /**\r\n     * Sets the player param to the current player variable\r\n     * @param player param that is set as currentPlayer\r\n     */\r\n    public void setCurrentPlayer(Player player){\r\n        currentPlayer = player;\r\n    }\r\n\r\n    /**\r\n     * Print the game state of all players.\r\n     */\r\n    public void printCurrentState(){\r\n        for(int i=0; i<players.size();i++){\r\n            Player player = players.get(i);\r\n            System.out.println(\"******\\n\"+player.getName() + \" position is currently at \"+board.getProperty(player.getPositon()).getName());\r\n            System.out.println(\"Balance is \"+ player.getBalance());\r\n            System.out.println(\"Bankrupt Status = \"+player.getBankruptStatus());\r\n            System.out.println(\"In Jail Status = \"+player.getInJail());\r\n            int getNumOfProperties = player.getControlledProperties().size();\r\n            System.out.println(\"List of Owned Properties:\");\r\n            for(int j=0; j<getNumOfProperties; j++){\r\n                System.out.println(\"- \"+player.getControlledProperties().get(j).getName());\r\n            }\r\n            System.out.println(\"*****\");\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Passes player's turn. Ends the current player's turn and passes it onto the next player.\r\n     * If next player is bankrupt, passes player's turn again.\r\n     */\r\n    public void passPlayerTurn(){\r\n        int indexOfCurrentPlayer = players.indexOf(currentPlayer);\r\n        if(indexOfCurrentPlayer == (players.size() - 1)){\r\n            currentPlayer = players.get(0);\r\n        }\r\n        else{\r\n            currentPlayer = players.get(1+indexOfCurrentPlayer);\r\n        }\r\n        if(currentPlayer.getBankruptStatus()){\r\n            passPlayerTurn();\r\n        }\r\n        else {\r\n            System.out.println(\"It's Now \" + currentPlayer.getName() + \" turn to roll.\");\r\n        }\r\n    }\r\n\r\n\r\n    /**\r\n     * Rolls 2 dices with integer values between 1 and 6.\r\n     * If player is not in jail, the player's position on board will update according to total roll value.\r\n     * Returns true if both both dices are the same value, otherwise false.\r\n     * @return Boolean true if double, else false.\r\n     */\r\n    public boolean roll(){\r\n        int totalNumOfSpaces = 40;\r\n        int numberOfSidesOnDice = 6;\r\n        int goToJailPosition = 30;\r\n        int jailPosition = 10;\r\n        int passingGoAmount = 200;\r\n\r\n        int randomRoll1 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1); // +1 to get range from 1 to 6.\r\n        int randomRoll2 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1);\r\n        int playerPosition = currentPlayer.getPositon();\r\n        String playerName = currentPlayer.getName();\r\n\r\n        Boolean jailStatus = currentPlayer.getInJail();\r\n        if(((playerPosition + randomRoll1 + randomRoll2) == goToJailPosition)&&!jailStatus){ // If player lands on Go to Jail\r\n            currentPlayer.setInJail(true);\r\n            jailStatus = true;\r\n            currentPlayer.setPosition(jailPosition);\r\n            System.out.println(playerName+\" has been set to Jail, roll a double to get out of Jail next turn.\");\r\n        }\r\n        if(!jailStatus) {\r\n            if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) { // if player passes Go\r\n                currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);\r\n                currentPlayer.addToBalance(passingGoAmount);\r\n                System.out.println(playerName+\" has passed Go, Balance is now \"+currentPlayer.getBalance());\r\n                playerPosition = ((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);\r\n            } else {\r\n                currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);\r\n                playerPosition = (randomRoll1 + randomRoll2 + playerPosition);\r\n            }\r\n        }\r\n        String propertyName = board.getProperty(playerPosition).getName();\r\n        if(randomRoll1 == randomRoll2){\r\n            if(!jailStatus) {\r\n                System.out.println(\"You rolled a double, you can roll again.\");\r\n                System.out.println(playerName + \" rolled a \" + (randomRoll1 + randomRoll2) + \", landed on \" + propertyName);\r\n            }\r\n            return true;\r\n        }\r\n        System.out.println(playerName+\" rolled a \"+(randomRoll1+randomRoll2)+ \", landed on \"+propertyName);\r\n        return false;\r\n    }\r\n\r\n    /**\r\n     * Purchases property for currentPlayer based on player's position.\r\n     * Purchases property currentPlayer has landed on.\r\n     */\r\n    public void purchaseProperty(){\r\n        int playerPosition = currentPlayer.getPositon();\r\n        Properties landedOnProperty = board.getProperty(playerPosition);\r\n        String propertyName = landedOnProperty.getName();\r\n        String playerName = currentPlayer.getName();\r\n        if(landedOnProperty.getPrice() == 0){\r\n            System.out.println(\"This property can not be purchased, Property Name: \"+propertyName);\r\n        }\r\n        else{ if(landedOnProperty.getOwner().equals(currentPlayer)){\r\n            System.out.println(\"This property belongs to you already, Property Name: \"+propertyName);\r\n        }\r\n        else{ if(!landedOnProperty.getOwner().getName().equals(\"bank\")){\r\n            System.out.println(\"This property belongs to someone else, Property Name: \"+propertyName);\r\n        }\r\n        else{ if(currentPlayer.getBalance() < landedOnProperty.getPrice()){\r\n            System.out.println(playerName+\" does Not have enough money to purchase this house/hotel, Property Name: \"+propertyName);\r\n        }\r\n        else {\r\n            currentPlayer.removefromBalance(landedOnProperty.getPrice());\r\n            landedOnProperty.setOwner(currentPlayer);\r\n            currentPlayer.gainProperty(landedOnProperty);\r\n            System.out.println(playerName + \" purchased \"+propertyName+\", remaining Balance:\"+currentPlayer.getBalance());\r\n        }}}}\r\n    }\r\n\r\n    /**\r\n     * Returns void. Purchases house or hotel, depends on what the player chooses to purchase.\r\n     * @param property param that is used to\r\n     */\r\n    public void purchaseHouseOrHotel(Properties property){\r\n        Boolean owningColorSet = true;\r\n        Boolean owningEqualHouses = true;\r\n        int numOfHouseCurrent = property.getNumHouses();\r\n        Color colorOfProperty = property.getColor();\r\n        String propertyName = property.getName();\r\n        String playerName = currentPlayer.getName();\r\n        int sizeOfColorSet = board.getColorPropertiesArrayList().get(colorOfProperty).size();\r\n        for(int i = 0; i < sizeOfColorSet; i++){\r\n            Properties propertySameColor = board.getColorPropertiesArrayList().get(colorOfProperty).get(i);\r\n            if(!propertySameColor.getOwner().equals(currentPlayer)){\r\n                owningColorSet = false;\r\n            }\r\n            if(!((propertySameColor.getNumHouses() >= numOfHouseCurrent)||(propertySameColor.getNumHotels() == 1))){\r\n                owningEqualHouses = false;\r\n            }\r\n        }\r\n        if(!owningColorSet){\r\n            System.out.println(playerName+\" does NOT own the color set of this property, Missing Properties: \");\r\n            for(int i =0; i<sizeOfColorSet;i++){\r\n                if(!board.getColorPropertiesArrayList().get(colorOfProperty).get(i).equals(property)){\r\n                    System.out.println(\"- \"+board.getColorPropertiesArrayList().get(colorOfProperty).get(i).getName());\r\n                }\r\n            }\r\n        }\r\n        else if(!owningEqualHouses){\r\n            System.out.println(playerName+\" does NOT own enough of houses for the color set to buy more, Property Name: \"+propertyName);\r\n        }\r\n        else if(currentPlayer.getBalance() < property.getHousePrice()){\r\n            System.out.println(playerName+\" does Not have enough money to purchase this property, Property Name: \"+propertyName);\r\n        }\r\n        else if(property.getNumHotels() == 1){\r\n            System.out.println(\"This property already has a hotel, property Name: \"+propertyName);\r\n        }\r\n        else{\r\n            currentPlayer.removefromBalance(property.getHousePrice());\r\n            if(numOfHouseCurrent == 4) {\r\n            property.setNumHotels(1);\r\n            property.setNumHouses(0);\r\n            }\r\n            else{\r\n            property.setNumHouses((1+numOfHouseCurrent));\r\n        }}\r\n    }\r\n\r\n    /**\r\n     * Return false if number players that are not bankrupt equal to 1. Else returns true.\r\n     * @return Boolean false to end game, true to continue.\r\n     */\r\n    public Boolean checkNumOfActivePlayers(){\r\n        int totalNumPlayers = players.size();\r\n        int totalBankruptPlayers = 0;\r\n        for(int i=0; i<totalNumPlayers;i++) {\r\n            if(players.get(i).getBankruptStatus()){\r\n                totalBankruptPlayers +=1;\r\n            }\r\n        }\r\n        if((totalNumPlayers-totalBankruptPlayers)==1){\r\n            System.out.println(\"The Game has ended. \"+currentPlayer.getName()+\"wins!\");\r\n            return false;\r\n        }\r\n        return true;\r\n    }\r\n\r\n    public BoardView getBoardView(){return boardView;}\r\n\r\n    public void setBoardView(BoardView bd){this.boardView = bd;}\r\n\r\n    public static void main(String args[]){\r\n        Game game = new Game();\r\n        BoardView boardView = new BoardView(game);\r\n        boardView.displayGUI();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Game.java	(revision f97161908b695dcc1778e4c332ffca029487ffa9)
++++ src/Game.java	(date 1636345904564)
+@@ -97,101 +97,103 @@
+ 
+     /**
+      * Print out the opening message for the players on game start.
++     *  private void welcomeMessage() {
++     *         System.out.println("Welcome to the game of Monopoly!");
++     *         System.out.println("Type 'help' if you ever need a command list with explanation.");
++     *         System.out.println();
++     *     }
+      */
+-    private void welcomeMessage() {
+-        System.out.println("Welcome to the game of Monopoly!");
+-        System.out.println("Type 'help' if you ever need a command list with explanation.");
+-        System.out.println();
+-    }
++
+ 
+     /**
+      * operates game commands, takes in command and undergoes respective functionality and returns boolean of true or false
+      * @param command the command that the function will process
+      * @return boolean true if game still in progress, false if not.
++     *  public boolean operateCommand(Commands command) {
++     *         String playerName = currentPlayer.getName();
++     *         if (command.equals(Commands.quit)) {
++     *             System.out.println("Game has ended.");
++     *             return false;
++     *         }
++     *         if (command.equals(Commands.roll)) {
++     *             if(nextRoll && (currentPlayer.getInJail() == false)) {
++     *                 nextRoll = roll();
++     *                 Properties propertyOn = board.getProperty(currentPlayer.getPositon());
++     *                 if (!propertyOn.getOwner().equals(currentPlayer)) {
++     *                     propertyOn.payRent(currentPlayer);
++     *                 }
++     *             }
++     *             else{
++     *
++     *                 System.out.println(playerName+" can NOT roll again. Pass your turn or buy property.");
++     *             }
++     *             if ((currentPlayer.getInJail() == true)){
++     *                 Boolean isDouble = roll();
++     *                 if (isDouble && (currentPlayer.getTurnsInJail() != 0)) {
++     *                     currentPlayer.setInJail(false);
++     *                     currentPlayer.setTurnsInJail(0);
++     *                     System.out.println(playerName + " rolled a double and is out of jail.");
++     *                 } else {
++     *                     if (currentPlayer.getTurnsInJail() == 3) {
++     *                         currentPlayer.removefromBalance(50);
++     *                         currentPlayer.setInJail(false);
++     *                         currentPlayer.setTurnsInJail(0);
++     *                         System.out.println(playerName + " Payed $50 to get out of jail.");
++     *                     }
++     *                     currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1); //add 1 to time in jail for player.
++     *                     passPlayerTurn();
++     *                 }
++     *             }
++     *         }
++     *         else if (command.equals(Commands.purchaseProperty)) {
++     *             purchaseProperty();
++     *         }
++     *         else if (command.equals(Commands.purchaseHouse) || command.equals(Commands.purchaseHotel)) {
++     *             System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
++     *             String propertyName = reader.nextLine();
++     *             Boolean propertyExists = false;
++     *             int propertyIndex = -1;
++     *             for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
++     *                 if (board.getProperty(i).getName().equals(propertyName)) {
++     *                     propertyExists = true;
++     *                     propertyIndex = i;
++     *                 }
++     *             }
++     *             if (propertyExists) {
++     *                 purchaseHouseOrHotel(board.getProperty(propertyIndex));
++     *             } else {
++     *                 System.out.println("Property: " + propertyName + ", Does not exists");
++     *             }
++     *         }
++     *         else if (command.equals(Commands.passTurn)) {
++     *
++     *             if (nextRoll == true) {
++     *                 System.out.println(playerName + " needs to roll again before passing turn. Rolled a double previously.");
++     *             } else {
++     *                 passPlayerTurn();
++     *                 nextRoll = true;
++     *             }
++     *         }
++     *         else if (command.equals(Commands.help)) {
++     *             System.out.println("All commands are below with brief explanation:");
++     *             System.out.println("'quit' - Ends the game immediately");
++     *             System.out.println("'roll' - Rolls a number die for current player");
++     *             System.out.println("'purchase property' - Purchases property for current player, the property is the position player is on");
++     *             System.out.println("'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased");
++     *             System.out.println("'pass turn' - Current player's turn ends, passes turn to next player");
++     *             System.out.println("'check game state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status ");
++     *         }
++     *         else {
++     *             System.out.println("No such command exists!");
++     *         }
++     *         if(currentPlayer.getBankruptStatus()){
++     *             System.out.println("Current player has bankrupted!");
++     *             passPlayerTurn();
++     *         }
++     *         return true;
++     *     }
+      */
+-    public boolean operateCommand(Commands command) {
+-        String playerName = currentPlayer.getName();
+-        if (command.equals(Commands.quit)) {
+-            System.out.println("Game has ended.");
+-            return false;
+-        }
+-        if (command.equals(Commands.roll)) {
+-            if(nextRoll && (currentPlayer.getInJail() == false)) {
+-                nextRoll = roll();
+-                Properties propertyOn = board.getProperty(currentPlayer.getPositon());
+-                if (!propertyOn.getOwner().equals(currentPlayer)) {
+-                    propertyOn.payRent(currentPlayer);
+-                }
+-            }
+-            else{
+ 
+-                System.out.println(playerName+" can NOT roll again. Pass your turn or buy property.");
+-            }
+-            if ((currentPlayer.getInJail() == true)){
+-                Boolean isDouble = roll();
+-                if (isDouble && (currentPlayer.getTurnsInJail() != 0)) {
+-                    currentPlayer.setInJail(false);
+-                    currentPlayer.setTurnsInJail(0);
+-                    System.out.println(playerName + " rolled a double and is out of jail.");
+-                } else {
+-                    if (currentPlayer.getTurnsInJail() == 3) {
+-                        currentPlayer.removefromBalance(50);
+-                        currentPlayer.setInJail(false);
+-                        currentPlayer.setTurnsInJail(0);
+-                        System.out.println(playerName + " Payed $50 to get out of jail.");
+-                    }
+-                    currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1); //add 1 to time in jail for player.
+-                    passPlayerTurn();
+-                }
+-            }
+-        }
+-        else if (command.equals(Commands.purchaseProperty)) {
+-            purchaseProperty();
+-        }
+-        else if (command.equals(Commands.purchaseHouse) || command.equals(Commands.purchaseHotel)) {
+-            System.out.println("Type in the property name on which you would like to purchase a house/hotel on.");
+-            String propertyName = reader.nextLine();
+-            Boolean propertyExists = false;
+-            int propertyIndex = -1;
+-            for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
+-                if (board.getProperty(i).getName().equals(propertyName)) {
+-                    propertyExists = true;
+-                    propertyIndex = i;
+-                }
+-            }
+-            if (propertyExists) {
+-                purchaseHouseOrHotel(board.getProperty(propertyIndex));
+-            } else {
+-                System.out.println("Property: " + propertyName + ", Does not exists");
+-            }
+-        }
+-        else if (command.equals(Commands.passTurn)) {
+-
+-            if (nextRoll == true) {
+-                System.out.println(playerName + " needs to roll again before passing turn. Rolled a double previously.");
+-            } else {
+-                passPlayerTurn();
+-                nextRoll = true;
+-            }
+-        }
+-        else if (command.equals(Commands.help)) {
+-            System.out.println("All commands are below with brief explanation:");
+-            System.out.println("'quit' - Ends the game immediately");
+-            System.out.println("'roll' - Rolls a number die for current player");
+-            System.out.println("'purchase property' - Purchases property for current player, the property is the position player is on");
+-            System.out.println("'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased");
+-            System.out.println("'pass turn' - Current player's turn ends, passes turn to next player");
+-            System.out.println("'check game state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status ");
+-        }
+-        else {
+-            System.out.println("No such command exists!");
+-        }
+-        if(currentPlayer.getBankruptStatus()){
+-            System.out.println("Current player has bankrupted!");
+-            passPlayerTurn();
+-        }
+-        return true;
+-    }
+ 
+     /**
+      * Appends player object to Player Arraylist.
+@@ -209,22 +211,23 @@
+ 
+     /**
+      * Print the game state of all players.
++     * public void printCurrentState(){
++     *         for(int i=0; i<players.size();i++){
++     *             Player player = players.get(i);
++     *             System.out.println("******\n"+player.getName() + " position is currently at "+board.getProperty(player.getPositon()).getName());
++     *             System.out.println("Balance is "+ player.getBalance());
++     *             System.out.println("Bankrupt Status = "+player.getBankruptStatus());
++     *             System.out.println("In Jail Status = "+player.getInJail());
++     *             int getNumOfProperties = player.getControlledProperties().size();
++     *             System.out.println("List of Owned Properties:");
++     *             for(int j=0; j<getNumOfProperties; j++){
++     *                 System.out.println("- "+player.getControlledProperties().get(j).getName());
++     *             }
++     *             System.out.println("*****");
++     *         }
++     *     }
+      */
+-    public void printCurrentState(){
+-        for(int i=0; i<players.size();i++){
+-            Player player = players.get(i);
+-            System.out.println("******\n"+player.getName() + " position is currently at "+board.getProperty(player.getPositon()).getName());
+-            System.out.println("Balance is "+ player.getBalance());
+-            System.out.println("Bankrupt Status = "+player.getBankruptStatus());
+-            System.out.println("In Jail Status = "+player.getInJail());
+-            int getNumOfProperties = player.getControlledProperties().size();
+-            System.out.println("List of Owned Properties:");
+-            for(int j=0; j<getNumOfProperties; j++){
+-                System.out.println("- "+player.getControlledProperties().get(j).getName());
+-            }
+-            System.out.println("*****");
+-        }
+-    }
++
+ 
+     /**
+      * Passes player's turn. Ends the current player's turn and passes it onto the next player.
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"497454d4-9176-4650-a0bd-d60a15682bfe\" name=\"Default Changelist\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/BoardView.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/BoardView.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"20bhuzoTVsLnTMdPDdVwfYneJxo\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Game\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Game\" />\r\n      <module name=\"SYSC3110Monopoly\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Game\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"497454d4-9176-4650-a0bd-d60a15682bfe\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1636319422684</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1636319422684</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Play method in game other changes like userInput panel added back\">\r\n      <created>1636320632748</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636320632748</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"fixed some bugs\">\r\n      <created>1636321464892</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636321464892</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"fixed some bugs\">\r\n      <created>1636321613942</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636321613942</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"trying play method in boardview and startgame button\">\r\n      <created>1636323117174</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636323117174</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"player inventory ui started\">\r\n      <created>1636330696196</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636330696196</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"player inventory ui started\">\r\n      <created>1636330826290</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636330826290</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"player inventory ui started\">\r\n      <created>1636331291255</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636331291255</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Moved button handlers to correct location\">\r\n      <created>1636331515724</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636331515724</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Moved button handlers to correct location\">\r\n      <created>1636331632137</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636331632137</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Play method in game other changes like userInput panel added back\" />\r\n    <MESSAGE value=\"fixed some bugs\" />\r\n    <MESSAGE value=\"trying play method in boardview and startgame method\" />\r\n    <MESSAGE value=\"trying play method in boardview and startgame button\" />\r\n    <MESSAGE value=\"player inventory ui started\" />\r\n    <MESSAGE value=\"Moved button handlers to correct location\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Moved button handlers to correct location\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision f97161908b695dcc1778e4c332ffca029487ffa9)
++++ .idea/workspace.xml	(date 1636347017010)
+@@ -1,8 +1,27 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="BranchesTreeState">
++    <expand>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </expand>
++    <select />
++  </component>
+   <component name="ChangeListManager">
+     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -14,6 +33,7 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="ProjectCodeStyleSettingsMigration">
+     <option name="version" value="1" />
+@@ -27,7 +47,7 @@
+   <component name="PropertiesComponent">
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Year 4/Term 2/SYSC 2004/Lab 9 - Introduction to Swing GUIs/4.0 Lab Problem" />
+   </component>
+   <component name="RunManager">
+     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+@@ -128,6 +148,7 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Play method in game other changes like userInput panel added back" />
+@@ -138,4 +159,31 @@
+     <MESSAGE value="Moved button handlers to correct location" />
+     <option name="LAST_COMMIT_MESSAGE" value="Moved button handlers to correct location" />
+   </component>
++  <component name="WindowStateProjectService">
++    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1636334095511">
++      <screen x="0" y="0" width="1920" height="1040" />
++    </state>
++    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636334095511" />
++    <state width="1877" height="36" key="GridCell.Tab.0.bottom" timestamp="1636347016911">
++      <screen x="0" y="0" width="1920" height="1040" />
++    </state>
++    <state width="1877" height="36" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636347016911" />
++    <state width="1877" height="36" key="GridCell.Tab.0.center" timestamp="1636347016911">
++      <screen x="0" y="0" width="1920" height="1040" />
++    </state>
++    <state width="1877" height="36" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636347016911" />
++    <state width="1877" height="36" key="GridCell.Tab.0.left" timestamp="1636347016911">
++      <screen x="0" y="0" width="1920" height="1040" />
++    </state>
++    <state width="1877" height="36" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636347016911" />
++    <state width="1877" height="36" key="GridCell.Tab.0.right" timestamp="1636347016911">
++      <screen x="0" y="0" width="1920" height="1040" />
++    </state>
++    <state width="1877" height="36" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636347016911" />
++    <state x="2503" y="359" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1636346982880">
++      <screen x="1920" y="0" width="1440" height="860" />
++    </state>
++    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636332549816" />
++    <state x="2503" y="359" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1636346982880" />
++  </component>
+ </project>
+\ No newline at end of file
