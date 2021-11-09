@@ -24,6 +24,8 @@ public class GameTest {
     @Test
     public void testAddPlayer() {
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
             Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
             game.addPlayer(p);
@@ -35,6 +37,8 @@ public class GameTest {
     @Test
     public void testCheckNumOfActivePlayers1() {
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
             Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
             game.addPlayer(p);
@@ -47,6 +51,8 @@ public class GameTest {
     @Test
     public void testCheckNumOfActivePlayers2() {
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
             Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
             game.addPlayer(p);
@@ -64,6 +70,8 @@ public class GameTest {
     @Test
     public void testCheckNumOfActivePlayers3() {
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
             Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
             p.setBankruptStatus(true);
@@ -82,6 +90,8 @@ public class GameTest {
     @Test
     public void testRoll1(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         p1.setInJail(false);
         game.addPlayer(p1);
@@ -94,6 +104,8 @@ public class GameTest {
     @Test
     public void testRollCase2(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
         p1.setInJail(false);
@@ -110,6 +122,8 @@ public class GameTest {
     @Test
     public void testRoll3(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
         p1.setPosition(10);
@@ -124,6 +138,8 @@ public class GameTest {
     @Test
     public void testOperateCommandRoll(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
@@ -136,6 +152,8 @@ public class GameTest {
     @Test
     public void testOperateCommandPassTurn1(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
@@ -151,6 +169,8 @@ public class GameTest {
     @Test
     public void testOperateCommandPassTurn2(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
@@ -170,6 +190,8 @@ public class GameTest {
     @Test
     public void testPurchaseProperty(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
         p1.setPosition(6);
@@ -181,6 +203,8 @@ public class GameTest {
     @Test
     public void testOperateCommandPurchaseProperty(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
         p1.setPosition(6);
@@ -193,6 +217,8 @@ public class GameTest {
     @Test
     public void testPurchaseHouseOrHotel1(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
         p1.setPosition(1);
@@ -205,6 +231,8 @@ public class GameTest {
     @Test
     public void testPurchaseHouseOrHotel2(){
         game = new Game();
+        BoardView boardView = new BoardView(game);
+        game.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500);
         game.setCurrentPlayer(p1);
         p1.setPosition(1);
