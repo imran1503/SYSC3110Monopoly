@@ -117,7 +117,7 @@ public class Board {
             for(int i = 0; i < MAX_PLAYERS; i++){
                 System.out.println("Enter the name of Player "+i);
                 String playerName = reader.nextLine();
-                Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500);
+                Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500, false);
                 players.add(newPlayer);
 
             }

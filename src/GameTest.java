@@ -27,7 +27,7 @@ public class GameTest {
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
-            Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
+            Player p = new Player("P" + (i+1) , new Color(10,10,10),1500, false);
             game.addPlayer(p);
         }
         assertEquals(5, game.players.size());
@@ -40,7 +40,7 @@ public class GameTest {
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
-            Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
+            Player p = new Player("P" + (i+1) , new Color(10,10,10),1500, false);
             game.addPlayer(p);
             game.setCurrentPlayer(p);
         }
@@ -54,11 +54,11 @@ public class GameTest {
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
-            Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
+            Player p = new Player("P" + (i+1) , new Color(10,10,10),1500, false);
             game.addPlayer(p);
             game.setCurrentPlayer(p);
         }
-        Player pBankrupt  = new Player("PBankrupt", new Color(10,10,10), 1500);
+        Player pBankrupt  = new Player("PBankrupt", new Color(10,10,10), 1500, false);
         pBankrupt.setBankruptStatus(true);
         game.addPlayer(pBankrupt);
         game.setCurrentPlayer(pBankrupt);
@@ -73,12 +73,12 @@ public class GameTest {
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
-            Player p = new Player("P" + (i+1) , new Color(10,10,10),1500);
+            Player p = new Player("P" + (i+1) , new Color(10,10,10),1500, false);
             p.setBankruptStatus(true);
             game.addPlayer(p);
             game.setCurrentPlayer(p);
         }
-        Player pNotBankrupt  = new Player("PNotBankrupt", new Color(10,10,10), 1500);
+        Player pNotBankrupt  = new Player("PNotBankrupt", new Color(10,10,10),1500, false);
         game.addPlayer(pNotBankrupt);
         game.setCurrentPlayer(pNotBankrupt);
         pNotBankrupt.setBankruptStatus(false);
@@ -92,7 +92,7 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         p1.setInJail(false);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
@@ -106,7 +106,7 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.setCurrentPlayer(p1);
         p1.setInJail(false);
         game.addPlayer(p1);
@@ -124,7 +124,7 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.setCurrentPlayer(p1);
         p1.setPosition(10);
         p1.setInJail(true);
@@ -140,7 +140,7 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
 
@@ -154,11 +154,11 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
 
-        Player p2 = new Player("P2", new Color(20,20,20),1500);
+        Player p2 = new Player("P2", new Color(20,20,20),1500, false);
         game.operateCommand(Game.Commands.roll);
         game.addPlayer(p2);
         game.operateCommand(Game.Commands.passTurn);
@@ -171,14 +171,14 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.addPlayer(p1);
         game.setCurrentPlayer(p1);
 
-        Player p2 = new Player("P2", new Color(20,20,20),1500);
+        Player p2 = new Player("P2", new Color(20,20,20),1500, false);
         p2.setBankruptStatus(true);
         game.addPlayer(p2);
-        Player p3 = new Player("P3", new Color(10,10,10),1500);
+        Player p3 = new Player("P3", new Color(10,10,10),1500, false);
         game.addPlayer(p3);
 
         // p1 rolls , passes turn, p2 is bankrupt so p3 is next current player.
@@ -192,7 +192,7 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.setCurrentPlayer(p1);
         p1.setPosition(6);
         game.purchaseProperty();
@@ -205,7 +205,7 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.setCurrentPlayer(p1);
         p1.setPosition(6);
         game.operateCommand(Game.Commands.purchaseProperty);
@@ -219,7 +219,7 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.setCurrentPlayer(p1);
         p1.setPosition(1);
         game.purchaseProperty();
@@ -233,7 +233,7 @@ public class GameTest {
         game = new Game();
         BoardView boardView = new BoardView(game);
         game.setBoardView(boardView);
-        p1 = new Player("P1", new Color(10,10,10),1500);
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
         game.setCurrentPlayer(p1);
         p1.setPosition(1);
         game.purchaseProperty();

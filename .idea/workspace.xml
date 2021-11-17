@@ -19,13 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Updated README.md">
-      <change afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-07_7_40_p_m__[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-07_7_40_p_m___Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/BoardConstructor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/GO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/IncomeTax.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Jail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/LuxuryTax.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Properties.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Railroads.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Utilities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Properties.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +110,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636319422684</updated>
-      <workItem from="1637108734285" duration="158000" />
+      <workItem from="1637108734285" duration="731000" />
     </task>
     <task id="LOCAL-00001" summary="Play method in game other changes like userInput panel added back">
       <created>1636320632748</created>
@@ -172,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636423950660</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Started AIPlayer.java">
+      <created>1637108913847</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1637108913847</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +215,7 @@
     <MESSAGE value="player inventory ui started" />
     <MESSAGE value="Moved button handlers to correct location" />
     <MESSAGE value="Updated README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md" />
+    <MESSAGE value="Started AIPlayer.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started AIPlayer.java" />
   </component>
 </project>

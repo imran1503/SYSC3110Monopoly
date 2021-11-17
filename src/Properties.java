@@ -30,7 +30,7 @@ public class Properties {
      * @param location location of property
      */
     public Properties( String name, int price, int rent, Color color, int location){
-        Player bank = new Player("bank",Color.white,1000000);
+        Player bank = new Player("bank",Color.white,1000000, false);
         this.name = name;
         this.rent = rent;
         this.owner = bank;
@@ -49,7 +49,7 @@ public class Properties {
      * @param location location of property
      */
     public Properties(String name, Color color, int location) {
-        Player bank = new Player("bank",Color.white,1000000);
+        Player bank = new Player("bank",Color.white,1000000, false);
         this.name = name;
         this.owner = bank;
         numHouses = 0;

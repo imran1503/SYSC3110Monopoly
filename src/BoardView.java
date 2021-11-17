@@ -346,19 +346,19 @@ public class BoardView {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if(!playersInitialized) {
-
+                    //TODO Implement option for AI Player
                     String player1 = JOptionPane.showInputDialog("Enter the name of Player 1");
                     String player2 = JOptionPane.showInputDialog("Enter the name of Player 2");
                     String player3 = JOptionPane.showInputDialog("Enter the name of Player 3");
                     String player4 = JOptionPane.showInputDialog("Enter the name of Player 4");
 
-                    Player newPlayer1 = new Player(player1, new Color(20, 20, 100), 1500);
+                    Player newPlayer1 = new Player(player1, new Color(20, 20, 100), 1500, false);
                     game.addPlayer(newPlayer1);
-                    Player newPlayer2 = new Player(player2, new Color(100, 20, 20), 1500);
+                    Player newPlayer2 = new Player(player2, new Color(100, 20, 20), 1500, false);
                     game.addPlayer(newPlayer2);
-                    Player newPlayer3 = new Player(player3, new Color(20, 100, 20), 1500);
+                    Player newPlayer3 = new Player(player3, new Color(20, 100, 20), 1500, false);
                     game.addPlayer(newPlayer3);
-                    Player newPlayer4 = new Player(player4, new Color(100, 100, 0), 1500);
+                    Player newPlayer4 = new Player(player4, new Color(100, 100, 0), 1500, false);
                     game.addPlayer(newPlayer4);
                     updateAllPlayersStatus(4);
                     game.setCurrentPlayer(newPlayer1);
