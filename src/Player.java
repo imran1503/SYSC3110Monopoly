@@ -26,7 +26,7 @@ public class Player {
     private Color color;
     private Boolean inJail;
     private int turnsInJail;
-    //private Boolean ai;
+    private Boolean ai;
     private Boolean bankruptStatus;
 
     /**
@@ -35,7 +35,7 @@ public class Player {
      * @param color player's color set to this parameter
      * @param startingMoney starting money of player is set to this parameter
      */
-    public Player(String name, Color color, int startingMoney) {
+    public Player(String name, Color color, int startingMoney, boolean isAi) {
         controlledProperties = new ArrayList<>();
         this.name = name;
         this.color = color;
@@ -46,6 +46,7 @@ public class Player {
         this.bankruptStatus = false;
         this.inJail = false;
         this.turnsInJail = 0;
+        this.ai = isAi;
     }
 
     /**
@@ -127,9 +128,9 @@ public class Player {
      * @param color The player color
      * @return the new Player created
      */
-    public static Player newPlayer(String name, Color color, int startingMoney) {
+    public static Player newPlayer(String name, Color color, int startingMoney, boolean isAi) {
 
-        return new Player(name, color, startingMoney);
+        return new Player(name, color, startingMoney, isAi);
     }
 
     /**

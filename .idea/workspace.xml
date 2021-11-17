@@ -20,8 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Updated README.md">
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-07_7_40_p_m__[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-07_7_40_p_m___Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +34,13 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,6 +62,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -88,6 +100,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1636319422684</updated>
+      <workItem from="1637108734285" duration="158000" />
     </task>
     <task id="LOCAL-00001" summary="Play method in game other changes like userInput panel added back">
       <created>1636320632748</created>
@@ -162,6 +175,9 @@
     <option name="localTasksCounter" value="11" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -183,56 +199,5 @@
     <MESSAGE value="Moved button handlers to correct location" />
     <MESSAGE value="Updated README.md" />
     <option name="LAST_COMMIT_MESSAGE" value="Updated README.md" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1636424146300">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636424146300" />
-    <state x="690" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1636424105411">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636424105411" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1636424132193">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636424132193" />
-    <state width="1877" height="35" key="GridCell.Tab.0.bottom" timestamp="1636423325006">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="35" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636423325006" />
-    <state width="1877" height="35" key="GridCell.Tab.0.center" timestamp="1636423325005">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="35" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636423325005" />
-    <state width="1877" height="35" key="GridCell.Tab.0.left" timestamp="1636423325005">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="35" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636423325005" />
-    <state width="1877" height="35" key="GridCell.Tab.0.right" timestamp="1636423325005">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="35" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636423325005" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1636422852118">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636422852118" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1636417906961">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636417906961" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1636423968152">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636423968152" />
-    <state x="664" y="412" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1636417923804">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="664" y="412" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636417923804" />
-    <state x="716" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1636423579278">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="716" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1636423579278" />
-    <state x="2457" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@1920.0.1440.860" timestamp="1636422837340" />
   </component>
 </project>
