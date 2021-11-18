@@ -325,6 +325,12 @@ public class BoardView {
         panelHolder[0][2].add(playerPanels[2]);
         panelHolder[1][2].add(playerPanels[3]);
 
+        //Hiding buttons not needed at start of the game
+        rollButton.setVisible(false);
+        purchaseButton.setVisible(false);
+        passButton.setVisible(false);
+
+
         buttonPanel.add(startButton);
         //buttonPanel.add(newGameButton);
         buttonPanel.add(rollButton);

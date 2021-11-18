@@ -42,6 +42,10 @@ public class BoardController implements ActionListener {
                 bm.setCurrentPlayer(newPlayer1);
                 playersInitialized = true;
                 bv.setEventLabelText(newPlayer1.getName() + " Goes first! Start your turn by pressing the roll button.","");
+                buttons.get(1).setVisible(true);
+                buttons.get(2).setVisible(true);
+                buttons.get(3).setVisible(true);
+                buttons.get(0).setVisible(false);
             }
         }
         //roll button
