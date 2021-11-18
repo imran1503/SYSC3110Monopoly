@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 /**
  * class BoardView implements the graphical user interface's view for the board game Monopoly.
@@ -103,6 +104,10 @@ public class BoardView {
      */
     private JPanel north, east, west, south, center;
 
+    /**
+     * List of all the buttons in boardView.
+     */
+    private ArrayList<JButton> buttonList;
 
     /**
      * constructor for the class.
@@ -263,6 +268,16 @@ public class BoardView {
         helpButton = new JButton("Help");
         modifyHouses = new JButton("Add or remove houses");
 
+        /** BoardController initialization and actionListener for butttons */
+        this.buttonList = new ArrayList<>();
+        buttonList.add(startButton);     //Index 0
+        buttonList.add(rollButton);      //Index 1
+        buttonList.add(purchaseButton);  //Index 2
+        buttonList.add(passButton);      //Index 3
+        buttonList.add(quitButton);      //Index 4
+
+        BoardController bc = new BoardController(this,this.boardModel);
+
         //Button Handlers
         newGameButton.addActionListener(new ActionListener() {
             @Override
@@ -277,27 +292,11 @@ public class BoardView {
             }
         });
 
-        purchaseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(playersInitialized) {
-                    boardModel.operateCommand(BoardModel.Commands.purchaseProperty);
-                    updateAllPlayersStatus(4);
-                }
-            }
-        });
+        purchaseButton.addActionListener(bc);
 
         quitButton.addActionListener(e -> System.exit(0));
 
-        passButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(playersInitialized) {
-                    boardModel.operateCommand(BoardModel.Commands.passTurn);
-                    updateAllPlayersStatus(4);
-                }
-            }
-        });
+        passButton.addActionListener(bc);
 
         helpButton.addActionListener(new ActionListener() {
             @Override
@@ -316,15 +315,9 @@ public class BoardView {
             }
         });
 
-        rollButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(playersInitialized) {
-                    boardModel.operateCommand(BoardModel.Commands.roll);
-                    updateAllPlayersStatus(4);
-                }
-            }
-        });
+        rollButton.addActionListener(bc);
+
+        startButton.addActionListener(bc);
 
         int totalNumPlayers = 4;
         this.playerPanels = new JPanel[totalNumPlayers];
@@ -345,32 +338,6 @@ public class BoardView {
         //buttonPanel.add(helpButton);
         //buttonPanel.add(modifyHouses);   //To do, not implemented
         panelHolder[0][1].add(buttonPanel);
-
-        startButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                if(!playersInitialized) {
-                    //TODO Implement option for AI Player
-                    String player1 = JOptionPane.showInputDialog("Enter the name of Player 1");
-                    String player2 = JOptionPane.showInputDialog("Enter the name of Player 2");
-                    String player3 = JOptionPane.showInputDialog("Enter the name of Player 3");
-                    String player4 = JOptionPane.showInputDialog("Enter the name of Player 4");
-
-                    Player newPlayer1 = new Player(player1, new Color(20, 20, 100), 1500, false);
-                    boardModel.addPlayer(newPlayer1);
-                    Player newPlayer2 = new Player(player2, new Color(100, 20, 20), 1500, false);
-                    boardModel.addPlayer(newPlayer2);
-                    Player newPlayer3 = new Player(player3, new Color(20, 100, 20), 1500, false);
-                    boardModel.addPlayer(newPlayer3);
-                    Player newPlayer4 = new Player(player4, new Color(100, 100, 0), 1500, false);
-                    boardModel.addPlayer(newPlayer4);
-                    updateAllPlayersStatus(4);
-                    boardModel.setCurrentPlayer(newPlayer1);
-                    playersInitialized = true;
-                    eventLabel.setText(newPlayer1.getName() + " Goes first! Start your turn by pressing the roll button.");
-                }
-            }
-        });
 
         JPanel userPanel = new JPanel();
         userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
@@ -474,5 +441,7 @@ public class BoardView {
     public void setEventLabel3Text(String eventText) {
         eventLabel3.setText(eventText);
     }
+
+    public ArrayList<JButton> getButtonList(){return buttonList;}
 
 }
