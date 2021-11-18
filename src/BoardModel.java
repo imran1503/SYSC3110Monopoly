@@ -195,6 +195,13 @@ public class BoardModel {
             System.out.println("No such command exists!");
         }
         if(currentPlayer.getBankruptStatus()){
+            int playerIndex = 0;
+            for(int i = 0; i<players.size();i++){
+                if(players.get(i).equals(currentPlayer)){
+                    playerIndex = i;
+                }
+            }
+            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
             boardView.setEventLabel3Text("Current player has bankrupted!");
             passPlayerTurn();
         }

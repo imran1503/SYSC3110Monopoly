@@ -46,6 +46,10 @@ public class BoardController implements ActionListener {
                 buttons.get(2).setVisible(true);
                 buttons.get(3).setVisible(true);
                 buttons.get(0).setVisible(false);
+
+                for(int i=0 ; i<4; i++){
+                    bv.getPlayerLists().get(i)[0].setVisible(true);
+                }
             }
         }
         //roll button

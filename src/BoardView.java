@@ -171,7 +171,7 @@ public class BoardView {
         propertyIndexLabels[i].setText(boardModel.getBoard().getPropertiesArrayList().get(i).getName());
         propertyIndexLabels[i].setHorizontalAlignment(SwingConstants.CENTER);
         propertyIndexLabels[i].setVerticalAlignment(SwingConstants.CENTER);
-        propertyPanels[i].add(propertyIndexLabels[i]);
+        propertyPanels[i].add(propertyIndexLabels[i],BorderLayout.PAGE_START);
 
         JPanel playerPanel = new JPanel(new GridLayout(1,4));
         player1Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(100,0,0)));
