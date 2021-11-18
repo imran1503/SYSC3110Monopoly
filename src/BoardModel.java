@@ -117,8 +117,8 @@ public class BoardModel {
         boardView.setEventLabel3Text("");
         String playerName = currentPlayer.getName();
         if (command.equals(Commands.quit)) {
-            System.out.println("Game has ended.");
-            return false;
+            boardView.setEventLabel3Text("Game has ended.");
+            System.exit(0);
         }
         if (command.equals(Commands.roll)) {
             if(nextRoll && (currentPlayer.getInJail() == false)) {
@@ -198,6 +198,7 @@ public class BoardModel {
             boardView.setEventLabel3Text("Current player has bankrupted!");
             passPlayerTurn();
         }
+        if(!checkNumOfActivePlayers()){operateCommand(Commands.quit);}
         return true;
     }
 
@@ -398,7 +399,7 @@ public class BoardModel {
             }
         }
         if((totalNumPlayers-totalBankruptPlayers)==1){
-            System.out.println("The Game has ended. "+currentPlayer.getName()+"wins!");
+            boardView.setEventLabelText("The Game has ended. "+currentPlayer.getName()+"wins!","");
             return false;
         }
         return true;
