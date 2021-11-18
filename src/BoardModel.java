@@ -4,12 +4,12 @@ import java.lang.Math;
 import java.util.Scanner;
 
 /**
- * Class Game, int MAX_PLAYERS variable to store maxium number of players.
- * ArrayList of Players to store all Players in the Game.
- * currentPlayer variable to keep track of current player in the Game.
+ * Class BoardModel, int MAX_PLAYERS variable to store maxium number of players.
+ * ArrayList of Players to store all Players in the BoardModel.
+ * currentPlayer variable to keep track of current player in the BoardModel.
  * reader variable to store input from users.
  * nextRoll to store if current player will roll again (true) or not (false).
- * board variable to store Board of the Game
+ * board variable to store Board of the BoardModel
  * board Constructor to store constructor of the board.
  */
 public class BoardModel {
