@@ -20,22 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/BoardConstructor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/GO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/IncomeTax.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Jail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/LuxuryTax.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Properties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Railroads.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/Utilities.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Properties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +68,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RunManager" selected="Application.Game">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -217,5 +209,8 @@
     <MESSAGE value="Updated README.md" />
     <MESSAGE value="Started AIPlayer.java" />
     <option name="LAST_COMMIT_MESSAGE" value="Started AIPlayer.java" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

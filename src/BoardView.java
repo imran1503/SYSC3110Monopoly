@@ -18,6 +18,10 @@ public class BoardView {
 
     private JLabel eventLabel;
 
+    private JLabel eventLabel2;
+
+    private JLabel eventLabel3;
+
     private JButton startButton;
 
     private int playerInitializeStage;
@@ -372,6 +376,8 @@ public class BoardView {
         userPanel.setLayout(new BoxLayout(userPanel, BoxLayout.Y_AXIS));
         JLabel headerLabel = new JLabel("Logs:");
         this.eventLabel = new JLabel("<html>Starts the game by pressing the Start Game button.<br>  <br> </html>");
+        this.eventLabel2 = new JLabel(" ");
+        this.eventLabel3 = new JLabel(" ");
         this.userInputBox = new JTextField();
         this.submitButton = new JButton("Submit");
 
@@ -384,6 +390,8 @@ public class BoardView {
 
         userPanel.add(headerLabel);
         userPanel.add(eventLabel);
+        userPanel.add(eventLabel2);
+        userPanel.add(eventLabel3);
         //userPanel.add(userInputBox);
         //userPanel.add(submitButton);   //To do, not implemented
         panelHolder[1][1].add(userPanel);
@@ -459,8 +467,13 @@ public class BoardView {
         closeFrame();
     }
 
-    public void setEventLabelText(String eventText) {
+    public void setEventLabelText(String eventText, String eventText2) {
         eventLabel.setText(eventText);
+        eventLabel2.setText(eventText2);
+    }
+
+    public void setEventLabel3Text(String eventText) {
+        eventLabel3.setText(eventText);
     }
 
 }

@@ -40,6 +40,7 @@
 
     <Tax>
         <name>Income Tax</name>
+        <rent>200</rent>
         <r>255</r>
         <g>255</g>
         <b>255</b>
@@ -374,6 +375,7 @@
 
     <Tax>
         <name>Luxury Tax</name>
+        <rent>100</rent>
         <r>255</r>
         <g>255</g>
         <b>255</b>

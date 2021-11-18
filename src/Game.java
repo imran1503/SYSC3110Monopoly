@@ -114,6 +114,7 @@ public class Game {
      * @return boolean true if game still in progress, false if not.
      */
     public boolean operateCommand(Commands command) {
+        boardView.setEventLabel3Text("");
         String playerName = currentPlayer.getName();
         if (command.equals(Commands.quit)) {
             System.out.println("Game has ended.");
@@ -125,24 +126,27 @@ public class Game {
                 Properties propertyOn = board.getProperty(currentPlayer.getPositon());
                 if (!propertyOn.getOwner().equals(currentPlayer)) {
                     propertyOn.payRent(currentPlayer);
+                    if(!propertyOn.getOwner().getName().equals("bank")||(propertyOn.getLocation() == 4)||(propertyOn.getLocation() == 38)) {
+                        boardView.setEventLabel3Text(playerName + " pays $" + propertyOn.getRent() + " to " + propertyOn.getOwner().getName() + " on " + propertyOn.getName());
+                    }
                 }
             }
             else{
 
-                boardView.setEventLabelText(playerName+" can NOT roll again. Pass your turn or buy property.");
+                boardView.setEventLabelText(playerName+" can NOT roll again. Pass your turn or buy property.","");
             }
             if ((currentPlayer.getInJail() == true)){
                 Boolean isDouble = roll();
                 if (isDouble && (currentPlayer.getTurnsInJail() != 0)) {
                     currentPlayer.setInJail(false);
                     currentPlayer.setTurnsInJail(0);
-                    boardView.setEventLabelText(playerName + " rolled a double and is out of jail.");
+                    boardView.setEventLabelText(playerName + " rolled a double and is out of jail.","");
                 } else {
                     if (currentPlayer.getTurnsInJail() == 3) {
                         currentPlayer.removefromBalance(50);
                         currentPlayer.setInJail(false);
                         currentPlayer.setTurnsInJail(0);
-                        boardView.setEventLabelText(playerName + " Payed $50 to get out of jail.");
+                        boardView.setEventLabelText(playerName + " Payed $50 to get out of jail.","");
                     }
                     currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1); //add 1 to time in jail for player.
                     passPlayerTurn();
@@ -153,7 +157,7 @@ public class Game {
             purchaseProperty();
         }
         else if (command.equals(Commands.purchaseHouse) || command.equals(Commands.purchaseHotel)) {
-            boardView.setEventLabelText("Type in the property name on which you would like to purchase a house/hotel on.");
+            boardView.setEventLabelText("Type in the property name on which you would like to purchase a house/hotel on.","");
             String propertyName = reader.nextLine();
             Boolean propertyExists = false;
             int propertyIndex = -1;
@@ -166,13 +170,13 @@ public class Game {
             if (propertyExists) {
                 purchaseHouseOrHotel(board.getProperty(propertyIndex));
             } else {
-                boardView.setEventLabelText("Property: " + propertyName + ", Does not exists");
+                boardView.setEventLabelText("Property: " + propertyName + ", Does not exists","");
             }
         }
         else if (command.equals(Commands.passTurn)) {
 
             if (nextRoll == true) {
-                boardView.setEventLabelText(playerName + " needs to roll again before passing turn.");
+                boardView.setEventLabelText(playerName + " needs to roll again before passing turn.","");
             } else {
                 passPlayerTurn();
                 nextRoll = true;
@@ -191,7 +195,7 @@ public class Game {
             System.out.println("No such command exists!");
         }
         if(currentPlayer.getBankruptStatus()){
-            boardView.setEventLabelText("Current player has bankrupted!");
+            boardView.setEventLabel3Text("Current player has bankrupted!");
             passPlayerTurn();
         }
         return true;
@@ -246,7 +250,7 @@ public class Game {
             passPlayerTurn();
         }
         else {
-            boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.");
+            boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "");
         }
     }
 
@@ -278,13 +282,13 @@ public class Game {
             currentPlayer.setInJail(true);
             jailStatus = true;
             currentPlayer.setPosition(jailPosition);
-            boardView.setEventLabelText(playerName+" has been set to Jail, roll a double to get out of Jail next turn.");
+            boardView.setEventLabelText(playerName+" has been set to Jail, roll a double to get out of Jail next turn.","");
         }
         if(!jailStatus) {
             if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) { // if player passes Go
                 currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
                 currentPlayer.addToBalance(passingGoAmount);
-                boardView.setEventLabelText(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance());
+                boardView.setEventLabelText(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance(),"");
                 playerPosition = ((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
             } else {
                 currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);
@@ -294,12 +298,12 @@ public class Game {
         String propertyName = board.getProperty(playerPosition).getName();
         if(randomRoll1 == randomRoll2){
             if(!jailStatus) {
-                boardView.setEventLabelText("You rolled a double, you can roll again. "+
-                playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertyName);
+                boardView.setEventLabelText(
+                playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertyName, "You rolled a double, you can roll again. ");
             }
             return true;
         }
-        boardView.setEventLabelText(playerName+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertyName);
+        boardView.setEventLabelText(playerName+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertyName,"");
         return false;
     }
 
@@ -313,22 +317,22 @@ public class Game {
         String propertyName = landedOnProperty.getName();
         String playerName = currentPlayer.getName();
         if(landedOnProperty.getPrice() == 0){
-            boardView.setEventLabelText("This property can not be purchased, Property Name: "+propertyName);
+            boardView.setEventLabelText("This property can not be purchased, Property Name: "+propertyName,"");
         }
         else{ if(landedOnProperty.getOwner().equals(currentPlayer)){
-            boardView.setEventLabelText("This property belongs to you already, Property Name: "+propertyName);
+            boardView.setEventLabelText("This property belongs to you already, Property Name: "+propertyName,"");
         }
         else{ if(!landedOnProperty.getOwner().getName().equals("bank")){
-            boardView.setEventLabelText("This property belongs to someone else, Property Name: "+propertyName);
+            boardView.setEventLabelText("This property belongs to someone else, Property Name: "+propertyName,"");
         }
         else{ if(currentPlayer.getBalance() < landedOnProperty.getPrice()){
-            boardView.setEventLabelText(playerName+" does Not have enough money to purchase this house/hotel, Property Name: "+propertyName);
+            boardView.setEventLabelText(playerName+" does Not have enough money to purchase this house/hotel, Property Name: "+propertyName,"");
         }
         else {
             currentPlayer.removefromBalance(landedOnProperty.getPrice());
             landedOnProperty.setOwner(currentPlayer);
             currentPlayer.gainProperty(landedOnProperty);
-            boardView.setEventLabelText(playerName + " purchased "+propertyName+", remaining Balance:"+currentPlayer.getBalance());
+            boardView.setEventLabelText(playerName + " purchased "+propertyName+", remaining Balance:"+currentPlayer.getBalance(),"");
         }}}}
     }
 

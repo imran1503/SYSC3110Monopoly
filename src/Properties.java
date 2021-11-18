@@ -86,7 +86,6 @@ public class Properties {
      */
     public void payRent(Player payingPlayer){
         if(!owner.getName().equals("bank")||(location == 4)||(location == 38)){
-            System.out.println(payingPlayer.getName() + " pays " + this.getRent() + " to " + owner.getName() + " on " + name);
             payingPlayer.removefromBalance(this.getRent());
             if (owner != null) {
                 owner.addToBalance(this.getRent());

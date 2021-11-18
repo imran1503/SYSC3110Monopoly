@@ -104,7 +104,8 @@ public class BoardConstructor {
                     Node TaxNode = TaxList.item(itr);
                     if (TaxNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element TaxElement = (Element) TaxNode;
-                        Properties newProperties = new Properties(TaxElement.getElementsByTagName("name").item(0).getTextContent(),
+                        Properties newProperties = new Properties(TaxElement.getElementsByTagName("name").item(0).getTextContent(),0,
+                                Integer.parseInt(TaxElement.getElementsByTagName("rent").item(0).getTextContent()), // rent/tax amount
                                 new Color( Integer.parseInt(TaxElement.getElementsByTagName("r").item(0).getTextContent()),  //R
                                         Integer.parseInt(TaxElement.getElementsByTagName("g").item(0).getTextContent()),     //G
                                         Integer.parseInt(TaxElement.getElementsByTagName("b").item(0).getTextContent())),    //B
