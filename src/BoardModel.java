@@ -303,7 +303,7 @@ public class BoardModel {
             }
             return true;
         }
-        boardView.setEventLabelText(playerName+" rolled a "+(randomRoll1+randomRoll2)+ ", landed on "+propertyName,"");
+        boardView.setEventLabelText(playerName+" rolled a "+(randomRoll1+randomRoll2), "Landed on "+propertyName);
         return false;
     }
 
@@ -317,22 +317,22 @@ public class BoardModel {
         String propertyName = landedOnProperty.getName();
         String playerName = currentPlayer.getName();
         if(landedOnProperty.getPrice() == 0){
-            boardView.setEventLabelText("This property can not be purchased, Property Name: "+propertyName,"");
+            boardView.setEventLabelText("This property can not be purchased", "Property Name: "+propertyName);
         }
         else{ if(landedOnProperty.getOwner().equals(currentPlayer)){
-            boardView.setEventLabelText("This property belongs to you already, Property Name: "+propertyName,"");
+            boardView.setEventLabelText("This property belongs to you already","Property Name: "+propertyName);
         }
         else{ if(!landedOnProperty.getOwner().getName().equals("bank")){
-            boardView.setEventLabelText("This property belongs to someone else, Property Name: "+propertyName,"");
+            boardView.setEventLabelText("This property belongs to someone else", "Property Name: "+propertyName);
         }
         else{ if(currentPlayer.getBalance() < landedOnProperty.getPrice()){
-            boardView.setEventLabelText(playerName+" does Not have enough money to purchase this house/hotel, Property Name: "+propertyName,"");
+            boardView.setEventLabelText(playerName+" does Not have enough money to purchase this property", "Property Name: "+propertyName);
         }
         else {
             currentPlayer.removefromBalance(landedOnProperty.getPrice());
             landedOnProperty.setOwner(currentPlayer);
             currentPlayer.gainProperty(landedOnProperty);
-            boardView.setEventLabelText(playerName + " purchased "+propertyName+", remaining Balance:"+currentPlayer.getBalance(),"");
+            boardView.setEventLabelText(playerName + " purchased "+propertyName, "Remaining Balance: "+currentPlayer.getBalance());
         }}}}
     }
 

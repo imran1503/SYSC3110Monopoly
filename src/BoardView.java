@@ -443,7 +443,6 @@ public class BoardView {
             for(int i =0; i < numOfPlayers; i++){
                 Player currentPlayer = boardModel.getPlayer(i);
                 playerLabelList[i][0].setText("Name: "+currentPlayer.getName());
-                System.out.println(playerLabelList[i][0].getText());
                 playerLabelList[i][1].setText("Balance: $"+currentPlayer.getBalance());
                 playerLabelList[i][2].setText("Current location: "+ boardModel.getBoard().getProperty(currentPlayer.getPositon()).getName());
                 playerLabelList[i][3].setText("In Jail Status = "+currentPlayer.getInJail());
