@@ -10,7 +10,7 @@ import java.awt.event.*;
  */
 public class BoardView {
 
-    private Game game;
+    private BoardModel boardModel;
 
     private Boolean playersInitialized;
 
@@ -108,10 +108,10 @@ public class BoardView {
      * constructor for the class.
      *
      */
-    public BoardView(Game game) {
+    public BoardView(BoardModel boardModel) {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
         this.frame.setResizable(true);
-        this.game = game;
+        this.boardModel = boardModel;
         this.playersInitialized = false;
         this.playerInitializeStage = 0;
         this.MAX_PLAYERS = 4;
@@ -139,10 +139,10 @@ public class BoardView {
     private void createPropertyPanelHelper(JPanel direction, int i, JLabel [] propertyIndexLabels){
         propertyPanels[i] = new JPanel(new BorderLayout());
         //setting a different background color for each propertyPanel to visually set them apart from each other for now
-        propertyPanels[i].setBackground(game.getBoard().getProperty(i).getColor());
+        propertyPanels[i].setBackground(boardModel.getBoard().getProperty(i).getColor());
         //creating and adding an index label to each propertyPanel to see their order
         propertyIndexLabels[i] = new JLabel();
-        propertyIndexLabels[i].setText(game.getBoard().getPropertiesArrayList().get(i).getName());
+        propertyIndexLabels[i].setText(boardModel.getBoard().getPropertiesArrayList().get(i).getName());
         propertyIndexLabels[i].setHorizontalAlignment(SwingConstants.CENTER);
         propertyIndexLabels[i].setVerticalAlignment(SwingConstants.CENTER);
         propertyPanels[i].add(propertyIndexLabels[i]);
@@ -281,7 +281,7 @@ public class BoardView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(playersInitialized) {
-                    game.operateCommand(Game.Commands.purchaseProperty);
+                    boardModel.operateCommand(BoardModel.Commands.purchaseProperty);
                     updateAllPlayersStatus(4);
                 }
             }
@@ -293,7 +293,7 @@ public class BoardView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(playersInitialized) {
-                    game.operateCommand(Game.Commands.passTurn);
+                    boardModel.operateCommand(BoardModel.Commands.passTurn);
                     updateAllPlayersStatus(4);
                 }
             }
@@ -320,7 +320,7 @@ public class BoardView {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(playersInitialized) {
-                    game.operateCommand(Game.Commands.roll);
+                    boardModel.operateCommand(BoardModel.Commands.roll);
                     updateAllPlayersStatus(4);
                 }
             }
@@ -357,15 +357,15 @@ public class BoardView {
                     String player4 = JOptionPane.showInputDialog("Enter the name of Player 4");
 
                     Player newPlayer1 = new Player(player1, new Color(20, 20, 100), 1500, false);
-                    game.addPlayer(newPlayer1);
+                    boardModel.addPlayer(newPlayer1);
                     Player newPlayer2 = new Player(player2, new Color(100, 20, 20), 1500, false);
-                    game.addPlayer(newPlayer2);
+                    boardModel.addPlayer(newPlayer2);
                     Player newPlayer3 = new Player(player3, new Color(20, 100, 20), 1500, false);
-                    game.addPlayer(newPlayer3);
+                    boardModel.addPlayer(newPlayer3);
                     Player newPlayer4 = new Player(player4, new Color(100, 100, 0), 1500, false);
-                    game.addPlayer(newPlayer4);
+                    boardModel.addPlayer(newPlayer4);
                     updateAllPlayersStatus(4);
-                    game.setCurrentPlayer(newPlayer1);
+                    boardModel.setCurrentPlayer(newPlayer1);
                     playersInitialized = true;
                     eventLabel.setText(newPlayer1.getName() + " Goes first! Start your turn by pressing the roll button.");
                 }
@@ -441,11 +441,11 @@ public class BoardView {
      */
     public void updateAllPlayersStatus(int numOfPlayers){
             for(int i =0; i < numOfPlayers; i++){
-                Player currentPlayer = game.getPlayer(i);
+                Player currentPlayer = boardModel.getPlayer(i);
                 playerLabelList[i][0].setText("Name: "+currentPlayer.getName());
                 System.out.println(playerLabelList[i][0].getText());
                 playerLabelList[i][1].setText("Balance: $"+currentPlayer.getBalance());
-                playerLabelList[i][2].setText("Current location: "+game.getBoard().getProperty(currentPlayer.getPositon()).getName());
+                playerLabelList[i][2].setText("Current location: "+ boardModel.getBoard().getProperty(currentPlayer.getPositon()).getName());
                 playerLabelList[i][3].setText("In Jail Status = "+currentPlayer.getInJail());
                 playerLabelList[i][4].setText("Bankrupt Status = "+currentPlayer.getBankruptStatus());
                 String controledProperties = "";

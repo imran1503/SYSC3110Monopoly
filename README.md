@@ -12,7 +12,7 @@
 - [Issues](#issues)
 - [User Manual](#complete-user-manual)
     * [Objective](#objective)
-    * [Playing the Game](#playing-the-game)
+    * [Playing the BoardModel](#playing-the-boardModel)
     * [Core Gameplay Loop](#core-gameplay-loop)
     * [Jail](#jail)
     * [Current Player Information](#current-player-information)
@@ -21,7 +21,7 @@
 - [Roadmap](#roadmap)
 
 ### Quick Start:
-To play Monopoly, run the main function in Game.java, or if you chose to run it from the jar file type:
+To play Monopoly, run the main function in BoardModel.java, or if you chose to run it from the jar file type:
 ```
 java -jar Monopoly.jar
 ```
@@ -37,15 +37,15 @@ Due to other complications, there was not enough time to allocate to JUnit's ext
 There is a issue with the property incomeTax. It doesn't take away the allotted 100$. 
 ### User Manual
 #### Objective
-The objective of the game is to be the last one standing (and richest)by buying property and raising it costs to others in order for them to go bankrupt first. 
-#### Playing the Game
-In order to interact with the program, the following buttons are shown at throughout the game:
-'quit' - Ends the game immediately.                                                                                                     // Buttons not commands
+The objective of the boardModel is to be the last one standing (and richest)by buying property and raising it costs to others in order for them to go bankrupt first. 
+#### Playing the BoardModel
+In order to interact with the program, the following buttons are shown at throughout the boardModel:
+'quit' - Ends the boardModel immediately.                                                                                                     // Buttons not commands
 'roll' - Rolls a number die for current player.
 'purchase property' - Purchases property for current player, the property is the position player is on.
 'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased.
 'pass turn' - Current player's turn ends, passes turn to next player.
-'check game state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status.
+'check boardModel state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status.
   
 ###### Core Gameplay Loop                                   
 1.Rolling Dice to Move.
@@ -56,19 +56,19 @@ In order to interact with the program, the following buttons are shown at throug
 When a player is sent to jail by landing on the designated "Go to jail" space, they are moved diagonally across the board directly to the jail cell on the 10th space. They are unable to collect go while moving to the jail cell. A player that is in jail is required to stay for a maximum of 3 turns after entering jail. While in jail, every turn they are required to roll doubles in order to leave jail early. If they are unable to roll doubles by the third turn, they are required to pay $50 to the bank in order to be released. They do not reroll for movment when they leave jail, they take the roll that got them out, or that would have if it was a double on their final turn in jail. 
          
 ###### The Lack of:   Speed Dice, Chance Cards, Community Chest, Mortgaging property, Housing 
-We are not able to implement these features in this version of the game. 
+We are not able to implement these features in this version of the boardModel. 
 
 ###### Example Turns
-Players press "Start Game", and then enter their names .
-The game decides who gets to move first. 
+Players press "Start BoardModel", and then enter their names .
+The boardModel decides who gets to move first. 
 Player 1 presses "Roll" to move. 
 The PLayer is moved as far as they rolled. 
-Player 1 presses "Purchsae Property", and the game removes the money from their account but adds the Deed to the player's inventory. 
+Player 1 presses "Purchsae Property", and the boardModel removes the money from their account but adds the Deed to the player's inventory. 
 Player 1 passes their turn by pressing "Pass Turn". 
 
 ### Important Design Decisions
-We decided that implementing the functionality of: Go, Jail, Railroads and utilities early would be in our best intrest. As it will save us time when implementing the harder features of the game later on.  
+We decided that implementing the functionality of: Go, Jail, Railroads and utilities early would be in our best intrest. As it will save us time when implementing the harder features of the boardModel later on.  
 
 ### Roadmap
-The next steps for this project will involve us creating an AI player that can play the game by reading the state of the board. 
+The next steps for this project will involve us creating an AI player that can play the boardModel by reading the state of the board. 
 Much later in the projects life there will also be an save and load feature, so games can stop and pick right back up where they left off.

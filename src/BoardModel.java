@@ -12,7 +12,7 @@ import java.util.Scanner;
  * board variable to store Board of the Game
  * board Constructor to store constructor of the board.
  */
-public class Game {
+public class BoardModel {
     private static int MAX_PLAYERS = 0;
     public ArrayList<Player> players;
 
@@ -34,7 +34,7 @@ public class Game {
     /**
      * Constructor for Game
      */
-    public Game( ){
+    public BoardModel( ){
         this.players = new ArrayList<Player>();
         this.currentPlayer = null;
         this.nextRoll = true;
@@ -442,9 +442,9 @@ public class Game {
     }
 
     public static void main(String args[]){
-        Game game = new Game();
-        BoardView boardView = new BoardView(game);
-        game.setBoardView(boardView);
+        BoardModel boardModel = new BoardModel();
+        BoardView boardView = new BoardView(boardModel);
+        boardModel.setBoardView(boardView);
         boardView.displayGUI();
     }
 
