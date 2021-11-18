@@ -13,7 +13,6 @@ public class BoardView {
 
     private BoardModel boardModel;
 
-    private Boolean playersInitialized;
 
     private JLabel[][] playerLabelList;
 
@@ -117,7 +116,6 @@ public class BoardView {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
         this.frame.setResizable(true);
         this.boardModel = boardModel;
-        this.playersInitialized = false;
         this.playerInitializeStage = 0;
         this.MAX_PLAYERS = 4;
         addBasePanels();
@@ -309,9 +307,7 @@ public class BoardView {
         modifyHouses.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(playersInitialized) {
-                    // To do
-                }
+                //to do
             }
         });
 
