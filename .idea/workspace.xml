@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Player icon Movement">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
-    </list>
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +37,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -273,41 +269,8 @@
     <MESSAGE value="The game should now end when 1 player is left that is not bankrupt." />
     <MESSAGE value="Implemented actionEvent for start,roll,purchase property, pass turn buttons in BoardController.java" />
     <MESSAGE value="Player icon Movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Player icon Movement" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1637269996230">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637269996230" />
-    <state width="1877" height="34" key="GridCell.Tab.0.bottom" timestamp="1637270718990">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="34" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637270718990" />
-    <state width="1877" height="34" key="GridCell.Tab.0.center" timestamp="1637270718990">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="34" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637270718990" />
-    <state width="1877" height="34" key="GridCell.Tab.0.left" timestamp="1637270718989">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="34" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637270718989" />
-    <state width="1877" height="34" key="GridCell.Tab.0.right" timestamp="1637270718990">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="34" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637270718990" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1637266168179">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637266168178" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1637270270884">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637270270884" />
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1637266146771">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637266146771" />
+    <MESSAGE value="Player icons appear at GO now at start of game." />
+    <option name="LAST_COMMIT_MESSAGE" value="Player icons appear at GO now at start of game." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
