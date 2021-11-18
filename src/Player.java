@@ -162,7 +162,7 @@ public class Player {
      */
     public void removeAllControlledProperties(){
         for(int i = 0; i < controlledProperties.size(); i++){
-            controlledProperties.get(i).setOwner(null);
+            controlledProperties.get(i).setOwner(newPlayer("bank",new Color(10,10,10),1000000,false));
             controlledProperties.get(i).setNumHouses(0);
             controlledProperties.get(i).setNumHotels(0);
         }
