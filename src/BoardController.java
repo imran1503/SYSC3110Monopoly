@@ -47,9 +47,10 @@ public class BoardController implements ActionListener {
                 buttons.get(3).setVisible(true);
                 buttons.get(0).setVisible(false);
 
-                for(int i=0 ; i<4; i++){
-                    bv.getPlayerLists().get(i)[0].setVisible(true);
+                for (int i = 0; i < 4; i++) {  //For all 4 players
+                    bv.getPlayerLists().get(i)[0].setVisible(true); //set icons to visible on GO
                 }
+
             }
         }
         //roll button
