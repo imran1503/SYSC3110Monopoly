@@ -286,6 +286,15 @@ public class BoardModel {
             boardView.setEventLabelText(playerName+" has been set to Jail, roll a double to get out of Jail next turn.","");
         }
         if(!jailStatus) {
+            //For Moving Players
+            int playerIndex = 0;
+            for(int i = 0; i<players.size();i++){
+                if(players.get(i).equals(currentPlayer)){
+                    playerIndex = i;
+                }
+            }
+            //For rolling
+            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
             if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) { // if player passes Go
                 currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
                 currentPlayer.addToBalance(passingGoAmount);
@@ -295,6 +304,7 @@ public class BoardModel {
                 currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);
                 playerPosition = (randomRoll1 + randomRoll2 + playerPosition);
             }
+            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
         }
         String propertyName = board.getProperty(playerPosition).getName();
         if(randomRoll1 == randomRoll2){

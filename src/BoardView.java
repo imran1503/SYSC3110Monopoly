@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * class BoardView implements the graphical user interface's view for the board game Monopoly.
  *
- * @author Mahtab Ameli, Imran Latif
+ * @author Mahtab Ameli, Imran Latif, Muhammad Furqan
  * @version 1.0
  */
 public class BoardView {
@@ -37,6 +37,13 @@ public class BoardView {
     private JTextField userInputBox;
 
     private JButton submitButton;
+
+    private ArrayList<JLabel []> playerLists;
+
+    private JLabel [] player1Labels;
+    private JLabel [] player2Labels;
+    private JLabel [] player3Labels;
+    private JLabel [] player4Labels;
 
     /**
      * main frame for the GUI's View.
@@ -108,6 +115,7 @@ public class BoardView {
      */
     private ArrayList<JButton> buttonList;
 
+
     /**
      * constructor for the class.
      *
@@ -118,6 +126,15 @@ public class BoardView {
         this.boardModel = boardModel;
         this.playerInitializeStage = 0;
         this.MAX_PLAYERS = 4;
+        this.player1Labels = new JLabel[40];
+        this.player2Labels = new JLabel[40];
+        this.player3Labels = new JLabel[40];
+        this.player4Labels = new JLabel[40];
+        this.playerLists = new ArrayList<>();
+        playerLists.add(player1Labels);
+        playerLists.add(player2Labels);
+        playerLists.add(player3Labels);
+        playerLists.add(player4Labels);
         addBasePanels();
     }
 
@@ -134,7 +151,13 @@ public class BoardView {
     }
 
     /**
-     * This helper funtion is used to create all the labels and properties on the grid.
+     *   //TODO
+     * @return
+     */
+    public ArrayList<JLabel[]> getPlayerLists(){return playerLists;}
+
+    /**
+     * This helper function is used to create all the labels and properties on the grid.
      * @param direction The edge of the board we are creating labels on.
      * @param i Which property i we are adding.
      * @param propertyIndexLabels The list we are adding the labels to.
@@ -149,6 +172,24 @@ public class BoardView {
         propertyIndexLabels[i].setHorizontalAlignment(SwingConstants.CENTER);
         propertyIndexLabels[i].setVerticalAlignment(SwingConstants.CENTER);
         propertyPanels[i].add(propertyIndexLabels[i]);
+
+        JPanel playerPanel = new JPanel(new GridLayout(1,4));
+        player1Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(100,0,0)));
+        player2Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(0,100,0)));
+        player3Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(0,0,100)));
+        player4Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(150,100,50)));
+        player1Labels[i].setVisible(false);
+        player2Labels[i].setVisible(false);
+        player3Labels[i].setVisible(false);
+        player4Labels[i].setVisible(false);
+
+        playerPanel.add(player1Labels[i]);
+        playerPanel.add(player2Labels[i]);
+        playerPanel.add(player3Labels[i]);
+        playerPanel.add(player4Labels[i]);
+        playerPanel.setBackground(boardModel.getBoard().getProperty(i).getColor());
+        propertyPanels[i].add(playerPanel,BorderLayout.PAGE_END);
+
         direction.add(propertyPanels[i]);
     }
 
