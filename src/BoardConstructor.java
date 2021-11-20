@@ -26,6 +26,7 @@ public class BoardConstructor {
 
     private Board board;
 
+
     /**
      *
      * @param xsdPath

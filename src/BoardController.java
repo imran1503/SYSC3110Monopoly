@@ -20,6 +20,8 @@ public class BoardController implements ActionListener {
 
     private static volatile Boolean submitButtonPressed;
 
+    private ArrayList<Color> colorList;
+
     public BoardController (BoardView bv,BoardModel bm){
         this.bv=bv;
         this.bm=bm;
@@ -28,6 +30,12 @@ public class BoardController implements ActionListener {
         submitButtonPressed = false;
         this.Max_players = 0;
         this.playerInitializing = 0;
+        this.colorList = new ArrayList<>();
+        colorList.add(new Color(100,0,0));
+        colorList.add(new Color(0,100,0));
+        colorList.add(new Color(0,0,100));
+        colorList.add(new Color(150,100,50));
+
     }
 
     @Override
@@ -78,7 +86,7 @@ public class BoardController implements ActionListener {
                     }
                     else{
                         playerInitializeStage++;
-                        bv.setEventLabelText("Do you want player " + (playerInitializing+1) + "to be an AI Player? ('yes' if AI)?","Press the submit button when done");
+                        bv.setEventLabelText("Do you want player " + (playerInitializing+1) + " to be an AI Player? ('yes' if AI)?","Press the submit button when done");
                         bv.setEventLabel3Text("");
                         waitForNextButton = true;
                     }
@@ -89,20 +97,46 @@ public class BoardController implements ActionListener {
                 bv.clearTextField();
             }
             if((playerInitializeStage == 2)&&!waitForNextButton){
+
+                boolean AIPlayer = bv.getUserInput().equals("yes");
+
+                if (AIPlayer) {
+                    //todo will return a Player
+                    bm.addPlayer(new Player("AI Player" + (playerInitializing + 1), colorList.get(playerInitializing), 1500, true));
+                    playerInitializing++;
+                    bv.setEventLabelText("Do you want player " + (playerInitializing+1) + " to be an AI Player? ('yes' if AI)?","Press the submit button when done");
+
+                }
+                else {
+                    bv.setEventLabelText("Enter the name of Player "+(playerInitializing+1),"Press the submit button when done");
+                    playerInitializeStage = 3;
+                    waitForNextButton = true;
+
+                }
+
+                if(playerInitializing == Max_players){
+                    playerInitializeStage = 4;
+                }
+
+                bv.clearTextField();
+            }
+
+            if(playerInitializeStage == 3 && !waitForNextButton) {
+                playerInitializing++;
+                bv.setEventLabelText("Do you want player " + (playerInitializing+1) + " to be an AI Player? ('yes' if AI)?","Press the submit button when done");
                 String playerName = bv.getUserInput();
                 Player newPlayer = new Player(playerName, new Color(10*playerInitializing,10*playerInitializing,10*playerInitializing), 1500, false);
                 bm.addPlayer(newPlayer);
-                playerInitializing++;
-                if(playerInitializing == Max_players){
-                    playerInitializeStage++;
-                }
-                else{
-                    bv.setEventLabelText("Enter the name of Player "+(playerInitializing+1),"Press the submit button when done");
-                }
+                playerInitializeStage = 2;
                 bv.clearTextField();
+
+                if(playerInitializing == Max_players){
+                    playerInitializeStage = 4;
+                }
             }
+
             //TODO AI player should get initialized here in playerIntialiseStage 2
-            if(playerInitializeStage == 3){
+            if(playerInitializeStage == 4){
                 bv.updateAllPlayersStatus(Max_players);
                 bm.setCurrentPlayer(bm.getPlayer(0));
                 playersInitialized = true;
@@ -115,7 +149,7 @@ public class BoardController implements ActionListener {
                 playerInitializeStage++;
                 waitForNextButton = true;
             }
-            if((playerInitializeStage == 4)&&!waitForNextButton){
+            if((playerInitializeStage == 5)&&!waitForNextButton){
                 String propertyName = bv.getUserInput();
                 Boolean propertyExists = false;
                 int propertyIndex = -1;
@@ -134,6 +168,8 @@ public class BoardController implements ActionListener {
                 bv.setUserInputVisibility(false);
                 bv.clearTextField();
             }
+
+
 
         }
 
