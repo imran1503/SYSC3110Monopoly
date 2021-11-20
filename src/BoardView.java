@@ -24,8 +24,6 @@ public class BoardView {
 
     private JButton startButton;
 
-    private int playerInitializeStage;
-
     private int MAX_PLAYERS;
 
     private JPanel mainPanel;
@@ -37,6 +35,7 @@ public class BoardView {
     private JTextField userInputBox;
 
     private JButton submitButton;
+
 
     private ArrayList<JLabel []> playerLists;
 
@@ -102,9 +101,9 @@ public class BoardView {
     private JButton quitButton;
 
     /**
-     * User can press this to add or remove houses from a monopoly
+     * User can press this to buy a house on a property
      */
-    private JButton modifyHouses;
+    private JButton purchaseHouseHotel;
 
     /**
      * user can press this button to pass the turn to the next player.
@@ -130,7 +129,6 @@ public class BoardView {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
         this.frame.setResizable(true);
         this.boardModel = boardModel;
-        this.playerInitializeStage = 0;
         this.MAX_PLAYERS = 4;
         this.player1Labels = new JLabel[40];
         this.player2Labels = new JLabel[40];
@@ -223,7 +221,7 @@ public class BoardView {
         housingPanel.add(housing5Labels[i]);
         housingPanel.setBackground(boardModel.getBoard().getProperty(i).getColor());
 
-        propertyPanels[i].add(housingPanel);
+        propertyPanels[i].add(housingPanel, BorderLayout.CENTER);
         propertyPanels[i].add(playerPanel, BorderLayout.PAGE_END);
 
 
@@ -342,7 +340,8 @@ public class BoardView {
         quitButton = new JButton("Quit Game");
         passButton = new JButton("Pass turn");
         helpButton = new JButton("Help");
-        modifyHouses = new JButton("Add or remove houses");
+        purchaseHouseHotel = new JButton("Buy house/hotel");
+        submitButton = new JButton("Submit");
 
         /** BoardController initialization and actionListener for butttons */
         this.buttonList = new ArrayList<>();
@@ -351,6 +350,8 @@ public class BoardView {
         buttonList.add(purchaseButton);  //Index 2
         buttonList.add(passButton);      //Index 3
         buttonList.add(quitButton);      //Index 4
+        buttonList.add(purchaseHouseHotel);//Index 5
+        buttonList.add(submitButton);    //Index 6
 
         BoardController bc = new BoardController(this,this.boardModel);
 
@@ -381,17 +382,13 @@ public class BoardView {
             }
         });
 
-
-        modifyHouses.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //to do
-            }
-        });
+        purchaseHouseHotel.addActionListener(bc);
 
         rollButton.addActionListener(bc);
 
         startButton.addActionListener(bc);
+
+        submitButton.addActionListener(bc);
 
         int totalNumPlayers = 4;
         this.playerPanels = new JPanel[totalNumPlayers];
@@ -407,6 +404,8 @@ public class BoardView {
         rollButton.setVisible(false);
         purchaseButton.setVisible(false);
         passButton.setVisible(false);
+        purchaseHouseHotel.setVisible(false);
+        submitButton.setVisible(false);
 
 
         buttonPanel.add(startButton);
@@ -416,7 +415,7 @@ public class BoardView {
         buttonPanel.add(passButton);
         buttonPanel.add(quitButton);
         //buttonPanel.add(helpButton);
-        //buttonPanel.add(modifyHouses);   //To do, not implemented
+        buttonPanel.add(purchaseHouseHotel);   //To do, not implemented
         panelHolder[0][1].add(buttonPanel);
 
         JPanel userPanel = new JPanel();
@@ -426,21 +425,14 @@ public class BoardView {
         this.eventLabel2 = new JLabel(" ");
         this.eventLabel3 = new JLabel(" ");
         this.userInputBox = new JTextField();
-        this.submitButton = new JButton("Submit");
-
-        submitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //To Do
-            }
-        });
+        userInputBox.setVisible(false);
 
         userPanel.add(headerLabel);
         userPanel.add(eventLabel);
         userPanel.add(eventLabel2);
         userPanel.add(eventLabel3);
-        //userPanel.add(userInputBox);
-        //userPanel.add(submitButton);   //To do, not implemented
+        userPanel.add(userInputBox);
+        userPanel.add(submitButton);   //To do, not implemented
         panelHolder[1][1].add(userPanel);
 
     }
@@ -523,5 +515,11 @@ public class BoardView {
     }
 
     public ArrayList<JButton> getButtonList(){return buttonList;}
+
+    public String getUserInput(){return userInputBox.getText();}
+
+    public void setTextFieldVisibility(Boolean visible){userInputBox.setVisible(visible);}
+
+    public void clearTextField(){userInputBox.setText("");}
 
 }
