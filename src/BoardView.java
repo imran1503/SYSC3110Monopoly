@@ -45,6 +45,12 @@ public class BoardView {
     private JLabel [] player3Labels;
     private JLabel [] player4Labels;
 
+    private JLabel [] housing1Labels;
+    private JLabel [] housing2Labels;
+    private JLabel [] housing3Labels;
+    private JLabel [] housing4Labels;
+    private JLabel [] housing5Labels;
+
     /**
      * main frame for the GUI's View.
      */
@@ -130,6 +136,11 @@ public class BoardView {
         this.player2Labels = new JLabel[40];
         this.player3Labels = new JLabel[40];
         this.player4Labels = new JLabel[40];
+        this.housing1Labels = new JLabel[40];
+        this.housing2Labels = new JLabel[40];
+        this.housing3Labels = new JLabel[40];
+        this.housing4Labels = new JLabel[40];
+        this.housing5Labels = new JLabel[40];
         this.playerLists = new ArrayList<>();
         playerLists.add(player1Labels);
         playerLists.add(player2Labels);
@@ -173,6 +184,7 @@ public class BoardView {
         propertyIndexLabels[i].setVerticalAlignment(SwingConstants.CENTER);
         propertyPanels[i].add(propertyIndexLabels[i],BorderLayout.PAGE_START);
 
+
         JPanel playerPanel = new JPanel(new GridLayout(1,4));
         player1Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(100,0,0)));
         player2Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(0,100,0)));
@@ -183,12 +195,37 @@ public class BoardView {
         player3Labels[i].setVisible(false);
         player4Labels[i].setVisible(false);
 
+
         playerPanel.add(player1Labels[i]);
         playerPanel.add(player2Labels[i]);
         playerPanel.add(player3Labels[i]);
         playerPanel.add(player4Labels[i]);
         playerPanel.setBackground(boardModel.getBoard().getProperty(i).getColor());
-        propertyPanels[i].add(playerPanel,BorderLayout.PAGE_END);
+
+
+        // todo new code for housing labels
+        JPanel housingPanel = new JPanel(new GridLayout(1,4));
+        housing1Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
+        housing2Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
+        housing3Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
+        housing4Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
+        housing5Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(213, 6, 6, 255)));
+        housing1Labels[i].setVisible(false);
+        housing2Labels[i].setVisible(false);
+        housing3Labels[i].setVisible(false);
+        housing4Labels[i].setVisible(false);
+        housing5Labels[i].setVisible(false);
+
+        housingPanel.add(housing1Labels[i]);
+        housingPanel.add(housing2Labels[i]);
+        housingPanel.add(housing3Labels[i]);
+        housingPanel.add(housing4Labels[i]);
+        housingPanel.add(housing5Labels[i]);
+        housingPanel.setBackground(boardModel.getBoard().getProperty(i).getColor());
+
+        propertyPanels[i].add(housingPanel);
+        propertyPanels[i].add(playerPanel, BorderLayout.PAGE_END);
+
 
         direction.add(propertyPanels[i]);
     }
@@ -293,7 +330,7 @@ public class BoardView {
 
         Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
         controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.5);
-       controlPanel.setPreferredSize(controlPanelSize);
+        controlPanel.setPreferredSize(controlPanelSize);
         controlPanel.setBackground(new Color(215, 200, 131, 255));
 
         this.buttonPanel = new JPanel();
