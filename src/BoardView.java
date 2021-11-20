@@ -375,12 +375,7 @@ public class BoardView {
 
         passButton.addActionListener(bc);
 
-        helpButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //To do
-            }
-        });
+        helpButton.addActionListener(bc);
 
         purchaseHouseHotel.addActionListener(bc);
 
@@ -400,14 +395,6 @@ public class BoardView {
         panelHolder[0][2].add(playerPanels[2]);
         panelHolder[1][2].add(playerPanels[3]);
 
-        //Hiding buttons not needed at start of the game
-        rollButton.setVisible(false);
-        purchaseButton.setVisible(false);
-        passButton.setVisible(false);
-        purchaseHouseHotel.setVisible(false);
-        submitButton.setVisible(false);
-
-
         buttonPanel.add(startButton);
         //buttonPanel.add(newGameButton);
         buttonPanel.add(rollButton);
@@ -425,6 +412,10 @@ public class BoardView {
         this.eventLabel2 = new JLabel(" ");
         this.eventLabel3 = new JLabel(" ");
         this.userInputBox = new JTextField();
+
+        //Hiding buttons not needed at start of the game
+        this.setUserInputVisibility(true);
+        submitButton.setVisible(false);
         userInputBox.setVisible(false);
 
         userPanel.add(headerLabel);
@@ -496,6 +487,37 @@ public class BoardView {
     }
 
     /**
+     * Update Houses icon for a specific property
+     * @param propertyLocation
+     */
+    public void updateHousesIcons(Integer propertyLocation){
+        Properties property = boardModel.getBoard().getProperty(propertyLocation);
+        int propertyNumHouses = property.getNumHouses();
+        int propertyNumHotels = property.getNumHotels();
+        if(propertyNumHotels == 1){
+            housing1Labels[propertyLocation].setVisible(false);
+            housing2Labels[propertyLocation].setVisible(false);
+            housing3Labels[propertyLocation].setVisible(false);
+            housing4Labels[propertyLocation].setVisible(false);
+            housing5Labels[propertyLocation].setVisible(true);
+        }
+        else{
+            if(propertyNumHouses == 1){
+                housing1Labels[propertyLocation].setVisible(true);
+            }
+            else if(propertyNumHouses == 2){
+                housing2Labels[propertyLocation].setVisible(true);
+            }
+            else if(propertyNumHouses == 3){
+                housing3Labels[propertyLocation].setVisible(true);
+            }
+            else if(propertyNumHouses == 4){
+                housing4Labels[propertyLocation].setVisible(true);
+            }
+        }
+    }
+
+    /**
      * displays the GUI of the game.
      */
     public void displayGUI(){
@@ -521,5 +543,14 @@ public class BoardView {
     public void setTextFieldVisibility(Boolean visible){userInputBox.setVisible(visible);}
 
     public void clearTextField(){userInputBox.setText("");}
+
+    public void setUserInputVisibility(Boolean condition){
+        buttonList.get(1).setVisible(!condition);
+        buttonList.get(2).setVisible(!condition);
+        buttonList.get(3).setVisible(!condition);
+        buttonList.get(5).setVisible(!condition);
+        buttonList.get(6).setVisible(condition);
+        userInputBox.setVisible(condition);
+    }
 
 }

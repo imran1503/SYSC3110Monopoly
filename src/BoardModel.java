@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.lang.Math;
@@ -148,6 +149,9 @@ public class BoardModel {
                         currentPlayer.setTurnsInJail(0);
                         boardView.setEventLabelText(playerName + " Payed $50 to get out of jail.","");
                     }
+                    else{
+                        boardView.setEventLabel3Text(playerName + " did Not roll a double");
+                    }
                     currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1); //add 1 to time in jail for player.
                     passPlayerTurn();
                 }
@@ -157,21 +161,8 @@ public class BoardModel {
             purchaseProperty();
         }
         else if (command.equals(Commands.purchaseHouse) || command.equals(Commands.purchaseHotel)) {
-            boardView.setEventLabelText("Type in the property name on which you would like to purchase a house/hotel on.","");
-            String propertyName = reader.nextLine();
-            Boolean propertyExists = false;
-            int propertyIndex = -1;
-            for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
-                if (board.getProperty(i).getName().equals(propertyName)) {
-                    propertyExists = true;
-                    propertyIndex = i;
-                }
-            }
-            if (propertyExists) {
-                purchaseHouseOrHotel(board.getProperty(propertyIndex));
-            } else {
-                boardView.setEventLabelText("Property: " + propertyName + ", Does not exists","");
-            }
+            boardView.setEventLabelText("Type in the property name on which you", "would like to purchase a house/hotel on.");
+
         }
         else if (command.equals(Commands.passTurn)) {
 
@@ -195,12 +186,7 @@ public class BoardModel {
             System.out.println("No such command exists!");
         }
         if(currentPlayer.getBankruptStatus()){
-            int playerIndex = 0;
-            for(int i = 0; i<players.size();i++){
-                if(players.get(i).equals(currentPlayer)){
-                    playerIndex = i;
-                }
-            }
+            int playerIndex = this.getCurrentPlayerIndex();
             boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
             boardView.setEventLabel3Text("Current player has bankrupted!");
             passPlayerTurn();
@@ -275,6 +261,7 @@ public class BoardModel {
         int goToJailPosition = 30;
         int jailPosition = 10;
         int passingGoAmount = 200;
+        int playerIndex = this.getCurrentPlayerIndex();
 
         int randomRoll1 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1); // +1 to get range from 1 to 6.
         int randomRoll2 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1);
@@ -287,21 +274,17 @@ public class BoardModel {
 
         Boolean jailStatus = currentPlayer.getInJail();
         if(((playerPosition + randomRoll1 + randomRoll2) == goToJailPosition)&&!jailStatus){ // If player lands on Go to Jail
+            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
             currentPlayer.setInJail(true);
             jailStatus = true;
             currentPlayer.setPosition(jailPosition);
+            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
             boardView.setEventLabelText(playerName+" has been set to Jail, roll a double to get out of Jail next turn.","");
         }
         if(!jailStatus) {
-            //For Moving Players
-            int playerIndex = 0;
-            for(int i = 0; i<players.size();i++){
-                if(players.get(i).equals(currentPlayer)){
-                    playerIndex = i;
-                }
-            }
             //For rolling
             boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
+            //For moving player
             if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) { // if player passes Go
                 currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
                 currentPlayer.addToBalance(passingGoAmount);
@@ -316,8 +299,7 @@ public class BoardModel {
         String propertyName = board.getProperty(playerPosition).getName();
         if(randomRoll1 == randomRoll2){
             if(!jailStatus) {
-                boardView.setEventLabelText(
-                playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertyName, "You rolled a double, you can roll again. ");
+                boardView.setEventLabelText(playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertyName, "You rolled a double, you can roll again. ");
             }
             return true;
         }
@@ -375,32 +357,41 @@ public class BoardModel {
                 owningEqualHouses = false;
             }
         }
-        if(!owningColorSet){
-            System.out.println(playerName+" does NOT own the color set of this property, Missing Properties: ");
+        if(!property.getOwner().equals(currentPlayer)){
+            boardView.setEventLabelText(playerName+" does NOT own this property", "Porperty Name: "+propertyName);
+        }
+        else if(!owningColorSet){
+            String missingProperties = "";
             for(int i =0; i<sizeOfColorSet;i++){
                 if(!board.getColorPropertiesArrayList().get(colorOfProperty).get(i).equals(property)){
-                    System.out.println("- "+board.getColorPropertiesArrayList().get(colorOfProperty).get(i).getName());
+                    missingProperties += "- "+board.getColorPropertiesArrayList().get(colorOfProperty).get(i).getName()+" ";
                 }
             }
+            boardView.setEventLabelText(playerName+" does NOT own the color set of this property", "Missing Properties: ");
+            boardView.setEventLabel3Text(missingProperties);
         }
         else if(!owningEqualHouses){
-            System.out.println(playerName+" does NOT own enough of houses for the color set to buy more, Property Name: "+propertyName);
+            boardView.setEventLabelText(playerName+" does NOT own enough of houses for the color set", "Property Name: "+propertyName);
         }
         else if(currentPlayer.getBalance() < property.getHousePrice()){
-            System.out.println(playerName+" does Not have enough money to purchase this property, Property Name: "+propertyName);
+            boardView.setEventLabelText(playerName+" does Not have enough money to purchase this property", "Property Name: "+propertyName);
         }
         else if(property.getNumHotels() == 1){
-            System.out.println("This property already has a hotel, property Name: "+propertyName);
+            boardView.setEventLabelText("This property already has a hotel", "property Name: "+propertyName);
         }
         else{
             currentPlayer.removefromBalance(property.getHousePrice());
             if(numOfHouseCurrent == 4) {
             property.setNumHotels(1);
             property.setNumHouses(0);
+            boardView.setEventLabelText(playerName + " purchased Hotel on: "+propertyName, "Remaining Balance: "+currentPlayer.getBalance());
             }
             else{
             property.setNumHouses((1+numOfHouseCurrent));
-        }}
+            boardView.setEventLabelText(playerName + " purchased House on: "+propertyName, "Remaining Balance: "+currentPlayer.getBalance());
+            }
+            boardView.updateHousesIcons(property.getLocation());
+        }
     }
 
     /**
@@ -458,6 +449,8 @@ public class BoardModel {
     public int getDiceValue2() {
         return diceValue2;
     }
+
+    public int getCurrentPlayerIndex(){return players.indexOf(currentPlayer);}
 
     public static void main(String args[]){
         BoardModel boardModel = new BoardModel();

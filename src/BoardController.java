@@ -37,8 +37,7 @@ public class BoardController implements ActionListener {
         if(actionEvent.getSource().equals(buttons.get(0))){
             if(!playersInitialized) {
                 buttons.get(0).setVisible(false);
-                bv.setTextFieldVisibility(true);
-                buttons.get(6).setVisible(true);  //submit button & text field visible, start button not visible
+                bv.setUserInputVisibility(true);  //submit button & text field visible, start button not visible
                 bv.setEventLabelText("Enter the total number of Players playing","Press the submit button when done");
             }
         }
@@ -60,7 +59,8 @@ public class BoardController implements ActionListener {
             }
             //purchase house or hotel button
             if (actionEvent.getSource().equals(buttons.get(5))) {
-
+                bm.operateCommand(BoardModel.Commands.purchaseHouse);
+                bv.setUserInputVisibility(true);
             }
         }
         //submit button
@@ -77,6 +77,7 @@ public class BoardController implements ActionListener {
                     else{
                         playerInitializeStage = 1;
                         bv.setEventLabelText("Enter the name of Player "+(playerInitializing+1),"Press the submit button when done");
+                        bv.setEventLabel3Text("");
                         waitForNextButton = true;
                     }
                 }
@@ -86,7 +87,6 @@ public class BoardController implements ActionListener {
                 bv.clearTextField();
             }
             if((playerInitializeStage == 1)&&!waitForNextButton){
-                bv.setEventLabel3Text("");
                 String playerName = bv.getUserInput();
                 Player newPlayer = new Player(playerName, new Color(10*playerInitializing,10*playerInitializing,10*playerInitializing), 1500, false);
                 bm.addPlayer(newPlayer);
@@ -105,11 +105,7 @@ public class BoardController implements ActionListener {
                 bm.setCurrentPlayer(bm.getPlayer(0));
                 playersInitialized = true;
                 bv.setEventLabelText(bm.getPlayer(0).getName() + " Goes first! Start your turn by pressing the roll button.","");
-                buttons.get(1).setVisible(true);
-                buttons.get(2).setVisible(true);
-                buttons.get(3).setVisible(true);
-                buttons.get(6).setVisible(false);
-                bv.setTextFieldVisibility(false);
+                bv.setUserInputVisibility(false);
 
                 for (int i = 0; i < Max_players; i++) {  //For all 4 players
                     bv.getPlayerLists().get(i)[0].setVisible(true); //set icons to visible on GO
@@ -118,7 +114,23 @@ public class BoardController implements ActionListener {
                 waitForNextButton = true;
             }
             if((playerInitializeStage == 3)&&!waitForNextButton){
-                //buy houses
+                String propertyName = bv.getUserInput();
+                Boolean propertyExists = false;
+                int propertyIndex = -1;
+                Board board = bm.getBoard();
+                for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
+                    if (board.getProperty(i).getName().equals(propertyName)) {
+                        propertyExists = true;
+                        propertyIndex = i;
+                    }
+                }
+                if (propertyExists) {
+                    bm.purchaseHouseOrHotel(board.getProperty(propertyIndex));
+                } else {
+                    bv.setEventLabelText("Property: " + propertyName + ", Does not exists","");
+                }
+                bv.setUserInputVisibility(false);
+                bv.clearTextField();
             }
 
         }
