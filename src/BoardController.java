@@ -24,7 +24,7 @@ public class BoardController implements ActionListener {
         this.bv=bv;
         this.bm=bm;
         this.playersInitialized = false;
-        this.playerInitializeStage = 0;
+        this.playerInitializeStage = 1;
         submitButtonPressed = false;
         this.Max_players = 0;
         this.playerInitializing = 0;
@@ -38,7 +38,8 @@ public class BoardController implements ActionListener {
             if(!playersInitialized) {
                 buttons.get(0).setVisible(false);
                 bv.setUserInputVisibility(true);  //submit button & text field visible, start button not visible
-                bv.setEventLabelText("Do you want AI Players? ('yes')?","Press the submit button when done");
+                bv.setEventLabelText("Enter the total number of players.","Press the submit button when done");
+
             }
         }
         if(playersInitialized) {
@@ -66,13 +67,7 @@ public class BoardController implements ActionListener {
         //submit button
         if (actionEvent.getSource().equals(buttons.get(6))) {
             Boolean waitForNextButton = false;
-            if(playerInitializeStage == 0){
-                //TODO check user answer if AI players or not
-                //after checking
-                playerInitializeStage++;
-                waitForNextButton = true;
-                bv.setEventLabelText("Enter the total number of Players playing","Press the submit button when done");
-            }
+
             if((playerInitializeStage == 1)&&!waitForNextButton){
                 Boolean isInt;
                 isInt = bm.isInteger(bv.getUserInput());
@@ -83,7 +78,7 @@ public class BoardController implements ActionListener {
                     }
                     else{
                         playerInitializeStage++;
-                        bv.setEventLabelText("Enter the name of Player "+(playerInitializing+1),"Press the submit button when done");
+                        bv.setEventLabelText("Do you want player " + (playerInitializing+1) + "to be an AI Player? ('yes' if AI)?","Press the submit button when done");
                         bv.setEventLabel3Text("");
                         waitForNextButton = true;
                     }
