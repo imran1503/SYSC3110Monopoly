@@ -17,6 +17,7 @@ public class Properties {
     private int price;
     private int numHouses;
     private int numHotels;
+    private int housePrice;
     private Color color;
     private int location; //Location on the board
 
@@ -39,6 +40,7 @@ public class Properties {
         numHotels = 0;
         this.color = color;
         this.location = location;
+        this.housePrice = 0;
     }
 
     /**
@@ -178,8 +180,19 @@ public class Properties {
     }
 
     /**
-     * calculates and returns housePrice
+     * calculates and returns housePrice                   (price*(numHouses+1))/10)
      * @return housePrice
      */
-    public int getHousePrice(){return ((price*numHouses)/10);}
+    public int getHousePrice(){return housePrice;}
+
+
+    public void setHousePrice(int i ){housePrice = i;}
+
+    public double getCostBenfitRatio(double currPlayerBalance, double housePriceCustom, double propertyPriceCustom){
+        //int houseprice = this.getHousePrice();
+        //int propertyPrice = this.getPrice();
+        double costPrice = (housePriceCustom * 5) + propertyPriceCustom;
+
+        return ( currPlayerBalance/ costPrice  );
+    }
 }

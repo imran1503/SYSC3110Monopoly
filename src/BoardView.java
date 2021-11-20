@@ -201,7 +201,7 @@ public class BoardView {
         playerPanel.setBackground(boardModel.getBoard().getProperty(i).getColor());
 
 
-        // todo new code for housing labels
+
         JPanel housingPanel = new JPanel(new GridLayout(1,4));
         housing1Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
         housing2Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));

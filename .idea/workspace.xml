@@ -19,10 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Added functionality to ask user if they want an AI player.">
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Properties.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +68,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
   <component name="RunManager" selected="Application.BoardModel">
@@ -283,6 +288,24 @@
     <MESSAGE value="Player icons appear at GO now at start of game." />
     <MESSAGE value="Added functionality to ask user if they want an AI player." />
     <option name="LAST_COMMIT_MESSAGE" value="Added functionality to ask user if they want an AI player." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="537" key="GridCell.Tab.0.bottom" timestamp="1637448951113">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="537" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637448951113" />
+    <state width="1877" height="537" key="GridCell.Tab.0.center" timestamp="1637448951113">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="537" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637448951113" />
+    <state width="1877" height="537" key="GridCell.Tab.0.left" timestamp="1637448951113">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="537" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637448951113" />
+    <state width="1877" height="537" key="GridCell.Tab.0.right" timestamp="1637448951113">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="537" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637448951113" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

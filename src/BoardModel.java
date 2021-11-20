@@ -50,6 +50,21 @@ public class BoardModel {
         boardView = null;
         diceValue1 = -1;
         diceValue2 = -2;
+
+        /**        DETERMINING WHERE THE AI SHOULD DRAW THE LINE FOR BUYING PROPERTIES DEPENDING OIN ITS BANK ACCOUNT BALANCE.
+        Player test = new Player("test", new Color(255,255,205),750, true ) ;
+        for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
+            if (!board.getProperty(i).getColor().equals(new Color(255,255,255))){
+                if(!board.getProperty(i).getColor().equals(new Color(250, 140, 0))){
+                    System.out.println( board.getProperty(i).getName()
+                            + " "+ board.getProperty(i).getCostBenfitRatio(test.getBalance(), board.getProperty(i).getHousePrice(), board.getProperty(i).getPrice() )
+                            + "   HP >" + board.getProperty(i).getHousePrice()
+                            + "   P >" + board.getProperty(i).getPrice()
+                            + "   bal >" + test.getBalance()
+                            );}
+            }
+        }
+         **/
     }
 
     public boolean getHasCurrPlayerRolled() {
