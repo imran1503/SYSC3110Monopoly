@@ -378,6 +378,13 @@ public class BoardModel {
                 owningEqualHouses = false;
             }
         }
+        int[] listOfNonHousesProperties= {5,12,15,25,28,35};
+        for(int i = 0; i<listOfNonHousesProperties.length;i++){
+            if(property.getLocation() == listOfNonHousesProperties[i]){
+                boardView.setEventLabelText("Can Not buy a house on this property","");
+                return;
+            }
+        }
         if(!property.getOwner().equals(currentPlayer)){
             boardView.setEventLabelText(playerName+" does NOT own this property", "Porperty Name: "+propertyName);
         }
