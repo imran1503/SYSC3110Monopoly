@@ -17,7 +17,7 @@ public class BoardView {
     private JLabel[][] playerLabelList;
     // scrollPanes for list of properties owned by each player
     private JScrollPane[] scrollPanes;
-    private JTextArea[] textAreas;
+    private JTextArea[] propertiesTextAreas;
 
     private JLabel eventLabel;
 
@@ -303,7 +303,7 @@ public class BoardView {
         this.playerLabelList = new JLabel[numOfLabels][6];
         // TODO CHANGE SIZE LATER
         this.scrollPanes = new JScrollPane[4];
-        this.textAreas = new JTextArea[4];
+        this.propertiesTextAreas = new JTextArea[4];
 
 
         createControlPanel();
@@ -471,8 +471,9 @@ public class BoardView {
         playerLabelList[playerIndex][5] = new JLabel("<html>Owned Properties:</html>");
 
         // scrollPanes for list of properties owned by each player
-        textAreas[playerIndex] = new JTextArea(4,1);
-        scrollPanes[playerIndex] = new JScrollPane(textAreas[playerIndex]);
+        propertiesTextAreas[playerIndex] = new JTextArea(4,1);
+        propertiesTextAreas[playerIndex].setEditable(false); //make propertiesTextAreas uneditable by the user
+        scrollPanes[playerIndex] = new JScrollPane(propertiesTextAreas[playerIndex]);
 
         playerPanels[playerIndex] = new JPanel();
         playerPanels[playerIndex].setLayout(new BoxLayout(playerPanels[playerIndex], BoxLayout.Y_AXIS));
@@ -507,7 +508,7 @@ public class BoardView {
 
                 //todo get rid of playerLabelList[i][5] later?
                 //playerLabelList[i][5].setText("<html> Owned Properties: "+controledProperties+"</html>");
-                textAreas[i].setText(controledProperties);
+                propertiesTextAreas[i].setText(controledProperties);
 
             }
 
