@@ -52,8 +52,8 @@ public class BoardModel {
         diceValue2 = -2;
 
         /**
-        //       DETERMINING WHERE THE AI SHOULD DRAW THE LINE FOR BUYING PROPERTIES DEPENDING OIN ITS BANK ACCOUNT BALANCE.
-        Player test = new Player("test", new Color(255,255,205),1500, true ) ;
+        //       DETERMINING WHERE THE AI SHOULD DRAW THE LINE FOR BUYING PROPERTIES DEPENDING OIN ITS BANK ACCOUNT BALANCE.  */
+        Player test = new Player("test", new Color(255,255,205),750, true ) ;
         for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
             if (!board.getProperty(i).getColor().equals(new Color(255,255,255))){
                 if(!board.getProperty(i).getColor().equals(new Color(250, 140, 0))){
@@ -65,7 +65,7 @@ public class BoardModel {
                             );}
             }
         }
-         */
+
     }
 
     public boolean getHasCurrPlayerRolled() {

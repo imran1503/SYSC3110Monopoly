@@ -20,20 +20,27 @@ public class AIPlayer extends Player {
 
         int pos = this.getPositon();
         if (Stage.compareToIgnoreCase("Buy Property") == 0) {
-            //TODO Calc(Cost (property)) So final value +5 x house price
+            for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
+                if (!board.getProperty(i).getColor().equals(new Color(255, 255, 255))) {         //
+                    if (!board.getProperty(i).getColor().equals(new Color(250, 140, 0))) {
 
-            int i = pos;
-            System.out.println(board.getProperty(i).getName() + " "
-                    + board.getProperty(i).getCostBenfitRatio(this.getBalance(),board.getProperty(i).getHousePrice(), board.getProperty(i).getPrice())
-                    + " HP >" + board.getProperty(i).getHousePrice());
-            //TODO if value < x, buy it, then pass, else pass
+                        //IF Bal <400                           set cbv > 1.00 , if prop(cbv)bigger, buy it
+
+
+                        //ELSE IF Bal >400 and Bal <750         set cbv > 0.75 , if prop(cbv)bigger, buy it
+
+                        //else if bal > 750 and bal < 1000      set cbv > 0.70 , if prop(cbv)bigger, buy it
+
+                        board.getProperty(i).getCostBenfitRatio(this.getBalance(), board.getProperty(i).getHousePrice(), board.getProperty(i).getPrice());
+                    }
+                }
+            }
+
+            return choice;
         }
-
         return choice;
+
     }
-
-
-
 }
 
 

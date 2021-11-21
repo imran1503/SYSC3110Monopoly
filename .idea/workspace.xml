@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Added functionality to ask user if they want an AI player.">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +48,9 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="20bhuzoTVsLnTMdPDdVwfYneJxo" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -309,6 +312,24 @@
     <MESSAGE value="Some bug fixes with Jail." />
     <MESSAGE value="rolling 3 doubles now gets you into jail" />
     <option name="LAST_COMMIT_MESSAGE" value="rolling 3 doubles now gets you into jail" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="370" key="GridCell.Tab.0.bottom" timestamp="1637524883632">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="370" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637524883632" />
+    <state width="1877" height="370" key="GridCell.Tab.0.center" timestamp="1637524883632">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="370" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637524883632" />
+    <state width="1877" height="370" key="GridCell.Tab.0.left" timestamp="1637524883632">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="370" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637524883632" />
+    <state width="1877" height="370" key="GridCell.Tab.0.right" timestamp="1637524883632">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="370" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637524883632" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
