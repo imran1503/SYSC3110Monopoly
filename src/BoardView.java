@@ -15,6 +15,9 @@ public class BoardView {
 
 
     private JLabel[][] playerLabelList;
+    // scrollPanes for list of properties owned by each player
+    private JScrollPane[] scrollPanes;
+    private JTextArea[] textAreas;
 
     private JLabel eventLabel;
 
@@ -49,6 +52,7 @@ public class BoardView {
     private JLabel [] housing3Labels;
     private JLabel [] housing4Labels;
     private JLabel [] housing5Labels;
+
 
     /**
      * main frame for the GUI's View.
@@ -145,6 +149,7 @@ public class BoardView {
         playerLists.add(player3Labels);
         playerLists.add(player4Labels);
         addBasePanels();
+
     }
 
     /**
@@ -296,6 +301,11 @@ public class BoardView {
         center.setBackground(new Color(190,250,250));
         int numOfLabels = 6;
         this.playerLabelList = new JLabel[numOfLabels][6];
+        // TODO CHANGE SIZE LATER
+        this.scrollPanes = new JScrollPane[4];
+        this.textAreas = new JTextArea[4];
+
+
         createControlPanel();
         center.add(controlPanel);
 
@@ -453,17 +463,28 @@ public class BoardView {
      */
     private void createNewPlayerPanel(int playerIndex){
         int numOfLabels = 6;
-            playerLabelList[playerIndex][0] = new JLabel("Name: ");
-            playerLabelList[playerIndex][1] = new JLabel("Balance: $");
-            playerLabelList[playerIndex][2] = new JLabel("Current location: ");
-            playerLabelList[playerIndex][3] = new JLabel("In Jail Status = ");
-            playerLabelList[playerIndex][4] = new JLabel("Bankrupt Status = ");
-            playerLabelList[playerIndex][5] = new JLabel("<html>Owned Properties:</html>");
-            playerPanels[playerIndex] = new JPanel();
-            playerPanels[playerIndex].setLayout(new BoxLayout(playerPanels[playerIndex], BoxLayout.Y_AXIS));
-            for (int k = 0; k < numOfLabels; k++) {
-                playerPanels[playerIndex].add(playerLabelList[playerIndex][k]);
-            }
+        playerLabelList[playerIndex][0] = new JLabel("Name: ");
+        playerLabelList[playerIndex][1] = new JLabel("Balance: $");
+        playerLabelList[playerIndex][2] = new JLabel("Current location: ");
+        playerLabelList[playerIndex][3] = new JLabel("In Jail Status = ");
+        playerLabelList[playerIndex][4] = new JLabel("Bankrupt Status = ");
+        playerLabelList[playerIndex][5] = new JLabel("<html>Owned Properties:</html>");
+
+        // scrollPanes for list of properties owned by each player
+        textAreas[playerIndex] = new JTextArea(4,1);
+        scrollPanes[playerIndex] = new JScrollPane(textAreas[playerIndex]);
+
+        playerPanels[playerIndex] = new JPanel();
+        playerPanels[playerIndex].setLayout(new BoxLayout(playerPanels[playerIndex], BoxLayout.Y_AXIS));
+
+        //todo finish sccrollpane
+        // todo move later?
+
+        for (int k = 0; k < numOfLabels; k++) {
+            playerPanels[playerIndex].add(playerLabelList[playerIndex][k]);
+        }
+
+        playerPanels[playerIndex].add(scrollPanes[playerIndex]);
     }
 
     /**
@@ -479,9 +500,15 @@ public class BoardView {
                 playerLabelList[i][4].setText("Bankrupt Status = "+currentPlayer.getBankruptStatus());
                 String controledProperties = "";
                 for(int j = 0 ; j < currentPlayer.getControlledProperties().size(); j++){
-                    controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "<br>");
+                    //controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "<br>");
+                    controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "\n");
+
                 }
-                playerLabelList[i][5].setText("<html> Owned Properties: "+controledProperties+"</html>");
+
+                //todo get rid of playerLabelList[i][5] later?
+                //playerLabelList[i][5].setText("<html> Owned Properties: "+controledProperties+"</html>");
+                textAreas[i].setText(controledProperties);
+
             }
 
     }
