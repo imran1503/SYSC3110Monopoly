@@ -202,9 +202,10 @@ public class BoardConstructor {
                 colorsList.add(new Color(255,255,0));
                 colorsList.add(new Color(0,128,0));
                 colorsList.add(new Color(0,0,128));
+                colorsList.add(new Color (102,98,95));
 
 
-                int[] housePricesList = new int[]{0, 50, 50, 0, 100, 100, 150, 150, 200, 200};
+                int[] housePricesList = new int[]{0, 50, 50, 0, 100, 100, 150, 150, 200, 200,0};
 
 
                 for(int i =0; i < colorsList.size(); i++){
