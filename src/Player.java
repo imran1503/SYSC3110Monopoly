@@ -26,6 +26,7 @@ public class Player {
     private Color color;
     private Boolean inJail;
     private int turnsInJail;
+    private int numOfDoubleRolls;
     private Boolean ai;
     private Boolean bankruptStatus;
 
@@ -47,6 +48,7 @@ public class Player {
         this.inJail = false;
         this.turnsInJail = 0;
         this.ai = isAi;
+        this.numOfDoubleRolls = 0;
     }
 
     /**
@@ -226,4 +228,14 @@ public class Player {
      * @param status Boolean to set bankruptStatus with.
      */
     public void setBankruptStatus(Boolean status){bankruptStatus=status;}
+
+    /**
+     * Getter method for numOfDoubleRolls
+     */
+    public int getNumOfDoubleRolls(){return numOfDoubleRolls;}
+
+    /**
+     * Setter method for numOfDoubleRolls
+     */
+    public void setNumOfDoubleRolls(int number){numOfDoubleRolls = number;}
 }

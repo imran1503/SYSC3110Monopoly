@@ -165,7 +165,7 @@ public class BoardModel {
                         currentPlayer.setTurnsInJail(0);
                         boardView.setEventLabel3Text(playerName + " Payed $50 to get out of jail.");
                     }
-                    else{
+                    else if((currentPlayer.getTurnsInJail() != 0)){
                         boardView.setEventLabel3Text(playerName + " did Not roll a double");
                     }
                     currentPlayer.setTurnsInJail(currentPlayer.getTurnsInJail() + 1); //add 1 to time in jail for player.
@@ -224,30 +224,13 @@ public class BoardModel {
         currentPlayer = player;
     }
 
-    /**
-     * Print the game state of all players.
-     */
-    public void printCurrentState(){
-        for(int i=0; i<players.size();i++){
-            Player player = players.get(i);
-            System.out.println("******\n"+player.getName() + " position is currently at "+board.getProperty(player.getPositon()).getName());
-            System.out.println("Balance is "+ player.getBalance());
-            System.out.println("Bankrupt Status = "+player.getBankruptStatus());
-            System.out.println("In Jail Status = "+player.getInJail());
-            int getNumOfProperties = player.getControlledProperties().size();
-            System.out.println("List of Owned Properties:");
-            for(int j=0; j<getNumOfProperties; j++){
-                System.out.println("- "+player.getControlledProperties().get(j).getName());
-            }
-            System.out.println("*****");
-        }
-    }
 
     /**
      * Passes player's turn. Ends the current player's turn and passes it onto the next player.
      * If next player is bankrupt, passes player's turn again.
      */
     public void passPlayerTurn(){
+        currentPlayer.setNumOfDoubleRolls(0);
         int indexOfCurrentPlayer = players.indexOf(currentPlayer);
         if(indexOfCurrentPlayer == (players.size() - 1)){
             currentPlayer = players.get(0);
@@ -286,11 +269,16 @@ public class BoardModel {
         this.diceValue2 = randomRoll2;
 
         int playerPosition = currentPlayer.getPositon();
+        int nextPlayerPosition = (randomRoll1 + randomRoll2 + playerPosition);
         String playerName = currentPlayer.getName();
 
         Boolean jailStatus = currentPlayer.getInJail();
-        if(((playerPosition + randomRoll1 + randomRoll2) == goToJailPosition)&&!jailStatus){ // If player lands on Go to Jail
-            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
+        if(randomRoll1 == randomRoll2){
+            currentPlayer.setNumOfDoubleRolls(currentPlayer.getNumOfDoubleRolls() + 1);
+        }
+        if(((nextPlayerPosition == goToJailPosition)||(currentPlayer.getNumOfDoubleRolls() == 3))&&!jailStatus){ // If player lands on Go to Jail
+            boardView.getPlayerLists().get(playerIndex)[playerPosition].setVisible(false);
+            currentPlayer.setNumOfDoubleRolls(0);
             currentPlayer.setInJail(true);
             jailStatus = true;
             currentPlayer.setPosition(jailPosition);
@@ -298,18 +286,19 @@ public class BoardModel {
             boardView.setEventLabel3Text(playerName+" has been set to Jail, roll a double to get out of Jail next turn.");
         }
         if(!jailStatus) {
-            //For rolling
+            //Remove player icon of previous location
             boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
             //For moving player
-            if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) { // if player passes Go
-                currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
+            if (nextPlayerPosition >= totalNumOfSpaces) { // if player passes Go
+                currentPlayer.setPosition(nextPlayerPosition - totalNumOfSpaces);
                 currentPlayer.addToBalance(passingGoAmount);
                 boardView.setEventLabel3Text(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance());
-                playerPosition = ((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
+                playerPosition = (nextPlayerPosition - totalNumOfSpaces);
             } else {
-                currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);
-                playerPosition = (randomRoll1 + randomRoll2 + playerPosition);
+                currentPlayer.setPosition(nextPlayerPosition);
+                playerPosition = nextPlayerPosition;
             }
+            //Make player icon visible at new location
             boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
         }
         String propertyName = board.getProperty(playerPosition).getName();
