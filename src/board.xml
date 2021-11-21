@@ -51,9 +51,9 @@
         <name>Reading Railroad</name>
         <price>200</price>
         <rent>25</rent>
-        <r>255</r>
-        <g>255</g>
-        <b>255</b>
+        <r>102</r>
+        <g>98</g>
+        <b>95</b>
         <index>5</index>
     </Railroad>
 
@@ -149,9 +149,9 @@
         <name>Pennsylvania Railroad</name>
         <price>200</price>
         <rent>25</rent>
-        <r>255</r>
-        <g>255</g>
-        <b>255</b>
+        <r>102</r>
+        <g>98</g>
+        <b>95</b>
         <index>15</index>
     </Railroad>
 
@@ -249,9 +249,9 @@
         <name>B. &amp; O. Railroad</name>
         <price>200</price>
         <rent>25</rent>
-        <r>255</r>
-        <g>255</g>
-        <b>255</b>
+        <r>102</r>
+        <g>98</g>
+        <b>95</b>
         <index>25</index>
     </Railroad>
 
@@ -347,9 +347,9 @@
         <name>Short Line</name>
         <price>200</price>
         <rent>25</rent>
-        <r>255</r>
-        <g>255</g>
-        <b>255</b>
+        <r>102</r>
+        <g>98</g>
+        <b>95</b>
         <index>35</index>
     </Railroad>
 
