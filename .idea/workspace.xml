@@ -19,10 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="-Planned AI Logic&#10;-Fixed Railroad Colour / let it be seen by AI">
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Added functionality to ask user if they want an AI player.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +45,7 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="20bhuzoTVsLnTMdPDdVwfYneJxo" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -271,14 +268,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637523113496</updated>
     </task>
-    <task id="LOCAL-00025" summary="-Planned AI Logic&#10;-Fixed Railroad Colour / let it be seen by AI">
-      <created>1637526025544</created>
+    <task id="LOCAL-00025" summary="Displaying if Player has a color set or not and making purchase house button visibility based on that.">
+      <created>1637524749678</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1637526025544</updated>
+      <updated>1637524749678</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fixed bug of buying houses on properties you should not.">
+      <created>1637526068567</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1637526068567</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,30 +320,9 @@
     <MESSAGE value="added GUI functionality to make list of properties owned by players scrollable." />
     <MESSAGE value="Some bug fixes with Jail." />
     <MESSAGE value="rolling 3 doubles now gets you into jail" />
-    <MESSAGE value="-Planned AI Logic&#10;-Fixed Railroad Colour / let it be seen by AI" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Planned AI Logic&#10;-Fixed Railroad Colour / let it be seen by AI" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1877" height="77" key="GridCell.Tab.0.bottom" timestamp="1637526856325">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="77" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637526856325" />
-    <state width="1877" height="77" key="GridCell.Tab.0.center" timestamp="1637526856325">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="77" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637526856325" />
-    <state width="1877" height="77" key="GridCell.Tab.0.left" timestamp="1637526856325">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="77" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637526856325" />
-    <state width="1877" height="77" key="GridCell.Tab.0.right" timestamp="1637526856325">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="77" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637526856325" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1637526027601">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1637526027601" />
+    <MESSAGE value="Displaying if Player has a color set or not and making purchase house button visibility based on that." />
+    <MESSAGE value="fixed bug of buying houses on properties you should not." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug of buying houses on properties you should not." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
