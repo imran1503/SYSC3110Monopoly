@@ -18,8 +18,6 @@ public class BoardController implements ActionListener {
 
     private int Max_players;
 
-    private static volatile Boolean submitButtonPressed;
-
     private ArrayList<Color> colorList;
 
     public BoardController (BoardView bv,BoardModel bm){
@@ -27,7 +25,6 @@ public class BoardController implements ActionListener {
         this.bm=bm;
         this.playersInitialized = false;
         this.playerInitializeStage = 1;
-        submitButtonPressed = false;
         this.Max_players = 0;
         this.playerInitializing = 0;
         this.colorList = new ArrayList<>();
@@ -102,7 +99,7 @@ public class BoardController implements ActionListener {
 
                 if (AIPlayer) {
                     //todo will return a Player
-                    bm.addPlayer(new Player("AI Player" + (playerInitializing + 1), colorList.get(playerInitializing), 1500, true));
+                    bm.addPlayer(new AIPlayer("AI Player" + (playerInitializing + 1), colorList.get(playerInitializing), 1500,bm.getBoard(),bm));
                     playerInitializing++;
                     bv.setEventLabelText("Do you want player " + (playerInitializing+1) + " to be an AI Player? ('yes' if AI)?","Press the submit button when done");
 

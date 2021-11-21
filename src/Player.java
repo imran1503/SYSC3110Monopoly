@@ -252,4 +252,9 @@ public class Player {
      */
     public void setHasAColorSet(Boolean status){hasAColorSet = status;}
 
+    /**
+     * Getter method for AI
+     */
+    public Boolean getAi(){return ai;}
+
 }

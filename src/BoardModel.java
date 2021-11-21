@@ -251,6 +251,10 @@ public class BoardModel {
             boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "");
         }
         nextRoll = true;
+        if(currentPlayer.getAi()){
+            //do AiTurn();
+        }
+
     }
 
 

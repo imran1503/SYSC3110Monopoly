@@ -8,10 +8,9 @@ public class AIPlayer extends Player {
      * @param name          sets the players name to this parameter
      * @param color         player's color set to this parameter
      * @param startingMoney starting money of player is set to this parameter
-     * @param isAi
      */
-    public AIPlayer(String name, Color color, int startingMoney, boolean isAi, Board board, BoardModel bm) {
-        super(name, color, startingMoney, isAi);
+    public AIPlayer(String name, Color color, int startingMoney, Board board, BoardModel bm) {
+        super(name, color, startingMoney, true);
         this.board = board;
         this.bm = bm;
     }
