@@ -163,7 +163,7 @@ public class BoardModel {
                         currentPlayer.removefromBalance(50);
                         currentPlayer.setInJail(false);
                         currentPlayer.setTurnsInJail(0);
-                        boardView.setEventLabelText(playerName + " Payed $50 to get out of jail.","");
+                        boardView.setEventLabel3Text(playerName + " Payed $50 to get out of jail.");
                     }
                     else{
                         boardView.setEventLabel3Text(playerName + " did Not roll a double");
@@ -186,7 +186,6 @@ public class BoardModel {
                 boardView.setEventLabelText(playerName + " needs to roll again before passing turn.","");
             } else {
                 passPlayerTurn();
-                nextRoll = true;
             }
         }
         else if (command.equals(Commands.help)) {
@@ -262,6 +261,7 @@ public class BoardModel {
         else {
             boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "");
         }
+        nextRoll = true;
     }
 
 
@@ -295,7 +295,7 @@ public class BoardModel {
             jailStatus = true;
             currentPlayer.setPosition(jailPosition);
             boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
-            boardView.setEventLabelText(playerName+" has been set to Jail, roll a double to get out of Jail next turn.","");
+            boardView.setEventLabel3Text(playerName+" has been set to Jail, roll a double to get out of Jail next turn.");
         }
         if(!jailStatus) {
             //For rolling
@@ -304,7 +304,7 @@ public class BoardModel {
             if ((playerPosition + randomRoll1 + randomRoll2) >= totalNumOfSpaces) { // if player passes Go
                 currentPlayer.setPosition((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
                 currentPlayer.addToBalance(passingGoAmount);
-                boardView.setEventLabelText(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance(),"");
+                boardView.setEventLabel3Text(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance());
                 playerPosition = ((randomRoll1 + randomRoll2 + playerPosition) - totalNumOfSpaces);
             } else {
                 currentPlayer.setPosition(randomRoll1 + randomRoll2 + playerPosition);

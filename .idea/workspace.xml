@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="added GUI functionality to make list of properties owned by players scrollable.">
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Added functionality to ask user if they want an AI player.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
