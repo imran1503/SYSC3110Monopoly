@@ -47,12 +47,20 @@ public class AIPlayer extends Player {
 
                 }
             }
-
-
             return choice;
         }
         return choice;
+    }
 
+    /**
+     * Method to play an AI player's turn
+     */
+    public void playAITurn(){
+        while(bm.getNextRoll()){
+            bm.operateCommand(BoardModel.Commands.roll);
+            this.aiLogic("Buy Property");
+        }
+        bm.operateCommand(BoardModel.Commands.passTurn);
     }
 }
 

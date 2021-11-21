@@ -476,12 +476,19 @@ public class BoardModel {
 
     /**
      * Returns diceValue2 which is set to a random int in roll()
-     * @return
      */
     public int getDiceValue2() {
         return diceValue2;
     }
 
+    /**
+     * Getter method for nextRoll
+     */
+    public Boolean getNextRoll(){return nextRoll;}
+
+    /**
+     * Getter method for currentPlayerIndex
+     */
     public int getCurrentPlayerIndex(){return players.indexOf(currentPlayer);}
 
     public static void main(String args[]){
