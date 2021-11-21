@@ -257,4 +257,10 @@ public class Player {
      */
     public Boolean getAi(){return ai;}
 
+    /**
+     * Blank method for AI player to override
+     */
+    public void playAITurn(){
+    }
+
 }

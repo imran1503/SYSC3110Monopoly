@@ -99,7 +99,7 @@ public class BoardController implements ActionListener {
 
                 if (AIPlayer) {
                     //todo will return a Player
-                    bm.addPlayer(new AIPlayer("AI Player" + (playerInitializing + 1), colorList.get(playerInitializing), 1500,bm.getBoard(),bm));
+                    bm.addPlayer(new AIPlayer("AI Player" + (playerInitializing + 1), colorList.get(playerInitializing), 1500,Max_players,bm.getBoard(),bm,bv));
                     playerInitializing++;
                     bv.setEventLabelText("Do you want player " + (playerInitializing+1) + " to be an AI Player? ('yes' if AI)?","Press the submit button when done");
 
@@ -145,6 +145,9 @@ public class BoardController implements ActionListener {
                 }
                 playerInitializeStage++;
                 waitForNextButton = true;
+                if(bm.getPlayer(0).getAi()){
+                    bm.getPlayer(0).playAITurn();
+                }
             }
             if((playerInitializeStage == 5)&&!waitForNextButton){
                 String propertyName = bv.getUserInput();

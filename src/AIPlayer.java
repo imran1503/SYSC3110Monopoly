@@ -3,16 +3,20 @@ import java.awt.*;
 public class AIPlayer extends Player {
     private Board board;
     private BoardModel bm;
+    private BoardView boardView;
+    private int numPlayers;
 
     /**
      * @param name          sets the players name to this parameter
      * @param color         player's color set to this parameter
      * @param startingMoney starting money of player is set to this parameter
      */
-    public AIPlayer(String name, Color color, int startingMoney, Board board, BoardModel bm) {
+    public AIPlayer(String name, Color color, int startingMoney,int maxPlayers, Board board, BoardModel bm, BoardView boardView) {
         super(name, color, startingMoney, true);
         this.board = board;
         this.bm = bm;
+        this.boardView = boardView;
+        this.numPlayers = maxPlayers;
     }
 
 
@@ -55,11 +59,13 @@ public class AIPlayer extends Player {
     /**
      * Method to play an AI player's turn
      */
+    @Override
     public void playAITurn(){
         while(bm.getNextRoll()){
             bm.operateCommand(BoardModel.Commands.roll);
             this.aiLogic("Buy Property");
         }
+        boardView.updateAllPlayersStatus(numPlayers);
         bm.operateCommand(BoardModel.Commands.passTurn);
     }
 }

@@ -252,7 +252,7 @@ public class BoardModel {
         }
         nextRoll = true;
         if(currentPlayer.getAi()){
-            //do AiTurn();
+            currentPlayer.playAITurn();
         }
 
     }
