@@ -247,7 +247,10 @@ public class BoardModel {
         if(currentPlayer.getBankruptStatus()){
             passPlayerTurn();
         }
-        else {
+        else if(currentPlayer.getInJail()){
+            boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "Roll a double to get out of Jail");
+        }
+        else{
             boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "");
         }
         nextRoll = true;
