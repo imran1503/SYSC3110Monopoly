@@ -2,6 +2,7 @@ import java.awt.*;
 
 public class AIPlayer extends Player {
     private Board board;
+    private BoardModel bm;
 
     /**
      * @param name          sets the players name to this parameter
@@ -9,9 +10,10 @@ public class AIPlayer extends Player {
      * @param startingMoney starting money of player is set to this parameter
      * @param isAi
      */
-    public AIPlayer(String name, Color color, int startingMoney, boolean isAi, Board board) {
+    public AIPlayer(String name, Color color, int startingMoney, boolean isAi, Board board, BoardModel bm) {
         super(name, color, startingMoney, isAi);
         this.board = board;
+        this.bm = bm;
     }
 
 
@@ -20,21 +22,33 @@ public class AIPlayer extends Player {
 
         int pos = this.getPositon();
         if (Stage.compareToIgnoreCase("Buy Property") == 0) {
-            for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
-                if (!board.getProperty(i).getColor().equals(new Color(255, 255, 255))) {         //
-                    if (!board.getProperty(i).getColor().equals(new Color(250, 140, 0))) {
+            if (!board.getProperty(pos).getColor().equals(new Color(255, 255, 255))) {         //If its not a chance/Go/Tax/    uninteractible/purchasable space
+                if (!board.getProperty(pos).getColor().equals(new Color(250, 140, 0))) {       //If not Jail
 
-                        //IF Bal <400                           set cbv > 1.00 , if prop(cbv)bigger, buy it
-
-
-                        //ELSE IF Bal >400 and Bal <750         set cbv > 0.75 , if prop(cbv)bigger, buy it
-
-                        //else if bal > 750 and bal < 1000      set cbv > 0.70 , if prop(cbv)bigger, buy it
-
-                        board.getProperty(i).getCostBenfitRatio(this.getBalance(), board.getProperty(i).getHousePrice(), board.getProperty(i).getPrice());
+                    if (this.getBalance() < 400){
+                        if (
+                        board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) >= 1.0){
+                            bm.operateCommand(BoardModel.Commands.purchaseProperty);
+                        }
                     }
+
+                    else if ((this.getBalance() > 400)  && (this.getBalance() < 750) ){
+                        if (board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) >= 0.75){
+                            bm.operateCommand(BoardModel.Commands.purchaseProperty);
+                        }
+                    }
+
+                    else if (this.getBalance() > 750){
+                        if (board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) >= 0.70){
+                            bm.operateCommand(BoardModel.Commands.purchaseProperty);
+                        }
+                    }
+
+                    //Color set properties priority
+
                 }
             }
+
 
             return choice;
         }
