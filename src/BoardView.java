@@ -300,7 +300,7 @@ public class BoardView {
 
         center.setBackground(new Color(190,250,250));
         int numOfLabels = 6;
-        this.playerLabelList = new JLabel[numOfLabels][6];
+        this.playerLabelList = new JLabel[numOfLabels][7];
         // TODO CHANGE SIZE LATER
         this.scrollPanes = new JScrollPane[4];
         this.propertiesTextAreas = new JTextArea[4];
@@ -427,13 +427,14 @@ public class BoardView {
         this.setUserInputVisibility(true);
         submitButton.setVisible(false);
         userInputBox.setVisible(false);
+        purchaseHouseHotel.setVisible(false);
 
         userPanel.add(headerLabel);
         userPanel.add(eventLabel);
         userPanel.add(eventLabel2);
         userPanel.add(eventLabel3);
         userPanel.add(userInputBox);
-        userPanel.add(submitButton);   //To do, not implemented
+        userPanel.add(submitButton);
         panelHolder[1][1].add(userPanel);
 
     }
@@ -462,13 +463,14 @@ public class BoardView {
      * Creates panels for player objects
      */
     private void createNewPlayerPanel(int playerIndex){
-        int numOfLabels = 6;
+        int numOfLabels = 7;
         playerLabelList[playerIndex][0] = new JLabel("Name: ");
         playerLabelList[playerIndex][1] = new JLabel("Balance: $");
         playerLabelList[playerIndex][2] = new JLabel("Current location: ");
         playerLabelList[playerIndex][3] = new JLabel("In Jail Status = ");
         playerLabelList[playerIndex][4] = new JLabel("Bankrupt Status = ");
-        playerLabelList[playerIndex][5] = new JLabel("<html>Owned Properties:</html>");
+        playerLabelList[playerIndex][5] = new JLabel("Owns a Color set = ");
+        playerLabelList[playerIndex][6] = new JLabel("<html>Owned Properties:</html>");
 
         // scrollPanes for list of properties owned by each player
         propertiesTextAreas[playerIndex] = new JTextArea(4,1);
@@ -499,15 +501,12 @@ public class BoardView {
                 playerLabelList[i][2].setText("Current location: "+ boardModel.getBoard().getProperty(currentPlayer.getPositon()).getName());
                 playerLabelList[i][3].setText("In Jail Status = "+currentPlayer.getInJail());
                 playerLabelList[i][4].setText("Bankrupt Status = "+currentPlayer.getBankruptStatus());
+                playerLabelList[i][5].setText("Owns a color set = "+currentPlayer.getHasAColorSet());
                 String controledProperties = "";
                 for(int j = 0 ; j < currentPlayer.getControlledProperties().size(); j++){
-                    //controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "<br>");
                     controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "\n");
 
                 }
-
-                //todo get rid of playerLabelList[i][5] later?
-                //playerLabelList[i][5].setText("<html> Owned Properties: "+controledProperties+"</html>");
                 propertiesTextAreas[i].setText(controledProperties);
 
             }
@@ -568,7 +567,7 @@ public class BoardView {
 
     public String getUserInput(){return userInputBox.getText();}
 
-    public void setTextFieldVisibility(Boolean visible){userInputBox.setVisible(visible);}
+    public void setPurchaseHouseButtonVisibility(Boolean visible){purchaseHouseHotel.setVisible(visible);}
 
     public void clearTextField(){userInputBox.setText("");}
 
@@ -576,7 +575,6 @@ public class BoardView {
         buttonList.get(1).setVisible(!condition);
         buttonList.get(2).setVisible(!condition);
         buttonList.get(3).setVisible(!condition);
-        buttonList.get(5).setVisible(!condition);
         buttonList.get(6).setVisible(condition);
         userInputBox.setVisible(condition);
     }

@@ -207,6 +207,12 @@ public class BoardModel {
             passPlayerTurn();
         }
         if(!checkNumOfActivePlayers()){operateCommand(Commands.quit);}
+        if(currentPlayer.getHasAColorSet()){
+            boardView.setPurchaseHouseButtonVisibility(true);
+        }
+        else{
+            boardView.setPurchaseHouseButtonVisibility(false);
+        }
         return true;
     }
 
@@ -338,6 +344,16 @@ public class BoardModel {
             landedOnProperty.setOwner(currentPlayer);
             currentPlayer.gainProperty(landedOnProperty);
             boardView.setEventLabelText(playerName + " purchased "+propertyName, "Remaining Balance: "+currentPlayer.getBalance());
+            Color colorOfProperty = landedOnProperty.getColor();
+            Boolean ownsColorSet = true;
+            for(int i =0; i<board.getColorPropertiesArrayList().get(colorOfProperty).size(); i++){
+                if(!board.getColorPropertiesArrayList().get(colorOfProperty).get(i).getOwner().equals(currentPlayer)){
+                    ownsColorSet = false;
+                }
+            }
+            if(ownsColorSet){
+                currentPlayer.setHasAColorSet(true);
+            }
         }}}}
     }
 

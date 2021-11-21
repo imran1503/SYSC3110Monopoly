@@ -29,6 +29,7 @@ public class Player {
     private int numOfDoubleRolls;
     private Boolean ai;
     private Boolean bankruptStatus;
+    private Boolean hasAColorSet;
 
     /**
      *
@@ -49,6 +50,7 @@ public class Player {
         this.turnsInJail = 0;
         this.ai = isAi;
         this.numOfDoubleRolls = 0;
+        this.hasAColorSet = false;
     }
 
     /**
@@ -168,6 +170,7 @@ public class Player {
             controlledProperties.get(i).setNumHouses(0);
             controlledProperties.get(i).setNumHotels(0);
         }
+        hasAColorSet = false;
     }
 
     /**
@@ -238,4 +241,15 @@ public class Player {
      * Setter method for numOfDoubleRolls
      */
     public void setNumOfDoubleRolls(int number){numOfDoubleRolls = number;}
+
+    /**
+     * Getter method for hasAColorSet
+     */
+    public Boolean getHasAColorSet(){return hasAColorSet;}
+
+    /**
+     * Setter method for hasAColorSet
+     */
+    public void setHasAColorSet(Boolean status){hasAColorSet = status;}
+
 }
