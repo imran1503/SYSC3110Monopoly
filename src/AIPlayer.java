@@ -28,26 +28,52 @@ public class AIPlayer extends Player {
             if (!board.getProperty(pos).getColor().equals(new Color(255, 255, 255))) {         //If its not a chance/Go/Tax/    uninteractible/purchasable space
                 if (!board.getProperty(pos).getColor().equals(new Color(250, 140, 0))) {       //If not Jail
 
+                    // check if a decision to purchase would complete a color set
+                    boolean purchaseCompletesColorset = false;
+                    Color currPropertyColor = board.getProperty(pos).getColor();
+
+                    int matchingColorCount = 0;
+
+                    for (int i = 0; i < this.getControlledProperties().size(); i++) {
+                        if (currPropertyColor.equals(this.getControlledProperties().get(i).getColor())) {
+                            matchingColorCount++;
+                        }
+                    }
+
+                    // if matching color is brown or dark blue
+                    if (currPropertyColor.equals(new Color (136, 69, 19)) || currPropertyColor.equals(new Color (0, 0, 128))) {
+                        if (matchingColorCount == 1) {
+                            purchaseCompletesColorset = true;
+                        }
+                    }
+                    else if (matchingColorCount == 2) {
+                        purchaseCompletesColorset = true;
+                    }
+
+                    // give a priority boost to decision to purchase if it will complete colorset
+                    double priorityBoost = 0;
+
+                    if(purchaseCompletesColorset) {
+                        priorityBoost = 0.5;
+                    }
+
                     if (this.getBalance() < 400){
-                        if (
-                        board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) >= 1.0){
+                        if ((board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) + priorityBoost) >= 1.0){
                             bm.operateCommand(BoardModel.Commands.purchaseProperty);
                         }
                     }
 
                     else if ((this.getBalance() > 400)  && (this.getBalance() < 750) ){
-                        if (board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) >= 0.75){
+                        if ((board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) + priorityBoost) >= 0.75){
                             bm.operateCommand(BoardModel.Commands.purchaseProperty);
                         }
                     }
 
                     else if (this.getBalance() > 750){
-                        if (board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) >= 0.70){
+                        if ((board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) + priorityBoost) >= 0.70){
                             bm.operateCommand(BoardModel.Commands.purchaseProperty);
                         }
                     }
-
-                    //Color set properties priority
 
                 }
             }
@@ -69,5 +95,3 @@ public class AIPlayer extends Player {
         bm.operateCommand(BoardModel.Commands.passTurn);
     }
 }
-
-

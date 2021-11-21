@@ -195,4 +195,13 @@ public class Properties {
 
         return ( currPlayerBalance/ costPrice  );
     }
+
+    //todo remove original function
+/*    public double getCostBenfitRatio(double currPlayerBalance, double housePriceCustom, double propertyPriceCustom){
+        //int houseprice = this.getHousePrice();
+        //int propertyPrice = this.getPrice();
+        double costPrice = (housePriceCustom * 5) + propertyPriceCustom;
+
+        return ( currPlayerBalance/ costPrice  );
+    }*/
 }
