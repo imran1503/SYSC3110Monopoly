@@ -107,7 +107,6 @@ public class BoardController implements ActionListener {
                     bv.setEventLabelText("Enter the name of Player "+(playerInitializing+1),"Press the submit button when done");
                     playerInitializeStage = 3;
                     waitForNextButton = true;
-
                 }
 
                 if(playerInitializing == Max_players){
@@ -134,9 +133,10 @@ public class BoardController implements ActionListener {
             if(playerInitializeStage == 4){
                 bv.updateAllPlayersStatus(Max_players);
                 int firstPlayerIndex = bm.determineFirstPlayer();
-                bm.setCurrentPlayer(bm.getPlayer(firstPlayerIndex));
+                Player firstPlayer = bm.getPlayer(firstPlayerIndex);
+                bm.setCurrentPlayer(firstPlayer);
                 playersInitialized = true;
-                bv.setEventLabelText(bm.getPlayer(firstPlayerIndex).getName() + " has been randomly chosen to go first!", "Start your turn by pressing the roll button.");
+                bv.setEventLabelText(firstPlayer.getName() + " has been randomly chosen to go first!", "Start your turn by pressing the roll button.");
                 bv.setUserInputVisibility(false);
 
                 for (int i = 0; i < Max_players; i++) {  //For all 4 players
@@ -144,8 +144,9 @@ public class BoardController implements ActionListener {
                 }
                 playerInitializeStage++;
                 waitForNextButton = true;
-                if(bm.getPlayer(0).getAi()){
-                    bm.getPlayer(0).playAITurn();
+                //if first player is AI, then playAITurn for first player
+                if(firstPlayer.getAi()){
+                    firstPlayer.playAITurn();
                 }
             }
             if((playerInitializeStage == 5)&&!waitForNextButton){ //Buying a house

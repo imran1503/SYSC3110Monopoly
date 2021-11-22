@@ -126,8 +126,7 @@ public class BoardView {
 
 
     /**
-     * constructor for the class.
-     *
+     * Constructor for BoardView.
      */
     public BoardView(BoardModel boardModel) {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
@@ -149,15 +148,13 @@ public class BoardView {
         playerLists.add(player3Labels);
         playerLists.add(player4Labels);
         addBasePanels();
-
     }
 
     /**
-     * Creates the mainPanel of the GUI frame. Adds gamePanel and controlPanel to the mainPanel.
-     *
+     * Creates the mainPanel of the GUI frame. Adds gamePanel to the mainPanel.
      */
     private void addBasePanels() {
-         //mainPanel placed on the frame. Contains gamePanel and controlPanel.
+        //mainPanel placed on the frame. Contains gamePanel.
         mainPanel = new JPanel(new BorderLayout());
         createGamePanel();
         mainPanel.add(gamePanel, BorderLayout.WEST);
@@ -165,21 +162,21 @@ public class BoardView {
     }
 
     /**
-     *   //TODO
-     * @return
+     * Getter method for playerLists
+     * @return playerLists
      */
     public ArrayList<JLabel[]> getPlayerLists(){return playerLists;}
 
     /**
-     * This helper function is used to create all the labels and properties on the grid.
+     * This helper function is used to create all the labels, player icons, houses icons and properties on the grid.
      * @param direction The edge of the board we are creating labels on.
      * @param i Which property i we are adding.
      * @param propertyIndexLabels The list we are adding the labels to.
      */
     private void createPropertyPanelHelper(JPanel direction, int i, JLabel [] propertyIndexLabels){
         propertyPanels[i] = new JPanel(new BorderLayout());
-        //setting a different background color for each propertyPanel to visually set them apart from each other for now
-        propertyPanels[i].setBackground(boardModel.getBoard().getProperty(i).getColor());
+        Color propertyColor = boardModel.getBoard().getProperty(i).getColor();
+        propertyPanels[i].setBackground(propertyColor);
         //creating and adding an index label to each propertyPanel to see their order
         propertyIndexLabels[i] = new JLabel();
         propertyIndexLabels[i].setText(boardModel.getBoard().getPropertiesArrayList().get(i).getName());
@@ -188,6 +185,7 @@ public class BoardView {
         propertyPanels[i].add(propertyIndexLabels[i],BorderLayout.PAGE_START);
 
 
+        // Initialize Player Icons for each property, set them to Not visible and add them to playerPanel
         JPanel playerPanel = new JPanel(new GridLayout(1,4));
         player1Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(100,0,0)));
         player2Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(0,100,0)));
@@ -198,21 +196,21 @@ public class BoardView {
         player3Labels[i].setVisible(false);
         player4Labels[i].setVisible(false);
 
-
         playerPanel.add(player1Labels[i]);
         playerPanel.add(player2Labels[i]);
         playerPanel.add(player3Labels[i]);
         playerPanel.add(player4Labels[i]);
-        playerPanel.setBackground(boardModel.getBoard().getProperty(i).getColor());
+        playerPanel.setBackground(propertyColor);
 
-
-
-        JPanel housingPanel = new JPanel(new GridLayout(1,4));
-        housing1Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
-        housing2Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
-        housing3Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
-        housing4Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(108, 222, 27)));
-        housing5Labels[i] = new JLabel(new PlayerIcon(10,10,new Color(213, 6, 6, 255)));
+        //Initlize housing icons for each property, set them to Not visible and add them to housingPanel
+        JPanel housingPanel = new JPanel(new GridLayout(1,5));
+        PlayerIcon houseIcon = new PlayerIcon(10,10,new Color(108, 222, 27));
+        PlayerIcon hotelIcon = new PlayerIcon(10,10,new Color(213, 6, 6, 255));
+        housing1Labels[i] = new JLabel(houseIcon);
+        housing2Labels[i] = new JLabel(houseIcon);
+        housing3Labels[i] = new JLabel(houseIcon);
+        housing4Labels[i] = new JLabel(houseIcon);
+        housing5Labels[i] = new JLabel(hotelIcon);
         housing1Labels[i].setVisible(false);
         housing2Labels[i].setVisible(false);
         housing3Labels[i].setVisible(false);
@@ -224,16 +222,13 @@ public class BoardView {
         housingPanel.add(housing3Labels[i]);
         housingPanel.add(housing4Labels[i]);
         housingPanel.add(housing5Labels[i]);
-        housingPanel.setBackground(boardModel.getBoard().getProperty(i).getColor());
+        housingPanel.setBackground(propertyColor);
 
+        //add housingPanel + playerPanel to propertyPanels[i].
         propertyPanels[i].add(housingPanel, BorderLayout.CENTER);
         propertyPanels[i].add(playerPanel, BorderLayout.PAGE_END);
-
-
         direction.add(propertyPanels[i]);
     }
-
-
 
     /**
      * Creates 40 propertyPanels and adds them to gamePanel.
@@ -341,6 +336,7 @@ public class BoardView {
         controlPanel.setPreferredSize(controlPanelSize);
         controlPanel.setBackground(new Color(215, 200, 131, 255));
 
+        //Initialize buttonPanel and buttons
         this.buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         startButton = new JButton("Start Game");
@@ -366,33 +362,14 @@ public class BoardView {
         BoardController bc = new BoardController(this,this.boardModel);
 
         //Button Handlers
-        newGameButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Ask how many players?
-
-                //for amount of players, ask name
-
-                //Show what player starts first    show P.x = {boat, car,  dog, boot, penguin, hat}
-
-                //Set middle board of player info V(player)
-            }
-        });
-
+        newGameButton.addActionListener(bc);
         purchaseButton.addActionListener(bc);
-
         quitButton.addActionListener(e -> System.exit(0));
-
         passButton.addActionListener(bc);
-
         helpButton.addActionListener(bc);
-
         purchaseHouseHotel.addActionListener(bc);
-
         rollButton.addActionListener(bc);
-
         startButton.addActionListener(bc);
-
         submitButton.addActionListener(bc);
 
         int totalNumPlayers = 4;
@@ -479,9 +456,6 @@ public class BoardView {
 
         playerPanels[playerIndex] = new JPanel();
         playerPanels[playerIndex].setLayout(new BoxLayout(playerPanels[playerIndex], BoxLayout.Y_AXIS));
-
-        //todo finish sccrollpane
-        // todo move later?
 
         for (int k = 0; k < numOfLabels; k++) {
             playerPanels[playerIndex].add(playerLabelList[playerIndex][k]);

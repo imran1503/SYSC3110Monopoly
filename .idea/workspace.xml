@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Made GUI's textArea with list of properties owned uneditable by user.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +320,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637594187597</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Cleanup and javadoc + comments on AIPlayer">
+      <created>1637595827666</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1637595827666</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Cleanup and javadoc + comments on AIPlayer">
+      <created>1637596018326</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1637596018326</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +353,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed some bugs" />
     <MESSAGE value="trying play method in boardview and startgame method" />
     <MESSAGE value="trying play method in boardview and startgame button" />
     <MESSAGE value="player inventory ui started" />
@@ -365,7 +377,8 @@
     <MESSAGE value="game number starts with a random player first + clean up and more comments in BoardModel." />
     <MESSAGE value="game now starts with a random player first + clean up and more comments in BoardModel." />
     <MESSAGE value="More cleanup and javadoc + comments on BoardModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="More cleanup and javadoc + comments on BoardModel" />
+    <MESSAGE value="Cleanup and javadoc + comments on AIPlayer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup and javadoc + comments on AIPlayer" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
