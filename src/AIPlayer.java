@@ -98,7 +98,9 @@ public class AIPlayer extends Player {
         if (Stage.compareToIgnoreCase("Buy House") == 0) {
             //if AI has colorSet
             if(this.getHasAColorSet()){
+                ArrayList<Color> colorList = new ArrayList<>();
                 ArrayList<Properties> propertiesList = new ArrayList<>();
+                Color railroadColor =  new Color(102,98,95);
                 //Get Color Set properties owned by AI
                 for (int i = 0; i < board.getAllColorsList().size(); i++) {
                     Color color = board.getAllColorsList().get(i);
@@ -109,7 +111,8 @@ public class AIPlayer extends Player {
                             ownsColorSet = false;
                         }
                     }
-                    if(ownsColorSet){
+                    if(ownsColorSet && (!color.equals(railroadColor))){
+                        colorList.add(color);
                         for (int k = 0; k < tempPropetyList.size(); k++) {
                             propertiesList.add(tempPropetyList.get(k));
                         }
