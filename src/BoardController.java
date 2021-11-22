@@ -98,7 +98,6 @@ public class BoardController implements ActionListener {
                 boolean AIPlayer = bv.getUserInput().equals("yes");
 
                 if (AIPlayer) {
-                    //todo will return a Player
                     bm.addPlayer(new AIPlayer("AI Player" + (playerInitializing + 1), colorList.get(playerInitializing), 1500,Max_players,bm.getBoard(),bm,bv));
                     playerInitializing++;
                     bv.setEventLabelText("Do you want player " + (playerInitializing+1) + " to be an AI Player? ('yes' if AI)?","Press the submit button when done");
@@ -132,12 +131,12 @@ public class BoardController implements ActionListener {
                 }
             }
 
-            //TODO AI player should get initialized here in playerIntialiseStage 2
             if(playerInitializeStage == 4){
                 bv.updateAllPlayersStatus(Max_players);
-                bm.setCurrentPlayer(bm.getPlayer(0));
+                int firstPlayerIndex = bm.determineFirstPlayer();
+                bm.setCurrentPlayer(bm.getPlayer(firstPlayerIndex));
                 playersInitialized = true;
-                bv.setEventLabelText(bm.getPlayer(0).getName() + " Goes first! Start your turn by pressing the roll button.","");
+                bv.setEventLabelText(bm.getPlayer(firstPlayerIndex).getName() + " has been randomly chosen to go first!", "Start your turn by pressing the roll button.");
                 bv.setUserInputVisibility(false);
 
                 for (int i = 0; i < Max_players; i++) {  //For all 4 players
@@ -149,7 +148,7 @@ public class BoardController implements ActionListener {
                     bm.getPlayer(0).playAITurn();
                 }
             }
-            if((playerInitializeStage == 5)&&!waitForNextButton){
+            if((playerInitializeStage == 5)&&!waitForNextButton){ //Buying a house
                 String propertyName = bv.getUserInput();
                 Boolean propertyExists = false;
                 int propertyIndex = -1;

@@ -5,54 +5,43 @@ import java.lang.Math;
 import java.util.Scanner;
 
 /**
- * Class BoardModel, int MAX_PLAYERS variable to store maxium number of players.
  * ArrayList of Players to store all Players in the BoardModel.
  * currentPlayer variable to keep track of current player in the BoardModel.
- * reader variable to store input from users.
  * nextRoll to store if current player will roll again (true) or not (false).
  * board variable to store Board of the BoardModel
+ * boardView variable to store BoardView of the game.
  * board Constructor to store constructor of the board.
  */
 public class BoardModel {
-    private static int MAX_PLAYERS = 0;
     public ArrayList<Player> players;
-
     private Player currentPlayer;
-    private Scanner reader; // for taking command input
     private Boolean nextRoll;
     private Board board;
     private BoardView boardView;
     private BoardConstructor boardConstructor;
     public enum Commands {quit, roll, passTurn, help, purchaseProperty, purchaseHouse, purchaseHotel}
-    private boolean HasCurrPlayerRolled;
     private int diceValue1;
     private int diceValue2;
-
-    public Player getCurrentPlayer() {
-        return currentPlayer;
-    }
 
     /**
      * Constructor for Game
      */
     public BoardModel( ){
-        this.players = new ArrayList<Player>();
+        this.players = new ArrayList<>();
         this.currentPlayer = null;
         this.nextRoll = true;
         this.board = new Board("board.xml");
-        this.reader = new Scanner(System.in);
         this.boardConstructor = new BoardConstructor();
         //creates the board
         boardConstructor.loadBoardFromMapFile(board);
         boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
-        HasCurrPlayerRolled = false;
         boardView = null;
         diceValue1 = -1;
         diceValue2 = -2;
 
         /**
-        //       DETERMINING WHERE THE AI SHOULD DRAW THE LINE FOR BUYING PROPERTIES DEPENDING OIN ITS BANK ACCOUNT BALANCE.  */
+        //       DETERMINING WHERE THE AI SHOULD DRAW THE LINE FOR BUYING PROPERTIES DEPENDING OIN ITS BANK ACCOUNT BALANCE.
         Player test = new Player("test", new Color(255,255,205),750, true ) ;
         for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
             if (!board.getProperty(i).getColor().equals(new Color(255,255,255))){
@@ -65,48 +54,32 @@ public class BoardModel {
                             );}
             }
         }
+        */
 
     }
-
-    public boolean getHasCurrPlayerRolled() {
-        return HasCurrPlayerRolled;
-    }
-
-    public void setHasCurrPlayerRolled(boolean setHasCurrPlayerRolled) {
-        this.HasCurrPlayerRolled = setHasCurrPlayerRolled;
-    }
-
-    public BoardConstructor getBoardConstructor() {
-        return boardConstructor;
-    }
-    public Board getBoard() {
-        return board;
-    }
-
-    public Player getPlayer(int playerIndex){return players.get(playerIndex);}
-
 
     /**
      * Determines which player starts the game at random.
-     * @return randomPlayer, player chosen at random to go first
+     * @return int of randomPlayer index, player chosen at random to go first
      */
     public int determineFirstPlayer() {
         int totalPlayers = players.size();
-        // generate a random number in the range 1 to totalPlayers inclusive
-        int randomPlayer = 1 + (int)(Math.random() * ((totalPlayers - 1) + 1));
+        int multiplierFactor = 70;
+        // generate a random integer number in the range 0 to totalPlayers - 1 inclusive
+        int randomPlayer = (int)((Math.random() * multiplierFactor)%totalPlayers);
         return randomPlayer;
     }
 
     /**
-     * Implements try and Checks for catch exceptions to check if param is integer.
-     * Returns False If max_players does not work, and it catches either numberFormat or NullPointer
+     * Implements try and Checks for catch exceptions to check if param is an integer.
+     * Returns False if it does not work, and it catches either numberFormat or NullPointer
      * exception, indicating param is not an integer. Otherwise returns true.
      * @param s the scanned string to be checked
      * @return boolean true if param is integer, return false if not
      */
     public static boolean isInteger(String s) {
         try {
-            MAX_PLAYERS = Integer.parseInt(s);
+            Integer.parseInt(s);
         } catch(NumberFormatException e) {
             return false;
         } catch(NullPointerException e) {
@@ -114,15 +87,6 @@ public class BoardModel {
         }
         // only got here if we didn't return false
         return true;
-    }
-
-    /**
-     * Print out the opening message for the players on game start.
-     */
-    private void welcomeMessage() {
-        System.out.println("Welcome to the game of Monopoly!");
-        System.out.println("Type 'help' if you ever need a command list with explanation.");
-        System.out.println();
     }
 
     /**
@@ -217,6 +181,19 @@ public class BoardModel {
     }
 
     /**
+     * Getter method for board of the game.
+     * @return Board
+     */
+    public Board getBoard() {return board;}
+
+    /**
+     * Get a player at a specfic player index from the players List
+     * @param playerIndex index of player to get from players plist
+     * @return Player from the list at playerIndex
+     */
+    public Player getPlayer(int playerIndex){return players.get(playerIndex);}
+
+    /**
      * Appends player object to Player Arraylist.
      * @param player param that is appended to arraylist
      */
@@ -234,19 +211,25 @@ public class BoardModel {
     /**
      * Passes player's turn. Ends the current player's turn and passes it onto the next player.
      * If next player is bankrupt, passes player's turn again.
+     * If next player is an AI Player, calls playAITurn method from AIPlayer class.
      */
     public void passPlayerTurn(){
+        //Reset number of double rolls of current player
         currentPlayer.setNumOfDoubleRolls(0);
         int indexOfCurrentPlayer = players.indexOf(currentPlayer);
+        //if current player is last player in list, set next player to first player in players list.
+        //else next player is current player index + 1 Player from list
         if(indexOfCurrentPlayer == (players.size() - 1)){
             currentPlayer = players.get(0);
         }
         else{
             currentPlayer = players.get(1+indexOfCurrentPlayer);
         }
+        //if after selecting next player and that player is bankrupt, pass player turn again.
         if(currentPlayer.getBankruptStatus()){
             passPlayerTurn();
         }
+        //if next player is in Jail, have event label Text2 to say "roll a double to get out jail", Else set it to ""
         else if(currentPlayer.getInJail()){
             boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "Roll a double to get out of Jail");
         }
@@ -254,16 +237,16 @@ public class BoardModel {
             boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "");
         }
         nextRoll = true;
+        //if next player is AI, playAITurn()
         if(currentPlayer.getAi()){
             currentPlayer.playAITurn();
         }
-
     }
 
 
     /**
      * Rolls 2 dices with integer values between 1 and 6.
-     * If player is not in jail, the player's position on board will update according to total roll value.
+     * If player is not in jail, the player's position on the board will update according to total roll value.
      * Returns true if both both dices are the same value, otherwise false.
      * @return Boolean true if double, else false.
      */
@@ -274,21 +257,23 @@ public class BoardModel {
         int jailPosition = 10;
         int passingGoAmount = 200;
         int playerIndex = this.getCurrentPlayerIndex();
+        String playerName = currentPlayer.getName();
+        int playerPosition = currentPlayer.getPositon();
+        Boolean jailStatus = currentPlayer.getInJail();
 
-        int randomRoll1 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1); // +1 to get range from 1 to 6.
+        //generate 2 random integer numbers between 1 and 6
+        int randomRoll1 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1);
         int randomRoll2 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1);
-
         this.diceValue1 = randomRoll1;
         this.diceValue2 = randomRoll2;
 
-        int playerPosition = currentPlayer.getPositon();
         int nextPlayerPosition = (randomRoll1 + randomRoll2 + playerPosition);
-        String playerName = currentPlayer.getName();
 
-        Boolean jailStatus = currentPlayer.getInJail();
+        //if double roll, increment current player's number of double rolls
         if(randomRoll1 == randomRoll2){
             currentPlayer.setNumOfDoubleRolls(currentPlayer.getNumOfDoubleRolls() + 1);
         }
+        //if current player (lands on Go To Jail or rolls 3 doubles) and is not in Jail, send player to Jail
         if(((nextPlayerPosition == goToJailPosition)||(currentPlayer.getNumOfDoubleRolls() == 3))&&!jailStatus){ // If player lands on Go to Jail
             boardView.getPlayerLists().get(playerIndex)[playerPosition].setVisible(false);
             currentPlayer.setNumOfDoubleRolls(0);
@@ -299,7 +284,7 @@ public class BoardModel {
             boardView.setEventLabel3Text(playerName+" has been set to Jail, roll a double to get out of Jail next turn.");
         }
         if(!jailStatus) {
-            //Remove player icon of previous location
+            //Remove current player's icon from previous location
             boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
             //For moving player
             if (nextPlayerPosition >= totalNumOfSpaces) { // if player passes Go
@@ -311,18 +296,21 @@ public class BoardModel {
                 currentPlayer.setPosition(nextPlayerPosition);
                 playerPosition = nextPlayerPosition;
             }
-            //Make player icon visible at new location
+            //Make current player's icon visible at new location
             boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
         }
         String propertyName = board.getProperty(playerPosition).getName();
+        //if double roll, return true. Else return false
         if(randomRoll1 == randomRoll2){
             if(!jailStatus) {
                 boardView.setEventLabelText(playerName + " rolled a " + (randomRoll1 + randomRoll2) + ", landed on " + propertyName, "You rolled a double, you can roll again. ");
             }
             return true;
         }
-        boardView.setEventLabelText(playerName+" rolled a "+(randomRoll1+randomRoll2), "Landed on "+propertyName);
-        return false;
+        else {
+            boardView.setEventLabelText(playerName + " rolled a " + (randomRoll1 + randomRoll2), "Landed on " + propertyName);
+            return false;
+        }
     }
 
     /**
@@ -452,30 +440,13 @@ public class BoardModel {
 
     public void setBoardView(BoardView bd){this.boardView = bd;}
 
-
-    /**
-     * Sets diceValue1. Used for testing in gameTest.
-     * @return
-     */
-    public void setDiceValue1(int diceValue2) {
-        this.diceValue2 = diceValue2;
-    }
-
     /**
      * Returns diceValue1 which is set to a random int in roll()
-     * @return
      */
     public int getDiceValue1() {
         return diceValue1;
     }
 
-    /**
-     * Sets diceValue2. Used for testing in GameTest.
-     * @return
-     */
-    public void setDiceValue2(int diceValue2) {
-        this.diceValue2 = diceValue2;
-    }
 
     /**
      * Returns diceValue2 which is set to a random int in roll()
@@ -494,6 +465,16 @@ public class BoardModel {
      */
     public int getCurrentPlayerIndex(){return players.indexOf(currentPlayer);}
 
+    /**
+     * Getter method of currentPlayer in the game.
+     */
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    /**
+     * Main method to initialize and start the game.
+     */
     public static void main(String args[]){
         BoardModel boardModel = new BoardModel();
         BoardView boardView = new BoardView(boardModel);
