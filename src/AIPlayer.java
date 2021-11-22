@@ -41,12 +41,11 @@ public class AIPlayer extends Player {
 
             //If its not a chance/Go/Tax/non-purchasable space/Jail
             if ( (!propertyColor.equals(nonPurchasableColor)) && (!propertyColor.equals(jailColor)) ){
+
                 // check if a decision to purchase would complete a color set
                 boolean purchaseCompletesColorset = false;
                 Color currPropertyColor = board.getProperty(pos).getColor();
-
                 int matchingColorCount = 0;
-
                 for (int i = 0; i < this.getControlledProperties().size(); i++) {
                     if (currPropertyColor.equals(this.getControlledProperties().get(i).getColor())) {
                         matchingColorCount++;
