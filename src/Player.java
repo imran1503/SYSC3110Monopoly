@@ -169,6 +169,7 @@ public class Player {
             controlledProperties.get(i).setOwner(newPlayer("bank",new Color(10,10,10),1000000,false));
             controlledProperties.get(i).setNumHouses(0);
             controlledProperties.get(i).setNumHotels(0);
+
         }
         controlledProperties = new ArrayList<>();
         hasAColorSet = false;

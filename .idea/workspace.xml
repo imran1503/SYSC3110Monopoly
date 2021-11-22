@@ -22,6 +22,7 @@
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Made GUI's textArea with list of properties owned uneditable by user.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Properties.java" afterDir="false" />
@@ -414,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637618696391</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="bug fixes and aiLogic buying houses changes">
+      <created>1637621392541</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1637621392541</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +441,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactored game.java to BoardModel.java" />
     <MESSAGE value="A few changes to output Event Label strings in the GUI" />
     <MESSAGE value="The game should now end when 1 player is left that is not bankrupt." />
     <MESSAGE value="Implemented actionEvent for start,roll,purchase property, pass turn buttons in BoardController.java" />
@@ -458,7 +465,8 @@
     <MESSAGE value="JavaDoc and more comments for BoardController" />
     <MESSAGE value="Initial start at AI logic buying houses" />
     <MESSAGE value="more stuff in AiLogic for buying houses" />
-    <option name="LAST_COMMIT_MESSAGE" value="more stuff in AiLogic for buying houses" />
+    <MESSAGE value="bug fixes and aiLogic buying houses changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes and aiLogic buying houses changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

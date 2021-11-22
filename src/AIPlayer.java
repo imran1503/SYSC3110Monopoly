@@ -71,7 +71,7 @@ public class AIPlayer extends Player {
                 }
 
                 // check costBenifitRatio of buying property with different Balance ranges
-                double costBenifitRatio = board.getProperty(pos).getCostBenfitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) + priorityBoost;
+                double costBenifitRatio = board.getProperty(pos).getCostBenefitRatio(this.getBalance(), board.getProperty(pos).getHousePrice(), board.getProperty(pos).getPrice()) + priorityBoost;
                 Boolean buyProperty = false;
                 if (this.getBalance() < 400){
                     if (costBenifitRatio>= 1.0){
@@ -118,32 +118,33 @@ public class AIPlayer extends Player {
                         }
                     }
                 }
-                //Check value of each property option in propertiesList, then buy house
+                //Check value of each property option in propertiesList and get color of top priority
                 ArrayList<Double> costBenitfitList = new ArrayList<>();
                 double topBenifitRatio = 0.0;
                 int topBenifitIndex = 0;
                 for (int i = 0; i < propertiesList.size(); i++) {
-                    double costBenifitRatio = propertiesList.get(i).getCostBenfitRatio(this.getBalance(),propertiesList.get(i).getRent(),propertiesList.get(i).getHousePrice());
+                    double costBenifitRatio = propertiesList.get(i).getCostBenefitRatio(this.getBalance(),propertiesList.get(i).getRent(),propertiesList.get(i).getHousePrice());
                     costBenitfitList.add(costBenifitRatio);
                     if(costBenifitRatio > topBenifitRatio){
                         topBenifitRatio = costBenifitRatio;
                         topBenifitIndex = i;
                     }
                 }
-                //Check if house can be bought on top priority option
+
                 Color colorOfTopProperty = propertiesList.get(topBenifitIndex).getColor();
                 int colorIndex = colorSetList.indexOf(colorOfTopProperty);
+                //if topPriority Color's properties already have Hotels, change the color.
                 if(board.getColorPropertiesArrayList().get(colorOfTopProperty).get(0).getNumHotels() ==1){
                     colorOfTopProperty = colorSetList.get((colorIndex +1)%colorSetList.size());
                 }
-                int sizeOfColorSet = board.getColorPropertiesArrayList().get(colorOfTopProperty).size();
-                for(int i = 0; i < sizeOfColorSet; i++){
-                    Properties propertySameColor = board.getColorPropertiesArrayList().get(colorOfTopProperty).get(i);
-                    if((this.getBalance()*2) > propertySameColor.getHousePrice()) {
+                ArrayList<Properties> topPropertiesList = board.getColorPropertiesArrayList().get(colorOfTopProperty);
+                for(int i = 0; i < topPropertiesList.size(); i++){
+                    Properties propertySameColor = topPropertiesList.get(i);
+                    //if balance atleast triple cost of buying house, buy houses on top priority color set.
+                    if((this.getBalance()*3) > propertySameColor.getHousePrice()) {
                         bm.purchaseHouseOrHotel(propertySameColor);
                     }
                 }
-
             }
         }
     }

@@ -185,10 +185,20 @@ public class Properties {
      */
     public int getHousePrice(){return housePrice;}
 
-
+    /**
+     * Set house price of Property
+     * @param i
+     */
     public void setHousePrice(int i ){housePrice = i;}
 
-    public double getCostBenfitRatio(double currPlayerBalance, double housePriceCustom, double propertyPriceCustom){
+    /**
+     * Get cost benefit ratio for property
+     * @param currPlayerBalance balance of player
+     * @param housePriceCustom house price
+     * @param propertyPriceCustom property price
+     * @return double ratio of benefit
+     */
+    public double getCostBenefitRatio(double currPlayerBalance, double housePriceCustom, double propertyPriceCustom){
         double costPrice = (housePriceCustom * 5) + propertyPriceCustom;
         return ( currPlayerBalance/ costPrice  );
     }

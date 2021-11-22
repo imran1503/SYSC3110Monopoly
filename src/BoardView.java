@@ -398,6 +398,7 @@ public class BoardView {
 
     }
 
+
     /**
      * Update Houses icon for a specific property
      * @param propertyLocation
@@ -406,7 +407,14 @@ public class BoardView {
         Properties property = boardModel.getBoard().getProperty(propertyLocation);
         int propertyNumHouses = property.getNumHouses();
         int propertyNumHotels = property.getNumHotels();
-        if(propertyNumHotels == 1){
+        if((propertyNumHouses == 0) && (propertyNumHotels ==0)){
+            housing1Labels[propertyLocation].setVisible(false);
+            housing2Labels[propertyLocation].setVisible(false);
+            housing3Labels[propertyLocation].setVisible(false);
+            housing4Labels[propertyLocation].setVisible(false);
+            housing5Labels[propertyLocation].setVisible(false);
+        }
+        else if(propertyNumHotels == 1){
             housing1Labels[propertyLocation].setVisible(false);
             housing2Labels[propertyLocation].setVisible(false);
             housing3Labels[propertyLocation].setVisible(false);
@@ -430,6 +438,16 @@ public class BoardView {
             else if(propertyNumHouses == 4){
                 housing4Labels[propertyLocation].setVisible(true);
             }
+        }
+    }
+
+    /**
+     * Updates all properties Houses Icons
+     */
+    public void updateAllHousesIcons(){
+        ArrayList<Properties> allProperties = boardModel.getBoard().getPropertiesArrayList();
+        for (int i = 0; i < allProperties.size(); i++) {
+            updateHousesIcons(i);
         }
     }
 
