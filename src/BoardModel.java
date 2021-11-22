@@ -21,8 +21,7 @@ public class BoardModel {
     private BoardView boardView;
     private BoardConstructor boardConstructor;
     public enum Commands {quit, roll, passTurn, help, purchaseProperty, purchaseHouse}
-    private int diceValue1;
-    private int diceValue2;
+    private int diceValue1,diceValue2;
 
     /**
      * Constructor for Game
