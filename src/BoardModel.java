@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 /**
+ * Class BoardModel, Model of the board of the game. Has most of the game functionality commands.
  * ArrayList of Players to store all Players in the BoardModel.
  * currentPlayer variable to keep track of current player in the BoardModel.
  * nextRoll to store if current player will roll again (true) or not (false).
