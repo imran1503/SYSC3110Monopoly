@@ -171,6 +171,8 @@ public class Player {
             controlledProperties.get(i).setNumHotels(0);
         }
         hasAColorSet = false;
+        ownsBothUtil = false;
+        ownsXtrains = 0;
     }
 
     /**
