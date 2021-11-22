@@ -118,7 +118,8 @@ public class AIPlayer extends Player {
                         }
                     }
                 }
-                //Check value of each property option, then buy house
+                //Check value of each property option in propertiesList, then buy house
+
             }
         }
     }
