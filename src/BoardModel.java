@@ -323,7 +323,7 @@ public class BoardModel {
             currentPlayer.gainProperty(landedOnProperty);
             boardView.setEventLabelText(playerName + " purchased "+propertyName, "Remaining Balance: "+currentPlayer.getBalance());
 
-            //If after buying this property and it completes a colorSet, set hasAColorSet to true for the current player.
+            //If after buying this property and it completes a colorSet, set hasAColorSet to true for the current player if not railroad color.
             Color colorOfProperty = landedOnProperty.getColor();
             Boolean ownsColorSet = true;
             for(int i =0; i<board.getColorPropertiesArrayList().get(colorOfProperty).size(); i++){
@@ -331,7 +331,7 @@ public class BoardModel {
                     ownsColorSet = false;
                 }
             }
-            if(ownsColorSet){
+            if( ownsColorSet && (!colorOfProperty.equals(railroadPropertyColor)) ){
                 currentPlayer.setHasAColorSet(true);
             }
             //If purchased property is railroad, update owndXtrains for current player.

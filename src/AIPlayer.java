@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Class AIPlayer, an extension to Player. This player will be able to make automatic game decisions about it's turn.
@@ -34,6 +35,7 @@ public class AIPlayer extends Player {
      */
     public void aiLogic(String Stage) {
         int pos = this.getPositon();
+        //if Buy Property Stage
         if (Stage.compareToIgnoreCase("Buy Property") == 0) {
             Color propertyColor = board.getProperty(pos).getColor();
             Color jailColor = new Color(250, 140, 0);
@@ -90,6 +92,30 @@ public class AIPlayer extends Player {
                 if(buyProperty){
                     bm.operateCommand(BoardModel.Commands.purchaseProperty);
                 }
+            }
+        }
+        //if Buy House Stage
+        if (Stage.compareToIgnoreCase("Buy House") == 0) {
+            //if AI has colorSet
+            if(this.getHasAColorSet()){
+                ArrayList<Properties> propertiesList = new ArrayList<>();
+                //Get Color Set properties owned by AI
+                for (int i = 0; i < board.getAllColorsList().size(); i++) {
+                    Color color = board.getAllColorsList().get(i);
+                    ArrayList<Properties> tempPropetyList =board.getColorPropertiesArrayList().get(color);
+                    Boolean ownsColorSet = true;
+                    for(int j = 0; j<tempPropetyList.size(); j++){
+                        if(!tempPropetyList.get(j).getOwner().equals(this)){
+                            ownsColorSet = false;
+                        }
+                    }
+                    if(ownsColorSet){
+                        for (int k = 0; k < tempPropetyList.size(); k++) {
+                            propertiesList.add(tempPropetyList.get(k));
+                        }
+                    }
+                }
+                //Check value of each property option, then buy house
             }
         }
     }

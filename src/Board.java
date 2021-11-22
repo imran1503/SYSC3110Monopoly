@@ -21,6 +21,7 @@ public class Board {
     private ArrayList<Properties> propertiesArrayList;
     private HashMap<Color, ArrayList<Properties>> colorPropertiesArrayList;
     private boolean isValid;
+    private ArrayList<Color> allColorsList;
     /**
      * The source of user input the board will ask for while performing actions (attack, fortify, etc.)
      */
@@ -35,6 +36,7 @@ public class Board {
         this.players = new ArrayList<>();
         this.userInputSource = userInputSource;
         this.colorPropertiesArrayList = new HashMap<>();
+        this.allColorsList = new ArrayList<>();
     }
 
     /**
@@ -86,6 +88,17 @@ public class Board {
      * @param playersForBoard ArrayList<Player> to set players on the board to.
      */
     public void setPlayers(ArrayList<Player> playersForBoard){Board.players = playersForBoard;}
+
+    /**
+     * Getter method for list of all colors of properties
+     */
+    public ArrayList<Color> getAllColorsList(){return allColorsList;}
+
+    /**
+     * Setter method for list of all colors of properties
+     * @param colorsList ArrayList of Colors to set with
+     */
+    public void setAllColorsList(ArrayList<Color> colorsList){allColorsList = colorsList;}
 
     /**
      * Creates a new Board using either a map or save file
