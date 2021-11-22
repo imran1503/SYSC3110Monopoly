@@ -201,7 +201,7 @@ public class BoardConstructor {
                 colorsList.add(new Color(255,0,0));
                 colorsList.add(new Color(255,255,0));
                 colorsList.add(new Color(0,128,0));
-                colorsList.add(new Color(0,0,128));
+                colorsList.add(new Color(0,0,200));
                 colorsList.add(new Color (102,98,95));
                 board.setAllColorsList(colorsList);
 

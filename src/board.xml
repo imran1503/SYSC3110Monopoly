@@ -369,7 +369,7 @@
         <rent>35</rent>
         <r>0</r>
         <g>0</g>
-        <b>128</b>
+        <b>200</b>
         <index>37</index>
     </Property>
 
@@ -388,7 +388,7 @@
         <rent>50</rent>
         <r>0</r>
         <g>0</g>
-        <b>128</b>
+        <b>200</b>
         <index>39</index>
     </Property>
 </board>
