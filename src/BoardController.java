@@ -132,6 +132,7 @@ public class BoardController implements ActionListener {
 
             if(playerInitializeStage == 4){
                 bv.updateAllPlayersStatus(Max_players);
+                bv.setPlayerPanelHoldersVisibility(Max_players,true);
                 int firstPlayerIndex = bm.determineFirstPlayer();
                 Player firstPlayer = bm.getPlayer(firstPlayerIndex);
                 bm.setCurrentPlayer(firstPlayer);

@@ -4,7 +4,14 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 /**
- * class BoardView implements the graphical user interface's view for the board game Monopoly.
+ * class BoardView implements the graphical user interface's view for the Monopoly game.
+ * frame variable to store the main frame of the gui.
+ * boardModel to store the BoardModel of the game.
+ * Alot of panels to hold the players, properties, buttons of the game
+ * Alot of labels to store the players, events, player icons, houses icons for the game.
+ * Alot of buttons for each important operation in the game and buttons list.
+ * userInputBox to store user input on gui in the JTextField
+ * scrollPanes and propertiesTextArea to hold the controlled properties in a list for each player.
  *
  * @author Mahtab Ameli, Imran Latif, Muhammad Furqan
  * @version 1.0
@@ -27,7 +34,6 @@ public class BoardView {
     private JButton startButton,rollButton,purchaseButton,helpButton,newGameButton,quitButton,purchaseHouseHotel,passButton,submitButton;
 
     private JTextField userInputBox;
-    // scrollPanes for list of properties owned by each player
     private JScrollPane[] scrollPanes;
     private JTextArea[] propertiesTextAreas;
 
@@ -140,10 +146,8 @@ public class BoardView {
      *
      */
     private void createPropertyPanels() {
-        // Create 40 panels, one for each property
+        // Create 40 panels, 1 for each property. Create 40 JLabels, 1 for each propertyPanel
         this.propertyPanels = new JPanel[40];
-
-        //Create 40 JLabels, one for each propertyPanel
         JLabel [] propertyIndexLabels = new JLabel[40];
 
         for (int i = 0; i < 40; i++) {
@@ -183,7 +187,7 @@ public class BoardView {
         center = new JPanel(new FlowLayout());
 
         north.setBackground(new Color(90,20,200));
-        north.setPreferredSize(new Dimension(800,150));
+        north.setPreferredSize(new Dimension(800,100));
         north.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
         east.setBackground(new Color(100,140,10));
@@ -195,7 +199,7 @@ public class BoardView {
         west.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         south.setBackground(new Color(250,120,200));
-        south.setPreferredSize(new Dimension(800,150));
+        south.setPreferredSize(new Dimension(800,100));
         south.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         center.setBackground(new Color(190,250,250));
@@ -205,7 +209,7 @@ public class BoardView {
         this.scrollPanes = new JScrollPane[4];
         this.propertiesTextAreas = new JTextArea[4];
 
-
+        //create Control panel and add to center panel
         createControlPanel();
         center.add(controlPanel);
 
@@ -237,9 +241,8 @@ public class BoardView {
         }
 
         Dimension controlPanelSize = Toolkit.getDefaultToolkit().getScreenSize();
-        controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.5);
+        controlPanelSize.setSize(controlPanelSize.getWidth()*0.8,controlPanelSize.getHeight()*0.65);
         controlPanel.setPreferredSize(controlPanelSize);
-        controlPanel.setBackground(new Color(215, 200, 131, 255));
 
         //Initialize buttonPanel and buttons
         this.buttonPanel = new JPanel();
@@ -277,15 +280,17 @@ public class BoardView {
         startButton.addActionListener(bc);
         submitButton.addActionListener(bc);
 
-        int totalNumPlayers = 4;
-        this.playerPanels = new JPanel[totalNumPlayers];
-        for (int i=0; i<totalNumPlayers; i++){
+        //create Player panels and add them top left, top right, bottom left and bottom right. Make panels not visible.
+        int MaxNumPlayers = 4;
+        this.playerPanels = new JPanel[MaxNumPlayers];
+        for (int i=0; i<MaxNumPlayers; i++){
             createNewPlayerPanel(i);
         }
         panelHolder[0][0].add(playerPanels[0]);
         panelHolder[1][0].add(playerPanels[1]);
         panelHolder[0][2].add(playerPanels[2]);
         panelHolder[1][2].add(playerPanels[3]);
+        this.setPlayerPanelHoldersVisibility(MaxNumPlayers,false);
 
         buttonPanel.add(startButton);
         //buttonPanel.add(newGameButton);
@@ -311,6 +316,7 @@ public class BoardView {
         userInputBox.setVisible(false);
         purchaseHouseHotel.setVisible(false);
 
+        //add event labels, submit button and user input box in userPanel and add that to bottom middle of control panel
         userPanel.add(headerLabel);
         userPanel.add(eventLabel);
         userPanel.add(eventLabel2);
@@ -456,6 +462,13 @@ public class BoardView {
         buttonList.get(3).setVisible(!condition);
         buttonList.get(6).setVisible(condition);
         userInputBox.setVisible(condition);
+    }
+
+    public void setPlayerPanelHoldersVisibility(int numOfPlayers, Boolean visible){
+        JPanel[] panelList = {panelHolder[0][0],panelHolder[1][0],panelHolder[0][2],panelHolder[1][2]};
+        for (int i = 0; i < numOfPlayers; i++) {
+            panelList[i].setVisible(visible);
+        }
     }
 
 }
