@@ -13,15 +13,15 @@ public class BoardView {
     private final JFrame frame;
     private BoardModel boardModel;
 
+    private JPanel[][] panelHolder;
+    private JPanel[] propertyPanels,playerPanels;
+    private JPanel north, east, west, south, center,mainPanel,controlPanel,gamePanel, buttonPanel;
+
     private ArrayList<JLabel []> playerLists;
     private JLabel[][] playerLabelList;
     private JLabel[] player1Labels,player2Labels,player3Labels,player4Labels;
     private JLabel[] housing1Labels,housing2Labels,housing3Labels,housing4Labels,housing5Labels;
     private JLabel eventLabel,eventLabel2,eventLabel3;
-
-    private JPanel[][] panelHolder;
-    private JPanel[] propertyPanels,playerPanels;
-    private JPanel north, east, west, south, center,mainPanel,controlPanel,gamePanel, buttonPanel;
 
     private ArrayList<JButton> buttonList;
     private JButton startButton,rollButton,purchaseButton,helpButton,newGameButton,quitButton,purchaseHouseHotel,passButton,submitButton;
