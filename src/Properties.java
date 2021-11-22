@@ -189,19 +189,7 @@ public class Properties {
     public void setHousePrice(int i ){housePrice = i;}
 
     public double getCostBenfitRatio(double currPlayerBalance, double housePriceCustom, double propertyPriceCustom){
-        //int houseprice = this.getHousePrice();
-        //int propertyPrice = this.getPrice();
         double costPrice = (housePriceCustom * 5) + propertyPriceCustom;
-
         return ( currPlayerBalance/ costPrice  );
     }
-
-    //todo remove original function
-/*    public double getCostBenfitRatio(double currPlayerBalance, double housePriceCustom, double propertyPriceCustom){
-        //int houseprice = this.getHousePrice();
-        //int propertyPrice = this.getPrice();
-        double costPrice = (housePriceCustom * 5) + propertyPriceCustom;
-
-        return ( currPlayerBalance/ costPrice  );
-    }*/
 }

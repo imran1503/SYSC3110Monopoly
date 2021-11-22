@@ -170,6 +170,7 @@ public class Player {
             controlledProperties.get(i).setNumHouses(0);
             controlledProperties.get(i).setNumHotels(0);
         }
+        controlledProperties = new ArrayList<>();
         hasAColorSet = false;
         ownsBothUtil = false;
         ownsXtrains = 0;

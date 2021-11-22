@@ -416,12 +416,16 @@ public class BoardView {
         else{
             if(propertyNumHouses == 1){
                 housing1Labels[propertyLocation].setVisible(true);
+                housing2Labels[propertyLocation].setVisible(false);
+                housing3Labels[propertyLocation].setVisible(false);
+                housing4Labels[propertyLocation].setVisible(false);
+                housing5Labels[propertyLocation].setVisible(false);
             }
             else if(propertyNumHouses == 2){
-                housing2Labels[propertyLocation].setVisible(true);
+                housing1Labels[propertyLocation].setVisible(true);
             }
             else if(propertyNumHouses == 3){
-                housing3Labels[propertyLocation].setVisible(true);
+                housing1Labels[propertyLocation].setVisible(true);
             }
             else if(propertyNumHouses == 4){
                 housing4Labels[propertyLocation].setVisible(true);

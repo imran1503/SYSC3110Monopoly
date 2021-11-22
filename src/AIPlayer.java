@@ -124,28 +124,26 @@ public class AIPlayer extends Player {
                 int topBenifitIndex = 0;
                 for (int i = 0; i < propertiesList.size(); i++) {
                     double costBenifitRatio = propertiesList.get(i).getCostBenfitRatio(this.getBalance(),propertiesList.get(i).getRent(),propertiesList.get(i).getHousePrice());
+                    costBenitfitList.add(costBenifitRatio);
                     if(costBenifitRatio > topBenifitRatio){
                         topBenifitRatio = costBenifitRatio;
                         topBenifitIndex = i;
                     }
                 }
                 //Check if house can be bought on top priority option
-                Properties topProperty = propertiesList.get(topBenifitIndex);
-                Color colorOfTopProperty = topProperty.getColor();
+                Color colorOfTopProperty = propertiesList.get(topBenifitIndex).getColor();
+                int colorIndex = colorSetList.indexOf(colorOfTopProperty);
+                if(board.getColorPropertiesArrayList().get(colorOfTopProperty).get(0).getNumHotels() ==1){
+                    colorOfTopProperty = colorSetList.get((colorIndex +1)%colorSetList.size());
+                }
                 int sizeOfColorSet = board.getColorPropertiesArrayList().get(colorOfTopProperty).size();
-                int numOfHouseCurrent = topProperty.getNumHouses();
-                Boolean owningEqualHouses = true;
                 for(int i = 0; i < sizeOfColorSet; i++){
                     Properties propertySameColor = board.getColorPropertiesArrayList().get(colorOfTopProperty).get(i);
-                    if(!((propertySameColor.getNumHouses() >= numOfHouseCurrent)||(propertySameColor.getNumHotels() == 1))){
-                        owningEqualHouses = false;
+                    if((this.getBalance()*2) > propertySameColor.getHousePrice()) {
+                        bm.purchaseHouseOrHotel(propertySameColor);
                     }
                 }
-                if(owningEqualHouses){
-                    if(topBenifitRatio >= 0 /**Something not sure, but not 0*/){ //TODO
-                        bm.purchaseHouseOrHotel(topProperty);
-                    }
-                }
+
             }
         }
     }
