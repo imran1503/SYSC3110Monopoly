@@ -1,5 +1,5 @@
 # SYSC3110Monopoly
-### Version: 2.0
+### Version: 3.0
 ### Authors:
 - Mahtab Ameli: @ameli-s19 and @MahtabAmeli
 - Shahrik Amin: @ShahrikAmin
@@ -9,6 +9,7 @@
 ### Table of Contents:
 - [Quick Start](#quick-start)
 - [Deliverables](#deliverables)
+- [Improvements](#improvements)
 - [Issues](#issues)
 - [User Manual](#complete-user-manual)
     * [Objective](#objective)
@@ -21,7 +22,7 @@
 - [Roadmap](#roadmap)
 
 ### Quick Start:
-To play Monopoly, run the main function in BoardModel.java, or if you chose to run it from the jar file type:
+To play Monopoly, run the main function in BoardView.java, or if you chose to run it from the jar file type:
 ```
 java -jar Monopoly.jar
 ```
@@ -29,12 +30,17 @@ java -jar Monopoly.jar
 ### Deliverables
 The deliverables for this milestone is as follows: readme file, the JUnit test files, source code in the form of a.jar file, UML diagrams, documentation. They are supposed to all in one zip file submitted on brightspace. 
 
+### Improvements
+We revieved a variety of feedback on the last milestone. In regards to this one, this is how we have adapted:
+We added a proper BoardController to help us stay with in the MVC pattern.
+We have gone through and cleaned up some of the less refined code. Particularlly in BoardView. 
+We have tackled the list of bugs that were appearing in the previous version, such as the game not endeding when there are no players left for the winner to compete against. 
+As we as we have fixed the bug with removing properties when a player is bankrupted. 
+In the game previously we had the functionality of houses and hotels complete however they were not added onto the GUI as of the last milestone, so this update we added that functionality to the game. 
+
+
 ### Issues
-We have yet to implement a way for the player to visually recognize where they are on the board. We only hours before the deadline able to figure out why the GUI was not updating. In the next milestone the is a plan to add player pieces that are able to move around the board. 
 
-Due to other complications, there was not enough time to allocate to JUnit's extensive corner case testing for all cases that exist in the model. 
-
-There is a issue with the property incomeTax. It doesn't take away the allotted 100$. 
 ### User Manual
 #### Objective
 The objective of the boardModel is to be the last one standing (and richest)by buying property and raising it costs to others in order for them to go bankrupt first. 
@@ -59,16 +65,20 @@ When a player is sent to jail by landing on the designated "Go to jail" space, t
 We are not able to implement these features in this version of the boardModel. 
 
 ###### Example Turns
-Players press "Start BoardModel", and then enter their names .
-The boardModel decides who gets to move first. 
+Players press "Start BoardView", and then decide how many players you want by entering it in the popup that will appear upon clicking the start game button. F
+For each player, you will decide if they are to be either a human player or a AI, and if they are a human player, enter their name.
+
+The game will decide who gets to move first randomly. 
 Player 1 presses "Roll" to move. 
 The PLayer is moved as far as they rolled. 
 Player 1 presses "Purchsae Property", and the boardModel removes the money from their account but adds the Deed to the player's inventory. 
+    Should the player not have enough the are required to pass their turn without purchasing the property. 
 Player 1 passes their turn by pressing "Pass Turn". 
 
+An AI will also follow the example turn described above. 
 ### Important Design Decisions
 We decided that implementing the functionality of: Go, Jail, Railroads and utilities early would be in our best intrest. As it will save us time when implementing the harder features of the boardModel later on.  
 
 ### Roadmap
-The next steps for this project will involve us creating an AI player that can play the boardModel by reading the state of the board. 
-Much later in the projects life there will also be an save and load feature, so games can stop and pick right back up where they left off.
+The next step of this project will be implementing 2 main features. The first will be the ability to save and load the game to the local computer. 
+The second main feature is adding support for multiple languages in the game. 
