@@ -1,8 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.lang.Math;
-import java.util.Scanner;
 
 /**
  * ArrayList of Players to store all Players in the BoardModel.
@@ -11,6 +9,8 @@ import java.util.Scanner;
  * board variable to store Board of the BoardModel
  * boardView variable to store BoardView of the game.
  * board Constructor to store constructor of the board.
+ * enum Commands to use to operate game commands with.
+ * diceValue1 and diceValue2 to store the random dice values that are rolled.
  */
 public class BoardModel {
     public ArrayList<Player> players;
