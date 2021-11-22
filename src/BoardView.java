@@ -439,23 +439,51 @@ public class BoardView {
         closeFrame();
     }
 
+    /**
+     * Set the text of eventLabel and eventLabel2 JLabels to the paramters given
+     * @param eventText text to set eventLabel with
+     * @param eventText2 text to set eventLabel2 with
+     */
     public void setEventLabelText(String eventText, String eventText2) {
         eventLabel.setText(eventText);
         eventLabel2.setText(eventText2);
     }
 
+    /**
+     * Set the text of eventLabel3 JLabel to the paramters given
+     * @param eventText text to set eventLabel3 with
+     */
     public void setEventLabel3Text(String eventText) {
         eventLabel3.setText(eventText);
     }
 
+    /**
+     * Getter method for buttonList
+     * @return buttonList
+     */
     public ArrayList<JButton> getButtonList(){return buttonList;}
 
+    /**
+     * Getter method for userInput text in the JTextField
+     * @return the text the user typed in
+     */
     public String getUserInput(){return userInputBox.getText();}
 
+    /**
+     * Set purchaseHouseHotel button visibility with parameter
+     * @param visible true for visible, false for not visible
+     */
     public void setPurchaseHouseButtonVisibility(Boolean visible){purchaseHouseHotel.setVisible(visible);}
 
+    /**
+     * Clear text in userInputBox JTextField
+     */
     public void clearTextField(){userInputBox.setText("");}
 
+    /**
+     * Set user input related stuff to visible and buttons to not visible or vise versa.
+     * @param condition true if userInputBox and submit visible, false if not visible.
+     */
     public void setUserInputVisibility(Boolean condition){
         buttonList.get(1).setVisible(!condition);
         buttonList.get(2).setVisible(!condition);
@@ -464,6 +492,11 @@ public class BoardView {
         userInputBox.setVisible(condition);
     }
 
+    /**
+     * Set visibilty of Player Panels
+     * @param numOfPlayers Total number of players
+     * @param visible true if visible, false if not visible.
+     */
     public void setPlayerPanelHoldersVisibility(int numOfPlayers, Boolean visible){
         JPanel[] panelList = {panelHolder[0][0],panelHolder[1][0],panelHolder[0][2],panelHolder[1][2]};
         for (int i = 0; i < numOfPlayers; i++) {
