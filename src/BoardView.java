@@ -10,120 +10,26 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class BoardView {
-
+    private final JFrame frame;
     private BoardModel boardModel;
 
-
+    private ArrayList<JLabel []> playerLists;
     private JLabel[][] playerLabelList;
+    private JLabel[] player1Labels,player2Labels,player3Labels,player4Labels;
+    private JLabel[] housing1Labels,housing2Labels,housing3Labels,housing4Labels,housing5Labels;
+    private JLabel eventLabel,eventLabel2,eventLabel3;
+
+    private JPanel[][] panelHolder;
+    private JPanel[] propertyPanels,playerPanels;
+    private JPanel north, east, west, south, center,mainPanel,controlPanel,gamePanel, buttonPanel;
+
+    private ArrayList<JButton> buttonList;
+    private JButton startButton,rollButton,purchaseButton,helpButton,newGameButton,quitButton,purchaseHouseHotel,passButton,submitButton;
+
+    private JTextField userInputBox;
     // scrollPanes for list of properties owned by each player
     private JScrollPane[] scrollPanes;
     private JTextArea[] propertiesTextAreas;
-
-    private JLabel eventLabel;
-
-    private JLabel eventLabel2;
-
-    private JLabel eventLabel3;
-
-    private JButton startButton;
-
-    private int MAX_PLAYERS;
-
-    private JPanel mainPanel;
-
-    private JPanel[][] panelHolder;
-
-    private JPanel buttonPanel;
-
-    private JTextField userInputBox;
-
-    private JButton submitButton;
-
-
-    private ArrayList<JLabel []> playerLists;
-
-    private JLabel [] player1Labels;
-    private JLabel [] player2Labels;
-    private JLabel [] player3Labels;
-    private JLabel [] player4Labels;
-
-    private JLabel [] housing1Labels;
-    private JLabel [] housing2Labels;
-    private JLabel [] housing3Labels;
-    private JLabel [] housing4Labels;
-    private JLabel [] housing5Labels;
-
-
-    /**
-     * main frame for the GUI's View.
-     */
-    private final JFrame frame;
-
-    /**
-     * an array of JPanels, one for each Property (40 in total).
-     */
-    private JPanel [] propertyPanels;
-
-    /**
-     * an array of JPanels for each Player (4 total).
-     */
-    private JPanel[] playerPanels;
-
-    /**
-     * this panel contains the board's propertyPanels.
-     */
-    private JPanel gamePanel;
-
-    /**
-     * this panel contains all control buttons and the message windows that appear by pressing them.
-     */
-    private JPanel controlPanel;
-
-
-    /**
-     * user can press this button to roll dice.
-     */
-    private JButton rollButton;
-
-    /**
-     * user can press this button to purchase a property if applicable.
-     */
-    private JButton purchaseButton;
-    /**
-     * USer can press this button to see the rules and user guide.
-     */
-    private JButton helpButton;
-
-    /**
-     * user can press this button to start a new game.
-     */
-    private JButton newGameButton;
-
-    /**
-     * user can press this button to quit the game.
-     */
-    private JButton quitButton;
-
-    /**
-     * User can press this to buy a house on a property
-     */
-    private JButton purchaseHouseHotel;
-
-    /**
-     * user can press this button to pass the turn to the next player.
-     */
-    private JButton passButton;
-
-    /**
-     * Panels within the gamePanel.
-     */
-    private JPanel north, east, west, south, center;
-
-    /**
-     * List of all the buttons in boardView.
-     */
-    private ArrayList<JButton> buttonList;
-
 
     /**
      * Constructor for BoardView.
@@ -132,7 +38,6 @@ public class BoardView {
         this.frame = new JFrame("Welcome to G28's Monopoly!");
         this.frame.setResizable(true);
         this.boardModel = boardModel;
-        this.MAX_PLAYERS = 4;
         this.player1Labels = new JLabel[40];
         this.player2Labels = new JLabel[40];
         this.player3Labels = new JLabel[40];

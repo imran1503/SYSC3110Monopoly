@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Made GUI's textArea with list of properties owned uneditable by user.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -334,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637596018326</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Cleanup and javadoc + comments on BoardView. Also bug fix in BoardController">
+      <created>1637597652175</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1637597652175</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +359,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="trying play method in boardview and startgame method" />
     <MESSAGE value="trying play method in boardview and startgame button" />
     <MESSAGE value="player inventory ui started" />
     <MESSAGE value="Moved button handlers to correct location" />
@@ -378,7 +383,8 @@
     <MESSAGE value="game now starts with a random player first + clean up and more comments in BoardModel." />
     <MESSAGE value="More cleanup and javadoc + comments on BoardModel" />
     <MESSAGE value="Cleanup and javadoc + comments on AIPlayer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup and javadoc + comments on AIPlayer" />
+    <MESSAGE value="Cleanup and javadoc + comments on BoardView. Also bug fix in BoardController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup and javadoc + comments on BoardView. Also bug fix in BoardController" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
