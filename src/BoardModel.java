@@ -297,6 +297,7 @@ public class BoardModel {
         String propertyName = landedOnProperty.getName();
         String playerName = currentPlayer.getName();
         int[] nonPurchasablePropertyLocations = {0,2,4,7,10,17,20,22,30,33,36,38};
+        Color railroadPropertyColor = new Color(102,98,95);
 
         //Check property is not a non-Purchaseable property location
         for (int i = 0; i < nonPurchasablePropertyLocations.length; i++) {
@@ -332,6 +333,10 @@ public class BoardModel {
             }
             if(ownsColorSet){
                 currentPlayer.setHasAColorSet(true);
+            }
+            //If purchased property is railroad, update owndXtrains for current player.
+            if(colorOfProperty.equals(railroadPropertyColor)){
+                currentPlayer.setOwnsXtrains( (currentPlayer.getOwnsXtrains()+1) );
             }
         }}}
     }
