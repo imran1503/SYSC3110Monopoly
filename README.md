@@ -36,6 +36,7 @@ We added a proper BoardController to help us stay with in the MVC pattern.
 We have gone through and cleaned up some of the less refined code. Particularlly in BoardView. 
 We have tackled the list of bugs that were appearing in the previous version, such as the game not endeding when there are no players left for the winner to compete against. 
 As we as we have fixed the bug with removing properties when a player is bankrupted. 
+In the game previously we had the functionality of houses and hotels complete however they were not added onto the GUI as of the last milestone, so this update we added that functionality to the game. 
 
 
 ### Issues
