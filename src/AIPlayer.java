@@ -142,7 +142,7 @@ public class AIPlayer extends Player {
                     }
                 }
                 if(owningEqualHouses){
-                    if(topBenifitRatio >= 0 /**Something not sure, but not 0*/){
+                    if(topBenifitRatio >= 0 /**Something not sure, but not 0*/){ //TODO
                         bm.purchaseHouseOrHotel(topProperty);
                     }
                 }
