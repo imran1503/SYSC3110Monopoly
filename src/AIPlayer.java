@@ -119,7 +119,33 @@ public class AIPlayer extends Player {
                     }
                 }
                 //Check value of each property option in propertiesList, then buy house
-
+                ArrayList<Double> costBenitfitList = new ArrayList<>();
+                double topBenifitRatio = 0.0;
+                int topBenifitIndex = 0;
+                for (int i = 0; i < propertiesList.size(); i++) {
+                    double costBenifitRatio = propertiesList.get(i).getCostBenfitRatio(this.getBalance(),propertiesList.get(i).getRent(),propertiesList.get(i).getHousePrice());
+                    if(costBenifitRatio > topBenifitRatio){
+                        topBenifitRatio = costBenifitRatio;
+                        topBenifitIndex = i;
+                    }
+                }
+                //Check if house can be bought on top priority option
+                Properties topProperty = propertiesList.get(topBenifitIndex);
+                Color colorOfTopProperty = topProperty.getColor();
+                int sizeOfColorSet = board.getColorPropertiesArrayList().get(colorOfTopProperty).size();
+                int numOfHouseCurrent = topProperty.getNumHouses();
+                Boolean owningEqualHouses = true;
+                for(int i = 0; i < sizeOfColorSet; i++){
+                    Properties propertySameColor = board.getColorPropertiesArrayList().get(colorOfTopProperty).get(i);
+                    if(!((propertySameColor.getNumHouses() >= numOfHouseCurrent)||(propertySameColor.getNumHotels() == 1))){
+                        owningEqualHouses = false;
+                    }
+                }
+                if(owningEqualHouses){
+                    if(topBenifitRatio >= 0 /**Something not sure, but not 0*/){
+                        bm.purchaseHouseOrHotel(topProperty);
+                    }
+                }
             }
         }
     }
@@ -133,6 +159,7 @@ public class AIPlayer extends Player {
         while(bm.getNextRoll()){
             bm.operateCommand(BoardModel.Commands.roll);
             this.aiLogic("Buy Property");
+            this.aiLogic("Buy House");
         }
         //Update GUI and pass turn to next player
         boardView.updateAllPlayersStatus(numPlayers);
