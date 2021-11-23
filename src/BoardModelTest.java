@@ -9,18 +9,6 @@ public class BoardModelTest {
     BoardModel boardModel;
     Player p1;
 
-// todo this BeforeEach doesn't work. Also tried @BeforeAll. didn't work.
-/*
-    @BeforeAll
-    public void init(){
-        game = new Game();
-        p1 = new Player("P1", new Color(10,10,10),1500);
-        game.addPlayer(p1);
-        game.setCurrentPlayer(p1);
-    }*/
-
-
-
     @Test
     public void testAddPlayer() {
         boardModel = new BoardModel();
@@ -243,5 +231,59 @@ public class BoardModelTest {
         assertEquals(1, boardModel.getBoard().getProperty(1).getNumHouses());
     }
 
+    // Tests if adding house to a property works correctly
+    @Test
+    public void testCheckAddHouse(){
+        boardModel = new BoardModel();
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
+        Properties prop1 = new Properties("Oriental", new Color(135,206,250), 6);
+        Properties prop2 = new Properties("Vermont", new Color(135,206,250), 8);
+        Properties prop3 = new Properties("Connecticut", new Color(135,206,250), 9);
+
+        prop1.setOwner(p1);
+        prop2.setOwner(p1);
+        prop3.setOwner(p1);
+
+        p1.setHasAColorSet(true);
+
+        prop1.setNumHouses(1);
+        assertEquals(1, prop1.getNumHouses());
+        assertEquals(0, prop1.getNumHotels());
+    }
+
+    // Tests if adding a hotel to a property works correctly
+    @Test
+    public void testCheckAddHotel(){
+        boardModel = new BoardModel();
+        p1 = new Player("P1", new Color(10,10,10),1500, false);
+        Properties prop1 = new Properties("Oriental", new Color(135,206,250), 6);
+        Properties prop2 = new Properties("Vermont", new Color(135,206,250), 8);
+        Properties prop3 = new Properties("Connecticut", new Color(135,206,250), 9);
+
+        prop1.setOwner(p1);
+        prop2.setOwner(p1);
+        prop3.setOwner(p1);
+
+        p1.setHasAColorSet(true);
+
+        prop1.setNumHotels(1);
+
+        assertEquals(0, prop1.getNumHouses());
+        assertEquals(1, prop1.getNumHotels());
+    }
+
+    // Test if AI players are correctly added
+    @Test
+    public void testAddAiPlayer() {
+        boardModel = new BoardModel();
+        BoardView boardView = new BoardView(boardModel);
+        boardModel.setBoardView(boardView);
+        Board board = new Board("board.xml");
+        for (int i = 0; i < 5; i++) {
+            AIPlayer p = new AIPlayer("P" + (i+1) , new Color(10,10,10),1500, 5,board,  boardModel, boardView);
+            boardModel.addPlayer(p);
+        }
+        assertEquals(5, boardModel.players.size());
+    }
 
 }

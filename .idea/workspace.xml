@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Made GUI's textArea with list of properties owned uneditable by user.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
   </component>
-  <component name="RunManager" selected="Application.BoardModel">
+  <component name="RunManager" selected="JUnit.BoardModelTest.testAddAiPlayer">
     <configuration name="BoardModel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BoardModel" />
       <module name="SYSC3110Monopoly" />
@@ -83,10 +84,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BoardModelTest.testAddAiPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SYSC3110Monopoly" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BoardModelTest" />
+      <option name="METHOD_NAME" value="testAddAiPlayer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardModelTest.testCheckAddHotel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SYSC3110Monopoly" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BoardModelTest" />
+      <option name="METHOD_NAME" value="testCheckAddHotel" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardModelTest.testCheckAddHouse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SYSC3110Monopoly" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BoardModelTest" />
+      <option name="METHOD_NAME" value="testCheckAddHouse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BoardModel" />
+        <item itemvalue="JUnit.BoardModelTest.testAddAiPlayer" />
         <item itemvalue="JUnit.BoardModelTest" />
+        <item itemvalue="JUnit.BoardModelTest.testCheckAddHouse" />
+        <item itemvalue="JUnit.BoardModelTest.testCheckAddHotel" />
+        <item itemvalue="Application.BoardModel" />
       </list>
     </recent_temporary>
   </component>
