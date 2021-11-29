@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * Class Player, Models a Monopoly player.
- * Each player controls a list of Properties (controlledProperties)
+ * Each player controls a list of Property (controlledProperties)
  * ownsBothUtil, true if Player owns both utilities on the board in the game, else false.
  * Integer balance to store the balance a player has and can use.
  * Also owns a number train stations on the board (ownsXtrains).
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class Player {
 
-    private List<Properties> controlledProperties;
+    private List<Property> controlledProperties;
     private Boolean ownsBothUtil;
     private int balance;
     private int ownsXtrains;
@@ -141,7 +141,7 @@ public class Player {
      * Appends property onto controlledProperties ArrayList
      * @param property the property param appended onto controlledProperties ArrayList
      */
-    public void gainProperty(Properties property) {
+    public void gainProperty(Property property) {
         controlledProperties.add(property);
     }
 
@@ -149,15 +149,15 @@ public class Player {
      * Removes a given property from the controlledProperties List of the Player
      * @param property
      */
-    public void removeProperty(Properties property) {
+    public void removeProperty(Property property) {
         controlledProperties.remove(property);
     }
 
     /**
      * Gets the List of properties the player owns.
-     * @return List<Properties>
+     * @return List<Property>
      */
-    public List<Properties> getControlledProperties() {
+    public List<Property> getControlledProperties() {
         return controlledProperties;
     }
 

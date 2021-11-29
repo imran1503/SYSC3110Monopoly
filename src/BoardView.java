@@ -151,19 +151,19 @@ public class BoardView {
         JLabel [] propertyIndexLabels = new JLabel[40];
 
         for (int i = 0; i < 40; i++) {
-            // Properties 0 to 10 are added to the south panel
+            // Property 0 to 10 are added to the south panel
             if (i < 11) {
                 createPropertyPanelHelper(south, i, propertyIndexLabels);
             }
-            // Properties 11 to 19 are added to the west panel.
+            // Property 11 to 19 are added to the west panel.
             else if (i < 20) {
                 createPropertyPanelHelper(west, 30 - i, propertyIndexLabels);
             }
-            // Properties 20 to 30 are added to the north panel.
+            // Property 20 to 30 are added to the north panel.
             else if (i < 31) {
                 createPropertyPanelHelper(north, i, propertyIndexLabels);
             }
-            // Properties 31 to 39 are added to the east panel.
+            // Property 31 to 39 are added to the east panel.
             else {
                 createPropertyPanelHelper(east, i,propertyIndexLabels);
             }
@@ -358,7 +358,7 @@ public class BoardView {
         playerLabelList[playerIndex][3] = new JLabel("In Jail Status = ");
         playerLabelList[playerIndex][4] = new JLabel("Bankrupt Status = ");
         playerLabelList[playerIndex][5] = new JLabel("Owns a Color set = ");
-        playerLabelList[playerIndex][6] = new JLabel("<html>Owned Properties:</html>");
+        playerLabelList[playerIndex][6] = new JLabel("<html>Owned Property:</html>");
 
         // scrollPanes for list of properties owned by each player
         propertiesTextAreas[playerIndex] = new JTextArea(4,1);
@@ -404,7 +404,7 @@ public class BoardView {
      * @param propertyLocation
      */
     public void updateHousesIcons(Integer propertyLocation){
-        Properties property = boardModel.getBoard().getProperty(propertyLocation);
+        Property property = boardModel.getBoard().getProperty(propertyLocation);
         int propertyNumHouses = property.getNumHouses();
         int propertyNumHotels = property.getNumHotels();
         if((propertyNumHouses == 0) && (propertyNumHotels ==0)){
@@ -445,7 +445,7 @@ public class BoardView {
      * Updates all properties Houses Icons
      */
     public void updateAllHousesIcons(){
-        ArrayList<Properties> allProperties = boardModel.getBoard().getPropertiesArrayList();
+        ArrayList<Property> allProperties = boardModel.getBoard().getPropertiesArrayList();
         for (int i = 0; i < allProperties.size(); i++) {
             updateHousesIcons(i);
         }

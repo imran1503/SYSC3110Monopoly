@@ -51,11 +51,11 @@ In order to interact with the program, the following buttons are shown at throug
 'purchase property' - Purchases property for current player, the property is the position player is on.
 'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased.
 'pass turn' - Current player's turn ends, passes turn to next player.
-'check boardModel state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Properties status.
+'check boardModel state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Property status.
   
 ###### Core Gameplay Loop                                   
 1.Rolling Dice to Move.
-2.Buying Properties and/or Paying Rent to the Owner.
+2.Buying Property and/or Paying Rent to the Owner.
 3.Build houses or hotels if someone owns all the properties of a colour.
 4.Pass Turn.
 ###### Jail

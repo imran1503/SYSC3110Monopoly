@@ -16,8 +16,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Class BoardConstructor, board variable is the where the properties created will be stored in.
@@ -26,7 +24,9 @@ public class BoardConstructor {
 
     private Board board;
 
-
+    public BoardConstructor(Board board){
+        this.board = board;
+    }
     /**
      *
      * @param xsdPath
@@ -37,8 +37,7 @@ public class BoardConstructor {
 
         try {
 
-            SchemaFactory factory =
-                    SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = factory.newSchema(new File(xsdPath));
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(new File(xmlPath)));
@@ -52,10 +51,9 @@ public class BoardConstructor {
 
     /**
      * Loads board from a file and parse it to create properties objects to store in board argument given.
-     * @param board the variable to store the created board in.
      * @return true with board loaded successfully, else false
      */
-    public boolean loadBoardFromMapFile(Board board) {
+    public Board loadBoardFromMapFile() {
         if (true) {
             try {
                 File file = new File("src/board.xml");
@@ -64,7 +62,7 @@ public class BoardConstructor {
                 //an instance of builder to parse the specified xml file
                 DocumentBuilder db = dbf.newDocumentBuilder();
 
-                InputStream in = getClass().getResourceAsStream("board.xml");
+                InputStream in = getClass().getResourceAsStream("src/board.xml");
 
                 Document doc = db.parse(file);
 
@@ -78,17 +76,18 @@ public class BoardConstructor {
                 NodeList jailList = doc.getElementsByTagName("Jail");
                 NodeList goToJailList = doc.getElementsByTagName("GoToJail");
 
+
                 for(int i = 0; i < 40; i++){
-                    Properties property = new Properties("None",0,0,Color.white,i);
-                    board.getPropertiesArrayList().add(property);
+                    Property property = new Property("None",0,0,Color.white,i);
+                    board.addProperty(property);
                 }
 
-                //iterates through Properties
+                //iterates through Property
                 for (int itr = 0; itr < propertyList.getLength(); itr++) {
                     Node propertyNode = propertyList.item(itr);
                     if (propertyNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element propertyElement = (Element) propertyNode;
-                        Properties newProperties = new Properties(propertyElement.getElementsByTagName("name").item(0).getTextContent(),
+                        Property newProperty = new Property(propertyElement.getElementsByTagName("name").item(0).getTextContent(),
                                                                   Integer.parseInt(propertyElement.getElementsByTagName("price").item(0).getTextContent()),
                                                                   Integer.parseInt(propertyElement.getElementsByTagName("rent").item(0).getTextContent()),
                                                                   new Color( Integer.parseInt(propertyElement.getElementsByTagName("r").item(0).getTextContent()),  //R
@@ -97,7 +96,7 @@ public class BoardConstructor {
                                                                   Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent())
                                                                   );
 
-                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
+                        board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
 
@@ -105,14 +104,14 @@ public class BoardConstructor {
                     Node TaxNode = TaxList.item(itr);
                     if (TaxNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element TaxElement = (Element) TaxNode;
-                        Properties newProperties = new Properties(TaxElement.getElementsByTagName("name").item(0).getTextContent(),0,
+                        Property newProperty = new Property(TaxElement.getElementsByTagName("name").item(0).getTextContent(),0,
                                 Integer.parseInt(TaxElement.getElementsByTagName("rent").item(0).getTextContent()), // rent/tax amount
                                 new Color( Integer.parseInt(TaxElement.getElementsByTagName("r").item(0).getTextContent()),  //R
                                         Integer.parseInt(TaxElement.getElementsByTagName("g").item(0).getTextContent()),     //G
                                         Integer.parseInt(TaxElement.getElementsByTagName("b").item(0).getTextContent())),    //B
                                 Integer.parseInt(TaxElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
+                        board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
 
@@ -120,7 +119,7 @@ public class BoardConstructor {
                     Node railroadNode = railroadList.item(itr);
                     if (railroadNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element railroadElement = (Element) railroadNode;
-                        Properties newProperties = new Properties(railroadElement.getElementsByTagName("name").item(0).getTextContent(),
+                        Property newProperty = new Property(railroadElement.getElementsByTagName("name").item(0).getTextContent(),
                                 Integer.parseInt(railroadElement.getElementsByTagName("price").item(0).getTextContent()),
                                 Integer.parseInt(railroadElement.getElementsByTagName("rent").item(0).getTextContent()),
                                 new Color( Integer.parseInt(railroadElement.getElementsByTagName("r").item(0).getTextContent()),  //R
@@ -128,7 +127,7 @@ public class BoardConstructor {
                                         Integer.parseInt(railroadElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(railroadElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
+                        board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
 
@@ -136,7 +135,7 @@ public class BoardConstructor {
                     Node utilitiesNode = utilitiesList.item(itr);
                     if (utilitiesNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element utilitiesElement = (Element) utilitiesNode;
-                        Properties newProperties = new Properties(utilitiesElement.getElementsByTagName("name").item(0).getTextContent(),
+                        Property newProperty = new Property(utilitiesElement.getElementsByTagName("name").item(0).getTextContent(),
                                 Integer.parseInt(utilitiesElement.getElementsByTagName("price").item(0).getTextContent()),
                                 Integer.parseInt(utilitiesElement.getElementsByTagName("rent").item(0).getTextContent()),
                                 new Color( Integer.parseInt(utilitiesElement.getElementsByTagName("r").item(0).getTextContent()),  //R
@@ -144,7 +143,7 @@ public class BoardConstructor {
                                         Integer.parseInt(utilitiesElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(utilitiesElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
+                        board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
 
@@ -152,13 +151,13 @@ public class BoardConstructor {
                     Node goNode = goList.item(itr);
                     if (goNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element goElement = (Element) goNode;
-                        Properties newProperties = new Properties(goElement.getElementsByTagName("name").item(0).getTextContent(),
+                        Property newProperty = new Property(goElement.getElementsByTagName("name").item(0).getTextContent(),
                                 new Color( Integer.parseInt(goElement.getElementsByTagName("r").item(0).getTextContent()),  //R
                                         Integer.parseInt(goElement.getElementsByTagName("g").item(0).getTextContent()),  //G
                                         Integer.parseInt(goElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(goElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
+                        board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
 
@@ -166,13 +165,13 @@ public class BoardConstructor {
                     Node jailNode = jailList.item(itr);
                     if (jailNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element jailElement = (Element) jailNode;
-                        Properties newProperties = new Properties(jailElement.getElementsByTagName("name").item(0).getTextContent(),
+                        Property newProperty = new Property(jailElement.getElementsByTagName("name").item(0).getTextContent(),
                                 new Color( Integer.parseInt(jailElement.getElementsByTagName("r").item(0).getTextContent()),  //R
                                         Integer.parseInt(jailElement.getElementsByTagName("g").item(0).getTextContent()),  //G
                                         Integer.parseInt(jailElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(jailElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
+                        board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
 
@@ -180,17 +179,17 @@ public class BoardConstructor {
                     Node goToJailNode = goToJailList.item(itr);
                     if (goToJailNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element goToJailElement = (Element) goToJailNode;
-                        Properties newProperties = new Properties(goToJailElement.getElementsByTagName("name").item(0).getTextContent(),
+                        Property newProperty = new Property(goToJailElement.getElementsByTagName("name").item(0).getTextContent(),
                                 new Color( Integer.parseInt(goToJailElement.getElementsByTagName("r").item(0).getTextContent()),  //R
                                         Integer.parseInt(goToJailElement.getElementsByTagName("g").item(0).getTextContent()),  //G
                                         Integer.parseInt(goToJailElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(goToJailElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.getPropertiesArrayList().set(newProperties.getLocation(),newProperties);
+                        board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
 
-                // Color List made and Properties grouped up by color into the Hash Map colorPropertiesArrayList
+                // Color List made and Property grouped up by color into the Hash Map colorPropertiesArrayList
                 ArrayList<Color> colorsList = new ArrayList<>();
                 colorsList.add(new Color(255,255,255));
                 colorsList.add(new Color(136,69,19));
@@ -210,7 +209,7 @@ public class BoardConstructor {
 
 
                 for(int i =0; i < colorsList.size(); i++){
-                    ArrayList<Properties> tempPropertyList = new ArrayList<>();
+                    ArrayList<Property> tempPropertyList = new ArrayList<>();
                     for(int j = 0; j < board.getPropertiesArrayList().size(); j++){
                         if(colorsList.get(i).equals(board.getProperty(j).getColor())){
                             tempPropertyList.add(board.getProperty(j));
@@ -221,11 +220,11 @@ public class BoardConstructor {
                 }
 
 
-                return true;
+                return this.board;
             } catch (Exception e) {
 
             }
         }
-        return false;
+        return board;
     }
 }

@@ -99,12 +99,12 @@ public class AIPlayer extends Player {
             //if AI has colorSet
             if(this.getHasAColorSet()){
                 ArrayList<Color> colorSetList = new ArrayList<>();
-                ArrayList<Properties> propertiesList = new ArrayList<>();
+                ArrayList<Property> propertyList = new ArrayList<>();
                 Color railroadColor =  new Color(102,98,95);
                 //Get Color Set properties owned by AI
                 for (int i = 0; i < board.getAllColorsList().size(); i++) {
                     Color color = board.getAllColorsList().get(i);
-                    ArrayList<Properties> tempPropetyList =board.getColorPropertiesArrayList().get(color);
+                    ArrayList<Property> tempPropetyList =board.getColorPropertiesArrayList().get(color);
                     Boolean ownsColorSet = true;
                     for(int j = 0; j<tempPropetyList.size(); j++){
                         if(!tempPropetyList.get(j).getOwner().equals(this)){
@@ -114,16 +114,16 @@ public class AIPlayer extends Player {
                     if(ownsColorSet && (!color.equals(railroadColor))){
                         colorSetList.add(color);
                         for (int k = 0; k < tempPropetyList.size(); k++) {
-                            propertiesList.add(tempPropetyList.get(k));
+                            propertyList.add(tempPropetyList.get(k));
                         }
                     }
                 }
-                //Check value of each property option in propertiesList and get color of top priority
+                //Check value of each property option in propertyList and get color of top priority
                 ArrayList<Double> costBenitfitList = new ArrayList<>();
                 double topBenifitRatio = 0.0;
                 int topBenifitIndex = 0;
-                for (int i = 0; i < propertiesList.size(); i++) {
-                    double costBenifitRatio = propertiesList.get(i).getCostBenefitRatio(this.getBalance(),propertiesList.get(i).getRent(),propertiesList.get(i).getHousePrice());
+                for (int i = 0; i < propertyList.size(); i++) {
+                    double costBenifitRatio = propertyList.get(i).getCostBenefitRatio(this.getBalance(), propertyList.get(i).getRent(), propertyList.get(i).getHousePrice());
                     costBenitfitList.add(costBenifitRatio);
                     if(costBenifitRatio > topBenifitRatio){
                         topBenifitRatio = costBenifitRatio;
@@ -131,15 +131,15 @@ public class AIPlayer extends Player {
                     }
                 }
 
-                Color colorOfTopProperty = propertiesList.get(topBenifitIndex).getColor();
+                Color colorOfTopProperty = propertyList.get(topBenifitIndex).getColor();
                 int colorIndex = colorSetList.indexOf(colorOfTopProperty);
                 //if topPriority Color's properties already have Hotels, change the color.
                 if(board.getColorPropertiesArrayList().get(colorOfTopProperty).get(0).getNumHotels() ==1){
                     colorOfTopProperty = colorSetList.get((colorIndex +1)%colorSetList.size());
                 }
-                ArrayList<Properties> topPropertiesList = board.getColorPropertiesArrayList().get(colorOfTopProperty);
-                for(int i = 0; i < topPropertiesList.size(); i++){
-                    Properties propertySameColor = topPropertiesList.get(i);
+                ArrayList<Property> topPropertyList = board.getColorPropertiesArrayList().get(colorOfTopProperty);
+                for(int i = 0; i < topPropertyList.size(); i++){
+                    Property propertySameColor = topPropertyList.get(i);
                     //if balance atleast triple cost of buying house, buy houses on top priority color set.
                     if((this.getBalance()*3) > propertySameColor.getHousePrice()) {
                         bm.purchaseHouseOrHotel(propertySameColor);

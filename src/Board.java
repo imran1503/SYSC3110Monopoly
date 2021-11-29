@@ -1,6 +1,5 @@
 
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -9,7 +8,7 @@ import java.util.Scanner;
  * Class Board, Scanner reader to store user inputs.
  * boardConstructor to store board constructor of the board.
  * players is List of players for the board.
- * propertiesArrayList to store list of properties on the board.
+ * propertyArrayList to store list of properties on the board.
  * Boolean isValid to store if the board is valid or not.
  * Hash Map with key for a color and value is a ArrayList properties that have the same color as key.
  */
@@ -18,8 +17,8 @@ public class Board {
     private static Scanner  reader;
     private BoardConstructor boardConstructor;
     private static ArrayList<Player> players;
-    private ArrayList<Properties> propertiesArrayList;
-    private HashMap<Color, ArrayList<Properties>> colorPropertiesArrayList;
+    private ArrayList<Property> propertyArrayList;
+    private HashMap<Color, ArrayList<Property>> colorPropertiesArrayList;
     private boolean isValid;
     private ArrayList<Color> allColorsList;
     /**
@@ -32,7 +31,7 @@ public class Board {
      * @param userInputSource the boardInput that the Board will ask for user input when needed
      */
     public Board(String userInputSource) {
-        this.propertiesArrayList = new ArrayList<>();
+        this.propertyArrayList = new ArrayList<>();
         this.players = new ArrayList<>();
         this.userInputSource = userInputSource;
         this.colorPropertiesArrayList = new HashMap<>();
@@ -44,15 +43,15 @@ public class Board {
      * @param color Color of color set
      * @param properties Property list to add
      */
-    public void addColorPropertySet(Color color, ArrayList<Properties> properties){
+    public void addColorPropertySet(Color color, ArrayList<Property> properties){
         colorPropertiesArrayList.put(color,properties);
     }
 
     /**
      * Getter method for color properties arraylist
-     * @return HashMap<Color, ArrayList<Properties>
+     * @return HashMap<Color, ArrayList<Property>
      */
-    public HashMap<Color,ArrayList<Properties>> getColorPropertiesArrayList(){return colorPropertiesArrayList;}
+    public HashMap<Color,ArrayList<Property>> getColorPropertiesArrayList(){return colorPropertiesArrayList;}
 
     /**
      * Returns the user input source of the Board
@@ -63,11 +62,11 @@ public class Board {
     }
 
     /**
-     * Getter method for ArrayList of Properties on the board
-     * @return ArrayList<Properties> properties
+     * Getter method for ArrayList of Property on the board
+     * @return ArrayList<Property> properties
      */
-    public ArrayList<Properties> getPropertiesArrayList() {
-        return propertiesArrayList;
+    public ArrayList<Property> getPropertiesArrayList() {
+        return propertyArrayList;
     }
 
     /**
@@ -75,7 +74,13 @@ public class Board {
      * @param position Integer location of property interested in
      * @return Property on specific positon
      */
-    public Properties getProperty(int position){ return propertiesArrayList.get(position); }
+    public Property getProperty(int position){ return propertyArrayList.get(position); }
+
+    public void addProperty(Property property){
+        propertyArrayList.add(property);}
+
+    public void setProperty(int location, Property property){
+        propertyArrayList.set(location,property);}
 
     /**
      * Setter method for isValid variable
@@ -113,7 +118,7 @@ public class Board {
         Color yellow = Color.YELLOW;
 
         Board board = new Board(userInputSource);
-        BoardConstructor boardConstructor = new BoardConstructor();
+        BoardConstructor boardConstructor = new BoardConstructor(board);
 
         String filename = "Board.xml";
         //userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);

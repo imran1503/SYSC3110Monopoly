@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * Class Utilities, is a special Property.
  */
-public class Utilities extends Properties{
+public class Utilities extends Property {
 
     /**
      * Utilities constructor

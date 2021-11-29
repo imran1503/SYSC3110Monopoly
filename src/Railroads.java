@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * Class Railroad, is a special Property.
  */
-public class Railroads extends Properties{
+public class Railroads extends Property {
 
     /**
      * Railroads Constructor. Outlines all railroad properties like name, rent, owner,

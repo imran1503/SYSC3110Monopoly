@@ -30,16 +30,15 @@ public class BoardModel {
         this.players = new ArrayList<>();
         this.currentPlayer = null;
         this.nextRoll = true;
-        this.board = new Board("board.xml");
-        this.boardConstructor = new BoardConstructor();
+        this.board = new Board("src/board.xml");
+        this.boardConstructor = new BoardConstructor(board);
         //creates the board
-        boardConstructor.loadBoardFromMapFile(board);
-        boardConstructor.validateXMLSchema("board.xsd", "board.xml");
+        this.board = boardConstructor.loadBoardFromMapFile();
+        //boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
         boardView = null;
         diceValue1 = -1;
         diceValue2 = -2;
-
     }
 
     /**
@@ -88,7 +87,7 @@ public class BoardModel {
         if (command.equals(Commands.roll)) {
             if(nextRoll && (currentPlayer.getInJail() == false)) {
                 nextRoll = roll();
-                Properties propertyOn = board.getProperty(currentPlayer.getPositon());
+                Property propertyOn = board.getProperty(currentPlayer.getPositon());
                 Player owner = propertyOn.getOwner();
                 //if current player lands on a property it does not own, pay rent (which will pay if owner is not bank or is a tax property)
                 if (!owner.equals(currentPlayer)) {
@@ -278,7 +277,7 @@ public class BoardModel {
      */
     public void purchaseProperty(){
         int playerPosition = currentPlayer.getPositon();
-        Properties landedOnProperty = board.getProperty(playerPosition);
+        Property landedOnProperty = board.getProperty(playerPosition);
         String propertyName = landedOnProperty.getName();
         String playerName = currentPlayer.getName();
         int[] nonPurchasablePropertyLocations = {0,2,4,7,10,17,20,22,30,33,36,38};
@@ -330,7 +329,7 @@ public class BoardModel {
      * Returns void. Purchases house or hotel, depends on what the player chooses to purchase.
      * @param property param that is used to
      */
-    public void purchaseHouseOrHotel(Properties property){
+    public void purchaseHouseOrHotel(Property property){
         Boolean owningColorSet = true;
         Boolean owningEqualHouses = true;
         int numOfHouseCurrent = property.getNumHouses();
@@ -340,7 +339,7 @@ public class BoardModel {
         int sizeOfColorSet = board.getColorPropertiesArrayList().get(colorOfProperty).size();
         //Check if player owns the color set and houses numbers are correct
         for(int i = 0; i < sizeOfColorSet; i++){
-            Properties propertySameColor = board.getColorPropertiesArrayList().get(colorOfProperty).get(i);
+            Property propertySameColor = board.getColorPropertiesArrayList().get(colorOfProperty).get(i);
             if(!propertySameColor.getOwner().equals(currentPlayer)){
                 owningColorSet = false;
             }
@@ -368,7 +367,7 @@ public class BoardModel {
                     missingProperties += "- "+board.getColorPropertiesArrayList().get(colorOfProperty).get(i).getName()+" ";
                 }
             }
-            boardView.setEventLabelText(playerName+" does NOT own the color set of this property", "Missing Properties: ");
+            boardView.setEventLabelText(playerName+" does NOT own the color set of this property", "Missing Property: ");
             boardView.setEventLabel3Text(missingProperties);
         }
         //else if not correct number of houses bought, else if not enough balance, else if hotel on property already

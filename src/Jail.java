@@ -4,7 +4,7 @@ import java.awt.*;
  * Class Jail, is a special Property.
  *
  */
-public class Jail extends Properties {
+public class Jail extends Property {
     private int enteredJailTurn;
     private int timeInJail = 3;
 

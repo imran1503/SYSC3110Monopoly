@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- * Class Properties. String name for name of property.
+ * Class Property. String name for name of property.
  * Integer rent for rent to pay for the property if a non-owner player lands on it.
  * owner variable is a Player who is the owner of the property.
  * Integer price is the cost to purchase the property.
@@ -10,7 +10,7 @@ import java.awt.*;
  * color is the color group of the property.
  * Integer location is the location of the property on the board.
  */
-public class Properties {
+public class Property {
     private String name;
     private int rent; //To account for  houses / hotels
     private Player owner;
@@ -22,7 +22,7 @@ public class Properties {
     private int location; //Location on the board
 
     /**
-     * Properties Constructor. Outlines property information like name, price, rent,
+     * Property Constructor. Outlines property information like name, price, rent,
      * color, location.
      * @param name name of property
      * @param price price of property
@@ -30,7 +30,7 @@ public class Properties {
      * @param color color of property
      * @param location location of property
      */
-    public Properties( String name, int price, int rent, Color color, int location){
+    public Property(String name, int price, int rent, Color color, int location){
         Player bank = new Player("bank",Color.white,1000000, false);
         this.name = name;
         this.rent = rent;
@@ -44,13 +44,13 @@ public class Properties {
     }
 
     /**
-     * Second Properties constructor. This is like the first but without price and
+     * Second Property constructor. This is like the first but without price and
      * rent of the property.
      * @param name name of property
      * @param color color of property
      * @param location location of property
      */
-    public Properties(String name, Color color, int location) {
+    public Property(String name, Color color, int location) {
         Player bank = new Player("bank",Color.white,1000000, false);
         this.name = name;
         this.owner = bank;

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SYSC3110Monopoly:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,7 +25,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Made GUI's textArea with list of properties owned uneditable by user.">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IncomeTax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IncomeTax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Property.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Railroads.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Railroads.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637622820706</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Fixed dark blue color reading property name problem">
+      <created>1637623416846</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1637623416846</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +470,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="The game should now end when 1 player is left that is not bankrupt." />
     <MESSAGE value="Implemented actionEvent for start,roll,purchase property, pass turn buttons in BoardController.java" />
     <MESSAGE value="Player icon Movement" />
     <MESSAGE value="Player icons appear at GO now at start of game." />
@@ -468,7 +494,8 @@
     <MESSAGE value="more stuff in AiLogic for buying houses" />
     <MESSAGE value="bug fixes and aiLogic buying houses changes" />
     <MESSAGE value="bug fixes and more javadocs and comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fixes and more javadocs and comments" />
+    <MESSAGE value="Fixed dark blue color reading property name problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed dark blue color reading property name problem" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
