@@ -179,7 +179,7 @@ public class BoardController implements ActionListener {
                 Boolean propertyExists = false;
                 int propertyIndex = -1;
                 Board board = bm.getBoard();
-                for (int i = 0; i < board.getPropertiesArrayList().size(); i++) {
+                for (int i = 0; i < board.getPropertyArrayList().size(); i++) {
                     if (board.getProperty(i).getName().equals(propertyName)) {
                         propertyExists = true;
                         propertyIndex = i;

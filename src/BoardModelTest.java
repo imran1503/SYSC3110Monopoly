@@ -184,7 +184,7 @@ public class BoardModelTest {
         boardModel.setCurrentPlayer(p1);
         p1.setPosition(6);
         boardModel.purchaseProperty();
-        Boolean actualValue = (p1.getControlledProperties().get(0).getName().equals("Oriental Avenue")) &&(p1.getBalance() == 1400);
+        Boolean actualValue = (p1.getControlledProperty().get(0).getName().equals("Oriental Avenue")) &&(p1.getBalance() == 1400);
         assertEquals(true,actualValue);
     }
 
@@ -197,7 +197,7 @@ public class BoardModelTest {
         boardModel.setCurrentPlayer(p1);
         p1.setPosition(6);
         boardModel.operateCommand(BoardModel.Commands.purchaseProperty);
-        Boolean actualValue = (p1.getControlledProperties().get(0).getName().equals("Oriental Avenue")) &&(p1.getBalance() == 1400);
+        Boolean actualValue = (p1.getControlledProperty().get(0).getName().equals("Oriental Avenue")) &&(p1.getBalance() == 1400);
         assertEquals(true,actualValue);
     }
 
@@ -236,9 +236,9 @@ public class BoardModelTest {
     public void testCheckAddHouse(){
         boardModel = new BoardModel();
         p1 = new Player("P1", new Color(10,10,10),1500, false);
-        Properties prop1 = new Properties("Oriental", new Color(135,206,250), 6);
-        Properties prop2 = new Properties("Vermont", new Color(135,206,250), 8);
-        Properties prop3 = new Properties("Connecticut", new Color(135,206,250), 9);
+        Property prop1 = new Property("Oriental", new Color(135,206,250), 6);
+        Property prop2 = new Property("Vermont", new Color(135,206,250), 8);
+        Property prop3 = new Property("Connecticut", new Color(135,206,250), 9);
 
         prop1.setOwner(p1);
         prop2.setOwner(p1);
@@ -256,9 +256,9 @@ public class BoardModelTest {
     public void testCheckAddHotel(){
         boardModel = new BoardModel();
         p1 = new Player("P1", new Color(10,10,10),1500, false);
-        Properties prop1 = new Properties("Oriental", new Color(135,206,250), 6);
-        Properties prop2 = new Properties("Vermont", new Color(135,206,250), 8);
-        Properties prop3 = new Properties("Connecticut", new Color(135,206,250), 9);
+        Property prop1 = new Property("Oriental", new Color(135,206,250), 6);
+        Property prop2 = new Property("Vermont", new Color(135,206,250), 8);
+        Property prop3 = new Property("Connecticut", new Color(135,206,250), 9);
 
         prop1.setOwner(p1);
         prop2.setOwner(p1);

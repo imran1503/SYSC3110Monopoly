@@ -8,9 +8,9 @@ import java.util.Scanner;
  * Class Board, Scanner reader to store user inputs.
  * boardConstructor to store board constructor of the board.
  * players is List of players for the board.
- * propertyArrayList to store list of properties on the board.
+ * propertyArrayList to store list of Property on the board.
  * Boolean isValid to store if the board is valid or not.
- * Hash Map with key for a color and value is a ArrayList properties that have the same color as key.
+ * Hash Map with key for a color and value is a ArrayList Property that have the same color as key.
  */
 public class Board {
 
@@ -18,7 +18,7 @@ public class Board {
     private BoardConstructor boardConstructor;
     private static ArrayList<Player> players;
     private ArrayList<Property> propertyArrayList;
-    private HashMap<Color, ArrayList<Property>> colorPropertiesArrayList;
+    private HashMap<Color, ArrayList<Property>> colorPropertyArrayList;
     private boolean isValid;
     private ArrayList<Color> allColorsList;
     /**
@@ -34,24 +34,24 @@ public class Board {
         this.propertyArrayList = new ArrayList<>();
         this.players = new ArrayList<>();
         this.userInputSource = userInputSource;
-        this.colorPropertiesArrayList = new HashMap<>();
+        this.colorPropertyArrayList = new HashMap<>();
         this.allColorsList = new ArrayList<>();
     }
 
     /**
      * Add a Color set Property list to the board
      * @param color Color of color set
-     * @param properties Property list to add
+     * @param Property Property list to add
      */
-    public void addColorPropertySet(Color color, ArrayList<Property> properties){
-        colorPropertiesArrayList.put(color,properties);
+    public void addColorPropertySet(Color color, ArrayList<Property> Property){
+        colorPropertyArrayList.put(color,Property);
     }
 
     /**
-     * Getter method for color properties arraylist
+     * Getter method for color Property arraylist
      * @return HashMap<Color, ArrayList<Property>
      */
-    public HashMap<Color,ArrayList<Property>> getColorPropertiesArrayList(){return colorPropertiesArrayList;}
+    public HashMap<Color,ArrayList<Property>> getColorPropertyArrayList(){return colorPropertyArrayList;}
 
     /**
      * Returns the user input source of the Board
@@ -63,9 +63,9 @@ public class Board {
 
     /**
      * Getter method for ArrayList of Property on the board
-     * @return ArrayList<Property> properties
+     * @return ArrayList<Property> Property
      */
-    public ArrayList<Property> getPropertiesArrayList() {
+    public ArrayList<Property> getPropertyArrayList() {
         return propertyArrayList;
     }
 
@@ -95,12 +95,12 @@ public class Board {
     public void setPlayers(ArrayList<Player> playersForBoard){Board.players = playersForBoard;}
 
     /**
-     * Getter method for list of all colors of properties
+     * Getter method for list of all colors of Property
      */
     public ArrayList<Color> getAllColorsList(){return allColorsList;}
 
     /**
-     * Setter method for list of all colors of properties
+     * Setter method for list of all colors of Property
      * @param colorsList ArrayList of Colors to set with
      */
     public void setAllColorsList(ArrayList<Color> colorsList){allColorsList = colorsList;}

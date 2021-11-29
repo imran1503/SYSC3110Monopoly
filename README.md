@@ -35,7 +35,7 @@ We revieved a variety of feedback on the last milestone. In regards to this one,
 We added a proper BoardController to help us stay with in the MVC pattern.
 We have gone through and cleaned up some of the less refined code. Particularlly in BoardView. 
 We have tackled the list of bugs that were appearing in the previous version, such as the game not endeding when there are no players left for the winner to compete against. 
-As we as we have fixed the bug with removing properties when a player is bankrupted. 
+As we as we have fixed the bug with removing Property when a player is bankrupted. 
 In the game previously we had the functionality of houses and hotels complete however they were not added onto the GUI as of the last milestone, so this update we added that functionality to the game. 
 
 
@@ -56,7 +56,7 @@ In order to interact with the program, the following buttons are shown at throug
 ###### Core Gameplay Loop                                   
 1.Rolling Dice to Move.
 2.Buying Property and/or Paying Rent to the Owner.
-3.Build houses or hotels if someone owns all the properties of a colour.
+3.Build houses or hotels if someone owns all the Property of a colour.
 4.Pass Turn.
 ###### Jail
 When a player is sent to jail by landing on the designated "Go to jail" space, they are moved diagonally across the board directly to the jail cell on the 10th space. They are unable to collect go while moving to the jail cell. A player that is in jail is required to stay for a maximum of 3 turns after entering jail. While in jail, every turn they are required to roll doubles in order to leave jail early. If they are unable to roll doubles by the third turn, they are required to pay $50 to the bank in order to be released. They do not reroll for movment when they leave jail, they take the roll that got them out, or that would have if it was a double on their final turn in jail. 

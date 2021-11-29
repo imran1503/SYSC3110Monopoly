@@ -310,8 +310,8 @@ public class BoardModel {
             //If after buying this property and it completes a colorSet, set hasAColorSet to true for the current player if not railroad color.
             Color colorOfProperty = landedOnProperty.getColor();
             Boolean ownsColorSet = true;
-            for(int i =0; i<board.getColorPropertiesArrayList().get(colorOfProperty).size(); i++){
-                if(!board.getColorPropertiesArrayList().get(colorOfProperty).get(i).getOwner().equals(currentPlayer)){
+            for(int i =0; i<board.getColorPropertyArrayList().get(colorOfProperty).size(); i++){
+                if(!board.getColorPropertyArrayList().get(colorOfProperty).get(i).getOwner().equals(currentPlayer)){
                     ownsColorSet = false;
                 }
             }
@@ -336,10 +336,10 @@ public class BoardModel {
         Color colorOfProperty = property.getColor();
         String propertyName = property.getName();
         String playerName = currentPlayer.getName();
-        int sizeOfColorSet = board.getColorPropertiesArrayList().get(colorOfProperty).size();
+        int sizeOfColorSet = board.getColorPropertyArrayList().get(colorOfProperty).size();
         //Check if player owns the color set and houses numbers are correct
         for(int i = 0; i < sizeOfColorSet; i++){
-            Property propertySameColor = board.getColorPropertiesArrayList().get(colorOfProperty).get(i);
+            Property propertySameColor = board.getColorPropertyArrayList().get(colorOfProperty).get(i);
             if(!propertySameColor.getOwner().equals(currentPlayer)){
                 owningColorSet = false;
             }
@@ -348,9 +348,9 @@ public class BoardModel {
             }
         }
         //Check if property is Not a nonHousesProperty
-        int[] listOfNonHousesProperties= {5,12,15,25,28,35};
-        for(int i = 0; i<listOfNonHousesProperties.length;i++){
-            if(property.getLocation() == listOfNonHousesProperties[i]){
+        int[] listOfNonHousesProperty= {5,12,15,25,28,35};
+        for(int i = 0; i<listOfNonHousesProperty.length;i++){
+            if(property.getLocation() == listOfNonHousesProperty[i]){
                 boardView.setEventLabelText("Can Not buy a house on this property","");
                 return;
             }
@@ -361,14 +361,14 @@ public class BoardModel {
         }
         // else if does not have color set of property
         else if(!owningColorSet){
-            String missingProperties = "";
+            String missingProperty = "";
             for(int i =0; i<sizeOfColorSet;i++){
-                if(!board.getColorPropertiesArrayList().get(colorOfProperty).get(i).equals(property)){
-                    missingProperties += "- "+board.getColorPropertiesArrayList().get(colorOfProperty).get(i).getName()+" ";
+                if(!board.getColorPropertyArrayList().get(colorOfProperty).get(i).equals(property)){
+                    missingProperty += "- "+board.getColorPropertyArrayList().get(colorOfProperty).get(i).getName()+" ";
                 }
             }
             boardView.setEventLabelText(playerName+" does NOT own the color set of this property", "Missing Property: ");
-            boardView.setEventLabel3Text(missingProperties);
+            boardView.setEventLabel3Text(missingProperty);
         }
         //else if not correct number of houses bought, else if not enough balance, else if hotel on property already
         else if(!owningEqualHouses){

@@ -48,8 +48,8 @@ public class AIPlayer extends Player {
                 boolean purchaseCompletesColorset = false;
                 Color currPropertyColor = board.getProperty(pos).getColor();
                 int matchingColorCount = 0;
-                for (int i = 0; i < this.getControlledProperties().size(); i++) {
-                    if (currPropertyColor.equals(this.getControlledProperties().get(i).getColor())) {
+                for (int i = 0; i < this.getControlledProperty().size(); i++) {
+                    if (currPropertyColor.equals(this.getControlledProperty().get(i).getColor())) {
                         matchingColorCount++;
                     }
                 }
@@ -101,10 +101,10 @@ public class AIPlayer extends Player {
                 ArrayList<Color> colorSetList = new ArrayList<>();
                 ArrayList<Property> propertyList = new ArrayList<>();
                 Color railroadColor =  new Color(102,98,95);
-                //Get Color Set properties owned by AI
+                //Get Color Set Property owned by AI
                 for (int i = 0; i < board.getAllColorsList().size(); i++) {
                     Color color = board.getAllColorsList().get(i);
-                    ArrayList<Property> tempPropetyList =board.getColorPropertiesArrayList().get(color);
+                    ArrayList<Property> tempPropetyList =board.getColorPropertyArrayList().get(color);
                     Boolean ownsColorSet = true;
                     for(int j = 0; j<tempPropetyList.size(); j++){
                         if(!tempPropetyList.get(j).getOwner().equals(this)){
@@ -133,11 +133,11 @@ public class AIPlayer extends Player {
 
                 Color colorOfTopProperty = propertyList.get(topBenifitIndex).getColor();
                 int colorIndex = colorSetList.indexOf(colorOfTopProperty);
-                //if topPriority Color's properties already have Hotels, change the color.
-                if(board.getColorPropertiesArrayList().get(colorOfTopProperty).get(0).getNumHotels() ==1){
+                //if topPriority Color's Property already have Hotels, change the color.
+                if(board.getColorPropertyArrayList().get(colorOfTopProperty).get(0).getNumHotels() ==1){
                     colorOfTopProperty = colorSetList.get((colorIndex +1)%colorSetList.size());
                 }
-                ArrayList<Property> topPropertyList = board.getColorPropertiesArrayList().get(colorOfTopProperty);
+                ArrayList<Property> topPropertyList = board.getColorPropertyArrayList().get(colorOfTopProperty);
                 for(int i = 0; i < topPropertyList.size(); i++){
                     Property propertySameColor = topPropertyList.get(i);
                     //if balance atleast triple cost of buying house, buy houses on top priority color set.

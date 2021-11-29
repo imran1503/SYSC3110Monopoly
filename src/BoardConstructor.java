@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
- * Class BoardConstructor, board variable is the where the properties created will be stored in.
+ * Class BoardConstructor, board variable is the where the Property created will be stored in.
  */
 public class BoardConstructor {
 
@@ -50,7 +50,7 @@ public class BoardConstructor {
 
 
     /**
-     * Loads board from a file and parse it to create properties objects to store in board argument given.
+     * Loads board from a file and parse it to create Property objects to store in board argument given.
      * @return true with board loaded successfully, else false
      */
     public Board loadBoardFromMapFile() {
@@ -189,7 +189,7 @@ public class BoardConstructor {
                     }
                 }
 
-                // Color List made and Property grouped up by color into the Hash Map colorPropertiesArrayList
+                // Color List made and Property grouped up by color into the Hash Map colorPropertyArrayList
                 ArrayList<Color> colorsList = new ArrayList<>();
                 colorsList.add(new Color(255,255,255));
                 colorsList.add(new Color(136,69,19));
@@ -210,7 +210,7 @@ public class BoardConstructor {
 
                 for(int i =0; i < colorsList.size(); i++){
                     ArrayList<Property> tempPropertyList = new ArrayList<>();
-                    for(int j = 0; j < board.getPropertiesArrayList().size(); j++){
+                    for(int j = 0; j < board.getPropertyArrayList().size(); j++){
                         if(colorsList.get(i).equals(board.getProperty(j).getColor())){
                             tempPropertyList.add(board.getProperty(j));
                             board.getProperty(j).setHousePrice(housePricesList[i]);

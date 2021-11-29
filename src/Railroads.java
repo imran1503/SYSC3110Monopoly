@@ -6,7 +6,7 @@ import java.awt.*;
 public class Railroads extends Property {
 
     /**
-     * Railroads Constructor. Outlines all railroad properties like name, rent, owner,
+     * Railroads Constructor. Outlines all railroad Property like name, rent, owner,
      * price, color, location.
      * @param name the name of the railroad
      * @param rent the rent of the railroad

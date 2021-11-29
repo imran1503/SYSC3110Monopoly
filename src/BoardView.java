@@ -7,11 +7,11 @@ import java.util.ArrayList;
  * class BoardView implements the graphical user interface's view for the Monopoly game.
  * frame variable to store the main frame of the gui.
  * boardModel to store the BoardModel of the game.
- * Alot of panels to hold the players, properties, buttons of the game
+ * Alot of panels to hold the players, Property, buttons of the game
  * Alot of labels to store the players, events, player icons, houses icons for the game.
  * Alot of buttons for each important operation in the game and buttons list.
  * userInputBox to store user input on gui in the JTextField
- * scrollPanes and propertiesTextArea to hold the controlled properties in a list for each player.
+ * scrollPanes and PropertyTextArea to hold the controlled Property in a list for each player.
  *
  * @author Mahtab Ameli, Imran Latif, Muhammad Furqan
  * @version 1.0
@@ -35,7 +35,7 @@ public class BoardView {
 
     private JTextField userInputBox;
     private JScrollPane[] scrollPanes;
-    private JTextArea[] propertiesTextAreas;
+    private JTextArea[] PropertyTextAreas;
 
     /**
      * Constructor for BoardView.
@@ -79,7 +79,7 @@ public class BoardView {
     public ArrayList<JLabel[]> getPlayerLists(){return playerLists;}
 
     /**
-     * This helper function is used to create all the labels, player icons, houses icons and properties on the grid.
+     * This helper function is used to create all the labels, player icons, houses icons and Property on the grid.
      * @param direction The edge of the board we are creating labels on.
      * @param i Which property i we are adding.
      * @param propertyIndexLabels The list we are adding the labels to.
@@ -90,7 +90,7 @@ public class BoardView {
         propertyPanels[i].setBackground(propertyColor);
         //creating and adding an index label to each propertyPanel to see their order
         propertyIndexLabels[i] = new JLabel();
-        propertyIndexLabels[i].setText(boardModel.getBoard().getPropertiesArrayList().get(i).getName());
+        propertyIndexLabels[i].setText(boardModel.getBoard().getPropertyArrayList().get(i).getName());
         propertyIndexLabels[i].setHorizontalAlignment(SwingConstants.CENTER);
         propertyIndexLabels[i].setVerticalAlignment(SwingConstants.CENTER);
         propertyPanels[i].add(propertyIndexLabels[i],BorderLayout.PAGE_START);
@@ -207,7 +207,7 @@ public class BoardView {
         this.playerLabelList = new JLabel[numOfLabels][7];
         // TODO CHANGE SIZE LATER
         this.scrollPanes = new JScrollPane[4];
-        this.propertiesTextAreas = new JTextArea[4];
+        this.PropertyTextAreas = new JTextArea[4];
 
         //create Control panel and add to center panel
         createControlPanel();
@@ -360,10 +360,10 @@ public class BoardView {
         playerLabelList[playerIndex][5] = new JLabel("Owns a Color set = ");
         playerLabelList[playerIndex][6] = new JLabel("<html>Owned Property:</html>");
 
-        // scrollPanes for list of properties owned by each player
-        propertiesTextAreas[playerIndex] = new JTextArea(4,1);
-        propertiesTextAreas[playerIndex].setEditable(false); //make propertiesTextAreas uneditable by the user
-        scrollPanes[playerIndex] = new JScrollPane(propertiesTextAreas[playerIndex]);
+        // scrollPanes for list of Property owned by each player
+        PropertyTextAreas[playerIndex] = new JTextArea(4,1);
+        PropertyTextAreas[playerIndex].setEditable(false); //make PropertyTextAreas uneditable by the user
+        scrollPanes[playerIndex] = new JScrollPane(PropertyTextAreas[playerIndex]);
 
         playerPanels[playerIndex] = new JPanel();
         playerPanels[playerIndex].setLayout(new BoxLayout(playerPanels[playerIndex], BoxLayout.Y_AXIS));
@@ -387,12 +387,12 @@ public class BoardView {
                 playerLabelList[i][3].setText("In Jail Status = "+currentPlayer.getInJail());
                 playerLabelList[i][4].setText("Bankrupt Status = "+currentPlayer.getBankruptStatus());
                 playerLabelList[i][5].setText("Owns a color set = "+currentPlayer.getHasAColorSet());
-                String controledProperties = "";
-                for(int j = 0 ; j < currentPlayer.getControlledProperties().size(); j++){
-                    controledProperties += ("- "+ currentPlayer.getControlledProperties().get(j).getName() + "\n");
+                String controledProperty = "";
+                for(int j = 0 ; j < currentPlayer.getControlledProperty().size(); j++){
+                    controledProperty += ("- "+ currentPlayer.getControlledProperty().get(j).getName() + "\n");
 
                 }
-                propertiesTextAreas[i].setText(controledProperties);
+                PropertyTextAreas[i].setText(controledProperty);
 
             }
 
@@ -442,11 +442,11 @@ public class BoardView {
     }
 
     /**
-     * Updates all properties Houses Icons
+     * Updates all Property Houses Icons
      */
     public void updateAllHousesIcons(){
-        ArrayList<Property> allProperties = boardModel.getBoard().getPropertiesArrayList();
-        for (int i = 0; i < allProperties.size(); i++) {
+        ArrayList<Property> allProperty = boardModel.getBoard().getPropertyArrayList();
+        for (int i = 0; i < allProperty.size(); i++) {
             updateHousesIcons(i);
         }
     }

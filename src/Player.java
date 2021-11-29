@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * Class Player, Models a Monopoly player.
- * Each player controls a list of Property (controlledProperties)
+ * Each player controls a list of Property (controlledProperty)
  * ownsBothUtil, true if Player owns both utilities on the board in the game, else false.
  * Integer balance to store the balance a player has and can use.
  * Also owns a number train stations on the board (ownsXtrains).
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class Player {
 
-    private List<Property> controlledProperties;
+    private List<Property> controlledProperty;
     private Boolean ownsBothUtil;
     private int balance;
     private int ownsXtrains;
@@ -38,7 +38,7 @@ public class Player {
      * @param startingMoney starting money of player is set to this parameter
      */
     public Player(String name, Color color, int startingMoney, boolean isAi) {
-        controlledProperties = new ArrayList<>();
+        controlledProperty = new ArrayList<>();
         this.name = name;
         this.color = color;
         ownsBothUtil = false;
@@ -138,40 +138,40 @@ public class Player {
     }
 
     /**
-     * Appends property onto controlledProperties ArrayList
-     * @param property the property param appended onto controlledProperties ArrayList
+     * Appends property onto controlledProperty ArrayList
+     * @param property the property param appended onto controlledProperty ArrayList
      */
     public void gainProperty(Property property) {
-        controlledProperties.add(property);
+        controlledProperty.add(property);
     }
 
     /**
-     * Removes a given property from the controlledProperties List of the Player
+     * Removes a given property from the controlledProperty List of the Player
      * @param property
      */
     public void removeProperty(Property property) {
-        controlledProperties.remove(property);
+        controlledProperty.remove(property);
     }
 
     /**
-     * Gets the List of properties the player owns.
+     * Gets the List of Property the player owns.
      * @return List<Property>
      */
-    public List<Property> getControlledProperties() {
-        return controlledProperties;
+    public List<Property> getControlledProperty() {
+        return controlledProperty;
     }
 
     /**
-     * Removes all the properties the Player owns.
+     * Removes all the Property the Player owns.
      */
-    public void removeAllControlledProperties(){
-        for(int i = 0; i < controlledProperties.size(); i++){
-            controlledProperties.get(i).setOwner(newPlayer("bank",new Color(10,10,10),1000000,false));
-            controlledProperties.get(i).setNumHouses(0);
-            controlledProperties.get(i).setNumHotels(0);
+    public void removeAllControlledProperty(){
+        for(int i = 0; i < controlledProperty.size(); i++){
+            controlledProperty.get(i).setOwner(newPlayer("bank",new Color(10,10,10),1000000,false));
+            controlledProperty.get(i).setNumHouses(0);
+            controlledProperty.get(i).setNumHotels(0);
 
         }
-        controlledProperties = new ArrayList<>();
+        controlledProperty = new ArrayList<>();
         hasAColorSet = false;
         ownsBothUtil = false;
         ownsXtrains = 0;
@@ -216,7 +216,7 @@ public class Player {
         if(balance < amount){
             this.balance = 0;
             this.bankruptStatus = true;
-            this.removeAllControlledProperties();
+            this.removeAllControlledProperty();
             System.out.println(this.name+" goes Bankrupt!");
         }
         else{
