@@ -53,10 +53,10 @@ public class BoardConstructor {
      * Loads board from a file and parse it to create Property objects to store in board argument given.
      * @return true with board loaded successfully, else false
      */
-    public Board loadBoardFromMapFile() {
+    public Board loadBoardFromMapFile(String fileName) {
         if (true) {
             try {
-                File file = new File("src/board.xml");
+                File file = new File("src/"+fileName);
                 //an instance of factory that gives a document builder
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 //an instance of builder to parse the specified xml file

@@ -37,6 +37,8 @@ public class BoardView {
     private JScrollPane[] scrollPanes;
     private JTextArea[] PropertyTextAreas;
 
+    private String Language;
+
     /**
      * Constructor for BoardView.
      */
@@ -59,6 +61,7 @@ public class BoardView {
         playerLists.add(player3Labels);
         playerLists.add(player4Labels);
         addBasePanels();
+        this.Language = "English";
     }
 
     /**

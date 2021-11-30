@@ -1,6 +1,9 @@
 import java.awt.*;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.lang.Math;
+import java.util.Properties;
 
 /**
  * Class BoardModel, Model of the board of the game. Has most of the game functionality commands.
@@ -26,14 +29,14 @@ public class BoardModel {
     /**
      * Constructor for Game
      */
-    public BoardModel( ){
+    public BoardModel(String fileName){
         this.players = new ArrayList<>();
         this.currentPlayer = null;
         this.nextRoll = true;
-        this.board = new Board("src/board.xml");
+        this.board = new Board("src/"+fileName);
         this.boardConstructor = new BoardConstructor(board);
         //creates the board
-        this.board = boardConstructor.loadBoardFromMapFile();
+        this.board = boardConstructor.loadBoardFromMapFile(fileName);
         //boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
         boardView = null;
@@ -484,10 +487,33 @@ public class BoardModel {
      * Main method to initialize and start the game.
      */
     public static void main(String args[]){
-        BoardModel boardModel = new BoardModel();
+        BoardModel boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         boardView.displayGUI();
     }
 
+
+    public void load(String fileName){
+
+
+    }
+    public void save(){
+        try {
+            FileWriter writer = new FileWriter("AddressBook.txt");
+            for (Player player:players) {
+                writer.write(player.toString());
+                writer.write(String.format("%n"));
+            }
+            for (Property property:board.getPropertyArrayList()){
+                writer.write(property.toString());
+                writer.write(String.format("%n"));
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
+
+

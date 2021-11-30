@@ -264,7 +264,25 @@ public class Player {
     /**
      * Blank method for AI player to override
      */
-    public void playAITurn(){
-    }
+    public void playAITurn(){}
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                ", name='" + name + '\'' +
+
+                ", ownsBothUtil=" + ownsBothUtil +
+                ", balance=" + balance +
+                ", ownsXtrains=" + ownsXtrains +
+                ", controlledProperty=" + controlledProperty +
+                ", positon=" + positon +
+                ", color=" + color +
+                ", inJail=" + inJail +
+                ", turnsInJail=" + turnsInJail +
+                ", numOfDoubleRolls=" + numOfDoubleRolls +
+                ", is ai?=" + ai +
+                ", bankruptStatus=" + bankruptStatus +
+                ", hasAColorSet=" + hasAColorSet +
+                '}';
+    }
 }

@@ -11,7 +11,7 @@ public class BoardModelTest {
 
     @Test
     public void testAddPlayer() {
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
@@ -24,7 +24,7 @@ public class BoardModelTest {
     // No player is bankrupt. CheckNumActivePlayers must return true.
     @Test
     public void testCheckNumOfActivePlayers1() {
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
@@ -38,7 +38,7 @@ public class BoardModelTest {
     // 1 player is bankrupt. CheckNumActivePlayers must return true.
     @Test
     public void testCheckNumOfActivePlayers2() {
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
@@ -57,7 +57,7 @@ public class BoardModelTest {
     // All but one players (the winner) are bankrupt. CheckNumActivePlayers must return false.
     @Test
     public void testCheckNumOfActivePlayers3() {
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         for (int i = 0; i < 5; i++) {
@@ -77,7 +77,7 @@ public class BoardModelTest {
     // testing if player moves forward on the board after rolling
     @Test
     public void testRoll1(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -91,7 +91,7 @@ public class BoardModelTest {
     //test case for when player is not in jail and rolls a double. roll() must return true.
     @Test
     public void testRollCase2(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -109,7 +109,7 @@ public class BoardModelTest {
     //test case for when player is in jail and rolls. Player should not move on the board and stay at Jail (position 10)
     @Test
     public void testRoll3(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -125,7 +125,7 @@ public class BoardModelTest {
 
     @Test
     public void testOperateCommandRoll(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -139,7 +139,7 @@ public class BoardModelTest {
     // Test operateCommand pass turn when next player (p2) is Not Bankrupt
     @Test
     public void testOperateCommandPassTurn1(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -156,7 +156,7 @@ public class BoardModelTest {
     // Test operateCommand pass turn when next player (p2) is Bankrupt
     @Test
     public void testOperateCommandPassTurn2(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -177,7 +177,7 @@ public class BoardModelTest {
 
     @Test
     public void testPurchaseProperty(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -190,7 +190,7 @@ public class BoardModelTest {
 
     @Test
     public void testOperateCommandPurchaseProperty(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -204,7 +204,7 @@ public class BoardModelTest {
     // Test purchaseHouseOrHotel command when player does not have color set (so no houses bought)
     @Test
     public void testPurchaseHouseOrHotel1(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -218,7 +218,7 @@ public class BoardModelTest {
     // Test purchaseHouseOrHotel command when player does have color set (so 1 house bought)
     @Test
     public void testPurchaseHouseOrHotel2(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         p1 = new Player("P1", new Color(10,10,10),1500, false);
@@ -234,7 +234,7 @@ public class BoardModelTest {
     // Tests if adding house to a property works correctly
     @Test
     public void testCheckAddHouse(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         p1 = new Player("P1", new Color(10,10,10),1500, false);
         Property prop1 = new Property("Oriental", new Color(135,206,250), 6);
         Property prop2 = new Property("Vermont", new Color(135,206,250), 8);
@@ -254,7 +254,7 @@ public class BoardModelTest {
     // Tests if adding a hotel to a property works correctly
     @Test
     public void testCheckAddHotel(){
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         p1 = new Player("P1", new Color(10,10,10),1500, false);
         Property prop1 = new Property("Oriental", new Color(135,206,250), 6);
         Property prop2 = new Property("Vermont", new Color(135,206,250), 8);
@@ -275,7 +275,7 @@ public class BoardModelTest {
     // Test if AI players are correctly added
     @Test
     public void testAddAiPlayer() {
-        boardModel = new BoardModel();
+        boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         Board board = new Board("board.xml");

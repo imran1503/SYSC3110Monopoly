@@ -202,4 +202,18 @@ public class Property {
         double costPrice = (housePriceCustom * 5) + propertyPriceCustom;
         return ( currPlayerBalance/ costPrice  );
     }
+
+    @Override
+    public String toString() {
+        return "Property{" +
+                "name='" + name + '\'' +
+                ", rent=" + rent +
+                ", owner=" + owner +
+                ", price=" + price +
+                ", numHouses=" + numHouses +
+                ", numHotels=" + numHotels +
+                ", housePrice=" + housePrice +
+                ", location=" + location +
+                '}';
+    }
 }

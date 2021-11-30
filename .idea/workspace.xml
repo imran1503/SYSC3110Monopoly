@@ -24,23 +24,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Made GUI's textArea with list of properties owned uneditable by user.">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" afterDir="false" />
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xsd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IncomeTax.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IncomeTax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Property.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Railroads.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Railroads.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utilities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Property.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +77,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab 10" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -103,9 +100,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SYSC3110Monopoly.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly_jar/SYSC3110Monopoly.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.BoardModel" />
+        <item itemvalue="JAR Application.SYSC3110Monopoly.jar" />
         <item itemvalue="JUnit.BoardModelTest" />
       </list>
     </recent_temporary>
@@ -496,6 +498,32 @@
     <MESSAGE value="bug fixes and more javadocs and comments" />
     <MESSAGE value="Fixed dark blue color reading property name problem" />
     <option name="LAST_COMMIT_MESSAGE" value="Fixed dark blue color reading property name problem" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1638240690590">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240690590" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1638239904383">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638239904383" />
+    <state width="1877" height="223" key="GridCell.Tab.0.bottom" timestamp="1638240439904">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="223" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240439904" />
+    <state width="1877" height="223" key="GridCell.Tab.0.center" timestamp="1638240439904">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="223" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240439904" />
+    <state width="1877" height="223" key="GridCell.Tab.0.left" timestamp="1638240439903">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="223" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240439903" />
+    <state width="1877" height="223" key="GridCell.Tab.0.right" timestamp="1638240439904">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="223" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240439904" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

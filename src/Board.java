@@ -94,6 +94,7 @@ public class Board {
      */
     public void setPlayers(ArrayList<Player> playersForBoard){Board.players = playersForBoard;}
 
+
     /**
      * Getter method for list of all colors of Property
      */
