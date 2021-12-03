@@ -64,6 +64,7 @@ public class BoardConstructor {
                 //an instance of builder to parse the specified xml file
                 DocumentBuilder db = dbf.newDocumentBuilder();
 
+                //todo filename change back
                 InputStream in = getClass().getResourceAsStream("src/board.xml");
 
                 Document doc = db.parse(file);

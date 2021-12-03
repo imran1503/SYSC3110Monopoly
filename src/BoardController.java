@@ -95,17 +95,29 @@ public class BoardController implements ActionListener {
             }
         }
 
-        //submit button
+        // the radio button selected last before pressing submit and entering stage 0 is the final language selected
+        String languageSelected  = "English"; // language is English by default
+        if (actionEvent.getSource().equals(radioButtons.get(1))) { // if the French radio button is selected
+            languageSelected.equals("French");
+            System.out.println("Testing: French radio button was correctly selected");
+        } else if (actionEvent.getSource().equals(radioButtons.get(2))) { // if the Arabic radio button is selected
+            languageSelected.equals("Arabic");
+            System.out.println("Testing: Arabic radio button was correctly selected");
+        }
+
+        //submit button has been pressed
         if (actionEvent.getSource().equals(buttons.get(submitButton))) {
             Boolean waitForNextButton = false;
-
             // Stage 0: Ask user to select the board's language from available options.
             if((playerInitializeStage == 0) && !waitForNextButton){
-                //todo: implement bv's language JRadioButtons action listeners
-                if(actionEvent.getSource().equals(radioButtons.get(1))) {//French Button
+                if(languageSelected.equals("French")) {//French Button
+                    //todo figure out how to change board to french
                     String file = "board-fr.xml";
-                    bm.getBoard().setBoard(file);
-                    System.out.println("Yes. >" + bm.getBoard().getProperty(5).getName());
+                    //bm = new BoardModel(file);
+                    //bm.getBoard().setBoard(file);
+                }
+                else if (languageSelected.equals("Arabic")) {
+                    //todo change board to Arabic
                 }
                 playerInitializeStage++;
             }
@@ -118,12 +130,12 @@ public class BoardController implements ActionListener {
                 bv.setEventLabel3Text("");
 
                 Boolean isInt;
-                Boolean isEmpty;
+                Boolean inputIsEmpty;
 
                 isInt = bm.isInteger(bv.getUserInput());
-                isEmpty= bv.getUserInput().isEmpty();
+                inputIsEmpty= bv.getUserInput().isEmpty();
 
-                if(isInt && !isEmpty){
+                if(!inputIsEmpty && isInt){
                     Max_players = Integer.parseInt(bv.getUserInput());
                     if((Max_players > 4)||(Max_players < 2)){
                         bv.setEventLabel3Text("Number of players can only be 2, 3, or 4.");
@@ -135,6 +147,7 @@ public class BoardController implements ActionListener {
                         waitForNextButton = true;
                     }
                 }
+
                 else if (isInt) {
                     bv.setEventLabel3Text("The number of players must be typed as a number like '4', not 'four'.");
                 }

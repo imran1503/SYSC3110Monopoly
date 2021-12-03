@@ -78,7 +78,6 @@ public class BoardView {
         playerLists.add(player3Labels);
         playerLists.add(player4Labels);
         addBasePanels();
-        this.Language = "English";
     }
 
     /**
@@ -318,6 +317,7 @@ public class BoardView {
 
 
 
+
         BoardController bc = new BoardController(this,this.boardModel);
 
         //Button Handlers
@@ -330,6 +330,11 @@ public class BoardView {
         rollButton.addActionListener(bc);
         startButton.addActionListener(bc);
         submitButton.addActionListener(bc);
+
+        //radio button handlers
+        EnglishButton.addActionListener(bc);
+        FrenchButton.addActionListener(bc);
+        ArabicButton.addActionListener(bc);
 
         //create Player panels and add them top left, top right, bottom left and bottom right. Make panels not visible.
         int MaxNumPlayers = 4;

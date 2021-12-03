@@ -21,6 +21,8 @@ public class Board {
     private HashMap<Color, ArrayList<Property>> colorPropertyArrayList;
     private boolean isValid;
     private ArrayList<Color> allColorsList;
+    private String Language;
+
     /**
      * The source of user input the board will ask for while performing actions (attack, fortify, etc.)
      */
