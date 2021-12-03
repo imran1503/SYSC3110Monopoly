@@ -487,11 +487,14 @@ public class BoardModel {
      * Main method to initialize and start the game.
      */
     public static void main(String args[]){
+
         BoardModel boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         boardView.displayGUI();
     }
+
+
 
 
     public void load(String fileName){

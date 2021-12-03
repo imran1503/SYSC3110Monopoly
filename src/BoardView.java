@@ -37,20 +37,12 @@ public class BoardView {
     private JRadioButton EnglishButton, FrenchButton, ArabicButton;
     private ButtonGroup languageButtonGroup;
     private JPanel languageOptionsPanel;
+    private ArrayList<JRadioButton> radioButtonList;
 
 
     private JTextField userInputBox;
     private JScrollPane[] scrollPanes;
     private JTextArea[] PropertyTextAreas;
-
-
-
-
-    private String Language;
-
-
-
-    private ArrayList<JRadioButton> radioButtonList;
 
     public JFrame getFrame() {
         return frame;
@@ -514,7 +506,7 @@ public class BoardView {
     public void displayGUI(){
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setSize(size);
-        this.frame.setVisible(true);
+        frame.setVisible(true);
         closeFrame();
     }
 

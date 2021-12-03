@@ -18,12 +18,17 @@ public class BoardController implements ActionListener {
     private BoardView bv;
     private BoardModel bm;
 
+    //todo add to uml
+    public enum Stages {languageSelect, numPlayersSelect, AIPlayerSelect, AIPlayerInit, gameInit, housingPurchase}
+
     private Boolean playersInitialized;
-    private int playerInitializeStage;
+    private Stages playerInitializeStage;
     private int playerInitializing;
     private int Max_players;
 
     private ArrayList<Color> colorList;
+
+
 
     /**
      * BoardController Constructor
@@ -34,7 +39,7 @@ public class BoardController implements ActionListener {
         this.bv=bv;
         this.bm=bm;
         this.playersInitialized = false;
-        this.playerInitializeStage = 0;
+        this.playerInitializeStage = Stages.languageSelect;
         this.Max_players = 0;
         this.playerInitializing = 0;
         this.colorList = new ArrayList<>();
@@ -108,22 +113,21 @@ public class BoardController implements ActionListener {
         //submit button has been pressed
         if (actionEvent.getSource().equals(buttons.get(submitButton))) {
             Boolean waitForNextButton = false;
-            // Stage 0: Ask user to select the board's language from available options.
-            if((playerInitializeStage == 0) && !waitForNextButton){
+            // Stage 0 (languageSelect): Ask user to select the board's language from available options.
+            if((playerInitializeStage.equals(Stages.languageSelect)) && !waitForNextButton){
                 if(languageSelected.equals("French")) {//French Button
                     //todo figure out how to change board to french
-                    String file = "board-fr.xml";
-                    //bm = new BoardModel(file);
-                    //bm.getBoard().setBoard(file);
+                    String fileName = "board-fr.xml";
                 }
                 else if (languageSelected.equals("Arabic")) {
                     //todo change board to Arabic
                 }
-                playerInitializeStage++;
+                //playerInitializeStage++;
+                playerInitializeStage = Stages.numPlayersSelect;
             }
 
-            //Stage 1: Ask user an integer total number of players that want to play game between 2 and 4 inclusive.
-            if((playerInitializeStage == 1)&&!waitForNextButton){
+            //Stage 1 (numPlayersSelect): Ask user an integer total number of players that want to play game between 2 and 4 inclusive.
+            if((playerInitializeStage.equals(Stages.numPlayersSelect)) && !waitForNextButton){
                 bv.setLanguageOptionsPanelVisibility(false); // hide language options
                 bv.setUserInputVisibility(true);
                 bv.setEventLabelText("Enter the total number of players.","Press the submit button when done.");
@@ -141,7 +145,8 @@ public class BoardController implements ActionListener {
                         bv.setEventLabel3Text("Number of players can only be 2, 3, or 4.");
                     }
                     else{
-                        playerInitializeStage++;
+                        //playerInitializeStage++;
+                        playerInitializeStage = Stages.AIPlayerSelect;
                         bv.setEventLabelText("Do you want player " + (playerInitializing+1) + " to be an AI Player? ('yes' if AI)?","Press the submit button when done.");
                         bv.setEventLabel3Text("");
                         waitForNextButton = true;
@@ -153,8 +158,8 @@ public class BoardController implements ActionListener {
                 }
                 bv.clearTextField();
             }
-            //Stage 2: Ask User if each player is AI or human, if human ask for a player name.
-            if((playerInitializeStage == 2)&&!waitForNextButton){
+            //Stage 2 (AIPlayerSelect): Ask User if each player is AI or human, if human ask for a player name.
+            if((playerInitializeStage.equals(Stages.AIPlayerSelect)) && !waitForNextButton){
                 boolean AIPlayer = bv.getUserInput().equals("yes");
 
                 if (AIPlayer) {
@@ -165,31 +170,33 @@ public class BoardController implements ActionListener {
                 }
                 else {
                     bv.setEventLabelText("Enter the name of Player "+(playerInitializing+1),"Press the submit button when done");
-                    playerInitializeStage = 3;
+                    playerInitializeStage = Stages.AIPlayerInit;
                     waitForNextButton = true;
                 }
 
                 if(playerInitializing == Max_players){
-                    playerInitializeStage = 4;
+                    playerInitializeStage = Stages.gameInit;
                 }
                 bv.clearTextField();
             }
-            //Stage 3: helping stage with Stage 2
-            if(playerInitializeStage == 3 && !waitForNextButton) {
+            //Stage 3 (AIPlayerInit): helping stage with Stage 2
+            if(playerInitializeStage.equals(Stages.AIPlayerInit) && !waitForNextButton) {
                 playerInitializing++;
                 bv.setEventLabelText("Do you want player " + (playerInitializing+1) + " to be an AI Player? ('yes' if AI)?","Press the submit button when done");
                 String playerName = bv.getUserInput();
                 Player newPlayer = new Player(playerName, new Color(10*playerInitializing,10*playerInitializing,10*playerInitializing), 1500, false);
                 bm.addPlayer(newPlayer);
-                playerInitializeStage = 2;
+                //playerInitializeStage = 2;
+                playerInitializeStage = Stages.AIPlayerSelect;
                 bv.clearTextField();
 
                 if(playerInitializing == Max_players){
-                    playerInitializeStage = 4;
+                    //playerInitializeStage = 4;
+                    playerInitializeStage = Stages.gameInit;
                 }
             }
-            //Stage 4: Initilize the game with user inputs and select a first player randomly
-            if(playerInitializeStage == 4){
+            //Stage 4 (gameInit): Initilize the game with user inputs and select a first player randomly
+            if(playerInitializeStage.equals(Stages.gameInit)){
                 bv.updateAllPlayersStatus(Max_players);
                 bv.setPlayerPanelHoldersVisibility(Max_players,true);
                 int firstPlayerIndex = bm.determineFirstPlayer();
@@ -202,15 +209,16 @@ public class BoardController implements ActionListener {
                 for (int i = 0; i < Max_players; i++) {  //For all 4 players
                     bv.getPlayerLists().get(i)[0].setVisible(true); //set icons to visible on GO
                 }
-                playerInitializeStage++;
+                //playerInitializeStage++;
+                playerInitializeStage = Stages.housingPurchase;
                 waitForNextButton = true;
                 //if first player is AI, then playAITurn for first player
                 if(firstPlayer.getAi()){
                     firstPlayer.playAITurn();
                 }
             }
-            //Stage 5: Check what property name the User typed to buy a house on
-            if((playerInitializeStage == 5)&&!waitForNextButton){
+            //Stage 5 (housingPurchase): Check what property name the User typed to buy a house on
+            if((playerInitializeStage.equals(Stages.housingPurchase))&&!waitForNextButton){
                 String propertyName = bv.getUserInput();
                 Boolean propertyExists = false;
                 int propertyIndex = -1;
