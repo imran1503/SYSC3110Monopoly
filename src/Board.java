@@ -38,6 +38,11 @@ public class Board {
         this.allColorsList = new ArrayList<>();
     }
 
+
+    public void setBoard(String filename) {
+        boardConstructor.loadBoardFromMapFile(filename);
+    }
+
     /**
      * Add a Color set Property list to the board
      * @param color Color of color set

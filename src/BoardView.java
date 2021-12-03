@@ -43,7 +43,14 @@ public class BoardView {
     private JScrollPane[] scrollPanes;
     private JTextArea[] PropertyTextAreas;
 
+
+
+
     private String Language;
+
+
+
+    private ArrayList<JRadioButton> radioButtonList;
 
     public JFrame getFrame() {
         return frame;
@@ -84,6 +91,15 @@ public class BoardView {
         mainPanel.add(gamePanel, BorderLayout.WEST);
         frame.add(mainPanel);
     }
+
+    /**
+     * Returns the list of radio buttons.
+     * @return
+     */
+    public ArrayList<JRadioButton> getRadioButtonList() {
+        return radioButtonList;
+    }
+
 
     /**
      * Getter method for playerLists
@@ -280,6 +296,7 @@ public class BoardView {
         buttonList.add(purchaseHouseHotel);//Index 5
         buttonList.add(submitButton);    //Index 6
 
+
         /** Initializing language radio buttons and adding them to languagesButtonGroup, and to languageOptionsPanel */
         JRadioButton EnglishButton = new JRadioButton("English");
         JRadioButton FrenchButton = new JRadioButton("French");
@@ -293,6 +310,13 @@ public class BoardView {
         languageOptionsPanel.add(FrenchButton);
         languageOptionsPanel.add(ArabicButton);
         languageOptionsPanel.setVisible(false);
+
+        this.radioButtonList = new ArrayList<JRadioButton>();
+        radioButtonList.add(EnglishButton);    //Index 00
+        radioButtonList.add(FrenchButton);     //Index 01
+        radioButtonList.add(ArabicButton);     //Index 02
+
+
 
         BoardController bc = new BoardController(this,this.boardModel);
 

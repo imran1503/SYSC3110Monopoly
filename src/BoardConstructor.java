@@ -7,12 +7,14 @@ import org.xml.sax.SAXException;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -221,10 +223,18 @@ public class BoardConstructor {
 
 
                 return this.board;
-            } catch (Exception e) {
-
+            } catch (FileNotFoundException | ParserConfigurationException f) {
+                f.printStackTrace();
+                //loadBoardFromMapFile("board.xml");
+            } catch (SAXException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         return board;
     }
+
+
+
 }

@@ -52,6 +52,7 @@ public class BoardController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent){
         ArrayList<JButton> buttons = bv.getButtonList();
+        ArrayList<JRadioButton> radioButtons = bv.getRadioButtonList();
         int startGameButton = 0;
         int rollButton = 1;
         int purchasePropertyButton = 2;
@@ -101,7 +102,12 @@ public class BoardController implements ActionListener {
             // Stage 0: Ask user to select the board's language from available options.
             if((playerInitializeStage == 0) && !waitForNextButton){
                 //todo: implement bv's language JRadioButtons action listeners
-                    playerInitializeStage++;
+                if(actionEvent.getSource().equals(radioButtons.get(1))) {//French Button
+                    String file = "board-fr.xml";
+                    bm.getBoard().setBoard(file);
+                    System.out.println("Yes. >" + bm.getBoard().getProperty(5).getName());
+                }
+                playerInitializeStage++;
             }
 
             //Stage 1: Ask user an integer total number of players that want to play game between 2 and 4 inclusive.

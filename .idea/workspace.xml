@@ -24,20 +24,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Started the Save Feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SYSC3110Monopoly/board.xsd" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Property.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -453,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637623416846</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Started the Save Feature">
+      <created>1638242296391</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1638242296391</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +472,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented actionEvent for start,roll,purchase property, pass turn buttons in BoardController.java" />
     <MESSAGE value="Player icon Movement" />
     <MESSAGE value="Player icons appear at GO now at start of game." />
     <MESSAGE value="Added functionality to ask user if they want an AI player." />
@@ -497,33 +496,38 @@
     <MESSAGE value="bug fixes and aiLogic buying houses changes" />
     <MESSAGE value="bug fixes and more javadocs and comments" />
     <MESSAGE value="Fixed dark blue color reading property name problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed dark blue color reading property name problem" />
+    <MESSAGE value="Started the Save Feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started the Save Feature" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1638240690590">
+    <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1638504137483">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240690590" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1638239904383">
+    <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638504137483" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1638493723418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638239904383" />
-    <state width="1877" height="223" key="GridCell.Tab.0.bottom" timestamp="1638240439904">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638493723418" />
+    <state width="1877" height="223" key="GridCell.Tab.0.bottom" timestamp="1638504516637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="223" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240439904" />
-    <state width="1877" height="223" key="GridCell.Tab.0.center" timestamp="1638240439904">
+    <state width="1877" height="223" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638504516637" />
+    <state width="1877" height="223" key="GridCell.Tab.0.center" timestamp="1638504516637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="223" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240439904" />
-    <state width="1877" height="223" key="GridCell.Tab.0.left" timestamp="1638240439903">
+    <state width="1877" height="223" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638504516637" />
+    <state width="1877" height="223" key="GridCell.Tab.0.left" timestamp="1638504516637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="223" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240439903" />
-    <state width="1877" height="223" key="GridCell.Tab.0.right" timestamp="1638240439904">
+    <state width="1877" height="223" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638504516637" />
+    <state width="1877" height="223" key="GridCell.Tab.0.right" timestamp="1638504516637">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="223" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638240439904" />
+    <state width="1877" height="223" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638504516637" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1638242305319">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638242305319" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

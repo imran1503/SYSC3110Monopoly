@@ -500,7 +500,7 @@ public class BoardModel {
     }
     public void save(){
         try {
-            FileWriter writer = new FileWriter("AddressBook.txt");
+            FileWriter writer = new FileWriter("MonopolySave.txt");
             for (Player player:players) {
                 writer.write(player.toString());
                 writer.write(String.format("%n"));
@@ -509,6 +509,7 @@ public class BoardModel {
                 writer.write(property.toString());
                 writer.write(String.format("%n"));
             }
+            writer.write("CurrentPlayer =" + currentPlayer);
             writer.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
