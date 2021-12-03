@@ -26,9 +26,13 @@
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board-ar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/board-ar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board-fr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/board-fr.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,13 +118,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00001" summary="Play method in game other changes like userInput panel added back">
-      <created>1636320632748</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1636320632748</updated>
     </task>
     <task id="LOCAL-00002" summary="fixed some bugs">
       <created>1636321464892</created>
@@ -458,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638559994190</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="board now change to different lanuages on GUI">
+      <created>1638562541355</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1638562541356</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +481,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Player icons appear at GO now at start of game." />
     <MESSAGE value="Added functionality to ask user if they want an AI player." />
     <MESSAGE value="added GUI functionality to make list of properties owned by players scrollable." />
     <MESSAGE value="Some bug fixes with Jail." />
@@ -502,7 +505,8 @@
     <MESSAGE value="Fixed dark blue color reading property name problem" />
     <MESSAGE value="Started the Save Feature" />
     <MESSAGE value="Arabic board version xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arabic board version xml" />
+    <MESSAGE value="board now change to different lanuages on GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="board now change to different lanuages on GUI" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

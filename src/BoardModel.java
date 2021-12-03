@@ -3,7 +3,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.lang.Math;
-import java.util.Properties;
 
 /**
  * Class BoardModel, Model of the board of the game. Has most of the game functionality commands.
@@ -82,6 +81,7 @@ public class BoardModel {
     public void operateCommand(Commands command) {
         boardView.setEventLabel3Text("");
         String playerName = currentPlayer.getName();
+        String currency = board.getCurrency();
         if (command.equals(Commands.quit)) {
             boardView.setEventLabel3Text("Game has ended.");
             System.exit(0);
@@ -99,7 +99,7 @@ public class BoardModel {
                     int taxPropertyLocation2 = 38;
                     //if owner is not bank or Property is a Tax Property, then set label text to show player paying rent amount.
                     if(!owner.getName().equals("bank")||(propertyOn.getLocation() == taxPropertyLocation1)||(propertyOn.getLocation() == taxPropertyLocation2)) {
-                        boardView.setEventLabel3Text(playerName + " pays $" + propertyOn.getRent() + " to " + owner.getName() + " on " + propertyOn.getName());
+                        boardView.setEventLabel3Text(playerName + " pays "+currency + propertyOn.getRent() + " to " + owner.getName() + " on " + propertyOn.getName());
                     }
                 }
             }
@@ -117,7 +117,7 @@ public class BoardModel {
                         currentPlayer.removefromBalance(50); //Get out of Jail fee for not rolling a double after 3 turns.
                         currentPlayer.setInJail(false);
                         currentPlayer.setTurnsInJail(0);
-                        boardView.setEventLabel3Text(playerName + " Payed $50 to get out of jail.");
+                        boardView.setEventLabel3Text(playerName + " Payed "+currency+"50 to get out of jail.");
                     }
                     else if((currentPlayer.getTurnsInJail() != 0)){
                         boardView.setEventLabel3Text(playerName + " did Not roll a double");
@@ -221,6 +221,7 @@ public class BoardModel {
         String playerName = currentPlayer.getName();
         int playerPosition = currentPlayer.getPositon();
         Boolean jailStatus = currentPlayer.getInJail();
+        String currency = board.getCurrency();
 
         //generate 2 random integer numbers between 1 and 6
         int randomRoll1 = ((int)((Math.random()*totalNumOfSpaces)%numberOfSidesOnDice) + 1);
@@ -251,7 +252,7 @@ public class BoardModel {
             if (nextPlayerPosition >= totalNumOfSpaces) { // if player passes Go
                 currentPlayer.setPosition(nextPlayerPosition - totalNumOfSpaces);
                 currentPlayer.addToBalance(passingGoAmount);
-                boardView.setEventLabel3Text(playerName+" has passed Go, Balance is now "+currentPlayer.getBalance());
+                boardView.setEventLabel3Text(playerName+" has passed Go, Balance is now "+currency+currentPlayer.getBalance());
                 playerPosition = (nextPlayerPosition - totalNumOfSpaces);
             } else {
                 currentPlayer.setPosition(nextPlayerPosition);
@@ -285,6 +286,7 @@ public class BoardModel {
         String playerName = currentPlayer.getName();
         int[] nonPurchasablePropertyLocations = {0,2,4,7,10,17,20,22,30,33,36,38};
         Color railroadPropertyColor = new Color(102,98,95);
+        String currency = board.getCurrency();
 
         //Check property is not a non-Purchaseable property location
         for (int i = 0; i < nonPurchasablePropertyLocations.length; i++) {
@@ -308,7 +310,7 @@ public class BoardModel {
             currentPlayer.removefromBalance(landedOnProperty.getPrice());
             landedOnProperty.setOwner(currentPlayer);
             currentPlayer.gainProperty(landedOnProperty);
-            boardView.setEventLabelText(playerName + " purchased "+propertyName, "Remaining Balance: "+currentPlayer.getBalance());
+            boardView.setEventLabelText(playerName + " purchased "+propertyName, "Remaining Balance: "+currency+currentPlayer.getBalance());
 
             //If after buying this property and it completes a colorSet, set hasAColorSet to true for the current player if not railroad color.
             Color colorOfProperty = landedOnProperty.getColor();
@@ -339,6 +341,7 @@ public class BoardModel {
         Color colorOfProperty = property.getColor();
         String propertyName = property.getName();
         String playerName = currentPlayer.getName();
+        String currency = board.getCurrency();
         int sizeOfColorSet = board.getColorPropertyArrayList().get(colorOfProperty).size();
         //Check if player owns the color set and houses numbers are correct
         for(int i = 0; i < sizeOfColorSet; i++){
@@ -388,11 +391,11 @@ public class BoardModel {
             if(numOfHouseCurrent == 4) {
             property.setNumHotels(1);
             property.setNumHouses(0);
-            boardView.setEventLabelText(playerName + " purchased Hotel on: "+propertyName, "Remaining Balance: "+currentPlayer.getBalance());
+            boardView.setEventLabelText(playerName + " purchased Hotel on: "+propertyName, "Remaining Balance: "+currency+currentPlayer.getBalance());
             }
             else{
             property.setNumHouses((1+numOfHouseCurrent));
-            boardView.setEventLabelText(playerName + " purchased House on: "+propertyName, "Remaining Balance: "+currentPlayer.getBalance());
+            boardView.setEventLabelText(playerName + " purchased House on: "+propertyName, "Remaining Balance: "+currency+currentPlayer.getBalance());
             }
             //Update to display new changes to houses on property.
             boardView.updateHousesIcons(property.getLocation());

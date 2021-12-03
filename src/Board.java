@@ -22,6 +22,7 @@ public class Board {
     private boolean isValid;
     private ArrayList<Color> allColorsList;
     private String Language;
+    private String currency;
 
     /**
      * The source of user input the board will ask for while performing actions (attack, fortify, etc.)
@@ -38,6 +39,7 @@ public class Board {
         this.userInputSource = userInputSource;
         this.colorPropertyArrayList = new HashMap<>();
         this.allColorsList = new ArrayList<>();
+        currency = "";
     }
 
 
@@ -87,7 +89,12 @@ public class Board {
         propertyArrayList.add(property);}
 
     public void setProperty(int location, Property property){
-        propertyArrayList.set(location,property);}
+        propertyArrayList.set(location,property);
+    }
+
+    public String getCurrency(){return currency;}
+
+    public void setCurrency(String currency){this.currency = currency;}
 
     /**
      * Setter method for isValid variable
@@ -126,7 +133,7 @@ public class Board {
         Color yellow = Color.YELLOW;
 
         Board board = new Board(userInputSource);
-        BoardConstructor boardConstructor = new BoardConstructor(board);
+        //BoardConstructor boardConstructor = new BoardConstructor(board);
 
         //String filename = "Board.xml"; todo uncomment
         //userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);

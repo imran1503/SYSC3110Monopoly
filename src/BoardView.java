@@ -398,7 +398,7 @@ public class BoardView {
     private void createNewPlayerPanel(int playerIndex){
         int numOfLabels = 7;
         playerLabelList[playerIndex][0] = new JLabel("Name: ");
-        playerLabelList[playerIndex][1] = new JLabel("Balance: $");
+        playerLabelList[playerIndex][1] = new JLabel("Balance: ");
         playerLabelList[playerIndex][2] = new JLabel("Current location: ");
         playerLabelList[playerIndex][3] = new JLabel("In Jail Status = ");
         playerLabelList[playerIndex][4] = new JLabel("Bankrupt Status = ");
@@ -424,10 +424,11 @@ public class BoardView {
      * Update All Players Status
      */
     public void updateAllPlayersStatus(int numOfPlayers){
+            String gameCurrency = boardModel.getBoard().getCurrency();
             for(int i =0; i < numOfPlayers; i++){
                 Player currentPlayer = boardModel.getPlayer(i);
                 playerLabelList[i][0].setText("Name: "+currentPlayer.getName());
-                playerLabelList[i][1].setText("Balance: $"+currentPlayer.getBalance());
+                playerLabelList[i][1].setText("Balance: "+gameCurrency+currentPlayer.getBalance());
                 playerLabelList[i][2].setText("Current location: "+ boardModel.getBoard().getProperty(currentPlayer.getPositon()).getName());
                 playerLabelList[i][3].setText("In Jail Status = "+currentPlayer.getInJail());
                 playerLabelList[i][4].setText("Bankrupt Status = "+currentPlayer.getBankruptStatus());

@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class BoardConstructor {
 
     private Board board;
+    private BoardModel boardModel;
 
     public BoardConstructor(Board board){
         this.board = board;
@@ -78,11 +79,18 @@ public class BoardConstructor {
                 NodeList goList = doc.getElementsByTagName("GO");
                 NodeList jailList = doc.getElementsByTagName("Jail");
                 NodeList goToJailList = doc.getElementsByTagName("GoToJail");
+                NodeList currencyList = doc.getElementsByTagName("Currency");
 
 
                 for(int i = 0; i < 40; i++){
                     Property property = new Property("None",0,0,Color.white,i);
                     board.addProperty(property);
+                }
+                //Gets currency of Game
+                for (int itr = 0; itr < currencyList.getLength(); itr++) {
+                    if(currencyList.item(itr).getNodeType() == Node.ELEMENT_NODE){
+                        board.setCurrency(currencyList.item(itr).getTextContent());
+                    }
                 }
 
                 //iterates through Property

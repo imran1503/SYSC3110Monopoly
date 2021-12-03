@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <board>
+    <Currency>$</Currency>
     <GO>
         <name>GO</name>
         <r>255</r>
