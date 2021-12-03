@@ -33,11 +33,21 @@ public class BoardView {
     private ArrayList<JButton> buttonList;
     private JButton startButton,rollButton,purchaseButton,helpButton,newGameButton,quitButton,purchaseHouseHotel,passButton,submitButton;
 
+    // todo add to uml
+    private JRadioButton EnglishButton, FrenchButton, ArabicButton;
+    private ButtonGroup languageButtonGroup;
+    private JPanel languageOptionsPanel;
+
+
     private JTextField userInputBox;
     private JScrollPane[] scrollPanes;
     private JTextArea[] PropertyTextAreas;
 
     private String Language;
+
+    public JFrame getFrame() {
+        return frame;
+    }
 
     /**
      * Constructor for BoardView.
@@ -270,6 +280,20 @@ public class BoardView {
         buttonList.add(purchaseHouseHotel);//Index 5
         buttonList.add(submitButton);    //Index 6
 
+        /** Initializing language radio buttons and adding them to languagesButtonGroup, and to languageOptionsPanel */
+        JRadioButton EnglishButton = new JRadioButton("English");
+        JRadioButton FrenchButton = new JRadioButton("French");
+        JRadioButton ArabicButton = new JRadioButton("Arabic");
+        ButtonGroup languageButtonGroup = new ButtonGroup();
+        languageButtonGroup.add(EnglishButton);
+        languageButtonGroup.add(FrenchButton);
+        languageButtonGroup.add(ArabicButton);
+        this.languageOptionsPanel = new JPanel(new FlowLayout());
+        languageOptionsPanel.add(EnglishButton);
+        languageOptionsPanel.add(FrenchButton);
+        languageOptionsPanel.add(ArabicButton);
+        languageOptionsPanel.setVisible(false);
+
         BoardController bc = new BoardController(this,this.boardModel);
 
         //Button Handlers
@@ -313,11 +337,13 @@ public class BoardView {
         this.eventLabel3 = new JLabel(" ");
         this.userInputBox = new JTextField();
 
+
         //Hiding buttons not needed at start of the game
         this.setUserInputVisibility(true);
         submitButton.setVisible(false);
         userInputBox.setVisible(false);
         purchaseHouseHotel.setVisible(false);
+
 
         //add event labels, submit button and user input box in userPanel and add that to bottom middle of control panel
         userPanel.add(headerLabel);
@@ -325,6 +351,8 @@ public class BoardView {
         userPanel.add(eventLabel2);
         userPanel.add(eventLabel3);
         userPanel.add(userInputBox);
+        userPanel.add(languageOptionsPanel);
+        userPanel.add(languageOptionsPanel);
         userPanel.add(submitButton);
         panelHolder[1][1].add(userPanel);
 
@@ -393,12 +421,9 @@ public class BoardView {
                 String controledProperty = "";
                 for(int j = 0 ; j < currentPlayer.getControlledProperty().size(); j++){
                     controledProperty += ("- "+ currentPlayer.getControlledProperty().get(j).getName() + "\n");
-
                 }
                 PropertyTextAreas[i].setText(controledProperty);
-
             }
-
     }
 
 
@@ -517,6 +542,14 @@ public class BoardView {
         userInputBox.setVisible(condition);
     }
 
+    //todo add to uml
+    /**
+     * Sets user UserInputBox's visibility to false..
+     */
+    public void hideUserInputBox(){
+        userInputBox.setVisible(false);
+    }
+
     /**
      * Set visibilty of Player Panels
      * @param numOfPlayers Total number of players
@@ -526,6 +559,20 @@ public class BoardView {
         JPanel[] panelList = {panelHolder[0][0],panelHolder[1][0],panelHolder[0][2],panelHolder[1][2]};
         for (int i = 0; i < numOfPlayers; i++) {
             panelList[i].setVisible(visible);
+        }
+    }
+
+    //todo add to uml
+    /**
+     * Set visibility of languageOptionsPanel
+     *
+     * @param condition true if visible, false if not visible.
+     */
+    public void setLanguageOptionsPanelVisibility(boolean condition){
+        if (condition) {
+            languageOptionsPanel.setVisible(true);
+        } else {
+            languageOptionsPanel.setVisible(false);
         }
     }
 

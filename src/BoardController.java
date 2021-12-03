@@ -64,10 +64,9 @@ public class BoardController implements ActionListener {
             if(!playersInitialized) {
                 buttons.get(0).setVisible(false);
                 bv.setUserInputVisibility(true);  //submit button & text field visible, start button not visible
-                //todo fix later to ask total number of players too
-                bv.setEventLabelText("Type Board's Language Version:", "Choose from: English, French, and Arabic. Press submit when done.");
-                //bv.setEventLabelText("Enter the total number of players.","Press the submit button when done");
-
+                bv.hideUserInputBox(); // hide only the userInputBox
+                bv.setLanguageOptionsPanelVisibility(true); // make board language options visible for user to choose from
+                bv.setEventLabelText("Select the board's language and press the submit button.", "");
             }
         }
 
@@ -99,46 +98,29 @@ public class BoardController implements ActionListener {
         if (actionEvent.getSource().equals(buttons.get(submitButton))) {
             Boolean waitForNextButton = false;
 
-            // Stage 0: Ask user to choose the language version for the board.
+            // Stage 0: Ask user to select the board's language from available options.
             if((playerInitializeStage == 0) && !waitForNextButton){
-                //chosen language is English
-                if (bv.getUserInput().equals("English")) { // user chooses English board
-                    bv.setEventLabelText("","");
-                    bv.setEventLabel3Text("You have chosen English as the language. Press Submit.");
+                //todo: implement bv's language JRadioButtons action listeners
                     playerInitializeStage++;
-                    waitForNextButton = true;
-                    // set bv language to English
-
-                } else if (bv.getUserInput().equals("French")) { // user chooses French board
-                    bv.setEventLabelText("","");
-                    bv.setEventLabel3Text("You have chosen French as the language. Press Submit.");
-                    playerInitializeStage++;
-                    waitForNextButton = true;
-                    // set bv language to French
-                }
-                else if (bv.getUserInput().equals("Arabic")){ // user chooses Arabic board
-                    bv.setEventLabelText("","");
-                    bv.setEventLabel3Text("You have chosen Arabic as the language. Press Submit.");
-                    playerInitializeStage++;
-                    waitForNextButton = true;
-                    // set bv language to Arabic
-                }
-                else { // invalid input
-                    bv.setEventLabelText("","");
-                    bv.setEventLabel3Text("Your input is invalid. Type one of accepted languages listed: English, Arabic, French.");
-                }
             }
+
             //Stage 1: Ask user an integer total number of players that want to play game between 2 and 4 inclusive.
             if((playerInitializeStage == 1)&&!waitForNextButton){
+                bv.setLanguageOptionsPanelVisibility(false); // hide language options
+                bv.setUserInputVisibility(true);
                 bv.setEventLabelText("Enter the total number of players.","Press the submit button when done.");
                 bv.setEventLabel3Text("");
 
                 Boolean isInt;
+                Boolean isEmpty;
+
                 isInt = bm.isInteger(bv.getUserInput());
-                if(isInt){
+                isEmpty= bv.getUserInput().isEmpty();
+
+                if(isInt && !isEmpty){
                     Max_players = Integer.parseInt(bv.getUserInput());
                     if((Max_players > 4)||(Max_players < 2)){
-                        bv.setEventLabel3Text("Total number entered is greater than 4 or less than 2");
+                        bv.setEventLabel3Text("Number of players can only be 2, 3, or 4.");
                     }
                     else{
                         playerInitializeStage++;
@@ -147,7 +129,7 @@ public class BoardController implements ActionListener {
                         waitForNextButton = true;
                     }
                 }
-                else {
+                else if (isInt) {
                     bv.setEventLabel3Text("The number of players must be typed as a number like '4', not 'four'.");
                 }
                 bv.clearTextField();
