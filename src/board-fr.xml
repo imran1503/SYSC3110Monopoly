@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <board>
-    <Currency>CAD</Currency>
+    <Currency>CAD </Currency>
     <GO>
         <name>Départ</name>
         <r>255</r>
