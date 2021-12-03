@@ -102,26 +102,36 @@ public class BoardController implements ActionListener {
 
         // the radio button selected last before pressing submit and entering stage 0 is the final language selected
         String languageSelected  = "English"; // language is English by default
-        if (actionEvent.getSource().equals(radioButtons.get(1))) { // if the French radio button is selected
-            languageSelected.equals("French");
-            System.out.println("Testing: French radio button was correctly selected");
-        } else if (actionEvent.getSource().equals(radioButtons.get(2))) { // if the Arabic radio button is selected
-            languageSelected.equals("Arabic");
-            System.out.println("Testing: Arabic radio button was correctly selected");
-        }
+
 
         //submit button has been pressed
         if (actionEvent.getSource().equals(buttons.get(submitButton))) {
             Boolean waitForNextButton = false;
             // Stage 0 (languageSelect): Ask user to select the board's language from available options.
-            if((playerInitializeStage.equals(Stages.languageSelect)) && !waitForNextButton){
+            if((playerInitializeStage.equals(Stages.languageSelect))){
+                if (radioButtons.get(1).isSelected()) { // if the French radio button is selected
+                    languageSelected = "French";
+                    System.out.println("Testing: French radio button was correctly selected");
+                }
+                if (radioButtons.get(2).isSelected()) { // if the Arabic radio button is selected
+                    languageSelected = "Arabic";
+                    System.out.println("Testing: Arabic radio button was correctly selected");
+                }
+                String fileName = "";
                 if(languageSelected.equals("French")) {//French Button
-                    //todo figure out how to change board to french
-                    String fileName = "board-fr.xml";
+                    fileName = "board-fr.xml";
                 }
                 else if (languageSelected.equals("Arabic")) {
-                    //todo change board to Arabic
+                    fileName = "board-ar.xml";
                 }
+                else if (languageSelected.equals("English")){
+                    fileName = "board.xml";
+                }
+                Board board = new Board("src/"+fileName);
+                BoardConstructor boardConstructor = new BoardConstructor(board);
+                board =  boardConstructor.loadBoardFromMapFile(fileName);
+                bm.setBoard(board);
+                bv.setAllPropertys();
                 //playerInitializeStage++;
                 playerInitializeStage = Stages.numPlayersSelect;
             }

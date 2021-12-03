@@ -108,13 +108,6 @@ public class BoardView {
         propertyPanels[i] = new JPanel(new BorderLayout());
         Color propertyColor = boardModel.getBoard().getProperty(i).getColor();
         propertyPanels[i].setBackground(propertyColor);
-        //creating and adding an index label to each propertyPanel to see their order
-        propertyIndexLabels[i] = new JLabel();
-        propertyIndexLabels[i].setText(boardModel.getBoard().getPropertyArrayList().get(i).getName());
-        propertyIndexLabels[i].setHorizontalAlignment(SwingConstants.CENTER);
-        propertyIndexLabels[i].setVerticalAlignment(SwingConstants.CENTER);
-        propertyPanels[i].add(propertyIndexLabels[i],BorderLayout.PAGE_START);
-
 
         // Initialize Player Icons for each property, set them to Not visible and add them to playerPanel
         JPanel playerPanel = new JPanel(new GridLayout(1,4));
@@ -225,7 +218,7 @@ public class BoardView {
         center.setBackground(new Color(190,250,250));
         int numOfLabels = 6;
         this.playerLabelList = new JLabel[numOfLabels][7];
-        // TODO CHANGE SIZE LATER
+
         this.scrollPanes = new JScrollPane[4];
         this.PropertyTextAreas = new JTextArea[4];
 
@@ -289,9 +282,9 @@ public class BoardView {
 
 
         /** Initializing language radio buttons and adding them to languagesButtonGroup, and to languageOptionsPanel */
-        JRadioButton EnglishButton = new JRadioButton("English");
-        JRadioButton FrenchButton = new JRadioButton("French");
-        JRadioButton ArabicButton = new JRadioButton("Arabic");
+        EnglishButton = new JRadioButton("English");
+        FrenchButton = new JRadioButton("French");
+        ArabicButton = new JRadioButton("Arabic");
         ButtonGroup languageButtonGroup = new ButtonGroup();
         languageButtonGroup.add(EnglishButton);
         languageButtonGroup.add(FrenchButton);
@@ -596,5 +589,19 @@ public class BoardView {
             languageOptionsPanel.setVisible(false);
         }
     }
+
+    public void setAllPropertys(){
+        for (int i = 0; i < 40; i++) {
+            Color propertyColor = boardModel.getBoard().getProperty(i).getColor();
+            propertyPanels[i].setBackground(propertyColor);
+            //creating and adding an index label to each propertyPanel to see their order
+            JLabel propertyIndexLabel = new JLabel();
+            propertyIndexLabel.setText(boardModel.getBoard().getPropertyArrayList().get(i).getName());
+            propertyIndexLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            propertyIndexLabel.setVerticalAlignment(SwingConstants.CENTER);
+            propertyPanels[i].add(propertyIndexLabel,BorderLayout.PAGE_START);
+        }
+    }
+
 
 }

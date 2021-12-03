@@ -425,6 +425,8 @@ public class BoardModel {
      */
     public Board getBoard() {return board;}
 
+    public void setBoard(Board boardSet){this.board = boardSet;}
+
     /**
      * Get a player at a specfic player index from the players List
      * @param playerIndex index of player to get from players plist
@@ -495,8 +497,6 @@ public class BoardModel {
     }
 
 
-
-
     public void load(String fileName){
 
 
@@ -518,6 +518,7 @@ public class BoardModel {
             System.out.println(e.getMessage());
         }
     }
+
 }
 
 
