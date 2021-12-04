@@ -130,7 +130,7 @@ public class BoardConstructor {
                     Node railroadNode = railroadList.item(itr);
                     if (railroadNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element railroadElement = (Element) railroadNode;
-                        Property newProperty = new Property(railroadElement.getElementsByTagName("name").item(0).getTextContent(),
+                        Railroads newRailroad = new Railroads(railroadElement.getElementsByTagName("name").item(0).getTextContent(),
                                 Integer.parseInt(railroadElement.getElementsByTagName("price").item(0).getTextContent()),
                                 Integer.parseInt(railroadElement.getElementsByTagName("rent").item(0).getTextContent()),
                                 new Color( Integer.parseInt(railroadElement.getElementsByTagName("r").item(0).getTextContent()),  //R
@@ -138,7 +138,7 @@ public class BoardConstructor {
                                         Integer.parseInt(railroadElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                 Integer.parseInt(railroadElement.getElementsByTagName("index").item(0).getTextContent())
                         );
-                        board.setProperty(newProperty.getLocation(), newProperty);
+                        board.setProperty(newRailroad.getLocation(), newRailroad);
                     }
                 }
 

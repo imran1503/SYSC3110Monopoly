@@ -10,15 +10,13 @@ public class Railroads extends Property {
      * price, color, location.
      * @param name the name of the railroad
      * @param rent the rent of the railroad
-     * @param owner the owner of railroad, of class Player
      * @param price the price of the railroad
      * @param color the color of the railroad
      * @param location the location of the railroad
      */
-    public Railroads(String name, int rent, Player owner, int price, Color color, int location) {
-        super(name, rent, price,color,location);
+    public Railroads(String name, int price, int rent, Color color, int location) {
+        super(name, price, rent,color,location);
     }
-
 
     @Override
     /**
