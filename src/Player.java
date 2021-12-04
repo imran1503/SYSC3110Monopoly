@@ -51,6 +51,7 @@ public class Player {
         this.ai = isAi;
         this.numOfDoubleRolls = 0;
         this.hasAColorSet = false;
+
     }
 
     /**
@@ -58,6 +59,7 @@ public class Player {
      * @return The color of the player
      */
     public Color getColor() { return color; }
+
 
     /**
      * Gets and returns name of the player
@@ -266,23 +268,5 @@ public class Player {
      */
     public void playAITurn(){}
 
-    @Override
-    public String toString() {
-        return "Player{" +
-                ", name='" + name + '\'' +
 
-                ", ownsBothUtil=" + ownsBothUtil +
-                ", balance=" + balance +
-                ", ownsXtrains=" + ownsXtrains +
-                ", controlledProperty=" + controlledProperty +
-                ", positon=" + positon +
-                ", color=" + color +
-                ", inJail=" + inJail +
-                ", turnsInJail=" + turnsInJail +
-                ", numOfDoubleRolls=" + numOfDoubleRolls +
-                ", is ai?=" + ai +
-                ", bankruptStatus=" + bankruptStatus +
-                ", hasAColorSet=" + hasAColorSet +
-                '}';
-    }
 }

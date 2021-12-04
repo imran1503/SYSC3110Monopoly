@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -506,20 +507,83 @@ public class BoardModel {
 
 
     }
-    public void save(){
+    public String toXML(){
+        String s = new String();
+        String stringIndent = "    ";
+
+        s += stringIndent + "<Monopoly>\n";
+        s+= stringIndent + stringIndent + "<CurrentPlayer>" + this.getCurrentPlayer() + "</CurrentPlayer>";
+        s+= stringIndent + stringIndent + "<CurrentPlayerIndex>" + this.getCurrentPlayerIndex() + "</CurrentPlayerIndex>";
+
+        ;
+        for (int i = 0; i < players.size() ; i++) {
+            s+= stringIndent + stringIndent + "<Player>";
+
+                s+= stringIndent + stringIndent + stringIndent + "<name>" + players.get(i).getName() + "</name>";
+                s+= stringIndent + stringIndent + stringIndent + "<balance>" + players.get(i).getBalance() + "</balance>";
+                s+= stringIndent + stringIndent + stringIndent + "<position>" + players.get(i).getPositon() + "</position>";
+
+                //Jail
+                s+= stringIndent + stringIndent + stringIndent + "<inJail>" + players.get(i).getInJail() + "</inJail>";
+                s+= stringIndent + stringIndent + stringIndent + "<turnsInJail>" + players.get(i).getTurnsInJail() + "</turnsInJail>";
+
+
+                //Color as R G B
+                s+= stringIndent + stringIndent + stringIndent + "<r>" + players.get(i).getColor().getRed() + "</r>";
+                s+= stringIndent + stringIndent + stringIndent + "<g>" + players.get(i).getColor().getGreen() + "</g>";
+                s+= stringIndent + stringIndent + stringIndent + "<b>" + players.get(i).getColor().getBlue()+ "</b>";
+
+                //Owns ___
+                s+= stringIndent + stringIndent + stringIndent + "<ownsXtrains>" + players.get(i).getOwnsXtrains() + "</ownsXtrains>";
+                s+= stringIndent + stringIndent + stringIndent + "<ownsBothUtil>" + players.get(i).getOwnsBothUtil() + "</ownsBothUtil>";
+
+
+                s+= stringIndent + stringIndent + stringIndent + "<ai>" + players.get(i).getAi() + "</ai>";
+                s+= stringIndent + stringIndent + stringIndent + "<numOfDoubleRolls>" + players.get(i).getNumOfDoubleRolls() + "</numOfDoubleRolls>";
+                s+= stringIndent + stringIndent + stringIndent + "<ownsBothUtil>" + players.get(i).getOwnsBothUtil() + "</ownsBothUtil>";
+                s+= stringIndent + stringIndent + stringIndent + "<hasAColorSet>" + players.get(i).getHasAColorSet() + "</hasAColorSet>";
+                s+= stringIndent + stringIndent + stringIndent + "<bankruptStatus>" + players.get(i).getBankruptStatus() + "</bankruptStatus>";
+
+            s+= stringIndent + stringIndent + "</Player>";
+        }
+
+        for (int i = 0; i < this.getBoard().getPropertyArrayList().size(); i++) {
+
+            s+= stringIndent + stringIndent + "<Property>";
+                s+= stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>";
+                s+= stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>";
+                s+= stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner() + "</owner>";
+                s+= stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>";
+                s+= stringIndent + stringIndent + stringIndent + "<location>" + this.getBoard().getProperty(i).getLocation() + "</location>";
+
+                //Color as R G B
+                s+= stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>";
+                s+= stringIndent + stringIndent + stringIndent + "<g>" + this.getBoard().getProperty(i).getColor().getGreen() + "</g>";
+                s+= stringIndent + stringIndent + stringIndent + "<b>" + this.getBoard().getProperty(i).getColor().getBlue() + "</b>";
+
+
+                s+= stringIndent + stringIndent + stringIndent + "<numHouses>" + this.getBoard().getProperty(i).getNumHouses() + "</numHouses>";
+                s+= stringIndent + stringIndent + stringIndent + "<numHotels>" + this.getBoard().getProperty(i).getNumHotels() + "</numHotels>";
+
+            s+= stringIndent + stringIndent + "</Property>";
+        }
+
+
+
+
+
+        s += stringIndent + "</Monopoly>\n";
+
+        return s;
+    }
+    public void save(String name){
+        File file = new File (name + ".txt");
         try {
-            FileWriter writer = new FileWriter("MonopolySave.txt");
-            for (Player player:players) {
-                writer.write(player.toString());
-                writer.write(String.format("%n"));
-            }
-            for (Property property:board.getPropertyArrayList()){
-                writer.write(property.toString());
-                writer.write(String.format("%n"));
-            }
-            writer.write("CurrentPlayer =" + currentPlayer);
+            FileWriter writer = new FileWriter(file);
+            writer.write(toXML());
             writer.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e){
             System.out.println(e.getMessage());
         }
     }
