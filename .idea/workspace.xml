@@ -26,7 +26,7 @@
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,13 +112,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00003" summary="fixed some bugs">
-      <created>1636321613942</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1636321613942</updated>
     </task>
     <task id="LOCAL-00004" summary="trying play method in boardview and startgame button">
       <created>1636323117174</created>
@@ -456,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638637129209</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="some reaaranging of statements in roll()">
+      <created>1638638850728</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1638638850728</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +475,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added GUI functionality to make list of properties owned by players scrollable." />
     <MESSAGE value="Some bug fixes with Jail." />
     <MESSAGE value="rolling 3 doubles now gets you into jail" />
     <MESSAGE value="Displaying if Player has a color set or not and making purchase house button visibility based on that." />
@@ -500,7 +499,8 @@
     <MESSAGE value="Arabic board version xml" />
     <MESSAGE value="board now change to different lanuages on GUI" />
     <MESSAGE value="Bug fix for Railroad rent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix for Railroad rent" />
+    <MESSAGE value="some reaaranging of statements in roll()" />
+    <option name="LAST_COMMIT_MESSAGE" value="some reaaranging of statements in roll()" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
