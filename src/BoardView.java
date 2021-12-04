@@ -550,10 +550,12 @@ public class BoardView {
      * @param condition true if userInputBox and submit visible, false if not visible.
      */
     public void setUserInputVisibility(Boolean condition){
-        buttonList.get(1).setVisible(!condition);
-        buttonList.get(2).setVisible(!condition);
-        buttonList.get(3).setVisible(!condition);
-        buttonList.get(6).setVisible(condition);
+        int rollButtonIndex = 1; int purchasePropertyButtonIndex = 2;
+        int passTurnButtonIndex = 3; int submitButtonIndex = 6;
+        buttonList.get(rollButtonIndex).setVisible(!condition);
+        buttonList.get(purchasePropertyButtonIndex).setVisible(!condition);
+        buttonList.get(passTurnButtonIndex).setVisible(!condition);
+        buttonList.get(submitButtonIndex).setVisible(condition);
         userInputBox.setVisible(condition);
     }
 

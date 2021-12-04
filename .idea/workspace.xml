@@ -26,7 +26,7 @@
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,13 +112,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00004" summary="trying play method in boardview and startgame button">
-      <created>1636323117174</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1636323117174</updated>
     </task>
     <task id="LOCAL-00005" summary="player inventory ui started">
       <created>1636330696196</created>
@@ -456,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638638850728</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="uing helper functions in BoardController to split code in to many methods instead of 1 method.">
+      <created>1638645739220</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1638645739220</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +475,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Some bug fixes with Jail." />
     <MESSAGE value="rolling 3 doubles now gets you into jail" />
     <MESSAGE value="Displaying if Player has a color set or not and making purchase house button visibility based on that." />
     <MESSAGE value="fixed bug of buying houses on properties you should not." />
@@ -500,7 +499,8 @@
     <MESSAGE value="board now change to different lanuages on GUI" />
     <MESSAGE value="Bug fix for Railroad rent" />
     <MESSAGE value="some reaaranging of statements in roll()" />
-    <option name="LAST_COMMIT_MESSAGE" value="some reaaranging of statements in roll()" />
+    <MESSAGE value="uing helper functions in BoardController to split code in to many methods instead of 1 method." />
+    <option name="LAST_COMMIT_MESSAGE" value="uing helper functions in BoardController to split code in to many methods instead of 1 method." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
