@@ -65,6 +65,8 @@ public class BoardController implements ActionListener {
         int passTurnButton = 3;
         int purchaseHouseHotelButton = 5;
         int submitButton = 6;
+        int saveButton = 7;
+        int loadButton = 8;
 
         //start button
         if(actionEvent.getSource().equals(buttons.get(startGameButton))){
@@ -93,12 +95,20 @@ public class BoardController implements ActionListener {
         if (actionEvent.getSource().equals(buttons.get(submitButton))) {
             submitButtonAction();
         }
+        if (actionEvent.getSource().equals(buttons.get(saveButton))) {
+            //TODO save game
+        }
+        if (actionEvent.getSource().equals(buttons.get(loadButton))) {
+            //TODO load game
+        }
     }
 
     public void startButtonAction(){
         ArrayList<JButton> buttons = bv.getButtonList();
+        int startButton = 0; int loadButton = 8;
         if(!playersInitialized) {
-            buttons.get(0).setVisible(false);
+            buttons.get(startButton).setVisible(false);
+            buttons.get(loadButton).setVisible(false);
             bv.setUserInputVisibility(true);  //submit button & text field visible, start button not visible
             bv.hideUserInputBox(); // hide only the userInputBox
             bv.setLanguageOptionsPanelVisibility(true); // make board language options visible for user to choose from

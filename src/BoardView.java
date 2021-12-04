@@ -31,7 +31,7 @@ public class BoardView {
     private JLabel eventLabel,eventLabel2,eventLabel3;
 
     private ArrayList<JButton> buttonList;
-    private JButton startButton,rollButton,purchaseButton,helpButton,newGameButton,quitButton,purchaseHouseHotel,passButton,submitButton;
+    private JButton startButton,rollButton,purchaseButton,helpButton,newGameButton,quitButton,purchaseHouseHotel,passButton,submitButton,saveButton, loadButton;
 
     // todo add to uml
     private JRadioButton EnglishButton, FrenchButton, ArabicButton;
@@ -269,6 +269,8 @@ public class BoardView {
         helpButton = new JButton("Help");
         purchaseHouseHotel = new JButton("Buy house/hotel");
         submitButton = new JButton("Submit");
+        saveButton = new JButton("Save Game");
+        loadButton = new JButton("Load Game");
 
         /** BoardController initialization and actionListener for butttons */
         this.buttonList = new ArrayList<>();
@@ -279,6 +281,8 @@ public class BoardView {
         buttonList.add(quitButton);      //Index 4
         buttonList.add(purchaseHouseHotel);//Index 5
         buttonList.add(submitButton);    //Index 6
+        buttonList.add(saveButton);     //Index 7
+        buttonList.add(loadButton);     //Index 8
 
 
         /** Initializing language radio buttons and adding them to languagesButtonGroup, and to languageOptionsPanel */
@@ -315,6 +319,8 @@ public class BoardView {
         rollButton.addActionListener(bc);
         startButton.addActionListener(bc);
         submitButton.addActionListener(bc);
+        saveButton.addActionListener(bc);
+        loadButton.addActionListener(bc);
 
         //radio button handlers
         EnglishButton.addActionListener(bc);
@@ -340,7 +346,9 @@ public class BoardView {
         buttonPanel.add(passButton);
         buttonPanel.add(quitButton);
         //buttonPanel.add(helpButton);
-        buttonPanel.add(purchaseHouseHotel);   //To do, not implemented
+        buttonPanel.add(purchaseHouseHotel);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(loadButton);
         panelHolder[0][1].add(buttonPanel);
 
         JPanel userPanel = new JPanel();
@@ -357,6 +365,7 @@ public class BoardView {
         submitButton.setVisible(false);
         userInputBox.setVisible(false);
         purchaseHouseHotel.setVisible(false);
+        saveButton.setVisible(false);
 
 
         //add event labels, submit button and user input box in userPanel and add that to bottom middle of control panel
@@ -551,10 +560,11 @@ public class BoardView {
      */
     public void setUserInputVisibility(Boolean condition){
         int rollButtonIndex = 1; int purchasePropertyButtonIndex = 2;
-        int passTurnButtonIndex = 3; int submitButtonIndex = 6;
+        int passTurnButtonIndex = 3; int submitButtonIndex = 6; int saveButtonIndex = 7;
         buttonList.get(rollButtonIndex).setVisible(!condition);
         buttonList.get(purchasePropertyButtonIndex).setVisible(!condition);
         buttonList.get(passTurnButtonIndex).setVisible(!condition);
+        buttonList.get(saveButtonIndex).setVisible(!condition);
         buttonList.get(submitButtonIndex).setVisible(condition);
         userInputBox.setVisible(condition);
     }
