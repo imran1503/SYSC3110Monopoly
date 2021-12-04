@@ -34,7 +34,7 @@ public class BoardView {
     private JButton startButton,rollButton,purchaseButton,helpButton,newGameButton,quitButton,purchaseHouseHotel,passButton,submitButton,saveButton, loadButton;
 
     // todo add to uml
-    private JRadioButton EnglishButton, FrenchButton, ArabicButton;
+    private JRadioButton EnglishButton, FrenchButton, ArabicButton, PersianButton;
     private ButtonGroup languageButtonGroup;
     private JPanel languageOptionsPanel;
     private ArrayList<JRadioButton> radioButtonList;
@@ -289,20 +289,24 @@ public class BoardView {
         EnglishButton = new JRadioButton("English");
         FrenchButton = new JRadioButton("French");
         ArabicButton = new JRadioButton("Arabic");
+        PersianButton = new JRadioButton("Persian");
         ButtonGroup languageButtonGroup = new ButtonGroup();
         languageButtonGroup.add(EnglishButton);
         languageButtonGroup.add(FrenchButton);
         languageButtonGroup.add(ArabicButton);
+        languageButtonGroup.add(PersianButton);
         this.languageOptionsPanel = new JPanel(new FlowLayout());
         languageOptionsPanel.add(EnglishButton);
         languageOptionsPanel.add(FrenchButton);
         languageOptionsPanel.add(ArabicButton);
+        languageOptionsPanel.add(PersianButton);
         languageOptionsPanel.setVisible(false);
 
         this.radioButtonList = new ArrayList<JRadioButton>();
         radioButtonList.add(EnglishButton);    //Index 00
         radioButtonList.add(FrenchButton);     //Index 01
         radioButtonList.add(ArabicButton);     //Index 02
+        radioButtonList.add(PersianButton);    //Index 03
 
 
 
@@ -326,6 +330,7 @@ public class BoardView {
         EnglishButton.addActionListener(bc);
         FrenchButton.addActionListener(bc);
         ArabicButton.addActionListener(bc);
+        PersianButton.addActionListener(bc);
 
         //create Player panels and add them top left, top right, bottom left and bottom right. Make panels not visible.
         int MaxNumPlayers = 4;
@@ -385,7 +390,7 @@ public class BoardView {
     /**
      * Closes the main frame and prompts the user with a confirmation message beforehand.
      */
-    private void closeFrame() {
+    public void closeFrame() {
 
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.addWindowListener(new WindowAdapter() {
@@ -614,6 +619,11 @@ public class BoardView {
             propertyIndexLabel.setVerticalAlignment(SwingConstants.CENTER);
             propertyPanels[i].add(propertyIndexLabel,BorderLayout.PAGE_START);
         }
+    }
+
+
+    public void finalMessageWindow() {
+        JOptionPane.showMessageDialog(frame, "Are you sure you want to quit the game?");
     }
 
 

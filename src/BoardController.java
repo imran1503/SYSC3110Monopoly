@@ -168,12 +168,18 @@ public class BoardController implements ActionListener {
         if (radioButtons.get(2).isSelected()) { // if the Arabic radio button is selected
             languageSelected = "Arabic";
         }
+        if (radioButtons.get(3).isSelected()) { // if the Persian radio button is selected
+            languageSelected = "Persian";
+        }
         String fileName = "";
         if(languageSelected.equals("French")) {//French Button
             fileName = "board-fr.xml";
         }
         else if (languageSelected.equals("Arabic")) {
             fileName = "board-ar.xml";
+        }
+        else if (languageSelected.equals("Persian")) {
+            fileName  = "board-pe.xml";
         }
         else if (languageSelected.equals("English")){
             fileName = "board.xml";
