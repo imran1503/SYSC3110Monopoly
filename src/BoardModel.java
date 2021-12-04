@@ -231,36 +231,38 @@ public class BoardModel {
 
         int nextPlayerPosition = (randomRoll1 + randomRoll2 + playerPosition);
 
-        //if double roll, increment current player's number of double rolls
-        if(randomRoll1 == randomRoll2){
-            currentPlayer.setNumOfDoubleRolls(currentPlayer.getNumOfDoubleRolls() + 1);
-        }
-        //if current player (lands on Go To Jail or rolls 3 doubles) and is not in Jail, send player to Jail
-        if(((nextPlayerPosition == goToJailPosition)||(currentPlayer.getNumOfDoubleRolls() == 3))&&!jailStatus){ // If player lands on Go to Jail
-            boardView.getPlayerLists().get(playerIndex)[playerPosition].setVisible(false);
-            currentPlayer.setNumOfDoubleRolls(0);
-            currentPlayer.setInJail(true);
-            jailStatus = true;
-            currentPlayer.setPosition(jailPosition);
-            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
-            boardView.setEventLabel3Text(playerName+" has been set to Jail, roll a double to get out of Jail next turn.");
-        }
-        if(!jailStatus) {
-            //Remove current player's icon from previous location
-            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
-            //For moving player
-            if (nextPlayerPosition >= totalNumOfSpaces) { // if player passes Go
-                currentPlayer.setPosition(nextPlayerPosition - totalNumOfSpaces);
-                currentPlayer.addToBalance(passingGoAmount);
-                boardView.setEventLabel3Text(playerName+" has passed Go, Balance is now "+currency+currentPlayer.getBalance());
-                playerPosition = (nextPlayerPosition - totalNumOfSpaces);
-            } else {
-                currentPlayer.setPosition(nextPlayerPosition);
-                playerPosition = nextPlayerPosition;
+        if(!jailStatus){
+            if(randomRoll1 == randomRoll2){
+                currentPlayer.setNumOfDoubleRolls(currentPlayer.getNumOfDoubleRolls() + 1);
             }
-            //Make current player's icon visible at new location
-            boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
+            if((nextPlayerPosition == goToJailPosition)||(currentPlayer.getNumOfDoubleRolls() == 3)){
+                boardView.getPlayerLists().get(playerIndex)[playerPosition].setVisible(false);
+                currentPlayer.setNumOfDoubleRolls(0);
+                currentPlayer.setTurnsInJail(0);
+                currentPlayer.setInJail(true);
+                jailStatus = true;
+                currentPlayer.setPosition(jailPosition);
+                boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
+                boardView.setEventLabel3Text(playerName+" has been set to Jail, roll a double to get out of Jail next turn.");
+            }
+            else{
+                //Remove current player's icon from previous location
+                boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(false);
+                //For moving player
+                if (nextPlayerPosition >= totalNumOfSpaces) { // if player passes Go
+                    currentPlayer.setPosition(nextPlayerPosition - totalNumOfSpaces);
+                    currentPlayer.addToBalance(passingGoAmount);
+                    boardView.setEventLabel3Text(playerName+" has passed Go, Balance is now "+currency+currentPlayer.getBalance());
+                    playerPosition = (nextPlayerPosition - totalNumOfSpaces);
+                } else {
+                    currentPlayer.setPosition(nextPlayerPosition);
+                    playerPosition = nextPlayerPosition;
+                }
+                //Make current player's icon visible at new location
+                boardView.getPlayerLists().get(playerIndex)[currentPlayer.getPositon()].setVisible(true);
+            }
         }
+
         String propertyName = board.getProperty(playerPosition).getName();
         //if double roll, return true. Else return false
         if(randomRoll1 == randomRoll2){
