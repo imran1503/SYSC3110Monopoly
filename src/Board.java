@@ -40,11 +40,13 @@ public class Board {
         this.colorPropertyArrayList = new HashMap<>();
         this.allColorsList = new ArrayList<>();
         currency = "";
+
     }
 
 
     public void setBoard(String filename) {
-        boardConstructor.loadBoardFromMapFile(filename);
+        boardConstructor = new BoardConstructor(this);
+        boardConstructor.loadBoardFromMapFile(filename,true);
     }
 
     /**

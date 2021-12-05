@@ -1,7 +1,14 @@
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import java.awt.*;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.lang.Math;
 
@@ -43,7 +50,7 @@ public class BoardModel {
         this.board = new Board("src/"+fileName);
         this.boardConstructor = new BoardConstructor(board);
         //creates the board
-        this.board = boardConstructor.loadBoardFromMapFile(fileName);
+        this.board = boardConstructor.loadBoardFromMapFile(fileName,true);
         //boardConstructor.validateXMLSchema("board.xsd", "board.xml");
         board.setIsValid(true);
         boardView = null;
@@ -247,6 +254,7 @@ public class BoardModel {
                 currentPlayer.setNumOfDoubleRolls(currentPlayer.getNumOfDoubleRolls() + 1);
             }
             if((nextPlayerPosition == goToJailPosition)||(currentPlayer.getNumOfDoubleRolls() == 3)){
+                //Send player to Jail
                 boardView.getPlayerLists().get(playerIndex)[playerPosition].setVisible(false);
                 currentPlayer.setNumOfDoubleRolls(0);
                 currentPlayer.setTurnsInJail(0);
@@ -568,11 +576,6 @@ public class BoardModel {
         boardView.displayGUI();
     }
 
-
-    public void load(String fileName){
-
-
-    }
     public String toXML(){
         String s = new String();
         String stringIndent = "    ";
@@ -614,25 +617,46 @@ public class BoardModel {
             s+= stringIndent + stringIndent + "</Player>\n";
         }
 
+        int[] railroadsPositions = {5,15,25,35};
         for (int i = 0; i < this.getBoard().getPropertyArrayList().size(); i++) {
+            Boolean isRailroad = false;
+            for (int j = 0; j < railroadsPositions.length; j++) {
+                if(i == railroadsPositions[j]){
+                    isRailroad = true;
+                    s+= stringIndent + stringIndent + "<Railroad>\n";
+                    s+= stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>\n";
+                    s+= stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
+                    s+= stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner().getName() + "</owner>\n";
+                    s+= stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
+                    s+= stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</location>\n";
 
-            s+= stringIndent + stringIndent + "<Property>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner().getName() + "</owner>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<location>" + this.getBoard().getProperty(i).getLocation() + "</location>\n";
+                    //Color as R G B
+                    s+= stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>\n";
+                    s+= stringIndent + stringIndent + stringIndent + "<g>" + this.getBoard().getProperty(i).getColor().getGreen() + "</g>\n";
+                    s+= stringIndent + stringIndent + stringIndent + "<b>" + this.getBoard().getProperty(i).getColor().getBlue() + "</b>\n";
+
+                    s+= stringIndent + stringIndent + "</Railroad>\n";
+                }
+            }
+            if(!isRailroad) {
+                s += stringIndent + stringIndent + "<Property>\n";
+                s += stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>\n";
+                s += stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
+                s += stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner() + "</owner>\n";
+                s += stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
+                s += stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</location>\n";
 
                 //Color as R G B
-                s+= stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<g>" + this.getBoard().getProperty(i).getColor().getGreen() + "</g>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<b>" + this.getBoard().getProperty(i).getColor().getBlue() + "</b>\n";
+                s += stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>\n";
+                s += stringIndent + stringIndent + stringIndent + "<g>" + this.getBoard().getProperty(i).getColor().getGreen() + "</g>\n";
+                s += stringIndent + stringIndent + stringIndent + "<b>" + this.getBoard().getProperty(i).getColor().getBlue() + "</b>\n";
 
 
-                s+= stringIndent + stringIndent + stringIndent + "<numHouses>" + this.getBoard().getProperty(i).getNumHouses() + "</numHouses>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<numHotels>" + this.getBoard().getProperty(i).getNumHotels() + "</numHotels>\n";
+                s += stringIndent + stringIndent + stringIndent + "<numHouses>" + this.getBoard().getProperty(i).getNumHouses() + "</numHouses>\n";
+                s += stringIndent + stringIndent + stringIndent + "<numHotels>" + this.getBoard().getProperty(i).getNumHotels() + "</numHotels>\n";
 
-            s+= stringIndent + stringIndent + "</Property>\n";
+                s += stringIndent + stringIndent + "</Property>\n";
+            }
         }
 
         s += stringIndent + "</Monopoly>\n";
@@ -650,7 +674,64 @@ public class BoardModel {
             System.out.println(e.getMessage());
         }
     }
+    public void load(String fileName){
+        loadBoard(fileName);
+        loadPlayers(fileName);
+    }
 
+    public void loadPlayers(String fileName){
+        try{
+            File file = new File("src/"+fileName);
+            //an instance of factory that gives a document builder
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            //an instance of builder to parse the specified xml file
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+            NodeList loadPlayersList = doc.getElementsByTagName("Player");
+
+            for (int i = 0; i <loadPlayersList.getLength() ; i++) {
+                Node playerNode = loadPlayersList.item(i);
+                if (playerNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element playerElement = (Element) playerNode;
+                    Boolean isAi = Boolean.parseBoolean(playerElement.getElementsByTagName("ai").item(0).getTextContent());
+                    String playerName = playerElement.getElementsByTagName("name").item(0).getTextContent();
+                    Color playerColor = new Color( Integer.parseInt(playerElement.getElementsByTagName("r").item(0).getTextContent()),  //R
+                            Integer.parseInt(playerElement.getElementsByTagName("g").item(0).getTextContent()),  //G
+                            Integer.parseInt(playerElement.getElementsByTagName("b").item(0).getTextContent())); //B
+                    int money = Integer.parseInt(playerElement.getElementsByTagName("balance").item(0).getTextContent());
+                    int playerPosition = Integer.parseInt(playerElement.getElementsByTagName("position").item(0).getTextContent());
+                    int maxPlayers = 4; //TODO change to actual max players
+                    if(isAi){
+                        AIPlayer aiPlayer = new AIPlayer(playerName,playerColor,money,maxPlayers,board,this,boardView);
+                        aiPlayer.setPosition(playerPosition);
+                        //TODO set other items of player
+                        players.add(aiPlayer);
+                    }
+                    else{
+                        Player player = new Player(playerName,playerColor,money,false);
+                        player.setPosition(playerPosition);
+                        //TODO set other items of player
+                        players.add(player);
+                    }
+                }
+            }
+        }
+        catch (FileNotFoundException | ParserConfigurationException f) {
+            f.printStackTrace();
+            //loadBoardFromMapFile("board.xml");
+        }   catch (SAXException e) {
+            e.printStackTrace();
+        }   catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void loadBoard(String fileName){
+        Board loadedBoard = new Board(fileName);
+        BoardConstructor loadBoardConstructor = new BoardConstructor(loadedBoard);
+        loadedBoard = loadBoardConstructor.loadBoardFromMapFile(fileName, false);
+        board = loadedBoard;
+    }
 }
 
 

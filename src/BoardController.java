@@ -187,7 +187,7 @@ public class BoardController implements ActionListener {
         }
         Board board = new Board("src/"+fileName);
         BoardConstructor boardConstructor = new BoardConstructor(board);
-        board =  boardConstructor.loadBoardFromMapFile(fileName);
+        board =  boardConstructor.loadBoardFromMapFile(fileName,true);
         bm.setBoard(board);
         bv.setAllPropertys();
         playerInitializeStage = Stages.numPlayersSelect; //set next stage

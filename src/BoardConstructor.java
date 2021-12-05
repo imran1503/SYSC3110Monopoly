@@ -56,8 +56,7 @@ public class BoardConstructor {
      * Loads board from a file and parse it to create Property objects to store in board argument given.
      * @return true with board loaded successfully, else false
      */
-    public Board loadBoardFromMapFile(String fileName) {
-        if (true) {
+    public Board loadBoardFromMapFile(String fileName, Boolean newBoard) {
             try {
                 File file = new File("src/"+fileName);
                 //an instance of factory that gives a document builder
@@ -106,7 +105,10 @@ public class BoardConstructor {
                                                                              Integer.parseInt(propertyElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                                                   Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent())
                                                                   );
-
+                        if(!newBoard){
+                            newProperty.setNumHouses(Integer.parseInt(propertyElement.getElementsByTagName("numHouses").item(0).getTextContent()));
+                            newProperty.setNumHotels(Integer.parseInt(propertyElement.getElementsByTagName("numHotels").item(0).getTextContent()));
+                        }
                         board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
@@ -230,8 +232,6 @@ public class BoardConstructor {
                     board.addColorPropertySet(colorsList.get(i),tempPropertyList);
                 }
 
-
-                return this.board;
             } catch (FileNotFoundException | ParserConfigurationException f) {
                 f.printStackTrace();
                 //loadBoardFromMapFile("board.xml");
@@ -240,10 +240,9 @@ public class BoardConstructor {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        return board;
+            finally {
+                return board;
+            }
     }
-
-
 
 }
