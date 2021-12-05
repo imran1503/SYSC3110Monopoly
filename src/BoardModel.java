@@ -26,9 +26,7 @@ import java.lang.Math;
 public class BoardModel {
     public ArrayList<Player> players;
     private Player currentPlayer;
-    //todo add to uml
     private ArrayList<Player> winnersList, losersList;
-    //todo add to uml
     private int numPropertiesLeft; // count of purchasable properties left for purchase
     private Boolean nextRoll;
     private Board board;
@@ -110,6 +108,9 @@ public class BoardModel {
                 //if current player lands on a property it does not own, pay rent (which will pay if owner is not bank or is a tax property)
                 if (!owner.equals(currentPlayer)) {
                     propertyOn.payRent(currentPlayer);
+                    if(currentPlayer.getBankruptStatus()){
+                        boardView.getPlayerLists().get(this.getCurrentPlayerIndex())[currentPlayer.getPositon()].setVisible(false);
+                    }
                     int taxPropertyLocation1 = 4;
                     int taxPropertyLocation2 = 38;
                     //if owner is not bank or Property is a Tax Property, then set label text to show player paying rent amount.
@@ -209,17 +210,23 @@ public class BoardModel {
             passPlayerTurn();
         }
         //if next player is in Jail, have event label Text2 to say "roll a double to get out jail", Else set it to ""
-        else if(currentPlayer.getInJail()){
-            boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "Roll a double to get out of Jail");
+        else {
+            nextRoll = true;
+            if(currentPlayer.getAi()){
+                currentPlayer.playAITurn();
+            }
+            else {
+                if (currentPlayer.getInJail()) {
+                    boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "Roll a double to get out of Jail");
+                } else {
+
+                    boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "");
+                }
+            }
         }
-        else{
-            boardView.setEventLabelText("It's Now " + currentPlayer.getName() + " turn to roll.", "");
-        }
-        nextRoll = true;
+
         //if next player is AI, playAITurn()
-        if(currentPlayer.getAi()){
-            currentPlayer.playAITurn();
-        }
+
     }
 
 
@@ -672,6 +679,7 @@ public class BoardModel {
             FileWriter writer = new FileWriter(file);
             writer.write(toXML());
             writer.close();
+            boardView.setEventLabelText("Game saved succesfully!","");
         }
         catch (IOException e){
             System.out.println(e.getMessage());
