@@ -492,6 +492,12 @@ public class BoardModel {
 
     /**
      * todo add to uml
+     * Returns total number of players.
+     */
+    public int getNumTotalPlayers() {return players.size();}
+
+    /**
+     * todo add to uml
      * Returns winnerList.
      */
     public ArrayList<Player> getWinnersList() {return this.winnersList;}

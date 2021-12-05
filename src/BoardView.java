@@ -634,18 +634,14 @@ public class BoardView {
         ArrayList<Player> losers = boardModel.getLosersList();
         int numWinners = winners.size();
         int numLosers= losers.size();
-        Boolean nobodyLost = losers.isEmpty();
 
         // if 1 or more players went bankrupt
-        if (!nobodyLost) {
+        if (!losers.isEmpty()) {
             for (int i = 0; i < numLosers; i++) {
                 losersNames = losersNames + losers.get(i).getName() + "\n";
             }
         }
-        if ((numWinners == 0) && (numLosers == 0)) { // if no winners
-            finalMessage += "Nobody won!\n\n" + "All properties were purchased before any player went bankrupt!";
-        }
-        else if (numWinners == 1){ // if a single winner
+        if (numWinners == 1){ // if a single winner
             finalMessage += winners.get(0).getName()
                     + " wins!\n"
                     + "\nBankrupt Players:\n";
