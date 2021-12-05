@@ -642,7 +642,7 @@ public class BoardModel {
                 s += stringIndent + stringIndent + "<Property>\n";
                 s += stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>\n";
                 s += stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
-                s += stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner() + "</owner>\n";
+                s += stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner().getName() + "</owner>\n";
                 s += stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
                 s += stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</location>\n";
 
