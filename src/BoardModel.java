@@ -682,8 +682,7 @@ public class BoardModel {
         loadBoard(fileName);
         loadPlayers(fileName);
         loadBoardModelAttributes(fileName);
-        loadPropertyOwnersAndPlayerControlled(fileName);
-        boardView.updateAllHousesIcons();
+        loadPropertyOwners(fileName);
     }
 
     public void loadPlayers(String fileName){
@@ -773,9 +772,10 @@ public class BoardModel {
         loadedBoard = loadBoardConstructor.loadBoardFromMapFile(fileName, false);
         board = loadedBoard;
         boardView.setAllPropertys();
+        boardView.updateAllHousesIcons();
     }
 
-    public void loadPropertyOwnersAndPlayerControlled(String fileName){
+    public void loadPropertyOwners(String fileName){
         try {
             File file = new File("src/" + fileName);
             //an instance of factory that gives a document builder
