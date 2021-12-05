@@ -657,7 +657,7 @@ public class BoardModel {
                 s += stringIndent + stringIndent + "</Property>\n";
             }
         }
-        s+= stringIndent + stringIndent  + "<maxPlayers>" + boardView.getMaxPlayers() + "</maxPlayers>\n";
+        s+= stringIndent + stringIndent  + "<maxPlayers>" + players.size() + "</maxPlayers>\n";
         s+= stringIndent + stringIndent  + "<currentPlayerIndex>" + this.getCurrentPlayerIndex() + "</currentPlayerIndex>\n";
         s+= stringIndent + stringIndent  + "<nextRoll>" + nextRoll + "</nextRoll>\n";
         s+= stringIndent + stringIndent  + "<numPropertiesLeft>" + numPropertiesLeft + "</numPropertiesLeft>\n";
