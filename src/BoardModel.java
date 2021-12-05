@@ -19,6 +19,8 @@ import java.lang.Math;
 public class BoardModel {
     public ArrayList<Player> players;
     private Player currentPlayer;
+    //todo add to UML
+    private Player winner;
     private Boolean nextRoll;
     private Board board;
     private BoardView boardView;
@@ -32,6 +34,7 @@ public class BoardModel {
     public BoardModel(String fileName){
         this.players = new ArrayList<>();
         this.currentPlayer = null;
+        this.winner = null;
         this.nextRoll = true;
         this.board = new Board("src/"+fileName);
         this.boardConstructor = new BoardConstructor(board);
@@ -85,7 +88,7 @@ public class BoardModel {
         String currency = board.getCurrency();
         if (command.equals(Commands.quit)) {
             boardView.setEventLabel3Text("Game has ended.");
-            System.exit(0);
+            boardView.finalMessageWindow(winner);
             return;
         }
         if (command.equals(Commands.roll)) {
@@ -160,7 +163,10 @@ public class BoardModel {
             passPlayerTurn();
         }
         //if 1 player left, end game.
-        if(!checkNumOfActivePlayers()){operateCommand(Commands.quit);}
+        if(!checkNumOfActivePlayers()){
+            boardView.setEventLabel3Text("Game has ended.");
+            winner = currentPlayer;
+            operateCommand(Commands.quit);}
         //if next player has a color set, make purchase house button visible. Else make the button not visible.
         if(currentPlayer.getHasAColorSet()){
             boardView.setPurchaseHouseButtonVisibility(true);
@@ -459,6 +465,12 @@ public class BoardModel {
      * @return BoardView
      */
     public BoardView getBoardView(){return boardView;}
+
+    /**
+     * todo add to uml
+     * Returns the winning Player.
+     */
+    public Player getWinner() {return winner;}
 
     /**
      * Set the board view of this Board Model to the parameter

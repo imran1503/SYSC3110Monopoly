@@ -135,7 +135,7 @@ public class Board {
         Board board = new Board(userInputSource);
         //BoardConstructor boardConstructor = new BoardConstructor(board);
 
-        //String filename = "Board.xml"; todo uncomment
+        String filename = "Board.xml";
         //userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);
 
 

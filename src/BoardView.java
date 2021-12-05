@@ -621,10 +621,17 @@ public class BoardView {
         }
     }
 
-
-    public void finalMessageWindow() {
-        JOptionPane.showMessageDialog(frame, "Are you sure you want to quit the game?");
+    /**
+     * todo add to uml
+     * Creates a popup window to announce the winner when the game ends.
+     * @param winner
+     */
+    public void finalMessageWindow(Player winner) {
+        String finalMessage = "" + winner.getName() + " wins!";
+        int input = JOptionPane.showConfirmDialog(frame, finalMessage, "Game is over!", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if( input == JOptionPane.OK_OPTION) {
+            frame.dispose();
+            System.exit(0);
+        }
     }
-
-
 }
