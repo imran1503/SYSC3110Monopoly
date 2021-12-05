@@ -680,6 +680,7 @@ public class BoardModel {
     }
 
     public void loadPlayers(String fileName){
+        int maxPlayers = 4;//TODO change to actual max players
         try{
             File file = new File("src/"+fileName);
             //an instance of factory that gives a document builder
@@ -701,21 +702,28 @@ public class BoardModel {
                             Integer.parseInt(playerElement.getElementsByTagName("b").item(0).getTextContent())); //B
                     int money = Integer.parseInt(playerElement.getElementsByTagName("balance").item(0).getTextContent());
                     int playerPosition = Integer.parseInt(playerElement.getElementsByTagName("position").item(0).getTextContent());
-                    int maxPlayers = 4; //TODO change to actual max players
+                    Boolean inJail = Boolean.parseBoolean(playerElement.getElementsByTagName("inJail").item(0).getTextContent());
+                    int turnsInJail = Integer.parseInt(playerElement.getElementsByTagName("turnsInJail").item(0).getTextContent());
                     if(isAi){
                         AIPlayer aiPlayer = new AIPlayer(playerName,playerColor,money,maxPlayers,board,this,boardView);
                         aiPlayer.setPosition(playerPosition);
+                        aiPlayer.setInJail(inJail);
+                        aiPlayer.setTurnsInJail(turnsInJail);
                         //TODO set other items of player
                         players.add(aiPlayer);
                     }
                     else{
                         Player player = new Player(playerName,playerColor,money,false);
                         player.setPosition(playerPosition);
+                        player.setInJail(inJail);
+                        player.setTurnsInJail(turnsInJail);
                         //TODO set other items of player
                         players.add(player);
                     }
                 }
             }
+            boardView.updateAllPlayersStatus(maxPlayers);
+            boardView.setPlayerPanelHoldersVisibility(maxPlayers,true);
         }
         catch (FileNotFoundException | ParserConfigurationException f) {
             f.printStackTrace();
@@ -731,6 +739,7 @@ public class BoardModel {
         BoardConstructor loadBoardConstructor = new BoardConstructor(loadedBoard);
         loadedBoard = loadBoardConstructor.loadBoardFromMapFile(fileName, false);
         board = loadedBoard;
+        boardView.setAllPropertys();
     }
 }
 

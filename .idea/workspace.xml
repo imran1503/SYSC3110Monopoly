@@ -26,9 +26,6 @@
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Save Function near done.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,13 +112,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00007" summary="player inventory ui started">
-      <created>1636331291255</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1636331291255</updated>
     </task>
     <task id="LOCAL-00008" summary="Moved button handlers to correct location">
       <created>1636331515724</created>
@@ -459,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638668020726</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Initial start at Load() in BoardModel">
+      <created>1638713889768</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1638713889769</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,7 +475,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed bug of buying houses on properties you should not." />
     <MESSAGE value="AI player initilizing fixes." />
     <MESSAGE value="Initial start at playAITurn method" />
     <MESSAGE value="game number starts with a random player first + clean up and more comments in BoardModel." />
@@ -503,37 +499,8 @@
     <MESSAGE value="uing helper functions in BoardController to split code in to many methods instead of 1 method." />
     <MESSAGE value="setUserInputVisibilty() now does not have magic numbers" />
     <MESSAGE value="Save Function near done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Save Function near done." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1877" height="5" key="GridCell.Tab.0.bottom" timestamp="1638667869725">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="5" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638667869725" />
-    <state width="1877" height="5" key="GridCell.Tab.0.center" timestamp="1638667869725">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="5" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638667869725" />
-    <state width="1877" height="5" key="GridCell.Tab.0.left" timestamp="1638667869725">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="5" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638667869725" />
-    <state width="1877" height="5" key="GridCell.Tab.0.right" timestamp="1638667869725">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="5" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638667869725" />
-    <state x="184" y="86" key="MergeDialog" timestamp="1638646489249">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="86" key="MergeDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638646489249" />
-    <state x="618" y="236" key="VCS.ChangeListViewerDialog" timestamp="1638646482101">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="618" y="236" key="VCS.ChangeListViewerDialog/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638646482101" />
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2" timestamp="1638668024461">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="240" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1440.860@0.0.1920.1040" timestamp="1638668024461" />
+    <MESSAGE value="Initial start at Load() in BoardModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial start at Load() in BoardModel" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
