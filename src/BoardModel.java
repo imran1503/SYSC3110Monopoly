@@ -683,6 +683,7 @@ public class BoardModel {
         loadBoardModelAttributes(fileName);
         loadPropertyOwners(fileName);
         boardView.setStartLoadButtonVisibility(false);
+        boardView.setEventLabelText("It's "+currentPlayer.getName()+" turn", "");
     }
 
     public void loadPlayers(String fileName){

@@ -25,13 +25,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Save Function near done.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Save Files/MonopolySaveTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/MonopolySaveTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/board.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,20 +111,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00019" summary="Implemented actionEvent for start,roll,purchase property, pass turn buttons in BoardController.java">
-      <created>1637264624756</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1637264624756</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Player icon Movement">
-      <created>1637270269220</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1637270269220</updated>
     </task>
     <task id="LOCAL-00021" summary="Added functionality to ask user if they want an AI player.">
       <created>1637442222415</created>
@@ -461,7 +441,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638727269233</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="load game button now works on GUI">
+      <created>1638728992635</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1638728992635</updated>
+    </task>
+    <task id="LOCAL-00069" summary="load game button now works on GUI">
+      <created>1638729029937</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1638729029937</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +474,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cleanup and javadoc + comments on BoardView. Also bug fix in BoardController" />
     <MESSAGE value="Player Panels displayed now equal to number of players playing the game." />
     <MESSAGE value="Added JavaDocs in BoardView class." />
     <MESSAGE value="player ownXtrains should update now when buying a railroad." />
@@ -505,7 +498,8 @@
     <MESSAGE value="more completion on load() in BoardModel" />
     <MESSAGE value="splitting loading of boardModel attributes from loadPlayers()" />
     <MESSAGE value="maxplayers getting improved in BoardModel loadPlayers()" />
-    <option name="LAST_COMMIT_MESSAGE" value="maxplayers getting improved in BoardModel loadPlayers()" />
+    <MESSAGE value="load game button now works on GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="load game button now works on GUI" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
