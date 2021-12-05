@@ -97,6 +97,7 @@ public class BoardController implements ActionListener {
         }
         if (actionEvent.getSource().equals(buttons.get(saveButton))) {
             //TODO save game
+            bm.save("MonopolySaveTest");
         }
         if (actionEvent.getSource().equals(buttons.get(loadButton))) {
             //TODO load game

@@ -512,60 +512,61 @@ public class BoardModel {
         String stringIndent = "    ";
 
         s += stringIndent + "<Monopoly>\n";
-        s+= stringIndent + stringIndent + "<CurrentPlayer>" + this.getCurrentPlayer() + "</CurrentPlayer>";
-        s+= stringIndent + stringIndent + "<CurrentPlayerIndex>" + this.getCurrentPlayerIndex() + "</CurrentPlayerIndex>";
+        s+= stringIndent + stringIndent + "<CurrentPlayer>" + this.getCurrentPlayer() + "</CurrentPlayer>\n";
+        s+= stringIndent + stringIndent + "<CurrentPlayerIndex>" + this.getCurrentPlayerIndex() + "</CurrentPlayerIndex>\n";
+        s+= stringIndent + stringIndent + "<Currency>" + this.getBoard().getCurrency() + "</Currency>\n";
 
         ;
         for (int i = 0; i < players.size() ; i++) {
-            s+= stringIndent + stringIndent + "<Player>";
+            s+= stringIndent + stringIndent + "<Player>\n";
 
-                s+= stringIndent + stringIndent + stringIndent + "<name>" + players.get(i).getName() + "</name>";
-                s+= stringIndent + stringIndent + stringIndent + "<balance>" + players.get(i).getBalance() + "</balance>";
-                s+= stringIndent + stringIndent + stringIndent + "<position>" + players.get(i).getPositon() + "</position>";
+                s+= stringIndent + stringIndent + stringIndent + "<name>" + players.get(i).getName() + "</name>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<balance>" + players.get(i).getBalance() + "</balance>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<position>" + players.get(i).getPositon() + "</position>\n";
 
                 //Jail
-                s+= stringIndent + stringIndent + stringIndent + "<inJail>" + players.get(i).getInJail() + "</inJail>";
-                s+= stringIndent + stringIndent + stringIndent + "<turnsInJail>" + players.get(i).getTurnsInJail() + "</turnsInJail>";
+                s+= stringIndent + stringIndent + stringIndent + "<inJail>" + players.get(i).getInJail() + "</inJail>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<turnsInJail>" + players.get(i).getTurnsInJail() + "</turnsInJail>\n";
 
 
                 //Color as R G B
-                s+= stringIndent + stringIndent + stringIndent + "<r>" + players.get(i).getColor().getRed() + "</r>";
-                s+= stringIndent + stringIndent + stringIndent + "<g>" + players.get(i).getColor().getGreen() + "</g>";
-                s+= stringIndent + stringIndent + stringIndent + "<b>" + players.get(i).getColor().getBlue()+ "</b>";
+                s+= stringIndent + stringIndent + stringIndent + "<r>" + players.get(i).getColor().getRed() + "</r>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<g>" + players.get(i).getColor().getGreen() + "</g>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<b>" + players.get(i).getColor().getBlue()+ "</b>\n";
 
                 //Owns ___
-                s+= stringIndent + stringIndent + stringIndent + "<ownsXtrains>" + players.get(i).getOwnsXtrains() + "</ownsXtrains>";
-                s+= stringIndent + stringIndent + stringIndent + "<ownsBothUtil>" + players.get(i).getOwnsBothUtil() + "</ownsBothUtil>";
+                s+= stringIndent + stringIndent + stringIndent + "<ownsXtrains>" + players.get(i).getOwnsXtrains() + "</ownsXtrains>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<ownsBothUtil>" + players.get(i).getOwnsBothUtil() + "</ownsBothUtil>\n";
 
 
-                s+= stringIndent + stringIndent + stringIndent + "<ai>" + players.get(i).getAi() + "</ai>";
-                s+= stringIndent + stringIndent + stringIndent + "<numOfDoubleRolls>" + players.get(i).getNumOfDoubleRolls() + "</numOfDoubleRolls>";
-                s+= stringIndent + stringIndent + stringIndent + "<ownsBothUtil>" + players.get(i).getOwnsBothUtil() + "</ownsBothUtil>";
-                s+= stringIndent + stringIndent + stringIndent + "<hasAColorSet>" + players.get(i).getHasAColorSet() + "</hasAColorSet>";
-                s+= stringIndent + stringIndent + stringIndent + "<bankruptStatus>" + players.get(i).getBankruptStatus() + "</bankruptStatus>";
+                s+= stringIndent + stringIndent + stringIndent + "<ai>" + players.get(i).getAi() + "</ai>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<numOfDoubleRolls>" + players.get(i).getNumOfDoubleRolls() + "</numOfDoubleRolls>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<ownsBothUtil>" + players.get(i).getOwnsBothUtil() + "</ownsBothUtil>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<hasAColorSet>" + players.get(i).getHasAColorSet() + "</hasAColorSet>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<bankruptStatus>" + players.get(i).getBankruptStatus() + "</bankruptStatus>\n";
 
-            s+= stringIndent + stringIndent + "</Player>";
+            s+= stringIndent + stringIndent + "</Player>\n";
         }
 
         for (int i = 0; i < this.getBoard().getPropertyArrayList().size(); i++) {
 
-            s+= stringIndent + stringIndent + "<Property>";
-                s+= stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>";
-                s+= stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>";
-                s+= stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner() + "</owner>";
-                s+= stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>";
-                s+= stringIndent + stringIndent + stringIndent + "<location>" + this.getBoard().getProperty(i).getLocation() + "</location>";
+            s+= stringIndent + stringIndent + "<Property>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner().getName() + "</owner>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<location>" + this.getBoard().getProperty(i).getLocation() + "</location>\n";
 
                 //Color as R G B
-                s+= stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>";
-                s+= stringIndent + stringIndent + stringIndent + "<g>" + this.getBoard().getProperty(i).getColor().getGreen() + "</g>";
-                s+= stringIndent + stringIndent + stringIndent + "<b>" + this.getBoard().getProperty(i).getColor().getBlue() + "</b>";
+                s+= stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<g>" + this.getBoard().getProperty(i).getColor().getGreen() + "</g>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<b>" + this.getBoard().getProperty(i).getColor().getBlue() + "</b>\n";
 
 
-                s+= stringIndent + stringIndent + stringIndent + "<numHouses>" + this.getBoard().getProperty(i).getNumHouses() + "</numHouses>";
-                s+= stringIndent + stringIndent + stringIndent + "<numHotels>" + this.getBoard().getProperty(i).getNumHotels() + "</numHotels>";
+                s+= stringIndent + stringIndent + stringIndent + "<numHouses>" + this.getBoard().getProperty(i).getNumHouses() + "</numHouses>\n";
+                s+= stringIndent + stringIndent + stringIndent + "<numHotels>" + this.getBoard().getProperty(i).getNumHotels() + "</numHotels>\n";
 
-            s+= stringIndent + stringIndent + "</Property>";
+            s+= stringIndent + stringIndent + "</Property>\n";
         }
 
 
@@ -577,7 +578,7 @@ public class BoardModel {
         return s;
     }
     public void save(String name){
-        File file = new File (name + ".txt");
+        File file = new File ("Save Files/" + name + ".xml");
         try {
             FileWriter writer = new FileWriter(file);
             writer.write(toXML());
