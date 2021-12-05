@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * Alot of buttons for each important operation in the game and buttons list.
  * userInputBox to store user input on gui in the JTextField
  * scrollPanes and PropertyTextArea to hold the controlled Property in a list for each player.
+ * JRadio buttons to select the language version of board to play with.
  *
  * @author Mahtab Ameli, Imran Latif, Muhammad Furqan
  * @version 1.0
@@ -42,10 +43,6 @@ public class BoardView {
     private JScrollPane[] scrollPanes;
     private JTextArea[] PropertyTextAreas;
     private BoardController bc;
-
-    public JFrame getFrame() {
-        return frame;
-    }
 
     /**
      * Constructor for BoardView.
@@ -575,7 +572,6 @@ public class BoardView {
         userInputBox.setVisible(condition);
     }
 
-    //todo add to uml
     /**
      * Sets user UserInputBox's visibility to false..
      */
@@ -608,6 +604,9 @@ public class BoardView {
         }
     }
 
+    /**
+     * Set all properties in the game to the latest board, boardModel is set with
+     */
     public void setAllPropertys(){
         for (int i = 0; i < 40; i++) {
             Color propertyColor = boardModel.getBoard().getProperty(i).getColor();
@@ -621,6 +620,11 @@ public class BoardView {
         }
     }
 
+    /**
+     * Method to change visibility of load button and start button and set max number of players in Board Controller
+     * @param visible visibility to set with, true for visible
+     * @param number number to set max_players in the game with
+     */
     public void loadButtonSetup(Boolean visible, int number){
         startButton.setVisible(visible);
         loadButton.setVisible(visible);
