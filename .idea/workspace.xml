@@ -26,8 +26,6 @@
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Save Function near done.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,13 +112,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00022" summary="added GUI functionality to make list of properties owned by players scrollable.">
-      <created>1637464967698</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1637464967698</updated>
     </task>
     <task id="LOCAL-00023" summary="Some bug fixes with Jail.">
       <created>1637520607527</created>
@@ -458,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638729175447</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="load game bug fixed">
+      <created>1638730168996</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1638730168996</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +475,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Player Panels displayed now equal to number of players playing the game." />
     <MESSAGE value="Added JavaDocs in BoardView class." />
     <MESSAGE value="player ownXtrains should update now when buying a railroad." />
     <MESSAGE value="JavaDoc and more comments for BoardController" />
@@ -502,7 +499,8 @@
     <MESSAGE value="splitting loading of boardModel attributes from loadPlayers()" />
     <MESSAGE value="maxplayers getting improved in BoardModel loadPlayers()" />
     <MESSAGE value="load game button now works on GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="load game button now works on GUI" />
+    <MESSAGE value="load game bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="load game bug fixed" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

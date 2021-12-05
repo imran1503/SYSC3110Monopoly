@@ -33,7 +33,6 @@ public class BoardView {
     private ArrayList<JButton> buttonList;
     private JButton startButton,rollButton,purchaseButton,helpButton,newGameButton,quitButton,purchaseHouseHotel,passButton,submitButton,saveButton, loadButton;
 
-    // todo add to uml
     private JRadioButton EnglishButton, FrenchButton, ArabicButton, PersianButton;
     private ButtonGroup languageButtonGroup;
     private JPanel languageOptionsPanel;
@@ -596,7 +595,6 @@ public class BoardView {
         }
     }
 
-    //todo add to uml
     /**
      * Set visibility of languageOptionsPanel
      *
@@ -629,7 +627,6 @@ public class BoardView {
         bc.setMax_players(number);
     }
     /**
-     * todo add to uml
      * Creates a popup window to announce the result of the game after the game ends.
      * The result can be a single winner, multiple winners in a tie, or no winners.
      */
