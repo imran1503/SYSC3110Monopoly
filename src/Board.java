@@ -14,14 +14,11 @@ import java.util.Scanner;
  */
 public class Board {
 
-    private static Scanner  reader;
     private BoardConstructor boardConstructor;
-    private static ArrayList<Player> players;
     private ArrayList<Property> propertyArrayList;
     private HashMap<Color, ArrayList<Property>> colorPropertyArrayList;
-    private boolean isValid;
     private ArrayList<Color> allColorsList;
-    private String Language;
+    private Boolean isValid;
     private String currency;
 
     /**
@@ -35,15 +32,16 @@ public class Board {
      */
     public Board(String userInputSource) {
         this.propertyArrayList = new ArrayList<>();
-        this.players = new ArrayList<>();
         this.userInputSource = userInputSource;
         this.colorPropertyArrayList = new HashMap<>();
         this.allColorsList = new ArrayList<>();
         currency = "";
-
     }
 
-
+    /**
+     * Method to set board with filename given
+     * @param filename Name of file to set with
+     */
     public void setBoard(String filename) {
         boardConstructor = new BoardConstructor(this);
         boardConstructor.loadBoardFromMapFile(filename,true);
@@ -87,15 +85,33 @@ public class Board {
      */
     public Property getProperty(int position){ return propertyArrayList.get(position); }
 
+    /**
+     * Add property given to propertyArrayList of board
+     * @param property Property to add
+     */
     public void addProperty(Property property){
-        propertyArrayList.add(property);}
+        propertyArrayList.add(property);
+    }
 
+    /**
+     * Set Property at a specific location in the propertyArrayList to the property given
+     * @param location int location to set at
+     * @param property Property to set with
+     */
     public void setProperty(int location, Property property){
         propertyArrayList.set(location,property);
     }
 
+    /**
+     * Get currency of the board
+     * @return String currency of the board
+     */
     public String getCurrency(){return currency;}
 
+    /**
+     * Setter method for currency of board
+     * @param currency String of currency to set with
+     */
     public void setCurrency(String currency){this.currency = currency;}
 
     /**
@@ -103,13 +119,6 @@ public class Board {
      * @param valid Boolean argument to set isValid attribute to.
      */
     public void setIsValid(Boolean valid){this.isValid = valid;}
-
-    /**
-     * Setter method for list of players on the board
-     * @param playersForBoard ArrayList<Player> to set players on the board to.
-     */
-    public void setPlayers(ArrayList<Player> playersForBoard){Board.players = playersForBoard;}
-
 
     /**
      * Getter method for list of all colors of Property
@@ -122,51 +131,4 @@ public class Board {
      */
     public void setAllColorsList(ArrayList<Color> colorsList){allColorsList = colorsList;}
 
-    /**
-     * Creates a new Board using either a map or save file
-     * @param userInputSource the boardInput that the Board will ask for user input when needed
-     * @param gameIsNew If true, the Board will be generated from a map file. If false, it will be generated from a save file
-     * @return The newly created Board
-     */
-    public static Board newBoard(String userInputSource, boolean gameIsNew){
-        Color red = Color.RED;
-        Color green = Color.GREEN;
-        Color blue = Color.BLUE;
-        Color yellow = Color.YELLOW;
-
-        Board board = new Board(userInputSource);
-        //BoardConstructor boardConstructor = new BoardConstructor(board);
-
-        String filename = "Board.xml";
-        //userInputSource.getStringInput("Enter the name of the " + (gameIsNew? "map": "save") + " file (no file extension)", gameIsNew? "board.xml": null);
-
-
-         if(gameIsNew){
-            int MIN_PLAYERS = 2;
-            int MAX_PLAYERS = 0;
-            System.out.println("Enter the total number of Players playing");
-            MAX_PLAYERS = reader.nextInt();
-
-            ArrayList<Player> players = new ArrayList<>();
-            //Object[] options = {"Human", "AI"};
-            for(int i = 0; i < MAX_PLAYERS; i++){
-                System.out.println("Enter the name of Player "+i);
-                String playerName = reader.nextLine();
-                Player newPlayer = new Player(playerName, new Color(10*i,10*i,10*i), 1500, false);
-                players.add(newPlayer);
-
-            }
-            board.players = players;
-
-            //board.isValid = boardConstructor.loadBoardFromMapFile(filename, board)
-            //                && boardConstructor.validateXMLSchema("board.xsd", "board.xml");
-
-        }
-        else{
-            board.players = new ArrayList<>();
-        }
-
-
-        return board;
-    }
 }
