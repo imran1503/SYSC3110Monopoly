@@ -742,7 +742,7 @@ public class BoardModel {
                         player.setHasAColorSet(hasAColorSet);
                         players.add(player);
                     }
-                    //Make current player's icon visible at new location
+                    //Make player's icon visible at new location
                     boardView.getPlayerLists().get(i)[playerPosition].setVisible(true);
                 }
             }
