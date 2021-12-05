@@ -657,6 +657,11 @@ public class BoardModel {
                 s += stringIndent + stringIndent + "</Property>\n";
             }
         }
+        s+= stringIndent + stringIndent  + "<maxPlayers>" + boardView.getMaxPlayers() + "</maxPlayers>\n";
+        s+= stringIndent + stringIndent  + "<currentPlayerIndex>" + this.getCurrentPlayerIndex() + "</currentPlayerIndex>\n";
+        s+= stringIndent + stringIndent  + "<nextRoll>" + nextRoll + "</nextRoll>\n";
+        s+= stringIndent + stringIndent  + "<numPropertiesLeft>" + numPropertiesLeft + "</numPropertiesLeft>\n";
+
 
         s += stringIndent + "</Monopoly>\n";
 
@@ -690,6 +695,10 @@ public class BoardModel {
             Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
             NodeList loadPlayersList = doc.getElementsByTagName("Player");
+            NodeList maxPlayersList = doc.getElementsByTagName("maxPlayers");
+            NodeList nextRollList = doc.getElementsByTagName("nextRoll");
+            NodeList currentPlayerIndexList = doc.getElementsByTagName("currentPlayerIndex");
+            NodeList numPropertiesLeftList = doc.getElementsByTagName("numPropertiesLeft");
 
             for (int i = 0; i <loadPlayersList.getLength() ; i++) {
                 Node playerNode = loadPlayersList.item(i);
@@ -734,6 +743,34 @@ public class BoardModel {
                         player.setHasAColorSet(hasAColorSet);
                         players.add(player);
                     }
+                }
+            }
+            for (int i = 0; i <maxPlayersList.getLength() ; i++) {
+                Node maxplayerNode = maxPlayersList.item(i);
+                if (maxplayerNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element maxplayerElement = (Element) maxplayerNode;
+                    maxPlayers = Integer.parseInt(maxplayerElement.getTextContent());
+                }
+            }
+            for (int i = 0; i <nextRollList.getLength() ; i++) {
+                Node nextRollNode = nextRollList.item(i);
+                if (nextRollNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element nextRollElement = (Element) nextRollNode;
+                    nextRoll = Boolean.parseBoolean(nextRollElement.getTextContent());
+                }
+            }
+            for (int i = 0; i <currentPlayerIndexList.getLength() ; i++) {
+                Node currentPlayerIndexNode = currentPlayerIndexList.item(i);
+                if (currentPlayerIndexNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element currentPlayerIndexElement = (Element) currentPlayerIndexNode;
+                    currentPlayer = players.get(Integer.parseInt(currentPlayerIndexElement.getTextContent()));
+                }
+            }
+            for (int i = 0; i <numPropertiesLeftList.getLength() ; i++) {
+                Node numPropertiesNode = numPropertiesLeftList.item(i);
+                if (numPropertiesNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element numPropetiesElement = (Element) numPropertiesNode;
+                    numPropertiesLeft = Integer.parseInt(numPropetiesElement.getTextContent());
                 }
             }
             boardView.updateAllPlayersStatus(maxPlayers);

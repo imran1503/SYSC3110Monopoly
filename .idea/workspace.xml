@@ -25,7 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Save Function near done.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,13 +114,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00013" summary="Fixed income tax and rent paying bug">
-      <created>1637240859451</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1637240859451</updated>
     </task>
     <task id="LOCAL-00014" summary="refactored game.java to BoardModel.java">
       <created>1637241231635</created>
@@ -455,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638716582932</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="work on loadPropertyOwnersAndPlayerControlled() in BoardModel">
+      <created>1638717390892</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1638717390892</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +477,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="game number starts with a random player first + clean up and more comments in BoardModel." />
     <MESSAGE value="game now starts with a random player first + clean up and more comments in BoardModel." />
     <MESSAGE value="More cleanup and javadoc + comments on BoardModel" />
     <MESSAGE value="Cleanup and javadoc + comments on AIPlayer" />
@@ -499,7 +501,8 @@
     <MESSAGE value="Initial start at Load() in BoardModel" />
     <MESSAGE value="Initial start at load() in BoardModel" />
     <MESSAGE value="the rest of player attributes added in loadPlayers()" />
-    <option name="LAST_COMMIT_MESSAGE" value="the rest of player attributes added in loadPlayers()" />
+    <MESSAGE value="work on loadPropertyOwnersAndPlayerControlled() in BoardModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on loadPropertyOwnersAndPlayerControlled() in BoardModel" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
