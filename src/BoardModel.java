@@ -676,7 +676,7 @@ public class BoardModel {
     public void load(String fileName){
         loadBoard(fileName);
         loadPlayers(fileName);
-        loadPropertyOwnersAndPlayerControlled();
+        loadPropertyOwnersAndPlayerControlled(fileName);
     }
 
     public void loadPlayers(String fileName){
@@ -758,8 +758,56 @@ public class BoardModel {
         boardView.setAllPropertys();
     }
 
-    public void loadPropertyOwnersAndPlayerControlled(){
-        //TODO
+    public void loadPropertyOwnersAndPlayerControlled(String fileName){
+        try {
+            File file = new File("src/" + fileName);
+            //an instance of factory that gives a document builder
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            //an instance of builder to parse the specified xml file
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+            NodeList loadPropertyList = doc.getElementsByTagName("Property");
+            NodeList railroadsList = doc.getElementsByTagName("railroad");
+            for (int i = 0; i <loadPropertyList.getLength() ; i++) {
+                Node propertyNode = loadPropertyList.item(i);
+                if (propertyNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element propertyElement = (Element) propertyNode;
+                    String ownerName = propertyElement.getElementsByTagName("owner").item(0).getTextContent();
+                    int propertyLocation = Integer.parseInt(propertyElement.getElementsByTagName("location").item(0).getTextContent());
+                    for (int j = 0; j < players.size(); j++) {
+                        if(players.get(j).getName().equals(ownerName)){
+                            board.getProperty(propertyLocation).setOwner(players.get(j));
+                            players.get(j).gainProperty(board.getProperty(propertyLocation));
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i <railroadsList.getLength() ; i++) {
+                Node railroadNode = railroadsList.item(i);
+                if (railroadNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element railroadElement = (Element) railroadNode;
+                    String ownerName = railroadElement.getElementsByTagName("owner").item(0).getTextContent();
+                    int propertyLocation = Integer.parseInt(railroadElement.getElementsByTagName("location").item(0).getTextContent());
+                    for (int j = 0; j < players.size(); j++) {
+                        if(players.get(j).getName().equals(ownerName)){
+                            board.getProperty(propertyLocation).setOwner(players.get(j));
+                            players.get(j).gainProperty(board.getProperty(propertyLocation));
+                        }
+                    }
+                }
+            }
+        }
+        catch (FileNotFoundException | ParserConfigurationException f) {
+            f.printStackTrace();
+            //loadBoardFromMapFile("board.xml");
+        }   catch (SAXException e) {
+            e.printStackTrace();
+        }   catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 
