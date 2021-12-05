@@ -683,6 +683,7 @@ public class BoardModel {
         loadPlayers(fileName);
         loadBoardModelAttributes(fileName);
         loadPropertyOwnersAndPlayerControlled(fileName);
+        boardView.updateAllHousesIcons();
     }
 
     public void loadPlayers(String fileName){
@@ -741,6 +742,8 @@ public class BoardModel {
                         player.setHasAColorSet(hasAColorSet);
                         players.add(player);
                     }
+                    //Make current player's icon visible at new location
+                    boardView.getPlayerLists().get(i)[playerPosition].setVisible(true);
                 }
             }
             for (int i = 0; i <maxPlayersList.getLength() ; i++) {
