@@ -19,8 +19,10 @@ import java.lang.Math;
 public class BoardModel {
     public ArrayList<Player> players;
     private Player currentPlayer;
-    //todo add to UML
-    private Player winner;
+    //todo add to uml
+    private ArrayList<Player> winnersList, losersList;
+    //todo add to uml
+    private int numPropertiesLeft; // count of purchasable properties left for purchase
     private Boolean nextRoll;
     private Board board;
     private BoardView boardView;
@@ -34,8 +36,10 @@ public class BoardModel {
     public BoardModel(String fileName){
         this.players = new ArrayList<>();
         this.currentPlayer = null;
-        this.winner = null;
+        this.winnersList = new ArrayList<>();
+        this.losersList = new ArrayList<>();
         this.nextRoll = true;
+        this.numPropertiesLeft = 26; // total number of purchasable properties = 22 streets + 4 railroads = 26
         this.board = new Board("src/"+fileName);
         this.boardConstructor = new BoardConstructor(board);
         //creates the board
@@ -88,7 +92,7 @@ public class BoardModel {
         String currency = board.getCurrency();
         if (command.equals(Commands.quit)) {
             boardView.setEventLabel3Text("Game has ended.");
-            boardView.finalMessageWindow(winner);
+            boardView.resultsMessageWindow();
             return;
         }
         if (command.equals(Commands.roll)) {
@@ -162,11 +166,11 @@ public class BoardModel {
             boardView.updateAllHousesIcons();
             passPlayerTurn();
         }
-        //if 1 player left, end game.
-        if(!checkNumOfActivePlayers()){
-            boardView.setEventLabel3Text("Game has ended.");
-            winner = currentPlayer;
-            operateCommand(Commands.quit);}
+
+        if (gameHasEnded().equals(true)) {
+            operateCommand(Commands.quit);
+        }
+
         //if next player has a color set, make purchase house button visible. Else make the button not visible.
         if(currentPlayer.getHasAColorSet()){
             boardView.setPurchaseHouseButtonVisibility(true);
@@ -287,6 +291,7 @@ public class BoardModel {
     /**
      * Purchases property for currentPlayer based on player's position.
      * Purchases property currentPlayer has landed on.
+     * After each purchase, decrements numPropertiesLeft.
      */
     public void purchaseProperty(){
         int playerPosition = currentPlayer.getPositon();
@@ -297,7 +302,7 @@ public class BoardModel {
         Color railroadPropertyColor = new Color(102,98,95);
         String currency = board.getCurrency();
 
-        //Check property is not a non-Purchaseable property location
+        //Check property is not a non-Purchasable property location
         for (int i = 0; i < nonPurchasablePropertyLocations.length; i++) {
             if(landedOnProperty.getLocation() == nonPurchasablePropertyLocations[i]){
                 boardView.setEventLabelText("This property can not be purchased", "Property Name: "+propertyName);
@@ -318,6 +323,7 @@ public class BoardModel {
         else { // Purchase the property for the current player
             currentPlayer.removefromBalance(landedOnProperty.getPrice());
             landedOnProperty.setOwner(currentPlayer);
+            numPropertiesLeft--;
             currentPlayer.gainProperty(landedOnProperty);
             boardView.setEventLabelText(playerName + " purchased "+propertyName, "Remaining Balance: "+currency+currentPlayer.getBalance());
 
@@ -418,14 +424,14 @@ public class BoardModel {
     public Boolean checkNumOfActivePlayers(){
         int totalNumPlayers = players.size();
         int totalBankruptPlayers = 0;
-        for(int i=0; i<totalNumPlayers;i++) {
-            if(players.get(i).getBankruptStatus()){
-                totalBankruptPlayers +=1;
+        for (int i = 0; i < totalNumPlayers; i++) {
+            Player player = players.get(i);
+            if (player.getBankruptStatus()) {
+                totalBankruptPlayers++;
             }
         }
         //if 1 player left that is not bankrupt return false, else return true.
         if((totalNumPlayers-totalBankruptPlayers)==1){
-            boardView.setEventLabelText("The Game has ended. "+currentPlayer.getName()+"wins!","");
             return false;
         }
         return true;
@@ -468,9 +474,51 @@ public class BoardModel {
 
     /**
      * todo add to uml
-     * Returns the winning Player.
+     * Returns true if the game has ended. Updates winnersList.
      */
-    public Player getWinner() {return winner;}
+    public Boolean gameHasEnded() {
+        //The game ends if the last active player (not bankrupt)
+        // or
+        // if there are no properties left for purchase. In this case the game ends in a tie between non-bankrupt Players (winnersList).
+        if (!checkNumOfActivePlayers() || (numPropertiesLeft == 0)) {
+            boardView.setEventLabel3Text("Game has ended.");
+            updateWinnersList();
+            return true;
+        }
+        else { // else the game has not ended yet
+            return false;
+        }
+    }
+
+    /**
+     * todo add to uml
+     * Returns winnerList.
+     */
+    public ArrayList<Player> getWinnersList() {return this.winnersList;}
+
+    /**
+     * todo add to uml
+     * Updates winnersList and losersList
+     */
+    public void updateWinnersList() {
+        int numTotalPlayers = players.size();
+        for (int i = 0; i < numTotalPlayers; i++) {
+            Player player = players.get(i);
+            if (!player.getBankruptStatus()) {
+                winnersList.add(player);
+            } else {
+                losersList.add(player);
+            }
+        }
+    }
+
+
+    /**
+     * todo add to uml
+     * Returns losersList.
+     */
+    public ArrayList<Player> getLosersList() {return losersList;}
+
 
     /**
      * Set the board view of this Board Model to the parameter
@@ -580,10 +628,6 @@ public class BoardModel {
 
             s+= stringIndent + stringIndent + "</Property>\n";
         }
-
-
-
-
 
         s += stringIndent + "</Monopoly>\n";
 
