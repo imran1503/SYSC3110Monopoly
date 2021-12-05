@@ -18,7 +18,6 @@ public class BoardController implements ActionListener {
     private BoardView bv;
     private BoardModel bm;
 
-    //todo add to uml
     public enum Stages {languageSelect, numPlayersSelect, AIPlayerSelect, AIPlayerInit, gameInit, housingPurchase}
 
     private Boolean playersInitialized;
@@ -28,8 +27,6 @@ public class BoardController implements ActionListener {
     private Boolean waitForNextButton;
 
     private ArrayList<Color> colorList;
-
-
 
     /**
      * BoardController Constructor
@@ -103,6 +100,9 @@ public class BoardController implements ActionListener {
         }
     }
 
+    /**
+     * Implements start button
+     */
     public void startButtonAction(){
         ArrayList<JButton> buttons = bv.getButtonList();
         int startButton = 0; int loadButton = 8;
@@ -116,26 +116,41 @@ public class BoardController implements ActionListener {
         }
     }
 
+    /**
+     * Implements roll button
+     */
     public void rollButtonAction(){
         bm.operateCommand(BoardModel.Commands.roll);
         bv.updateAllPlayersStatus(Max_players);
     }
 
+    /**
+     * Implements purchase property button
+     */
     public void purchasePropertyButtonAction(){
         bm.operateCommand(BoardModel.Commands.purchaseProperty);
         bv.updateAllPlayersStatus(Max_players);
     }
 
+    /**
+     * Implements pass turn button
+     */
     public void passTurnButtonAction(){
         bm.operateCommand(BoardModel.Commands.passTurn);
         bv.updateAllPlayersStatus(Max_players);
     }
 
+    /**
+     * Implements purchase house button
+     */
     public void purchaseHouseButtonAction(){
         bm.operateCommand(BoardModel.Commands.purchaseHouse);
         bv.setUserInputVisibility(true);
     }
 
+    /**
+     * Implements submit button
+     */
     public void submitButtonAction(){
         waitForNextButton = false;
         if(playerInitializeStage.equals(Stages.languageSelect)){
@@ -304,11 +319,18 @@ public class BoardController implements ActionListener {
         bv.clearTextField();
     }
 
+    /**
+     * Method to correctly setup playersInitialized and playerInitializeStage when loading a game
+     */
     public void setPlayersInitialized(){
         playersInitialized = true;
         playerInitializeStage = Stages.housingPurchase;
     }
 
+    /**
+     * Set Max_players to the parameter given
+     * @param number int number to set with
+     */
     public void setMax_players(int number){
         Max_players = number;
     }
