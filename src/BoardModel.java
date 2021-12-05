@@ -512,7 +512,7 @@ public class BoardModel {
         String stringIndent = "    ";
 
         s += stringIndent + "<Monopoly>\n";
-        s+= stringIndent + stringIndent + "<CurrentPlayer>" + this.getCurrentPlayer() + "</CurrentPlayer>\n";
+        s+= stringIndent + stringIndent + "<CurrentPlayer>" + this.getCurrentPlayer().getName() + "</CurrentPlayer>\n";
         s+= stringIndent + stringIndent + "<CurrentPlayerIndex>" + this.getCurrentPlayerIndex() + "</CurrentPlayerIndex>\n";
         s+= stringIndent + stringIndent + "<Currency>" + this.getBoard().getCurrency() + "</Currency>\n";
 

@@ -1,27 +1,28 @@
     <Monopoly>
-        <CurrentPlayer>Player@a0c1b66</CurrentPlayer>
+        <CurrentPlayer>Fred</CurrentPlayer>
         <CurrentPlayerIndex>0</CurrentPlayerIndex>
+        <Currency>CAD </Currency>
         <Player>
-            <name>1</name>
-            <balance>200</balance>
-            <position>17</position>
+            <name>Fred</name>
+            <balance>1354</balance>
+            <position>22</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
             <r>10</r>
             <g>10</g>
             <b>10</b>
-            <ownsXtrains>1</ownsXtrains>
+            <ownsXtrains>0</ownsXtrains>
             <ownsBothUtil>false</ownsBothUtil>
             <ai>false</ai>
-            <numOfDoubleRolls>2</numOfDoubleRolls>
+            <numOfDoubleRolls>0</numOfDoubleRolls>
             <ownsBothUtil>false</ownsBothUtil>
             <hasAColorSet>false</hasAColorSet>
             <bankruptStatus>false</bankruptStatus>
         </Player>
         <Player>
-            <name>2</name>
-            <balance>500</balance>
-            <position>1</position>
+            <name>Shaggy</name>
+            <balance>766</balance>
+            <position>26</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
             <r>20</r>
@@ -36,7 +37,7 @@
             <bankruptStatus>false</bankruptStatus>
         </Player>
         <Property>
-            <name>يذهب</name>
+            <name>Départ</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -48,10 +49,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع بقيق</name>
-            <rent>6</rent>
-            <owner>2</owner>
-            <price>180</price>
+            <name>Boul. de Belleville</name>
+            <rent>2</rent>
+            <owner>bank</owner>
+            <price>60</price>
             <location>1</location>
             <r>136</r>
             <g>69</g>
@@ -60,7 +61,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صندوق المجتمع</name>
+            <name>Coffre Communautaire</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -72,10 +73,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق الجوف</name>
-            <rent>12</rent>
+            <name>Rue Lecourbe</name>
+            <rent>4</rent>
             <owner>bank</owner>
-            <price>180</price>
+            <price>60</price>
             <location>3</location>
             <r>136</r>
             <g>69</g>
@@ -84,8 +85,8 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>ضرائب الإستيراد</name>
-            <rent>600</rent>
+            <name>Impôt sur le revenu</name>
+            <rent>200</rent>
             <owner>bank</owner>
             <price>0</price>
             <location>4</location>
@@ -96,10 +97,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>محطة جدة</name>
-            <rent>75</rent>
-            <owner>1</owner>
-            <price>600</price>
+            <name>Gare Montparnasse</name>
+            <rent>25</rent>
+            <owner>bank</owner>
+            <price>200</price>
             <location>5</location>
             <r>102</r>
             <g>98</g>
@@ -108,10 +109,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق الباحة</name>
-            <rent>18</rent>
-            <owner>bank</owner>
-            <price>300</price>
+            <name>Rue de Vaugirard</name>
+            <rent>6</rent>
+            <owner>Shaggy</owner>
+            <price>100</price>
             <location>6</location>
             <r>135</r>
             <g>206</g>
@@ -120,7 +121,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صدفة</name>
+            <name>Chance</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -132,10 +133,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق الهفوف</name>
-            <rent>18</rent>
+            <name>Rue de Courcelles</name>
+            <rent>6</rent>
             <owner>bank</owner>
-            <price>300</price>
+            <price>100</price>
             <location>8</location>
             <r>135</r>
             <g>206</g>
@@ -144,10 +145,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق الشارقة</name>
-            <rent>24</rent>
+            <name>Avenue de la République</name>
+            <rent>8</rent>
             <owner>bank</owner>
-            <price>360</price>
+            <price>120</price>
             <location>9</location>
             <r>135</r>
             <g>206</g>
@@ -156,7 +157,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>سجن</name>
+            <name>Prison</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -168,10 +169,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق حائل</name>
-            <rent>30</rent>
-            <owner>2</owner>
-            <price>420</price>
+            <name>Boul. de la Villette</name>
+            <rent>10</rent>
+            <owner>bank</owner>
+            <price>140</price>
             <location>11</location>
             <r>255</r>
             <g>105</g>
@@ -180,10 +181,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شركة كهرباء</name>
-            <rent>12</rent>
+            <name>Compagnie d'électricité</name>
+            <rent>4</rent>
             <owner>bank</owner>
-            <price>450</price>
+            <price>150</price>
             <location>12</location>
             <r>255</r>
             <g>255</g>
@@ -192,10 +193,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع ينبع</name>
-            <rent>30</rent>
-            <owner>1</owner>
-            <price>420</price>
+            <name>Avenue de Neuilly</name>
+            <rent>10</rent>
+            <owner>Fred</owner>
+            <price>140</price>
             <location>13</location>
             <r>255</r>
             <g>105</g>
@@ -204,10 +205,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع تبوك</name>
-            <rent>36</rent>
-            <owner>1</owner>
-            <price>480</price>
+            <name>Rue de Paradis</name>
+            <rent>12</rent>
+            <owner>Shaggy</owner>
+            <price>160</price>
             <location>14</location>
             <r>255</r>
             <g>105</g>
@@ -216,10 +217,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>محطة أبو ظبي</name>
-            <rent>75</rent>
+            <name>Gare de Lyon</name>
+            <rent>25</rent>
             <owner>bank</owner>
-            <price>600</price>
+            <price>200</price>
             <location>15</location>
             <r>102</r>
             <g>98</g>
@@ -228,10 +229,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع نجران</name>
-            <rent>42</rent>
+            <name>Avenue Mozart</name>
+            <rent>14</rent>
             <owner>bank</owner>
-            <price>540</price>
+            <price>180</price>
             <location>16</location>
             <r>255</r>
             <g>140</g>
@@ -240,7 +241,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صندوق المجتمع</name>
+            <name>Coffre Communautaire</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -252,10 +253,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق المدينة المنورة</name>
-            <rent>42</rent>
+            <name>Boulevard Saint-Michel</name>
+            <rent>14</rent>
             <owner>bank</owner>
-            <price>540</price>
+            <price>180</price>
             <location>18</location>
             <r>255</r>
             <g>140</g>
@@ -264,10 +265,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق مكة</name>
-            <rent>48</rent>
+            <name>Place Pigalle</name>
+            <rent>16</rent>
             <owner>bank</owner>
-            <price>600</price>
+            <price>200</price>
             <location>19</location>
             <r>255</r>
             <g>140</g>
@@ -276,7 +277,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>موقف مجاني</name>
+            <name>Parking Gratuit</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -288,10 +289,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الدمام</name>
-            <rent>54</rent>
-            <owner>bank</owner>
-            <price>660</price>
+            <name>Avenue Matignon</name>
+            <rent>18</rent>
+            <owner>Shaggy</owner>
+            <price>220</price>
             <location>21</location>
             <r>255</r>
             <g>0</g>
@@ -300,7 +301,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صدفة</name>
+            <name>Chance</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -312,10 +313,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الظهران</name>
-            <rent>52</rent>
+            <name>Boulevard Malesherbes</name>
+            <rent>18</rent>
             <owner>bank</owner>
-            <price>660</price>
+            <price>220</price>
             <location>23</location>
             <r>255</r>
             <g>0</g>
@@ -324,10 +325,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الخرج</name>
-            <rent>60</rent>
+            <name>Avenue Henri-Martin</name>
+            <rent>20</rent>
             <owner>bank</owner>
-            <price>720</price>
+            <price>240</price>
             <location>24</location>
             <r>255</r>
             <g>0</g>
@@ -336,10 +337,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>محطة دبي</name>
-            <rent>75</rent>
+            <name>Gare du Nord</name>
+            <rent>25</rent>
             <owner>bank</owner>
-            <price>600</price>
+            <price>200</price>
             <location>25</location>
             <r>102</r>
             <g>98</g>
@@ -348,10 +349,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق الخليج</name>
-            <rent>66</rent>
-            <owner>bank</owner>
-            <price>780</price>
+            <name>Faubourg Saint-Honoré</name>
+            <rent>22</rent>
+            <owner>Shaggy</owner>
+            <price>260</price>
             <location>26</location>
             <r>255</r>
             <g>255</g>
@@ -360,10 +361,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع القدس</name>
-            <rent>66</rent>
+            <name>Place de la Bourse</name>
+            <rent>22</rent>
             <owner>bank</owner>
-            <price>780</price>
+            <price>260</price>
             <location>27</location>
             <r>255</r>
             <g>255</g>
@@ -372,10 +373,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شركة مياه</name>
-            <rent>12</rent>
+            <name>Compagnie des Eaux</name>
+            <rent>4</rent>
             <owner>bank</owner>
-            <price>450</price>
+            <price>150</price>
             <location>28</location>
             <r>255</r>
             <g>255</g>
@@ -384,10 +385,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق أحد</name>
-            <rent>72</rent>
+            <name>Rue Lafayette</name>
+            <rent>24</rent>
             <owner>bank</owner>
-            <price>840</price>
+            <price>280</price>
             <location>29</location>
             <r>255</r>
             <g>255</g>
@@ -396,7 +397,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>اذهب للسجن</name>
+            <name>Aller en prison</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -408,10 +409,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الملك سلمان</name>
-            <rent>78</rent>
+            <name>Avenue de Breteuil</name>
+            <rent>26</rent>
             <owner>bank</owner>
-            <price>900</price>
+            <price>300</price>
             <location>31</location>
             <r>0</r>
             <g>128</g>
@@ -420,10 +421,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الملك سعود</name>
-            <rent>78</rent>
+            <name>Avenue Foch</name>
+            <rent>26</rent>
             <owner>bank</owner>
-            <price>900</price>
+            <price>300</price>
             <location>32</location>
             <r>0</r>
             <g>128</g>
@@ -432,7 +433,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صندوق المجتمع</name>
+            <name>Coffre Communautaire</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -444,10 +445,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الملك فهد</name>
-            <rent>84</rent>
+            <name>Boulevard des Capucines</name>
+            <rent>28</rent>
             <owner>bank</owner>
-            <price>960</price>
+            <price>320</price>
             <location>34</location>
             <r>0</r>
             <g>128</g>
@@ -456,10 +457,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>محطة الرياض</name>
-            <rent>75</rent>
+            <name>Gare Saint-Lazare</name>
+            <rent>25</rent>
             <owner>bank</owner>
-            <price>600</price>
+            <price>200</price>
             <location>35</location>
             <r>102</r>
             <g>98</g>
@@ -468,7 +469,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صدفة</name>
+            <name>Chance</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -480,10 +481,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>برج العرب</name>
-            <rent>105</rent>
+            <name>Avenue des Champs-élysées</name>
+            <rent>35</rent>
             <owner>bank</owner>
-            <price>1000</price>
+            <price>350</price>
             <location>37</location>
             <r>0</r>
             <g>0</g>
@@ -492,8 +493,8 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>ضريبة الرفاهية</name>
-            <rent>300</rent>
+            <name>Taxe de luxe</name>
+            <rent>100</rent>
             <owner>bank</owner>
             <price>0</price>
             <location>38</location>
@@ -504,10 +505,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>برج خليفة</name>
-            <rent>150</rent>
+            <name>Rue de la Paix</name>
+            <rent>50</rent>
             <owner>bank</owner>
-            <price>1200</price>
+            <price>400</price>
             <location>39</location>
             <r>0</r>
             <g>0</g>
