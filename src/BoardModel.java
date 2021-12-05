@@ -682,7 +682,7 @@ public class BoardModel {
         loadPlayers(fileName);
         loadBoardModelAttributes(fileName);
         loadPropertyOwners(fileName);
-        boardView.setStartLoadButtonVisibility(false);
+
         boardView.setEventLabelText("It's "+currentPlayer.getName()+" turn", "");
     }
 
@@ -811,6 +811,7 @@ public class BoardModel {
                 }
             }
             boardView.updateAllPlayersStatus(playerList.getLength());
+            boardView.loadButtonSetup(false,playerList.getLength());
         }
         catch (FileNotFoundException | ParserConfigurationException f) {
             f.printStackTrace();

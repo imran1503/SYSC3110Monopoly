@@ -623,9 +623,10 @@ public class BoardView {
         }
     }
 
-    public void setStartLoadButtonVisibility(Boolean visible){
-        startButton.setVisible(false);
-        loadButton.setVisible(false);
+    public void loadButtonSetup(Boolean visible, int number){
+        startButton.setVisible(visible);
+        loadButton.setVisible(visible);
+        bc.setMax_players(number);
     }
     /**
      * todo add to uml

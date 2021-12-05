@@ -308,4 +308,8 @@ public class BoardController implements ActionListener {
         playersInitialized = true;
         playerInitializeStage = Stages.housingPurchase;
     }
+
+    public void setMax_players(int number){
+        Max_players = number;
+    }
 }
