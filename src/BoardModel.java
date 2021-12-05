@@ -108,9 +108,7 @@ public class BoardModel {
                 //if current player lands on a property it does not own, pay rent (which will pay if owner is not bank or is a tax property)
                 if (!owner.equals(currentPlayer)) {
                     propertyOn.payRent(currentPlayer);
-                    if(currentPlayer.getBankruptStatus()){
-                        boardView.getPlayerLists().get(this.getCurrentPlayerIndex())[currentPlayer.getPositon()].setVisible(false);
-                    }
+
                     int taxPropertyLocation1 = 4;
                     int taxPropertyLocation2 = 38;
                     //if owner is not bank or Property is a Tax Property, then set label text to show player paying rent amount.

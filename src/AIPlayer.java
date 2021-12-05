@@ -162,6 +162,9 @@ public class AIPlayer extends Player {
         }
         //Update GUI and pass turn to next player
         boardView.updateAllPlayersStatus(numPlayers);
+        if(this.getBankruptStatus()){
+            boardView.getPlayerLists().get(bm.getCurrentPlayerIndex())[this.getPositon()].setVisible(false);
+        }
         bm.operateCommand(BoardModel.Commands.passTurn);
     }
 }
