@@ -112,13 +112,6 @@
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
     </task>
-    <task id="LOCAL-00016" summary="A few changes to output Event Label strings in the GUI">
-      <created>1637241860463</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1637241860463</updated>
-    </task>
     <task id="LOCAL-00017" summary="The game should now end when 1 player is left that is not bankrupt.">
       <created>1637242445596</created>
       <option name="number" value="00017" />
@@ -455,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638718677007</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="maxplayers getting improved in BoardModel loadPlayers()">
+      <created>1638727154557</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1638727154558</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +474,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Cleanup and javadoc + comments on AIPlayer" />
     <MESSAGE value="Cleanup and javadoc + comments on BoardView. Also bug fix in BoardController" />
     <MESSAGE value="Player Panels displayed now equal to number of players playing the game." />
     <MESSAGE value="Added JavaDocs in BoardView class." />
@@ -499,7 +498,8 @@
     <MESSAGE value="work on loadPropertyOwnersAndPlayerControlled() in BoardModel" />
     <MESSAGE value="more completion on load() in BoardModel" />
     <MESSAGE value="splitting loading of boardModel attributes from loadPlayers()" />
-    <option name="LAST_COMMIT_MESSAGE" value="splitting loading of boardModel attributes from loadPlayers()" />
+    <MESSAGE value="maxplayers getting improved in BoardModel loadPlayers()" />
+    <option name="LAST_COMMIT_MESSAGE" value="maxplayers getting improved in BoardModel loadPlayers()" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
