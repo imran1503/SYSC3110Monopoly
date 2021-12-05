@@ -458,6 +458,10 @@ public class BoardModel {
      */
     public Board getBoard() {return board;}
 
+    /**
+     * Set board of the board to the parameter board.
+     * @param boardSet Board to set with
+     */
     public void setBoard(Board boardSet){this.board = boardSet;}
 
     /**
@@ -488,7 +492,6 @@ public class BoardModel {
     public BoardView getBoardView(){return boardView;}
 
     /**
-     * todo add to uml
      * Returns true if the game has ended. Updates winnersList.
      */
     public Boolean gameHasEnded() {
@@ -506,19 +509,11 @@ public class BoardModel {
     }
 
     /**
-     * todo add to uml
-     * Returns total number of players.
-     */
-    public int getNumTotalPlayers() {return players.size();}
-
-    /**
-     * todo add to uml
      * Returns winnerList.
      */
     public ArrayList<Player> getWinnersList() {return this.winnersList;}
 
     /**
-     * todo add to uml
      * Updates winnersList and losersList
      */
     public void updateWinnersList() {
@@ -533,13 +528,10 @@ public class BoardModel {
         }
     }
 
-
     /**
-     * todo add to uml
      * Returns losersList.
      */
     public ArrayList<Player> getLosersList() {return losersList;}
-
 
     /**
      * Set the board view of this Board Model to the parameter
@@ -573,16 +565,9 @@ public class BoardModel {
     public Player getCurrentPlayer() { return currentPlayer; }
 
     /**
-     * Main method to initialize and start the game.
+     * coverts current game to xml format
+     * @return String in xml format
      */
-    public static void main(String args[]){
-
-        BoardModel boardModel = new BoardModel("board.xml");
-        BoardView boardView = new BoardView(boardModel);
-        boardModel.setBoardView(boardView);
-        boardView.displayGUI();
-    }
-
     public String toXML(){
         String s = new String();
         String stringIndent = "    ";
@@ -592,7 +577,7 @@ public class BoardModel {
         s+= stringIndent + stringIndent + "<CurrentPlayerIndex>" + this.getCurrentPlayerIndex() + "</CurrentPlayerIndex>\n";
         s+= stringIndent + stringIndent + "<Currency>" + this.getBoard().getCurrency() + "</Currency>\n";
 
-        ;
+        //Players
         for (int i = 0; i < players.size() ; i++) {
             s+= stringIndent + stringIndent + "<Player>\n";
 
@@ -623,9 +608,11 @@ public class BoardModel {
             s+= stringIndent + stringIndent + "</Player>\n";
         }
 
+        //Properties
         int[] railroadsPositions = {5,15,25,35};
         for (int i = 0; i < this.getBoard().getPropertyArrayList().size(); i++) {
             Boolean isRailroad = false;
+            //RailRoads
             for (int j = 0; j < railroadsPositions.length; j++) {
                 if(i == railroadsPositions[j]){
                     isRailroad = true;
@@ -644,6 +631,7 @@ public class BoardModel {
                     s+= stringIndent + stringIndent + "</Railroad>\n";
                 }
             }
+            //All other non-railroad properties
             if(!isRailroad) {
                 s += stringIndent + stringIndent + "<Property>\n";
                 s += stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>\n";
@@ -668,11 +656,15 @@ public class BoardModel {
         s+= stringIndent + stringIndent  + "<nextRoll>" + nextRoll + "</nextRoll>\n";
         s+= stringIndent + stringIndent  + "<numPropertiesLeft>" + numPropertiesLeft + "</numPropertiesLeft>\n";
 
-
         s += stringIndent + "</Monopoly>\n";
 
         return s;
     }
+
+    /**
+     * Save game method, Will save game in a file in xml format
+     * @param name String file name to save with
+     */
     public void save(String name){
         File file = new File ("Save Files/" + name + ".xml");
         try {
@@ -685,6 +677,11 @@ public class BoardModel {
             System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * Load a saved xml file game
+     * @param fileName Name of file to load
+     */
     public void load(String fileName){
         loadBoard(fileName);
         loadPlayers(fileName);
@@ -694,6 +691,10 @@ public class BoardModel {
         boardView.setEventLabelText("It's "+currentPlayer.getName()+" turn", "");
     }
 
+    /**
+     * Load players of the game
+     * @param fileName Name of file to load
+     */
     public void loadPlayers(String fileName){
         int maxPlayers = 0;
         try{
@@ -725,6 +726,7 @@ public class BoardModel {
                     Boolean bankruptStatus = Boolean.parseBoolean(playerElement.getElementsByTagName("bankruptStatus").item(0).getTextContent());
                     Boolean hasAColorSet = Boolean.parseBoolean(playerElement.getElementsByTagName("hasAColorSet").item(0).getTextContent());
 
+                    //AiPlayer
                     if(isAi){
                         AIPlayer aiPlayer = new AIPlayer(playerName,playerColor,money,maxPlayers,board,this,boardView);
                         aiPlayer.setPosition(playerPosition);
@@ -737,6 +739,8 @@ public class BoardModel {
                         aiPlayer.setHasAColorSet(hasAColorSet);
                         players.add(aiPlayer);
                     }
+
+                    //Human player
                     else{
                         Player player = new Player(playerName,playerColor,money,false);
                         player.setPosition(playerPosition);
@@ -768,6 +772,11 @@ public class BoardModel {
             e.printStackTrace();
         }
     }
+
+    /**
+     * load board of game from file name given
+     * @param fileName Name of file to load
+     */
     public void loadBoard(String fileName){
         Board loadedBoard = new Board(fileName);
         BoardConstructor loadBoardConstructor = new BoardConstructor(loadedBoard);
@@ -777,6 +786,11 @@ public class BoardModel {
         boardView.updateAllHousesIcons();
     }
 
+    /**
+     * Load Owners of each property and set them.
+     * Add owned properties to the respective player's controlled property list as well.
+     * @param fileName
+     */
     public void loadPropertyOwners(String fileName){
         try {
             File file = new File("Save Files/" + fileName);
@@ -789,6 +803,8 @@ public class BoardModel {
             NodeList loadPropertyList = doc.getElementsByTagName("Property");
             NodeList railroadsList = doc.getElementsByTagName("railroad");
             NodeList playerList = doc.getElementsByTagName("Player");
+
+            //For non Railroad properties
             for (int i = 0; i <loadPropertyList.getLength() ; i++) {
                 Node propertyNode = loadPropertyList.item(i);
                 if (propertyNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -797,13 +813,16 @@ public class BoardModel {
                     int propertyLocation = Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent());
                     for (int j = 0; j < players.size(); j++) {
                         if(players.get(j).getName().equals(ownerName)){
+                            //Set property to Owner
                             board.getProperty(propertyLocation).setOwner(players.get(j));
+                            //add property to Owner's controller properties list
                             getPlayer(j).gainProperty(board.getProperty(propertyLocation));
                         }
                     }
                 }
             }
 
+            //For railroads
             for (int i = 0; i <railroadsList.getLength() ; i++) {
                 Node railroadNode = railroadsList.item(i);
                 if (railroadNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -832,6 +851,10 @@ public class BoardModel {
 
     }
 
+    /**
+     * Load attributes for this class
+     * @param fileName Name of file to load from
+     */
     public void loadBoardModelAttributes(String fileName){
         try {
             File file = new File("Save Files/" + fileName);
@@ -845,6 +868,7 @@ public class BoardModel {
             NodeList currentPlayerIndexList = doc.getElementsByTagName("currentPlayerIndex");
             NodeList numPropertiesLeftList = doc.getElementsByTagName("numPropertiesLeft");
 
+            //Set nextRoll
             for (int i = 0; i <nextRollList.getLength() ; i++) {
                 Node nextRollNode = nextRollList.item(i);
                 if (nextRollNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -852,6 +876,7 @@ public class BoardModel {
                     nextRoll = Boolean.parseBoolean(nextRollElement.getTextContent());
                 }
             }
+            //Set current Player
             for (int i = 0; i <currentPlayerIndexList.getLength() ; i++) {
                 Node currentPlayerIndexNode = currentPlayerIndexList.item(i);
                 if (currentPlayerIndexNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -859,6 +884,7 @@ public class BoardModel {
                     currentPlayer = players.get(Integer.parseInt(currentPlayerIndexElement.getTextContent()));
                 }
             }
+            //Set numPropertiesLeft
             for (int i = 0; i <numPropertiesLeftList.getLength() ; i++) {
                 Node numPropertiesNode = numPropertiesLeftList.item(i);
                 if (numPropertiesNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -875,6 +901,17 @@ public class BoardModel {
         }   catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Main method to initialize and start the game.
+     */
+    public static void main(String args[]){
+
+        BoardModel boardModel = new BoardModel("board.xml");
+        BoardView boardView = new BoardView(boardModel);
+        boardModel.setBoardView(boardView);
+        boardView.displayGUI();
     }
 }
 
