@@ -677,6 +677,7 @@ public class BoardModel {
     public void load(String fileName){
         loadBoard(fileName);
         loadPlayers(fileName);
+        loadPropertyOwnersAndPlayerControlled();
     }
 
     public void loadPlayers(String fileName){
@@ -742,6 +743,10 @@ public class BoardModel {
         loadedBoard = loadBoardConstructor.loadBoardFromMapFile(fileName, false);
         board = loadedBoard;
         boardView.setAllPropertys();
+    }
+
+    public void loadPropertyOwnersAndPlayerControlled(){
+        //TODO
     }
 }
 
