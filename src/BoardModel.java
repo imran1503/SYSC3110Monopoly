@@ -696,7 +696,6 @@ public class BoardModel {
             Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
             NodeList loadPlayersList = doc.getElementsByTagName("Player");
-            NodeList maxPlayersList = doc.getElementsByTagName("maxPlayers");
 
             for (int i = 0; i <loadPlayersList.getLength() ; i++) {
                 Node playerNode = loadPlayersList.item(i);
@@ -745,13 +744,7 @@ public class BoardModel {
                     boardView.getPlayerLists().get(i)[playerPosition].setVisible(true);
                 }
             }
-            for (int i = 0; i <maxPlayersList.getLength() ; i++) {
-                Node maxplayerNode = maxPlayersList.item(i);
-                if (maxplayerNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element maxplayerElement = (Element) maxplayerNode;
-                    maxPlayers = Integer.parseInt(maxplayerElement.getTextContent());
-                }
-            }
+            maxPlayers = loadPlayersList.getLength();
             boardView.updateAllPlayersStatus(maxPlayers);
             boardView.setPlayerPanelHoldersVisibility(maxPlayers,true);
             boardView.setControllerInitializing();

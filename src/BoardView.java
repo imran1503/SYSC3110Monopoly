@@ -552,8 +552,6 @@ public class BoardView {
         bc.setPlayersInitialized();
     }
 
-    public int getMaxPlayers(){return bc.getMax_players();}
-
     /**
      * Set purchaseHouseHotel button visibility with parameter
      * @param visible true for visible, false for not visible
