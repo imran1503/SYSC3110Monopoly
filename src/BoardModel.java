@@ -610,7 +610,6 @@ public class BoardModel {
 
                 s+= stringIndent + stringIndent + stringIndent + "<ai>" + players.get(i).getAi() + "</ai>\n";
                 s+= stringIndent + stringIndent + stringIndent + "<numOfDoubleRolls>" + players.get(i).getNumOfDoubleRolls() + "</numOfDoubleRolls>\n";
-                s+= stringIndent + stringIndent + stringIndent + "<ownsBothUtil>" + players.get(i).getOwnsBothUtil() + "</ownsBothUtil>\n";
                 s+= stringIndent + stringIndent + stringIndent + "<hasAColorSet>" + players.get(i).getHasAColorSet() + "</hasAColorSet>\n";
                 s+= stringIndent + stringIndent + stringIndent + "<bankruptStatus>" + players.get(i).getBankruptStatus() + "</bankruptStatus>\n";
 
@@ -705,12 +704,22 @@ public class BoardModel {
                     int playerPosition = Integer.parseInt(playerElement.getElementsByTagName("position").item(0).getTextContent());
                     Boolean inJail = Boolean.parseBoolean(playerElement.getElementsByTagName("inJail").item(0).getTextContent());
                     int turnsInJail = Integer.parseInt(playerElement.getElementsByTagName("turnsInJail").item(0).getTextContent());
+                    int ownsXtrains = Integer.parseInt(playerElement.getElementsByTagName("ownsXtrains").item(0).getTextContent());
+                    Boolean ownsBothUtil = Boolean.parseBoolean(playerElement.getElementsByTagName("ownsBothUtil").item(0).getTextContent());
+                    int numDoubleRolls = Integer.parseInt(playerElement.getElementsByTagName("numOfDoubleRolls").item(0).getTextContent());
+                    Boolean bankruptStatus = Boolean.parseBoolean(playerElement.getElementsByTagName("bankruptStatus").item(0).getTextContent());
+                    Boolean hasAColorSet = Boolean.parseBoolean(playerElement.getElementsByTagName("hasAColorSet").item(0).getTextContent());
+
                     if(isAi){
                         AIPlayer aiPlayer = new AIPlayer(playerName,playerColor,money,maxPlayers,board,this,boardView);
                         aiPlayer.setPosition(playerPosition);
                         aiPlayer.setInJail(inJail);
                         aiPlayer.setTurnsInJail(turnsInJail);
-                        //TODO set other items of player
+                        aiPlayer.setOwnsXtrains(ownsXtrains);
+                        aiPlayer.setOwnsBothUtil(ownsBothUtil);
+                        aiPlayer.setNumOfDoubleRolls(numDoubleRolls);
+                        aiPlayer.setBankruptStatus(bankruptStatus);
+                        aiPlayer.setHasAColorSet(hasAColorSet);
                         players.add(aiPlayer);
                     }
                     else{
@@ -718,7 +727,11 @@ public class BoardModel {
                         player.setPosition(playerPosition);
                         player.setInJail(inJail);
                         player.setTurnsInJail(turnsInJail);
-                        //TODO set other items of player
+                        player.setOwnsXtrains(ownsXtrains);
+                        player.setOwnsBothUtil(ownsBothUtil);
+                        player.setNumOfDoubleRolls(numDoubleRolls);
+                        player.setBankruptStatus(bankruptStatus);
+                        player.setHasAColorSet(hasAColorSet);
                         players.add(player);
                     }
                 }
