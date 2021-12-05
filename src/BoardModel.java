@@ -681,11 +681,12 @@ public class BoardModel {
     public void load(String fileName){
         loadBoard(fileName);
         loadPlayers(fileName);
+        loadBoardModelAttributes(fileName);
         loadPropertyOwnersAndPlayerControlled(fileName);
     }
 
     public void loadPlayers(String fileName){
-        int maxPlayers = 4;//TODO change to actual max players
+        int maxPlayers = 0;
         try{
             File file = new File("src/"+fileName);
             //an instance of factory that gives a document builder
@@ -696,9 +697,6 @@ public class BoardModel {
             doc.getDocumentElement().normalize();
             NodeList loadPlayersList = doc.getElementsByTagName("Player");
             NodeList maxPlayersList = doc.getElementsByTagName("maxPlayers");
-            NodeList nextRollList = doc.getElementsByTagName("nextRoll");
-            NodeList currentPlayerIndexList = doc.getElementsByTagName("currentPlayerIndex");
-            NodeList numPropertiesLeftList = doc.getElementsByTagName("numPropertiesLeft");
 
             for (int i = 0; i <loadPlayersList.getLength() ; i++) {
                 Node playerNode = loadPlayersList.item(i);
@@ -750,27 +748,6 @@ public class BoardModel {
                 if (maxplayerNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element maxplayerElement = (Element) maxplayerNode;
                     maxPlayers = Integer.parseInt(maxplayerElement.getTextContent());
-                }
-            }
-            for (int i = 0; i <nextRollList.getLength() ; i++) {
-                Node nextRollNode = nextRollList.item(i);
-                if (nextRollNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element nextRollElement = (Element) nextRollNode;
-                    nextRoll = Boolean.parseBoolean(nextRollElement.getTextContent());
-                }
-            }
-            for (int i = 0; i <currentPlayerIndexList.getLength() ; i++) {
-                Node currentPlayerIndexNode = currentPlayerIndexList.item(i);
-                if (currentPlayerIndexNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element currentPlayerIndexElement = (Element) currentPlayerIndexNode;
-                    currentPlayer = players.get(Integer.parseInt(currentPlayerIndexElement.getTextContent()));
-                }
-            }
-            for (int i = 0; i <numPropertiesLeftList.getLength() ; i++) {
-                Node numPropertiesNode = numPropertiesLeftList.item(i);
-                if (numPropertiesNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element numPropetiesElement = (Element) numPropertiesNode;
-                    numPropertiesLeft = Integer.parseInt(numPropetiesElement.getTextContent());
                 }
             }
             boardView.updateAllPlayersStatus(maxPlayers);
@@ -845,6 +822,51 @@ public class BoardModel {
             e.printStackTrace();
         }
 
+    }
+
+    public void loadBoardModelAttributes(String fileName){
+        try {
+            File file = new File("src/" + fileName);
+            //an instance of factory that gives a document builder
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            //an instance of builder to parse the specified xml file
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+            NodeList nextRollList = doc.getElementsByTagName("nextRoll");
+            NodeList currentPlayerIndexList = doc.getElementsByTagName("currentPlayerIndex");
+            NodeList numPropertiesLeftList = doc.getElementsByTagName("numPropertiesLeft");
+
+            for (int i = 0; i <nextRollList.getLength() ; i++) {
+                Node nextRollNode = nextRollList.item(i);
+                if (nextRollNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element nextRollElement = (Element) nextRollNode;
+                    nextRoll = Boolean.parseBoolean(nextRollElement.getTextContent());
+                }
+            }
+            for (int i = 0; i <currentPlayerIndexList.getLength() ; i++) {
+                Node currentPlayerIndexNode = currentPlayerIndexList.item(i);
+                if (currentPlayerIndexNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element currentPlayerIndexElement = (Element) currentPlayerIndexNode;
+                    currentPlayer = players.get(Integer.parseInt(currentPlayerIndexElement.getTextContent()));
+                }
+            }
+            for (int i = 0; i <numPropertiesLeftList.getLength() ; i++) {
+                Node numPropertiesNode = numPropertiesLeftList.item(i);
+                if (numPropertiesNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element numPropetiesElement = (Element) numPropertiesNode;
+                    numPropertiesLeft = Integer.parseInt(numPropetiesElement.getTextContent());
+                }
+            }
+        }
+        catch (FileNotFoundException | ParserConfigurationException f) {
+            f.printStackTrace();
+            //loadBoardFromMapFile("board.xml");
+        }   catch (SAXException e) {
+            e.printStackTrace();
+        }   catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
