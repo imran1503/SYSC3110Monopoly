@@ -568,13 +568,11 @@ public class BoardView {
      * @param condition true if userInputBox and submit visible, false if not visible.
      */
     public void setUserInputVisibility(Boolean condition){
-        int rollButtonIndex = 1; int purchasePropertyButtonIndex = 2;
-        int passTurnButtonIndex = 3; int submitButtonIndex = 6; int saveButtonIndex = 7;
-        buttonList.get(rollButtonIndex).setVisible(!condition);
-        buttonList.get(purchasePropertyButtonIndex).setVisible(!condition);
-        buttonList.get(passTurnButtonIndex).setVisible(!condition);
-        buttonList.get(saveButtonIndex).setVisible(!condition);
-        buttonList.get(submitButtonIndex).setVisible(condition);
+        rollButton.setVisible(!condition);
+        purchaseButton.setVisible(!condition);
+        passButton.setVisible(!condition);
+        saveButton.setVisible(!condition);
+        submitButton.setVisible(condition);
         userInputBox.setVisible(condition);
     }
 
@@ -625,6 +623,10 @@ public class BoardView {
         }
     }
 
+    public void setStartLoadButtonVisibility(Boolean visible){
+        startButton.setVisible(false);
+        loadButton.setVisible(false);
+    }
     /**
      * todo add to uml
      * Creates a popup window to announce the result of the game after the game ends.

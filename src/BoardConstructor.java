@@ -58,7 +58,13 @@ public class BoardConstructor {
      */
     public Board loadBoardFromMapFile(String fileName, Boolean newBoard) {
             try {
-                File file = new File("src/"+fileName);
+                File file;
+                if(newBoard) {
+                    file = new File("src/" + fileName);
+                }
+                else{
+                    file = new File("Save Files/" +fileName);
+                }
                 //an instance of factory that gives a document builder
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 //an instance of builder to parse the specified xml file

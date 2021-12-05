@@ -1,47 +1,61 @@
     <Monopoly>
-        <CurrentPlayer>Fred</CurrentPlayer>
-        <CurrentPlayerIndex>0</CurrentPlayerIndex>
-        <Currency>CAD </Currency>
+        <CurrentPlayer>p3</CurrentPlayer>
+        <CurrentPlayerIndex>2</CurrentPlayerIndex>
+        <Currency>$</Currency>
         <Player>
-            <name>Fred</name>
-            <balance>1354</balance>
-            <position>22</position>
+            <name>AI Player1</name>
+            <balance>887</balance>
+            <position>35</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
-            <r>10</r>
-            <g>10</g>
-            <b>10</b>
-            <ownsXtrains>0</ownsXtrains>
+            <r>100</r>
+            <g>0</g>
+            <b>0</b>
+            <ownsXtrains>1</ownsXtrains>
             <ownsBothUtil>false</ownsBothUtil>
-            <ai>false</ai>
+            <ai>true</ai>
             <numOfDoubleRolls>0</numOfDoubleRolls>
-            <ownsBothUtil>false</ownsBothUtil>
             <hasAColorSet>false</hasAColorSet>
             <bankruptStatus>false</bankruptStatus>
         </Player>
         <Player>
-            <name>Shaggy</name>
-            <balance>766</balance>
-            <position>26</position>
+            <name>AI Player2</name>
+            <balance>1040</balance>
+            <position>13</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
-            <r>20</r>
-            <g>20</g>
-            <b>20</b>
-            <ownsXtrains>0</ownsXtrains>
+            <r>0</r>
+            <g>100</g>
+            <b>0</b>
+            <ownsXtrains>1</ownsXtrains>
+            <ownsBothUtil>false</ownsBothUtil>
+            <ai>true</ai>
+            <numOfDoubleRolls>0</numOfDoubleRolls>
+            <hasAColorSet>false</hasAColorSet>
+            <bankruptStatus>false</bankruptStatus>
+        </Player>
+        <Player>
+            <name>p3</name>
+            <balance>433</balance>
+            <position>21</position>
+            <inJail>false</inJail>
+            <turnsInJail>0</turnsInJail>
+            <r>30</r>
+            <g>30</g>
+            <b>30</b>
+            <ownsXtrains>1</ownsXtrains>
             <ownsBothUtil>false</ownsBothUtil>
             <ai>false</ai>
-            <numOfDoubleRolls>0</numOfDoubleRolls>
-            <ownsBothUtil>false</ownsBothUtil>
+            <numOfDoubleRolls>1</numOfDoubleRolls>
             <hasAColorSet>false</hasAColorSet>
             <bankruptStatus>false</bankruptStatus>
         </Player>
         <Property>
-            <name>Départ</name>
+            <name>GO</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>0</location>
+            <index>0</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -49,11 +63,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Boul. de Belleville</name>
+            <name>Mediterranean Avenue</name>
             <rent>2</rent>
             <owner>bank</owner>
             <price>60</price>
-            <location>1</location>
+            <index>1</index>
             <r>136</r>
             <g>69</g>
             <b>19</b>
@@ -61,11 +75,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Coffre Communautaire</name>
+            <name>Community Chest</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>2</location>
+            <index>2</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -73,11 +87,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Rue Lecourbe</name>
+            <name>Baltic Avenue</name>
             <rent>4</rent>
             <owner>bank</owner>
             <price>60</price>
-            <location>3</location>
+            <index>3</index>
             <r>136</r>
             <g>69</g>
             <b>19</b>
@@ -85,35 +99,33 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Impôt sur le revenu</name>
+            <name>Income Tax</name>
             <rent>200</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>4</location>
+            <index>4</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
             <numHouses>0</numHouses>
             <numHotels>0</numHotels>
         </Property>
-        <Property>
-            <name>Gare Montparnasse</name>
+        <Railroad>
+            <name>Reading Railroad</name>
             <rent>25</rent>
-            <owner>bank</owner>
+            <owner>p3</owner>
             <price>200</price>
-            <location>5</location>
+            <index>5</index>
             <r>102</r>
             <g>98</g>
             <b>95</b>
-            <numHouses>0</numHouses>
-            <numHotels>0</numHotels>
-        </Property>
+        </Railroad>
         <Property>
-            <name>Rue de Vaugirard</name>
+            <name>Oriental Avenue</name>
             <rent>6</rent>
-            <owner>Shaggy</owner>
+            <owner>bank</owner>
             <price>100</price>
-            <location>6</location>
+            <index>6</index>
             <r>135</r>
             <g>206</g>
             <b>250</b>
@@ -125,7 +137,7 @@
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>7</location>
+            <index>7</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -133,11 +145,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Rue de Courcelles</name>
+            <name>Vermont Avenue</name>
             <rent>6</rent>
             <owner>bank</owner>
             <price>100</price>
-            <location>8</location>
+            <index>8</index>
             <r>135</r>
             <g>206</g>
             <b>250</b>
@@ -145,11 +157,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Avenue de la République</name>
+            <name>Connecticut Avenue</name>
             <rent>8</rent>
-            <owner>bank</owner>
+            <owner>p3</owner>
             <price>120</price>
-            <location>9</location>
+            <index>9</index>
             <r>135</r>
             <g>206</g>
             <b>250</b>
@@ -157,11 +169,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Prison</name>
+            <name>Jail</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>10</location>
+            <index>10</index>
             <r>250</r>
             <g>140</g>
             <b>0</b>
@@ -169,11 +181,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Boul. de la Villette</name>
+            <name>St. Charles Place</name>
             <rent>10</rent>
             <owner>bank</owner>
             <price>140</price>
-            <location>11</location>
+            <index>11</index>
             <r>255</r>
             <g>105</g>
             <b>180</b>
@@ -181,11 +193,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Compagnie d'électricité</name>
+            <name>Electric Company</name>
             <rent>4</rent>
             <owner>bank</owner>
             <price>150</price>
-            <location>12</location>
+            <index>12</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -193,11 +205,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Avenue de Neuilly</name>
+            <name>States Avenue</name>
             <rent>10</rent>
-            <owner>Fred</owner>
+            <owner>AI Player2</owner>
             <price>140</price>
-            <location>13</location>
+            <index>13</index>
             <r>255</r>
             <g>105</g>
             <b>180</b>
@@ -205,35 +217,33 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Rue de Paradis</name>
+            <name>Virginia Avenue</name>
             <rent>12</rent>
-            <owner>Shaggy</owner>
+            <owner>AI Player1</owner>
             <price>160</price>
-            <location>14</location>
+            <index>14</index>
             <r>255</r>
             <g>105</g>
             <b>180</b>
             <numHouses>0</numHouses>
             <numHotels>0</numHotels>
         </Property>
-        <Property>
-            <name>Gare de Lyon</name>
+        <Railroad>
+            <name>Pennsylvania Railroad</name>
             <rent>25</rent>
             <owner>bank</owner>
             <price>200</price>
-            <location>15</location>
+            <index>15</index>
             <r>102</r>
             <g>98</g>
             <b>95</b>
-            <numHouses>0</numHouses>
-            <numHotels>0</numHotels>
-        </Property>
+        </Railroad>
         <Property>
-            <name>Avenue Mozart</name>
+            <name>St. James Place</name>
             <rent>14</rent>
             <owner>bank</owner>
             <price>180</price>
-            <location>16</location>
+            <index>16</index>
             <r>255</r>
             <g>140</g>
             <b>0</b>
@@ -241,11 +251,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Coffre Communautaire</name>
+            <name>Community Chest</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>17</location>
+            <index>17</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -253,11 +263,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Boulevard Saint-Michel</name>
+            <name>Tennessee Avenue</name>
             <rent>14</rent>
-            <owner>bank</owner>
+            <owner>p3</owner>
             <price>180</price>
-            <location>18</location>
+            <index>18</index>
             <r>255</r>
             <g>140</g>
             <b>0</b>
@@ -265,11 +275,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Place Pigalle</name>
+            <name>New York Avenue</name>
             <rent>16</rent>
             <owner>bank</owner>
             <price>200</price>
-            <location>19</location>
+            <index>19</index>
             <r>255</r>
             <g>140</g>
             <b>0</b>
@@ -277,11 +287,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Parking Gratuit</name>
+            <name>Free Parking</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>20</location>
+            <index>20</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -289,11 +299,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Avenue Matignon</name>
+            <name>Kentucky Avenue</name>
             <rent>18</rent>
-            <owner>Shaggy</owner>
+            <owner>p3</owner>
             <price>220</price>
-            <location>21</location>
+            <index>21</index>
             <r>255</r>
             <g>0</g>
             <b>0</b>
@@ -305,7 +315,7 @@
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>22</location>
+            <index>22</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -313,11 +323,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Boulevard Malesherbes</name>
+            <name>Indiana Avenue</name>
             <rent>18</rent>
             <owner>bank</owner>
             <price>220</price>
-            <location>23</location>
+            <index>23</index>
             <r>255</r>
             <g>0</g>
             <b>0</b>
@@ -325,35 +335,33 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Avenue Henri-Martin</name>
+            <name>Illinois Avenue</name>
             <rent>20</rent>
-            <owner>bank</owner>
+            <owner>AI Player1</owner>
             <price>240</price>
-            <location>24</location>
+            <index>24</index>
             <r>255</r>
             <g>0</g>
             <b>0</b>
             <numHouses>0</numHouses>
             <numHotels>0</numHotels>
         </Property>
-        <Property>
-            <name>Gare du Nord</name>
+        <Railroad>
+            <name>B. O. Railroad</name>
             <rent>25</rent>
-            <owner>bank</owner>
+            <owner>AI Player2</owner>
             <price>200</price>
-            <location>25</location>
+            <index>25</index>
             <r>102</r>
             <g>98</g>
             <b>95</b>
-            <numHouses>0</numHouses>
-            <numHotels>0</numHotels>
-        </Property>
+        </Railroad>
         <Property>
-            <name>Faubourg Saint-Honoré</name>
+            <name>Atlantic Avenue</name>
             <rent>22</rent>
-            <owner>Shaggy</owner>
+            <owner>AI Player1</owner>
             <price>260</price>
-            <location>26</location>
+            <index>26</index>
             <r>255</r>
             <g>255</g>
             <b>0</b>
@@ -361,11 +369,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Place de la Bourse</name>
+            <name>Ventnor Avenue</name>
             <rent>22</rent>
             <owner>bank</owner>
             <price>260</price>
-            <location>27</location>
+            <index>27</index>
             <r>255</r>
             <g>255</g>
             <b>0</b>
@@ -373,11 +381,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Compagnie des Eaux</name>
+            <name>Water Works</name>
             <rent>4</rent>
             <owner>bank</owner>
             <price>150</price>
-            <location>28</location>
+            <index>28</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -385,11 +393,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Rue Lafayette</name>
+            <name>Marvin Gardens</name>
             <rent>24</rent>
             <owner>bank</owner>
             <price>280</price>
-            <location>29</location>
+            <index>29</index>
             <r>255</r>
             <g>255</g>
             <b>0</b>
@@ -397,11 +405,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Aller en prison</name>
+            <name>GoToJail</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>30</location>
+            <index>30</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -409,11 +417,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Avenue de Breteuil</name>
+            <name>Pacific Avenue</name>
             <rent>26</rent>
-            <owner>bank</owner>
+            <owner>p3</owner>
             <price>300</price>
-            <location>31</location>
+            <index>31</index>
             <r>0</r>
             <g>128</g>
             <b>0</b>
@@ -421,11 +429,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Avenue Foch</name>
+            <name>North Carolina Avenue</name>
             <rent>26</rent>
             <owner>bank</owner>
             <price>300</price>
-            <location>32</location>
+            <index>32</index>
             <r>0</r>
             <g>128</g>
             <b>0</b>
@@ -433,11 +441,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Coffre Communautaire</name>
+            <name>Community Chest</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>33</location>
+            <index>33</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -445,35 +453,33 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Boulevard des Capucines</name>
+            <name>Pennsylvania Avenue</name>
             <rent>28</rent>
-            <owner>bank</owner>
+            <owner>AI Player2</owner>
             <price>320</price>
-            <location>34</location>
+            <index>34</index>
             <r>0</r>
             <g>128</g>
             <b>0</b>
             <numHouses>0</numHouses>
             <numHotels>0</numHotels>
         </Property>
-        <Property>
-            <name>Gare Saint-Lazare</name>
+        <Railroad>
+            <name>Short Line</name>
             <rent>25</rent>
-            <owner>bank</owner>
+            <owner>AI Player1</owner>
             <price>200</price>
-            <location>35</location>
+            <index>35</index>
             <r>102</r>
             <g>98</g>
             <b>95</b>
-            <numHouses>0</numHouses>
-            <numHotels>0</numHotels>
-        </Property>
+        </Railroad>
         <Property>
             <name>Chance</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>36</location>
+            <index>36</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -481,11 +487,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Avenue des Champs-élysées</name>
+            <name>Park Place</name>
             <rent>35</rent>
             <owner>bank</owner>
             <price>350</price>
-            <location>37</location>
+            <index>37</index>
             <r>0</r>
             <g>0</g>
             <b>200</b>
@@ -493,11 +499,11 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Taxe de luxe</name>
+            <name>Luxury Tax</name>
             <rent>100</rent>
             <owner>bank</owner>
             <price>0</price>
-            <location>38</location>
+            <index>38</index>
             <r>255</r>
             <g>255</g>
             <b>255</b>
@@ -505,15 +511,18 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>Rue de la Paix</name>
+            <name>Boardwalk</name>
             <rent>50</rent>
             <owner>bank</owner>
             <price>400</price>
-            <location>39</location>
+            <index>39</index>
             <r>0</r>
             <g>0</g>
             <b>200</b>
             <numHouses>0</numHouses>
             <numHotels>0</numHotels>
         </Property>
+        <currentPlayerIndex>2</currentPlayerIndex>
+        <nextRoll>false</nextRoll>
+        <numPropertiesLeft>14</numPropertiesLeft>
     </Monopoly>

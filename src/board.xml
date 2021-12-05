@@ -247,7 +247,7 @@
     </Property>
 
     <Railroad>
-        <name>B. &amp; O. Railroad</name>
+        <name>B. O. Railroad</name>
         <price>200</price>
         <rent>25</rent>
         <r>102</r>

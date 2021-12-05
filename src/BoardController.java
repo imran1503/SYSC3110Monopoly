@@ -101,6 +101,7 @@ public class BoardController implements ActionListener {
         }
         if (actionEvent.getSource().equals(buttons.get(loadButton))) {
             //TODO load game
+            bm.load("MonopolySaveTest.xml");
         }
     }
 

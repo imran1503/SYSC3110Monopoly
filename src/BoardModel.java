@@ -627,7 +627,7 @@ public class BoardModel {
                     s+= stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
                     s+= stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner().getName() + "</owner>\n";
                     s+= stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
-                    s+= stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</location>\n";
+                    s+= stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</index>\n";
 
                     //Color as R G B
                     s+= stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>\n";
@@ -643,7 +643,7 @@ public class BoardModel {
                 s += stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
                 s += stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner().getName() + "</owner>\n";
                 s += stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
-                s += stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</location>\n";
+                s += stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</index>\n";
 
                 //Color as R G B
                 s += stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>\n";
@@ -682,12 +682,13 @@ public class BoardModel {
         loadPlayers(fileName);
         loadBoardModelAttributes(fileName);
         loadPropertyOwners(fileName);
+        boardView.setStartLoadButtonVisibility(false);
     }
 
     public void loadPlayers(String fileName){
         int maxPlayers = 0;
         try{
-            File file = new File("src/"+fileName);
+            File file = new File("Save Files/"+fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
@@ -769,7 +770,7 @@ public class BoardModel {
 
     public void loadPropertyOwners(String fileName){
         try {
-            File file = new File("src/" + fileName);
+            File file = new File("Save Files/" + fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
@@ -778,16 +779,17 @@ public class BoardModel {
             doc.getDocumentElement().normalize();
             NodeList loadPropertyList = doc.getElementsByTagName("Property");
             NodeList railroadsList = doc.getElementsByTagName("railroad");
+            NodeList playerList = doc.getElementsByTagName("Player");
             for (int i = 0; i <loadPropertyList.getLength() ; i++) {
                 Node propertyNode = loadPropertyList.item(i);
                 if (propertyNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element propertyElement = (Element) propertyNode;
                     String ownerName = propertyElement.getElementsByTagName("owner").item(0).getTextContent();
-                    int propertyLocation = Integer.parseInt(propertyElement.getElementsByTagName("location").item(0).getTextContent());
+                    int propertyLocation = Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent());
                     for (int j = 0; j < players.size(); j++) {
                         if(players.get(j).getName().equals(ownerName)){
                             board.getProperty(propertyLocation).setOwner(players.get(j));
-                            players.get(j).gainProperty(board.getProperty(propertyLocation));
+                            getPlayer(j).gainProperty(board.getProperty(propertyLocation));
                         }
                     }
                 }
@@ -807,6 +809,7 @@ public class BoardModel {
                     }
                 }
             }
+            boardView.updateAllPlayersStatus(playerList.getLength());
         }
         catch (FileNotFoundException | ParserConfigurationException f) {
             f.printStackTrace();
@@ -821,7 +824,7 @@ public class BoardModel {
 
     public void loadBoardModelAttributes(String fileName){
         try {
-            File file = new File("src/" + fileName);
+            File file = new File("Save Files/" + fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
