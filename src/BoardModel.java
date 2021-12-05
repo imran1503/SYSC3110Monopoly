@@ -724,6 +724,8 @@ public class BoardModel {
             }
             boardView.updateAllPlayersStatus(maxPlayers);
             boardView.setPlayerPanelHoldersVisibility(maxPlayers,true);
+            boardView.setControllerInitializing();
+            boardView.setUserInputVisibility(false);
         }
         catch (FileNotFoundException | ParserConfigurationException f) {
             f.printStackTrace();

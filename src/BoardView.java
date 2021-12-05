@@ -39,10 +39,10 @@ public class BoardView {
     private JPanel languageOptionsPanel;
     private ArrayList<JRadioButton> radioButtonList;
 
-
     private JTextField userInputBox;
     private JScrollPane[] scrollPanes;
     private JTextArea[] PropertyTextAreas;
+    private BoardController bc;
 
     public JFrame getFrame() {
         return frame;
@@ -290,7 +290,7 @@ public class BoardView {
         FrenchButton = new JRadioButton("French");
         ArabicButton = new JRadioButton("Arabic");
         PersianButton = new JRadioButton("Persian");
-        ButtonGroup languageButtonGroup = new ButtonGroup();
+        languageButtonGroup = new ButtonGroup();
         languageButtonGroup.add(EnglishButton);
         languageButtonGroup.add(FrenchButton);
         languageButtonGroup.add(ArabicButton);
@@ -311,7 +311,7 @@ public class BoardView {
 
 
 
-        BoardController bc = new BoardController(this,this.boardModel);
+        bc = new BoardController(this,this.boardModel);
 
         //Button Handlers
         newGameButton.addActionListener(bc);
@@ -547,6 +547,10 @@ public class BoardView {
      * @return the text the user typed in
      */
     public String getUserInput(){return userInputBox.getText();}
+
+    public void setControllerInitializing(){
+        bc.setPlayersInitialized();
+    }
 
     /**
      * Set purchaseHouseHotel button visibility with parameter

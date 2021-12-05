@@ -304,4 +304,9 @@ public class BoardController implements ActionListener {
         bv.setUserInputVisibility(false);
         bv.clearTextField();
     }
+
+    public void setPlayersInitialized(){
+        playersInitialized = true;
+        playerInitializeStage = Stages.housingPurchase;
+    }
 }
