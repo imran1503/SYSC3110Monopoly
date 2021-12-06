@@ -498,7 +498,7 @@ public class BoardModel {
         //The game ends if the last active player (not bankrupt)
         // or
         // if there are no properties left for purchase. In this case the game ends in a tie between non-bankrupt Players (winnersList).
-        if (!checkNumOfActivePlayers() || (numPropertiesLeft == 0)) {
+        if (!checkNumOfActivePlayers()) {
             boardView.setEventLabel3Text("Game has ended.");
             updateWinnersList();
             return true;
