@@ -25,10 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Save Function near done.">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Save Files/MonopolySaveTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/MonopolySaveTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/run SYSC3110Monopoly.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +68,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LabExam" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab9" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
@@ -91,6 +91,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SYSC3110Monopoly.jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/SYSC3110Monopoly.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="SYSC3110Monopoly.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly_jar/SYSC3110Monopoly.jar" />
       <method v="2" />
@@ -98,6 +102,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.BoardModel" />
+        <item itemvalue="JAR Application.SYSC3110Monopoly.jar (1)" />
         <item itemvalue="JAR Application.SYSC3110Monopoly.jar" />
         <item itemvalue="JUnit.BoardModelTest" />
       </list>
@@ -114,13 +119,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00029" summary="game number starts with a random player first + clean up and more comments in BoardModel.">
-      <created>1637590456791</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1637590456791</updated>
     </task>
     <task id="LOCAL-00030" summary="More cleanup and javadoc + comments on BoardModel">
       <created>1637594056664</created>
@@ -458,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638735660646</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="AI bankrupt player icon bug fix">
+      <created>1638736075475</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1638736075475</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +482,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug fixes and aiLogic buying houses changes" />
     <MESSAGE value="bug fixes and more javadocs and comments" />
     <MESSAGE value="Fixed dark blue color reading property name problem" />
     <MESSAGE value="Started the Save Feature" />
@@ -502,7 +506,8 @@
     <MESSAGE value="Java Doc for BoardController complete." />
     <MESSAGE value="Java Doc for BoardView complete." />
     <MESSAGE value="Java Doc for Board complete." />
-    <option name="LAST_COMMIT_MESSAGE" value="Java Doc for Board complete." />
+    <MESSAGE value="AI bankrupt player icon bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="AI bankrupt player icon bug fix" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

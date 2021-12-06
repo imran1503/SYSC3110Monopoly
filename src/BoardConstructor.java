@@ -60,7 +60,7 @@ public class BoardConstructor {
             try {
                 File file;
                 if(newBoard) {
-                    file = new File("src/" + fileName);
+                    file = new File("src/"+fileName);
                 }
                 else{
                     file = new File("Save Files/" +fileName);
@@ -240,7 +240,6 @@ public class BoardConstructor {
 
             } catch (FileNotFoundException | ParserConfigurationException f) {
                 f.printStackTrace();
-                //loadBoardFromMapFile("board.xml");
             } catch (SAXException e) {
                 e.printStackTrace();
             } catch (IOException e) {
