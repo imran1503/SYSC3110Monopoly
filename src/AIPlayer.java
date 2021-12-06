@@ -155,7 +155,7 @@ public class AIPlayer extends Player {
     @Override
     public void playAITurn(){
         //While AIPlayer can roll again, roll again and make decision to buy property or not
-        while(bm.getNextRoll()){
+        while(bm.getNextRoll()&&(!this.getBankruptStatus())){
             bm.operateCommand(BoardModel.Commands.roll);
             this.aiLogic("Buy Property");
             this.aiLogic("Buy House");

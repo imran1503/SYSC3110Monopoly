@@ -206,6 +206,7 @@ public class BoardModel {
         //if after selecting next player and that player is bankrupt, pass player turn again.
         if(currentPlayer.getBankruptStatus()){
             passPlayerTurn();
+            return;
         }
         //if next player is in Jail, have event label Text2 to say "roll a double to get out jail", Else set it to ""
         else {

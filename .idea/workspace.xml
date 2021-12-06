@@ -25,18 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Jar should work I believe now">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Save Files/MonopolySaveTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/MonopolySaveTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board-ar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/board-ar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board-fr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/board-fr.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board-pe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/board-pe.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/board.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,13 +128,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00031" summary="More cleanup and javadoc + comments on BoardModel">
-      <created>1637594187597</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1637594187597</updated>
     </task>
     <task id="LOCAL-00032" summary="Cleanup and javadoc + comments on AIPlayer">
       <created>1637595827666</created>
@@ -481,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638802677564</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Changed loading files with InputStream instead of with File object">
+      <created>1638807686566</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1638807686566</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +491,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed dark blue color reading property name problem" />
     <MESSAGE value="Started the Save Feature" />
     <MESSAGE value="Arabic board version xml" />
     <MESSAGE value="board now change to different lanuages on GUI" />
@@ -525,7 +515,8 @@
     <MESSAGE value="Java Doc for Board complete." />
     <MESSAGE value="AI bankrupt player icon bug fix" />
     <MESSAGE value="Jar should work I believe now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jar should work I believe now" />
+    <MESSAGE value="Changed loading files with InputStream instead of with File object" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed loading files with InputStream instead of with File object" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
