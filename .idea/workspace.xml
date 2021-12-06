@@ -24,11 +24,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Save Function near done.">
+    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Jar should work I believe now">
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SYSC3110Monopoly_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/run SYSC3110Monopoly.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Save Files/MonopolySaveTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/MonopolySaveTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board-ar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/board-ar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board-fr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/board-fr.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board-pe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/board-pe.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Save Files/board.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +76,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab9" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Save Files" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hp\Desktop\3rd Year\Fall 2021\SYSC 3110 A\SYSC3110Monopoly\Save Files" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.BoardModel">
     <configuration name="BoardModel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -95,6 +108,10 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/SYSC3110Monopoly.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="SYSC3110Monopoly.jar (2)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="SYSC3110Monopoly.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly_jar/SYSC3110Monopoly.jar" />
       <method v="2" />
@@ -102,6 +119,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.BoardModel" />
+        <item itemvalue="JAR Application.SYSC3110Monopoly.jar (2)" />
         <item itemvalue="JAR Application.SYSC3110Monopoly.jar (1)" />
         <item itemvalue="JAR Application.SYSC3110Monopoly.jar" />
         <item itemvalue="JUnit.BoardModelTest" />
@@ -119,13 +137,6 @@
       <workItem from="1637108734285" duration="731000" />
       <workItem from="1637463077523" duration="3103000" />
       <workItem from="1637531871582" duration="3540000" />
-    </task>
-    <task id="LOCAL-00030" summary="More cleanup and javadoc + comments on BoardModel">
-      <created>1637594056664</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1637594056664</updated>
     </task>
     <task id="LOCAL-00031" summary="More cleanup and javadoc + comments on BoardModel">
       <created>1637594187597</created>
@@ -463,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638736075475</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Jar should work I believe now">
+      <created>1638802677563</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1638802677564</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +500,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug fixes and more javadocs and comments" />
     <MESSAGE value="Fixed dark blue color reading property name problem" />
     <MESSAGE value="Started the Save Feature" />
     <MESSAGE value="Arabic board version xml" />
@@ -507,7 +524,8 @@
     <MESSAGE value="Java Doc for BoardView complete." />
     <MESSAGE value="Java Doc for Board complete." />
     <MESSAGE value="AI bankrupt player icon bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="AI bankrupt player icon bug fix" />
+    <MESSAGE value="Jar should work I believe now" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jar should work I believe now" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

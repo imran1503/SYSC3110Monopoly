@@ -96,7 +96,7 @@ public class BoardController implements ActionListener {
             bm.save("MonopolySaveTest");
         }
         if (actionEvent.getSource().equals(buttons.get(loadButton))) {
-            bm.load("MonopolySaveTest.xml");
+            bm.load("Save Files/MonopolySaveTest.xml");
         }
     }
 
@@ -188,18 +188,18 @@ public class BoardController implements ActionListener {
         }
         String fileName = "";
         if(languageSelected.equals("French")) {//French Button
-            fileName = "board-fr.xml";
+            fileName = "Save Files/board-fr.xml";
         }
         else if (languageSelected.equals("Arabic")) {
-            fileName = "board-ar.xml";
+            fileName = "Save Files/board-ar.xml";
         }
         else if (languageSelected.equals("Persian")) {
-            fileName  = "board-pe.xml";
+            fileName  = "Save Files/board-pe.xml";
         }
         else if (languageSelected.equals("English")){
-            fileName = "board.xml";
+            fileName = "Save Files/board.xml";
         }
-        Board board = new Board("src/"+fileName);
+        Board board = new Board(fileName);
         BoardConstructor boardConstructor = new BoardConstructor(board);
         board =  boardConstructor.loadBoardFromMapFile(fileName,true);
         bm.setBoard(board);

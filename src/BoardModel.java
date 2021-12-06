@@ -45,7 +45,7 @@ public class BoardModel {
         this.losersList = new ArrayList<>();
         this.nextRoll = true;
         this.numPropertiesLeft = 26; // total number of purchasable properties = 22 streets + 4 railroads = 26
-        this.board = new Board("src/"+fileName);
+        this.board = new Board(fileName);
         this.boardConstructor = new BoardConstructor(board);
         //creates the board
         this.board = boardConstructor.loadBoardFromMapFile(fileName,true);
@@ -696,12 +696,17 @@ public class BoardModel {
     public void loadPlayers(String fileName){
         int maxPlayers = 0;
         try{
-            File file = new File("Save Files/"+fileName);
+            class MyInputStream extends FileInputStream {
+                public MyInputStream(String filename) throws FileNotFoundException {
+                    super(filename);
+                }
+            }
+            InputStream in = new MyInputStream(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(file);
+            Document doc = db.parse(in);
             doc.getDocumentElement().normalize();
             NodeList loadPlayersList = doc.getElementsByTagName("Player");
 
@@ -791,12 +796,17 @@ public class BoardModel {
      */
     public void loadPropertyOwners(String fileName){
         try {
-            File file = new File("Save Files/" + fileName);
+            class MyInputStream extends FileInputStream {
+                public MyInputStream(String filename) throws FileNotFoundException {
+                    super(filename);
+                }
+            }
+            InputStream in = new MyInputStream(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(file);
+            Document doc = db.parse(in);
             doc.getDocumentElement().normalize();
             NodeList loadPropertyList = doc.getElementsByTagName("Property");
             NodeList railroadsList = doc.getElementsByTagName("railroad");
@@ -855,12 +865,17 @@ public class BoardModel {
      */
     public void loadBoardModelAttributes(String fileName){
         try {
-            File file = new File("Save Files/" + fileName);
+            class MyInputStream extends FileInputStream {
+                public MyInputStream(String filename) throws FileNotFoundException {
+                    super(filename);
+                }
+            }
+            InputStream in = new MyInputStream(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(file);
+            Document doc = db.parse(in);
             doc.getDocumentElement().normalize();
             NodeList nextRollList = doc.getElementsByTagName("nextRoll");
             NodeList currentPlayerIndexList = doc.getElementsByTagName("currentPlayerIndex");
@@ -906,7 +921,7 @@ public class BoardModel {
      */
     public static void main(String args[]){
 
-        BoardModel boardModel = new BoardModel("board.xml");
+        BoardModel boardModel = new BoardModel("Save Files/board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         boardView.displayGUI();

@@ -1,13 +1,13 @@
     <Monopoly>
         <CurrentPlayer>p3</CurrentPlayer>
         <CurrentPlayerIndex>2</CurrentPlayerIndex>
-        <Currency>SAR </Currency>
+        <Currency>$</Currency>
         <Player>
             <name>AI Player1</name>
-            <balance>330</balance>
-            <position>12</position>
+            <balance>920</balance>
+            <position>13</position>
             <inJail>false</inJail>
-            <turnsInJail>1</turnsInJail>
+            <turnsInJail>0</turnsInJail>
             <r>100</r>
             <g>0</g>
             <b>0</b>
@@ -20,24 +20,24 @@
         </Player>
         <Player>
             <name>AI Player2</name>
-            <balance>0</balance>
-            <position>38</position>
+            <balance>696</balance>
+            <position>26</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
             <r>0</r>
             <g>100</g>
             <b>0</b>
-            <ownsXtrains>0</ownsXtrains>
+            <ownsXtrains>3</ownsXtrains>
             <ownsBothUtil>false</ownsBothUtil>
             <ai>true</ai>
             <numOfDoubleRolls>0</numOfDoubleRolls>
             <hasAColorSet>false</hasAColorSet>
-            <bankruptStatus>true</bankruptStatus>
+            <bankruptStatus>false</bankruptStatus>
         </Player>
         <Player>
             <name>p3</name>
-            <balance>262</balance>
-            <position>12</position>
+            <balance>964</balance>
+            <position>0</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
             <r>30</r>
@@ -46,12 +46,12 @@
             <ownsXtrains>0</ownsXtrains>
             <ownsBothUtil>false</ownsBothUtil>
             <ai>false</ai>
-            <numOfDoubleRolls>1</numOfDoubleRolls>
+            <numOfDoubleRolls>0</numOfDoubleRolls>
             <hasAColorSet>false</hasAColorSet>
             <bankruptStatus>false</bankruptStatus>
         </Player>
         <Property>
-            <name>يذهب</name>
+            <name>GO</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -63,10 +63,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع بقيق</name>
-            <rent>6</rent>
-            <owner>bank</owner>
-            <price>180</price>
+            <name>Mediterranean Avenue</name>
+            <rent>2</rent>
+            <owner>AI Player1</owner>
+            <price>60</price>
             <index>1</index>
             <r>136</r>
             <g>69</g>
@@ -75,7 +75,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صندوق المجتمع</name>
+            <name>Community Chest</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -87,10 +87,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق الجوف</name>
-            <rent>12</rent>
-            <owner>AI Player1</owner>
-            <price>180</price>
+            <name>Baltic Avenue</name>
+            <rent>4</rent>
+            <owner>AI Player2</owner>
+            <price>60</price>
             <index>3</index>
             <r>136</r>
             <g>69</g>
@@ -99,8 +99,8 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>ضرائب الإستيراد</name>
-            <rent>600</rent>
+            <name>Income Tax</name>
+            <rent>200</rent>
             <owner>bank</owner>
             <price>0</price>
             <index>4</index>
@@ -111,20 +111,20 @@
             <numHotels>0</numHotels>
         </Property>
         <Railroad>
-            <name>محطة جدة</name>
-            <rent>75</rent>
+            <name>Reading Railroad</name>
+            <rent>25</rent>
             <owner>bank</owner>
-            <price>600</price>
+            <price>200</price>
             <index>5</index>
             <r>102</r>
             <g>98</g>
             <b>95</b>
         </Railroad>
         <Property>
-            <name>طريق الباحة</name>
-            <rent>18</rent>
-            <owner>p3</owner>
-            <price>300</price>
+            <name>Oriental Avenue</name>
+            <rent>6</rent>
+            <owner>AI Player2</owner>
+            <price>100</price>
             <index>6</index>
             <r>135</r>
             <g>206</g>
@@ -133,7 +133,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صدفة</name>
+            <name>Chance</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -145,10 +145,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق الهفوف</name>
-            <rent>18</rent>
-            <owner>bank</owner>
-            <price>300</price>
+            <name>Vermont Avenue</name>
+            <rent>6</rent>
+            <owner>p3</owner>
+            <price>100</price>
             <index>8</index>
             <r>135</r>
             <g>206</g>
@@ -157,10 +157,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق الشارقة</name>
-            <rent>24</rent>
-            <owner>bank</owner>
-            <price>360</price>
+            <name>Connecticut Avenue</name>
+            <rent>8</rent>
+            <owner>p3</owner>
+            <price>120</price>
             <index>9</index>
             <r>135</r>
             <g>206</g>
@@ -169,7 +169,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>سجن</name>
+            <name>Jail</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -181,10 +181,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق حائل</name>
-            <rent>30</rent>
-            <owner>p3</owner>
-            <price>420</price>
+            <name>St. Charles Place</name>
+            <rent>10</rent>
+            <owner>AI Player1</owner>
+            <price>140</price>
             <index>11</index>
             <r>255</r>
             <g>105</g>
@@ -193,10 +193,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شركة كهرباء</name>
-            <rent>12</rent>
+            <name>Electric Company</name>
+            <rent>4</rent>
             <owner>bank</owner>
-            <price>450</price>
+            <price>150</price>
             <index>12</index>
             <r>255</r>
             <g>255</g>
@@ -205,10 +205,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع ينبع</name>
-            <rent>30</rent>
-            <owner>bank</owner>
-            <price>420</price>
+            <name>States Avenue</name>
+            <rent>10</rent>
+            <owner>AI Player1</owner>
+            <price>140</price>
             <index>13</index>
             <r>255</r>
             <g>105</g>
@@ -217,10 +217,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع تبوك</name>
-            <rent>36</rent>
+            <name>Virginia Avenue</name>
+            <rent>12</rent>
             <owner>bank</owner>
-            <price>480</price>
+            <price>160</price>
             <index>14</index>
             <r>255</r>
             <g>105</g>
@@ -229,20 +229,20 @@
             <numHotels>0</numHotels>
         </Property>
         <Railroad>
-            <name>محطة أبو ظبي</name>
-            <rent>75</rent>
-            <owner>bank</owner>
-            <price>600</price>
+            <name>Pennsylvania Railroad</name>
+            <rent>100</rent>
+            <owner>AI Player2</owner>
+            <price>200</price>
             <index>15</index>
             <r>102</r>
             <g>98</g>
             <b>95</b>
         </Railroad>
         <Property>
-            <name>شارع نجران</name>
-            <rent>42</rent>
-            <owner>bank</owner>
-            <price>540</price>
+            <name>St. James Place</name>
+            <rent>14</rent>
+            <owner>p3</owner>
+            <price>180</price>
             <index>16</index>
             <r>255</r>
             <g>140</g>
@@ -251,7 +251,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صندوق المجتمع</name>
+            <name>Community Chest</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -263,10 +263,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق المدينة المنورة</name>
-            <rent>42</rent>
+            <name>Tennessee Avenue</name>
+            <rent>14</rent>
             <owner>AI Player1</owner>
-            <price>540</price>
+            <price>180</price>
             <index>18</index>
             <r>255</r>
             <g>140</g>
@@ -275,10 +275,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق مكة</name>
-            <rent>48</rent>
+            <name>New York Avenue</name>
+            <rent>16</rent>
             <owner>bank</owner>
-            <price>600</price>
+            <price>200</price>
             <index>19</index>
             <r>255</r>
             <g>140</g>
@@ -287,7 +287,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>موقف مجاني</name>
+            <name>Free Parking</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -299,10 +299,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الدمام</name>
-            <rent>54</rent>
+            <name>Kentucky Avenue</name>
+            <rent>18</rent>
             <owner>bank</owner>
-            <price>660</price>
+            <price>220</price>
             <index>21</index>
             <r>255</r>
             <g>0</g>
@@ -311,7 +311,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صدفة</name>
+            <name>Chance</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -323,10 +323,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الظهران</name>
-            <rent>52</rent>
+            <name>Indiana Avenue</name>
+            <rent>18</rent>
             <owner>bank</owner>
-            <price>660</price>
+            <price>220</price>
             <index>23</index>
             <r>255</r>
             <g>0</g>
@@ -335,10 +335,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الخرج</name>
-            <rent>60</rent>
-            <owner>bank</owner>
-            <price>720</price>
+            <name>Illinois Avenue</name>
+            <rent>20</rent>
+            <owner>AI Player2</owner>
+            <price>240</price>
             <index>24</index>
             <r>255</r>
             <g>0</g>
@@ -347,20 +347,20 @@
             <numHotels>0</numHotels>
         </Property>
         <Railroad>
-            <name>محطة دبي</name>
-            <rent>75</rent>
-            <owner>bank</owner>
-            <price>600</price>
+            <name>B. O. Railroad</name>
+            <rent>100</rent>
+            <owner>AI Player2</owner>
+            <price>200</price>
             <index>25</index>
             <r>102</r>
             <g>98</g>
             <b>95</b>
         </Railroad>
         <Property>
-            <name>طريق الخليج</name>
-            <rent>66</rent>
+            <name>Atlantic Avenue</name>
+            <rent>22</rent>
             <owner>bank</owner>
-            <price>780</price>
+            <price>260</price>
             <index>26</index>
             <r>255</r>
             <g>255</g>
@@ -369,10 +369,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع القدس</name>
-            <rent>66</rent>
+            <name>Ventnor Avenue</name>
+            <rent>22</rent>
             <owner>bank</owner>
-            <price>780</price>
+            <price>260</price>
             <index>27</index>
             <r>255</r>
             <g>255</g>
@@ -381,10 +381,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شركة مياه</name>
-            <rent>12</rent>
+            <name>Water Works</name>
+            <rent>4</rent>
             <owner>bank</owner>
-            <price>450</price>
+            <price>150</price>
             <index>28</index>
             <r>255</r>
             <g>255</g>
@@ -393,10 +393,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>طريق أحد</name>
-            <rent>72</rent>
-            <owner>bank</owner>
-            <price>840</price>
+            <name>Marvin Gardens</name>
+            <rent>24</rent>
+            <owner>AI Player2</owner>
+            <price>280</price>
             <index>29</index>
             <r>255</r>
             <g>255</g>
@@ -405,7 +405,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>اذهب للسجن</name>
+            <name>GoToJail</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -417,10 +417,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الملك سلمان</name>
-            <rent>78</rent>
+            <name>Pacific Avenue</name>
+            <rent>26</rent>
             <owner>bank</owner>
-            <price>900</price>
+            <price>300</price>
             <index>31</index>
             <r>0</r>
             <g>128</g>
@@ -429,10 +429,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الملك سعود</name>
-            <rent>78</rent>
-            <owner>bank</owner>
-            <price>900</price>
+            <name>North Carolina Avenue</name>
+            <rent>26</rent>
+            <owner>p3</owner>
+            <price>300</price>
             <index>32</index>
             <r>0</r>
             <g>128</g>
@@ -441,7 +441,7 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>صندوق المجتمع</name>
+            <name>Community Chest</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -453,10 +453,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>شارع الملك فهد</name>
-            <rent>84</rent>
-            <owner>bank</owner>
-            <price>960</price>
+            <name>Pennsylvania Avenue</name>
+            <rent>28</rent>
+            <owner>AI Player1</owner>
+            <price>320</price>
             <index>34</index>
             <r>0</r>
             <g>128</g>
@@ -465,17 +465,17 @@
             <numHotels>0</numHotels>
         </Property>
         <Railroad>
-            <name>محطة الرياض</name>
-            <rent>75</rent>
-            <owner>bank</owner>
-            <price>600</price>
+            <name>Short Line</name>
+            <rent>100</rent>
+            <owner>AI Player2</owner>
+            <price>200</price>
             <index>35</index>
             <r>102</r>
             <g>98</g>
             <b>95</b>
         </Railroad>
         <Property>
-            <name>صدفة</name>
+            <name>Chance</name>
             <rent>0</rent>
             <owner>bank</owner>
             <price>0</price>
@@ -487,10 +487,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>برج العرب</name>
-            <rent>105</rent>
+            <name>Park Place</name>
+            <rent>35</rent>
             <owner>bank</owner>
-            <price>1000</price>
+            <price>350</price>
             <index>37</index>
             <r>0</r>
             <g>0</g>
@@ -499,8 +499,8 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>ضريبة الرفاهية</name>
-            <rent>300</rent>
+            <name>Luxury Tax</name>
+            <rent>100</rent>
             <owner>bank</owner>
             <price>0</price>
             <index>38</index>
@@ -511,10 +511,10 @@
             <numHotels>0</numHotels>
         </Property>
         <Property>
-            <name>برج خليفة</name>
-            <rent>150</rent>
+            <name>Boardwalk</name>
+            <rent>50</rent>
             <owner>bank</owner>
-            <price>1200</price>
+            <price>400</price>
             <index>39</index>
             <r>0</r>
             <g>0</g>
@@ -523,6 +523,6 @@
             <numHotels>0</numHotels>
         </Property>
         <currentPlayerIndex>2</currentPlayerIndex>
-        <nextRoll>false</nextRoll>
-        <numPropertiesLeft>19</numPropertiesLeft>
+        <nextRoll>true</nextRoll>
+        <numPropertiesLeft>10</numPropertiesLeft>
     </Monopoly>

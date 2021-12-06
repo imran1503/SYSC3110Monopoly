@@ -13,10 +13,7 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -58,23 +55,19 @@ public class BoardConstructor {
      */
     public Board loadBoardFromMapFile(String fileName, Boolean newBoard) {
             try {
-                File file;
-                if(newBoard) {
-                    file = new File("src/"+fileName);
+                class MyInputStream extends FileInputStream {
+                    public MyInputStream(String filename) throws FileNotFoundException {
+                        super(filename);
+                    }
                 }
-                else{
-                    file = new File("Save Files/" +fileName);
-                }
+                InputStream in;
+                in = new MyInputStream(fileName);
+
                 //an instance of factory that gives a document builder
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 //an instance of builder to parse the specified xml file
                 DocumentBuilder db = dbf.newDocumentBuilder();
-
-
-                InputStream in = getClass().getResourceAsStream("src/board.xml");
-
-                Document doc = db.parse(file);
-
+                Document doc = db.parse(in);
                 doc.getDocumentElement().normalize();
 
                 NodeList propertyList = doc.getElementsByTagName("Property");
@@ -248,6 +241,6 @@ public class BoardConstructor {
             finally {
                 return board;
             }
-    }
 
+    }
 }
