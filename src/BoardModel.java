@@ -791,7 +791,6 @@ public class BoardModel {
             return;
         }
         boardView.setAllPropertys();
-        boardView.updateAllHousesIcons();
     }
 
     /**
@@ -818,6 +817,8 @@ public class BoardModel {
                 if (propertyNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element propertyElement = (Element) propertyNode;
                     String ownerName = propertyElement.getElementsByTagName("owner").item(0).getTextContent();
+                    int numHouses = Integer.parseInt(propertyElement.getElementsByTagName("numHouses").item(0).getTextContent());
+                    int numHotels = Integer.parseInt(propertyElement.getElementsByTagName("numHotels").item(0).getTextContent());
                     int propertyLocation = Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent());
                     for (int j = 0; j < players.size(); j++) {
                         if(players.get(j).getName().equals(ownerName)){
@@ -825,6 +826,9 @@ public class BoardModel {
                             board.getProperty(propertyLocation).setOwner(players.get(j));
                             //add property to Owner's controller properties list
                             getPlayer(j).gainProperty(board.getProperty(propertyLocation));
+                            //Set num houses and hotels
+                            board.getProperty(propertyLocation).setNumHouses(numHouses);
+                            board.getProperty(propertyLocation).setNumHotels(numHotels);
                         }
                     }
                 }
@@ -846,6 +850,7 @@ public class BoardModel {
                 }
             }
             boardView.updateAllPlayersStatus(playerList.getLength());
+            boardView.updateAllHousesIcons();
             boardView.loadButtonSetup(false,playerList.getLength());
         }
         catch (FileNotFoundException | ParserConfigurationException f) {

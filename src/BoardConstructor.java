@@ -128,10 +128,6 @@ public class BoardConstructor {
                                                                              Integer.parseInt(propertyElement.getElementsByTagName("b").item(0).getTextContent())), //B
                                                                   Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent())
                                                                   );
-                        if(!newBoard){
-                            //newProperty.setNumHouses(Integer.parseInt(propertyElement.getElementsByTagName("numHouses").item(0).getTextContent()));
-                            //newProperty.setNumHotels(Integer.parseInt(propertyElement.getElementsByTagName("numHotels").item(0).getTextContent()));
-                        }
                         board.setProperty(newProperty.getLocation(), newProperty);
                     }
                 }
