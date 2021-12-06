@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SYSC3110Monopoly:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78a620d-a07e-4128-b3f3-6035437516e7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
-    </list>
+    <list default="true" id="f78a620d-a07e-4128-b3f3-6035437516e7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,8 +31,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JAR Application.SYSC3110Monopoly.jar (1)">
     <configuration name="BoardModel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BoardModel" />
       <module name="SYSC3110Monopoly" />
@@ -41,8 +43,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SYSC3110Monopoly.jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly_jar/SYSC3110Monopoly.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SYSC3110Monopoly.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.SYSC3110Monopoly.jar (1)" />
+        <item itemvalue="JAR Application.SYSC3110Monopoly.jar" />
         <item itemvalue="Application.BoardModel" />
       </list>
     </recent_temporary>
@@ -56,6 +68,29 @@
       <option name="presentableId" value="Default" />
       <updated>1638814462098</updated>
     </task>
+    <task id="LOCAL-00001" summary="loading files in changes">
+      <created>1638815401845</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638815401846</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="loading files in changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="loading files in changes" />
   </component>
 </project>
