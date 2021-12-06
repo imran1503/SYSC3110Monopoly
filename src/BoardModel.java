@@ -683,6 +683,10 @@ public class BoardModel {
      */
     public void load(String fileName){
         loadBoard(fileName);
+        //Catch board not initilaized exception, return to not continue load.
+        try{ board.getProperty(0);}
+        catch (Exception e){ return; }
+
         loadPlayers(fileName);
         loadBoardModelAttributes(fileName);
         loadPropertyOwners(fileName);
@@ -781,6 +785,11 @@ public class BoardModel {
         BoardConstructor loadBoardConstructor = new BoardConstructor(loadedBoard);
         loadedBoard = loadBoardConstructor.loadBoardFromMapFile(fileName, false);
         board = loadedBoard;
+        try{board.getProperty(0);}
+        catch (Exception e){
+            boardView.setEventLabelText("No load files found","");
+            return;
+        }
         boardView.setAllPropertys();
         boardView.updateAllHousesIcons();
     }
