@@ -4,8 +4,8 @@
         <Currency>$</Currency>
         <Player>
             <name>AI Player1</name>
-            <balance>920</balance>
-            <position>13</position>
+            <balance>958</balance>
+            <position>9</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
             <r>100</r>
@@ -20,14 +20,14 @@
         </Player>
         <Player>
             <name>AI Player2</name>
-            <balance>696</balance>
-            <position>26</position>
+            <balance>996</balance>
+            <position>0</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
             <r>0</r>
             <g>100</g>
             <b>0</b>
-            <ownsXtrains>3</ownsXtrains>
+            <ownsXtrains>0</ownsXtrains>
             <ownsBothUtil>false</ownsBothUtil>
             <ai>true</ai>
             <numOfDoubleRolls>0</numOfDoubleRolls>
@@ -36,16 +36,32 @@
         </Player>
         <Player>
             <name>p3</name>
-            <balance>964</balance>
+            <balance>1018</balance>
             <position>0</position>
             <inJail>false</inJail>
             <turnsInJail>0</turnsInJail>
             <r>30</r>
             <g>30</g>
             <b>30</b>
-            <ownsXtrains>0</ownsXtrains>
+            <ownsXtrains>1</ownsXtrains>
             <ownsBothUtil>false</ownsBothUtil>
             <ai>false</ai>
+            <numOfDoubleRolls>0</numOfDoubleRolls>
+            <hasAColorSet>false</hasAColorSet>
+            <bankruptStatus>false</bankruptStatus>
+        </Player>
+        <Player>
+            <name>AI Player4</name>
+            <balance>708</balance>
+            <position>39</position>
+            <inJail>false</inJail>
+            <turnsInJail>0</turnsInJail>
+            <r>150</r>
+            <g>100</g>
+            <b>50</b>
+            <ownsXtrains>1</ownsXtrains>
+            <ownsBothUtil>false</ownsBothUtil>
+            <ai>true</ai>
             <numOfDoubleRolls>0</numOfDoubleRolls>
             <hasAColorSet>false</hasAColorSet>
             <bankruptStatus>false</bankruptStatus>
@@ -65,7 +81,7 @@
         <Property>
             <name>Mediterranean Avenue</name>
             <rent>2</rent>
-            <owner>AI Player1</owner>
+            <owner>bank</owner>
             <price>60</price>
             <index>1</index>
             <r>136</r>
@@ -89,7 +105,7 @@
         <Property>
             <name>Baltic Avenue</name>
             <rent>4</rent>
-            <owner>AI Player2</owner>
+            <owner>bank</owner>
             <price>60</price>
             <index>3</index>
             <r>136</r>
@@ -123,7 +139,7 @@
         <Property>
             <name>Oriental Avenue</name>
             <rent>6</rent>
-            <owner>AI Player2</owner>
+            <owner>bank</owner>
             <price>100</price>
             <index>6</index>
             <r>135</r>
@@ -159,7 +175,7 @@
         <Property>
             <name>Connecticut Avenue</name>
             <rent>8</rent>
-            <owner>p3</owner>
+            <owner>AI Player4</owner>
             <price>120</price>
             <index>9</index>
             <r>135</r>
@@ -183,7 +199,7 @@
         <Property>
             <name>St. Charles Place</name>
             <rent>10</rent>
-            <owner>AI Player1</owner>
+            <owner>bank</owner>
             <price>140</price>
             <index>11</index>
             <r>255</r>
@@ -207,7 +223,7 @@
         <Property>
             <name>States Avenue</name>
             <rent>10</rent>
-            <owner>AI Player1</owner>
+            <owner>bank</owner>
             <price>140</price>
             <index>13</index>
             <r>255</r>
@@ -219,7 +235,7 @@
         <Property>
             <name>Virginia Avenue</name>
             <rent>12</rent>
-            <owner>bank</owner>
+            <owner>AI Player2</owner>
             <price>160</price>
             <index>14</index>
             <r>255</r>
@@ -230,8 +246,8 @@
         </Property>
         <Railroad>
             <name>Pennsylvania Railroad</name>
-            <rent>100</rent>
-            <owner>AI Player2</owner>
+            <rent>25</rent>
+            <owner>bank</owner>
             <price>200</price>
             <index>15</index>
             <r>102</r>
@@ -241,7 +257,7 @@
         <Property>
             <name>St. James Place</name>
             <rent>14</rent>
-            <owner>p3</owner>
+            <owner>AI Player4</owner>
             <price>180</price>
             <index>16</index>
             <r>255</r>
@@ -265,7 +281,7 @@
         <Property>
             <name>Tennessee Avenue</name>
             <rent>14</rent>
-            <owner>AI Player1</owner>
+            <owner>bank</owner>
             <price>180</price>
             <index>18</index>
             <r>255</r>
@@ -277,7 +293,7 @@
         <Property>
             <name>New York Avenue</name>
             <rent>16</rent>
-            <owner>bank</owner>
+            <owner>AI Player1</owner>
             <price>200</price>
             <index>19</index>
             <r>255</r>
@@ -301,7 +317,7 @@
         <Property>
             <name>Kentucky Avenue</name>
             <rent>18</rent>
-            <owner>bank</owner>
+            <owner>p3</owner>
             <price>220</price>
             <index>21</index>
             <r>255</r>
@@ -348,8 +364,8 @@
         </Property>
         <Railroad>
             <name>B. O. Railroad</name>
-            <rent>100</rent>
-            <owner>AI Player2</owner>
+            <rent>25</rent>
+            <owner>AI Player4</owner>
             <price>200</price>
             <index>25</index>
             <r>102</r>
@@ -383,7 +399,7 @@
         <Property>
             <name>Water Works</name>
             <rent>4</rent>
-            <owner>bank</owner>
+            <owner>p3</owner>
             <price>150</price>
             <index>28</index>
             <r>255</r>
@@ -395,7 +411,7 @@
         <Property>
             <name>Marvin Gardens</name>
             <rent>24</rent>
-            <owner>AI Player2</owner>
+            <owner>bank</owner>
             <price>280</price>
             <index>29</index>
             <r>255</r>
@@ -419,7 +435,7 @@
         <Property>
             <name>Pacific Avenue</name>
             <rent>26</rent>
-            <owner>bank</owner>
+            <owner>AI Player4</owner>
             <price>300</price>
             <index>31</index>
             <r>0</r>
@@ -431,7 +447,7 @@
         <Property>
             <name>North Carolina Avenue</name>
             <rent>26</rent>
-            <owner>p3</owner>
+            <owner>AI Player2</owner>
             <price>300</price>
             <index>32</index>
             <r>0</r>
@@ -455,7 +471,7 @@
         <Property>
             <name>Pennsylvania Avenue</name>
             <rent>28</rent>
-            <owner>AI Player1</owner>
+            <owner>bank</owner>
             <price>320</price>
             <index>34</index>
             <r>0</r>
@@ -466,8 +482,8 @@
         </Property>
         <Railroad>
             <name>Short Line</name>
-            <rent>100</rent>
-            <owner>AI Player2</owner>
+            <rent>25</rent>
+            <owner>p3</owner>
             <price>200</price>
             <index>35</index>
             <r>102</r>
@@ -489,7 +505,7 @@
         <Property>
             <name>Park Place</name>
             <rent>35</rent>
-            <owner>bank</owner>
+            <owner>AI Player1</owner>
             <price>350</price>
             <index>37</index>
             <r>0</r>
@@ -523,6 +539,6 @@
             <numHotels>0</numHotels>
         </Property>
         <currentPlayerIndex>2</currentPlayerIndex>
-        <nextRoll>true</nextRoll>
-        <numPropertiesLeft>10</numPropertiesLeft>
+        <nextRoll>false</nextRoll>
+        <numPropertiesLeft>13</numPropertiesLeft>
     </Monopoly>

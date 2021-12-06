@@ -665,7 +665,7 @@ public class BoardModel {
      * @param name String file name to save with
      */
     public void save(String name){
-        File file = new File ("Save Files/" + name + ".xml");
+        File file = new File (name + ".xml");
         try {
             FileWriter writer = new FileWriter(file);
             writer.write(toXML());
