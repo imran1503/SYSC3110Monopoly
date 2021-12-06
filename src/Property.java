@@ -73,12 +73,7 @@ public class Property {
      * @return rent variable
      */
     public int getRent() {
-        if (numHouses == 1) { return (int)(rent*1.1); }
-        else if (numHouses == 2) { return (int)(rent*1.2); }
-        else if (numHouses == 3) { return (int)(rent*1.3); }
-        else if (numHouses == 4) { return (int)(rent*1.4); }
-        else if (numHotels == 1) { return (int)(rent*1.5); }
-        else { return rent; }
+        return rent * (numHouses + (numHotels * 5) + 1);
     }
 
     /**
@@ -87,7 +82,8 @@ public class Property {
      * @param payingPlayer the player paying the rent
      */
     public void payRent(Player payingPlayer){
-        if(!owner.getName().equals("bank")||(location == 4)||(location == 38)){
+        int taxLocation1 = 4; int taxLocation2 = 38;
+        if(!owner.getName().equals("bank")||(location == taxLocation1)||(location == taxLocation2)){
             payingPlayer.removefromBalance(this.getRent());
             if (owner != null) {
                 owner.addToBalance(this.getRent());
