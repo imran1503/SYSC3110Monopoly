@@ -498,7 +498,7 @@ public class BoardModel {
         //The game ends if the last active player (not bankrupt)
         // or
         // if there are no properties left for purchase. In this case the game ends in a tie between non-bankrupt Players (winnersList).
-        if (!checkNumOfActivePlayers() || (numPropertiesLeft == 0)) {
+        if (!checkNumOfActivePlayers() || (numPropertiesLeft == 0 && !humanPlayersLeft())) {
             boardView.setEventLabel3Text("Game has ended.");
             updateWinnersList();
             return true;
@@ -506,6 +506,20 @@ public class BoardModel {
         else { // else the game has not ended yet
             return false;
         }
+    }
+
+    /**
+     * Return true if atleast 1 non-Ai player is in the game and Not Bankrupt. Else return false.
+     * @return true if human player left, else false
+     */
+    public Boolean humanPlayersLeft(){
+        Boolean humanLeft = false;
+        for (int i = 0; i < players.size(); i++) {
+            if(!players.get(i).getAi() && !players.get(i).getBankruptStatus() ){
+                humanLeft = true;
+            }
+        }
+        return humanLeft;
     }
 
     /**
