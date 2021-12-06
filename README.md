@@ -1,5 +1,5 @@
 # SYSC3110Monopoly
-### Version: 3.0
+### Version: 4.0
 ### Authors:
 - Mahtab Ameli: @ameli-s19 and @MahtabAmeli
 - Shahrik Amin: @ShahrikAmin
@@ -31,15 +31,17 @@ java -jar Monopoly.jar
 The deliverables for this milestone is as follows: readme file, the JUnit test files, source code in the form of a.jar file, UML diagrams, documentation. They are supposed to all in one zip file submitted on brightspace. 
 
 ### Improvements
-We revieved a variety of feedback on the last milestone. In regards to this one, this is how we have adapted:
-We added a proper BoardController to help us stay with in the MVC pattern.
-We have gone through and cleaned up some of the less refined code. Particularlly in BoardView. 
-We have tackled the list of bugs that were appearing in the previous version, such as the game not endeding when there are no players left for the winner to compete against. 
-As we as we have fixed the bug with removing Property when a player is bankrupted. 
-In the game previously we had the functionality of houses and hotels complete however they were not added onto the GUI as of the last milestone, so this update we added that functionality to the game. 
+We reviewed a variety of feedback on the last milestone. With regard to this one, this is how we have adapted:
+We have made a popup window appear to show the game has ended when there is only one non bankrupt person left. Otherwise, a stack overflow would occur.
+We have removed "magic numbers" from our code. As well as adding several helper functions allowing the code to be more maintainable over time. 
+We have fixed the jar's ability to read in files by creating a save files folder that holds all the .XML documents in a directory marked for saves.. 
 
+The main functionality added in this update are as follows: being able to save the game, being able to load that save and continue playing, and being able to play this game in 4 languages.
+Those languages being: English, French, Arabic, and Persian. 
 
 ### Issues
+One issue that can happen on occasion, the game when run with a single human player and 3 other AI players, will occasionally have the human player move after pressing pass and not rolling as if it was an AI. 
+Another issue that can occur is that when 2 players are equally equipped to a very drawn out game, the game struggles to realize a tie, causing a stack overflow. 
 
 ### User Manual
 #### Objective
@@ -47,8 +49,8 @@ The objective of the boardModel is to be the last one standing (and richest)by b
 #### Playing the BoardModel
 In order to interact with the program, the following buttons are shown at throughout the boardModel:
 'quit' - Ends the boardModel immediately.                                                                                                     // Buttons not commands
-'roll' - Rolls a number die for current player.
-'purchase property' - Purchases property for current player, the property is the position player is on.
+'roll' - Rolls a number die for the current player.
+'purchase property' - Purchases property for the current player, the property is the position player is on.
 'purchase house' or 'purchase hotel' - Purchase house/hotel, asks player to type name of house/hotel to be purchased.
 'pass turn' - Current player's turn ends, passes turn to next player.
 'check boardModel state' - Outputs all Player's current status such as current Position, Balance, Bankrupt, Jail and Owned Property status.
@@ -61,12 +63,12 @@ In order to interact with the program, the following buttons are shown at throug
 ###### Jail
 When a player is sent to jail by landing on the designated "Go to jail" space, they are moved diagonally across the board directly to the jail cell on the 10th space. They are unable to collect go while moving to the jail cell. A player that is in jail is required to stay for a maximum of 3 turns after entering jail. While in jail, every turn they are required to roll doubles in order to leave jail early. If they are unable to roll doubles by the third turn, they are required to pay $50 to the bank in order to be released. They do not reroll for movment when they leave jail, they take the roll that got them out, or that would have if it was a double on their final turn in jail. 
          
-###### The Lack of:   Speed Dice, Chance Cards, Community Chest, Mortgaging property, Housing 
-We are not able to implement these features in this version of the boardModel. 
+###### The Lack of:   Speed Dice, Chance Cards, Community Chest, and Mortgaging property 
+We are not able to implement these features in this version of the Monopoly. 
 
 ###### Example Turns
-Players press "Start BoardView", and then decide how many players you want by entering it in the popup that will appear upon clicking the start game button. F
-For each player, you will decide if they are to be either a human player or a AI, and if they are a human player, enter their name.
+Players press "Start Game", and choose which language they will like to play in. Then they need to decide how many players you want by entering it in the popup that will appear upon clicking the start game button.
+For each player, you will decide if they are to be either a human player or an AI, and enter their name.
 
 The game will decide who gets to move first randomly. 
 Player 1 presses "Roll" to move. 
@@ -76,9 +78,10 @@ Player 1 presses "Purchsae Property", and the boardModel removes the money from 
 Player 1 passes their turn by pressing "Pass Turn". 
 
 An AI will also follow the example turn described above. 
-### Important Design Decisions
-We decided that implementing the functionality of: Go, Jail, Railroads and utilities early would be in our best intrest. As it will save us time when implementing the harder features of the boardModel later on.  
 
-### Roadmap
-The next step of this project will be implementing 2 main features. The first will be the ability to save and load the game to the local computer. 
-The second main feature is adding support for multiple languages in the game. 
+
+At any point, any the current player is allowed to press the save button in order to save a copy of their game in order to be played later when they click load.
+### Important Design Decisions
+We decided that forcing the game to come to an end once all 40 properties are purchased when there are predominantly AI players playing was necessary. As they could go on for a very long time before going bankrupt depending on the state of the board. 
+We also decided to have 4 languages in the game, allowing it to be played by more people.
+
