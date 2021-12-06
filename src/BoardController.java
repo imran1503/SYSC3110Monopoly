@@ -96,7 +96,7 @@ public class BoardController implements ActionListener {
             bm.save("MonopolySaveTest");
         }
         if (actionEvent.getSource().equals(buttons.get(loadButton))) {
-            bm.load("Save Files/MonopolySaveTest.xml");
+            bm.load("MonopolySaveTest.xml");
         }
     }
 
@@ -188,16 +188,16 @@ public class BoardController implements ActionListener {
         }
         String fileName = "";
         if(languageSelected.equals("French")) {//French Button
-            fileName = "Save Files/board-fr.xml";
+            fileName = "board-fr.xml";
         }
         else if (languageSelected.equals("Arabic")) {
-            fileName = "Save Files/board-ar.xml";
+            fileName = "board-ar.xml";
         }
         else if (languageSelected.equals("Persian")) {
-            fileName  = "Save Files/board-pe.xml";
+            fileName  = "board-pe.xml";
         }
         else if (languageSelected.equals("English")){
-            fileName = "Save Files/board.xml";
+            fileName = "board.xml";
         }
         Board board = new Board(fileName);
         BoardConstructor boardConstructor = new BoardConstructor(board);

@@ -55,13 +55,10 @@ public class BoardConstructor {
      */
     public Board loadBoardFromMapFile(String fileName, Boolean newBoard) {
             try {
-                class MyInputStream extends FileInputStream {
-                    public MyInputStream(String filename) throws FileNotFoundException {
-                        super(filename);
-                    }
+                InputStream in = this.getClass().getResourceAsStream(fileName);
+                if(in == null){
+                    System.out.println("The file was not found, File Name: "+fileName);
                 }
-                InputStream in;
-                in = new MyInputStream(fileName);
 
                 //an instance of factory that gives a document builder
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

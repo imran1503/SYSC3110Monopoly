@@ -1,32 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="SYSC3110Monopoly:jar" />
-    </artifacts-to-build>
-  </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="Jar should work I believe now">
+    <list default="true" id="f78a620d-a07e-4128-b3f3-6035437516e7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SYSC3110Monopoly.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Default_Changelist.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,48 +16,24 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="20bhuzoTVsLnTMdPDdVwfYneJxo" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
-  </component>
+  <component name="ProjectId" id="21vH5qpPkax4XzW1k2J1ZaBCJzx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Save Files" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Hp\Desktop\3rd Year\Fall 2021\SYSC 3110 A\SYSC3110Monopoly\Save Files" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.BoardModel">
+  <component name="RunManager">
     <configuration name="BoardModel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BoardModel" />
       <module name="SYSC3110Monopoly" />
@@ -86,439 +41,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SYSC3110Monopoly" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SYSC3110Monopoly.jar (1)" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/SYSC3110Monopoly.jar" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SYSC3110Monopoly.jar (2)" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly.jar" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SYSC3110Monopoly.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/SYSC3110Monopoly_jar/SYSC3110Monopoly.jar" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.BoardModel" />
-        <item itemvalue="JAR Application.SYSC3110Monopoly.jar (2)" />
-        <item itemvalue="JAR Application.SYSC3110Monopoly.jar (1)" />
-        <item itemvalue="JAR Application.SYSC3110Monopoly.jar" />
-        <item itemvalue="JUnit.BoardModelTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="497454d4-9176-4650-a0bd-d60a15682bfe" name="Default Changelist" comment="" />
-      <created>1636319422684</created>
+      <changelist id="f78a620d-a07e-4128-b3f3-6035437516e7" name="Default Changelist" comment="" />
+      <created>1638814462098</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1636319422684</updated>
-      <workItem from="1637108734285" duration="731000" />
-      <workItem from="1637463077523" duration="3103000" />
-      <workItem from="1637531871582" duration="3540000" />
+      <updated>1638814462098</updated>
     </task>
-    <task id="LOCAL-00032" summary="Cleanup and javadoc + comments on AIPlayer">
-      <created>1637595827666</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1637595827666</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Cleanup and javadoc + comments on AIPlayer">
-      <created>1637596018326</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1637596018326</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Cleanup and javadoc + comments on BoardView. Also bug fix in BoardController">
-      <created>1637597652175</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1637597652175</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Player Panels displayed now equal to number of players playing the game.">
-      <created>1637612219547</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1637612219547</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Added JavaDocs in BoardView class.">
-      <created>1637612926716</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1637612926716</updated>
-    </task>
-    <task id="LOCAL-00037" summary="player ownXtrains should update now when buying a railroad.">
-      <created>1637613420780</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1637613420780</updated>
-    </task>
-    <task id="LOCAL-00038" summary="JavaDoc and more comments for BoardController">
-      <created>1637614692626</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1637614692626</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Initial start at AI logic buying houses">
-      <created>1637616032095</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1637616032095</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Initial start at AI logic buying houses">
-      <created>1637616547336</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1637616547336</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Initial start at AI logic buying houses">
-      <created>1637616611481</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1637616611481</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Initial start at AI logic buying houses">
-      <created>1637616859116</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1637616859116</updated>
-    </task>
-    <task id="LOCAL-00043" summary="more stuff in AiLogic for buying houses">
-      <created>1637618558042</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1637618558042</updated>
-    </task>
-    <task id="LOCAL-00044" summary="more stuff in AiLogic for buying houses">
-      <created>1637618696391</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1637618696391</updated>
-    </task>
-    <task id="LOCAL-00045" summary="bug fixes and aiLogic buying houses changes">
-      <created>1637621392541</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1637621392541</updated>
-    </task>
-    <task id="LOCAL-00046" summary="bug fixes and more javadocs and comments">
-      <created>1637622820706</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1637622820706</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Fixed dark blue color reading property name problem">
-      <created>1637623416846</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1637623416846</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Started the Save Feature">
-      <created>1638242296391</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1638242296391</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Arabic board version xml">
-      <created>1638559994190</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1638559994190</updated>
-    </task>
-    <task id="LOCAL-00050" summary="board now change to different lanuages on GUI">
-      <created>1638562541355</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1638562541356</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Bug fix for Railroad rent">
-      <created>1638637129209</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1638637129209</updated>
-    </task>
-    <task id="LOCAL-00052" summary="some reaaranging of statements in roll()">
-      <created>1638638850728</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1638638850728</updated>
-    </task>
-    <task id="LOCAL-00053" summary="uing helper functions in BoardController to split code in to many methods instead of 1 method.">
-      <created>1638645739220</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1638645739220</updated>
-    </task>
-    <task id="LOCAL-00054" summary="setUserInputVisibilty() now does not have magic numbers">
-      <created>1638646408644</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1638646408645</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Save Function near done.">
-      <created>1638668020726</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1638668020726</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Initial start at Load() in BoardModel">
-      <created>1638713889768</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1638713889769</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Initial start at Load() in BoardModel">
-      <created>1638715198910</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1638715198910</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Initial start at Load() in BoardModel">
-      <created>1638715762359</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1638715762359</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Initial start at Load() in BoardModel">
-      <created>1638715987132</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1638715987132</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Initial start at load() in BoardModel">
-      <created>1638716121141</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1638716121141</updated>
-    </task>
-    <task id="LOCAL-00061" summary="the rest of player attributes added in loadPlayers()">
-      <created>1638716582932</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1638716582932</updated>
-    </task>
-    <task id="LOCAL-00062" summary="work on loadPropertyOwnersAndPlayerControlled() in BoardModel">
-      <created>1638717390892</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1638717390892</updated>
-    </task>
-    <task id="LOCAL-00063" summary="more completion on load() in BoardModel">
-      <created>1638718413595</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1638718413595</updated>
-    </task>
-    <task id="LOCAL-00064" summary="splitting loading of boardModel attributes from loadPlayers()">
-      <created>1638718677007</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1638718677007</updated>
-    </task>
-    <task id="LOCAL-00065" summary="maxplayers getting improved in BoardModel loadPlayers()">
-      <created>1638727154557</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1638727154558</updated>
-    </task>
-    <task id="LOCAL-00066" summary="maxplayers getting improved in BoardModel loadPlayers()">
-      <created>1638727235303</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1638727235303</updated>
-    </task>
-    <task id="LOCAL-00067" summary="maxplayers getting improved in BoardModel loadPlayers()">
-      <created>1638727269233</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1638727269233</updated>
-    </task>
-    <task id="LOCAL-00068" summary="load game button now works on GUI">
-      <created>1638728992635</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1638728992635</updated>
-    </task>
-    <task id="LOCAL-00069" summary="load game button now works on GUI">
-      <created>1638729029937</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1638729029937</updated>
-    </task>
-    <task id="LOCAL-00070" summary="load game button now works on GUI">
-      <created>1638729175447</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1638729175447</updated>
-    </task>
-    <task id="LOCAL-00071" summary="load game bug fixed">
-      <created>1638730168996</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1638730168996</updated>
-    </task>
-    <task id="LOCAL-00072" summary="load game bug fixed">
-      <created>1638732005129</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1638732005129</updated>
-    </task>
-    <task id="LOCAL-00073" summary="bug fixes">
-      <created>1638733959073</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1638733959073</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Java Doc for BoardModel complete.">
-      <created>1638734827196</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1638734827196</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Java Doc for BoardController complete.">
-      <created>1638735107234</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1638735107234</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Java Doc for BoardView complete.">
-      <created>1638735352907</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1638735352907</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Java Doc for Board complete.">
-      <created>1638735660646</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1638735660646</updated>
-    </task>
-    <task id="LOCAL-00078" summary="AI bankrupt player icon bug fix">
-      <created>1638736075475</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1638736075475</updated>
-    </task>
-    <task id="LOCAL-00079" summary="Jar should work I believe now">
-      <created>1638802677563</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1638802677564</updated>
-    </task>
-    <task id="LOCAL-00080" summary="Changed loading files with InputStream instead of with File object">
-      <created>1638807686566</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1638807686566</updated>
-    </task>
-    <option name="localTasksCounter" value="81" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Started the Save Feature" />
-    <MESSAGE value="Arabic board version xml" />
-    <MESSAGE value="board now change to different lanuages on GUI" />
-    <MESSAGE value="Bug fix for Railroad rent" />
-    <MESSAGE value="some reaaranging of statements in roll()" />
-    <MESSAGE value="uing helper functions in BoardController to split code in to many methods instead of 1 method." />
-    <MESSAGE value="setUserInputVisibilty() now does not have magic numbers" />
-    <MESSAGE value="Save Function near done." />
-    <MESSAGE value="Initial start at Load() in BoardModel" />
-    <MESSAGE value="Initial start at load() in BoardModel" />
-    <MESSAGE value="the rest of player attributes added in loadPlayers()" />
-    <MESSAGE value="work on loadPropertyOwnersAndPlayerControlled() in BoardModel" />
-    <MESSAGE value="more completion on load() in BoardModel" />
-    <MESSAGE value="splitting loading of boardModel attributes from loadPlayers()" />
-    <MESSAGE value="maxplayers getting improved in BoardModel loadPlayers()" />
-    <MESSAGE value="load game button now works on GUI" />
-    <MESSAGE value="load game bug fixed" />
-    <MESSAGE value="bug fixes" />
-    <MESSAGE value="Java Doc for BoardModel complete." />
-    <MESSAGE value="Java Doc for BoardController complete." />
-    <MESSAGE value="Java Doc for BoardView complete." />
-    <MESSAGE value="Java Doc for Board complete." />
-    <MESSAGE value="AI bankrupt player icon bug fix" />
-    <MESSAGE value="Jar should work I believe now" />
-    <MESSAGE value="Changed loading files with InputStream instead of with File object" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed loading files with InputStream instead of with File object" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SYSC3110Monopoly$Game.ic" NAME="Game Coverage Results" MODIFIED="1636224302618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

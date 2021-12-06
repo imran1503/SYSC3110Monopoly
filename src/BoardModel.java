@@ -697,12 +697,10 @@ public class BoardModel {
     public void loadPlayers(String fileName){
         int maxPlayers = 0;
         try{
-            class MyInputStream extends FileInputStream {
-                public MyInputStream(String filename) throws FileNotFoundException {
-                    super(filename);
-                }
+            InputStream in = this.getClass().getResourceAsStream(fileName);
+            if(in == null){
+                System.out.println("The file was not found, File Name: "+fileName);
             }
-            InputStream in = new MyInputStream(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
@@ -797,12 +795,10 @@ public class BoardModel {
      */
     public void loadPropertyOwners(String fileName){
         try {
-            class MyInputStream extends FileInputStream {
-                public MyInputStream(String filename) throws FileNotFoundException {
-                    super(filename);
-                }
+            InputStream in = this.getClass().getResourceAsStream(fileName);
+            if(in == null){
+                System.out.println("The file was not found, File Name: "+fileName);
             }
-            InputStream in = new MyInputStream(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
@@ -866,12 +862,10 @@ public class BoardModel {
      */
     public void loadBoardModelAttributes(String fileName){
         try {
-            class MyInputStream extends FileInputStream {
-                public MyInputStream(String filename) throws FileNotFoundException {
-                    super(filename);
-                }
+            InputStream in = this.getClass().getResourceAsStream(fileName);
+            if(in == null){
+                System.out.println("The file was not found, File Name: "+fileName);
             }
-            InputStream in = new MyInputStream(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
@@ -922,7 +916,7 @@ public class BoardModel {
      */
     public static void main(String args[]){
 
-        BoardModel boardModel = new BoardModel("Save Files/board.xml");
+        BoardModel boardModel = new BoardModel("board.xml");
         BoardView boardView = new BoardView(boardModel);
         boardModel.setBoardView(boardView);
         boardView.displayGUI();
