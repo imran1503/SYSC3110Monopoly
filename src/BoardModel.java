@@ -418,13 +418,13 @@ public class BoardModel {
         else{ // else buy house or hotel for current player on property
             currentPlayer.removefromBalance(property.getHousePrice());
             if(numOfHouseCurrent == 4) {
-            property.setNumHotels(1);
-            property.setNumHouses(0);
-            boardView.setEventLabelText(playerName + " purchased Hotel on: "+propertyName, "Remaining Balance: "+currency+currentPlayer.getBalance());
+                property.setNumHotels(1);
+                property.setNumHouses(0);
+                boardView.setEventLabelText(playerName + " purchased Hotel on: "+propertyName, "Remaining Balance: "+currency+currentPlayer.getBalance());
             }
             else{
-            property.setNumHouses((1+numOfHouseCurrent));
-            boardView.setEventLabelText(playerName + " purchased House on: "+propertyName, "Remaining Balance: "+currency+currentPlayer.getBalance());
+                property.setNumHouses((1+numOfHouseCurrent));
+                boardView.setEventLabelText(playerName + " purchased House on: "+propertyName, "Remaining Balance: "+currency+currentPlayer.getBalance());
             }
             //Update to display new changes to houses on property.
             boardView.updateHousesIcons(property.getLocation());
@@ -697,15 +697,12 @@ public class BoardModel {
     public void loadPlayers(String fileName){
         int maxPlayers = 0;
         try{
-            InputStream in = this.getClass().getResourceAsStream(fileName);
-            if(in == null){
-                System.out.println("The file was not found, File Name: "+fileName);
-            }
+            File file = new File(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(in);
+            Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
             NodeList loadPlayersList = doc.getElementsByTagName("Player");
 
@@ -795,15 +792,12 @@ public class BoardModel {
      */
     public void loadPropertyOwners(String fileName){
         try {
-            InputStream in = this.getClass().getResourceAsStream(fileName);
-            if(in == null){
-                System.out.println("The file was not found, File Name: "+fileName);
-            }
+            File file = new File(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(in);
+            Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
             NodeList loadPropertyList = doc.getElementsByTagName("Property");
             NodeList railroadsList = doc.getElementsByTagName("railroad");
@@ -847,6 +841,7 @@ public class BoardModel {
         }
         catch (FileNotFoundException | ParserConfigurationException f) {
             f.printStackTrace();
+            return;
             //loadBoardFromMapFile("board.xml");
         }   catch (SAXException e) {
             e.printStackTrace();
@@ -862,15 +857,12 @@ public class BoardModel {
      */
     public void loadBoardModelAttributes(String fileName){
         try {
-            InputStream in = this.getClass().getResourceAsStream(fileName);
-            if(in == null){
-                System.out.println("The file was not found, File Name: "+fileName);
-            }
+            File file = new File(fileName);
             //an instance of factory that gives a document builder
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             //an instance of builder to parse the specified xml file
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document doc = db.parse(in);
+            Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
             NodeList nextRollList = doc.getElementsByTagName("nextRoll");
             NodeList currentPlayerIndexList = doc.getElementsByTagName("currentPlayerIndex");
@@ -903,6 +895,7 @@ public class BoardModel {
         }
         catch (FileNotFoundException | ParserConfigurationException f) {
             f.printStackTrace();
+            return;
             //loadBoardFromMapFile("board.xml");
         }   catch (SAXException e) {
             e.printStackTrace();

@@ -55,16 +55,22 @@ public class BoardConstructor {
      */
     public Board loadBoardFromMapFile(String fileName, Boolean newBoard) {
             try {
-                InputStream in = this.getClass().getResourceAsStream(fileName);
-                if(in == null){
-                    System.out.println("The file was not found, File Name: "+fileName);
-                }
-
                 //an instance of factory that gives a document builder
                 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                 //an instance of builder to parse the specified xml file
                 DocumentBuilder db = dbf.newDocumentBuilder();
-                Document doc = db.parse(in);
+                Document doc;
+                if(newBoard) {
+                    InputStream in = this.getClass().getResourceAsStream(fileName);
+                    if (in == null) {
+                        System.out.println("The file was not found, File Name: " + fileName);
+                    }
+                    doc = db.parse(in);
+                }
+                else{
+                    File file = new File(fileName);
+                    doc = db.parse(file);
+                }
                 doc.getDocumentElement().normalize();
 
                 NodeList propertyList = doc.getElementsByTagName("Property");
@@ -229,7 +235,7 @@ public class BoardConstructor {
                 }
 
             } catch (FileNotFoundException | ParserConfigurationException f) {
-                f.printStackTrace();
+                return this.loadBoardFromMapFile("MonopolySaveTest",true);
             } catch (SAXException e) {
                 e.printStackTrace();
             } catch (IOException e) {

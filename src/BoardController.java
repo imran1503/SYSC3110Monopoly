@@ -93,10 +93,10 @@ public class BoardController implements ActionListener {
             submitButtonAction();
         }
         if (actionEvent.getSource().equals(buttons.get(saveButton))) {
-            bm.save("MonopolySaveTest");
+            bm.save("SaveFile");
         }
         if (actionEvent.getSource().equals(buttons.get(loadButton))) {
-            bm.load("MonopolySaveTest.xml");
+            bm.load("SaveFile.xml");
         }
     }
 
