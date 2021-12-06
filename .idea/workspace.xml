@@ -6,10 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78a620d-a07e-4128-b3f3-6035437516e7" name="Default Changelist" comment="Fix for loading non english boards">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
+    <list default="true" id="f78a620d-a07e-4128-b3f3-6035437516e7" name="Default Changelist" comment="housing icons fix">
+      <change beforePath="$PROJECT_DIR$/src/BoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +119,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638827860431</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="houses loading fixed">
+      <created>1638828412059</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638828412059</updated>
+    </task>
+    <task id="LOCAL-00009" summary="housing icons fix">
+      <created>1638828638035</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1638828638035</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,6 +155,8 @@
     <MESSAGE value="load game bug fixes" />
     <MESSAGE value="No load file message for load implemented" />
     <MESSAGE value="Fix for loading non english boards" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix for loading non english boards" />
+    <MESSAGE value="houses loading fixed" />
+    <MESSAGE value="housing icons fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="housing icons fix" />
   </component>
 </project>
