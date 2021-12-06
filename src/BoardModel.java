@@ -616,38 +616,18 @@ public class BoardModel {
                 if(i == railroadsPositions[j]){
                     isRailroad = true;
                     s+= stringIndent + stringIndent + "<Railroad>\n";
-                    s+= stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>\n";
-                    s+= stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
                     s+= stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner().getName() + "</owner>\n";
-                    s+= stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
                     s+= stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</index>\n";
-
-                    //Color as R G B
-                    s+= stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>\n";
-                    s+= stringIndent + stringIndent + stringIndent + "<g>" + this.getBoard().getProperty(i).getColor().getGreen() + "</g>\n";
-                    s+= stringIndent + stringIndent + stringIndent + "<b>" + this.getBoard().getProperty(i).getColor().getBlue() + "</b>\n";
-
                     s+= stringIndent + stringIndent + "</Railroad>\n";
                 }
             }
             //All other non-railroad properties
             if(!isRailroad) {
                 s += stringIndent + stringIndent + "<Property>\n";
-                s += stringIndent + stringIndent + stringIndent + "<name>" + this.getBoard().getProperty(i).getName() + "</name>\n";
-                s += stringIndent + stringIndent + stringIndent + "<rent>" + this.getBoard().getProperty(i).getRent() + "</rent>\n";
                 s += stringIndent + stringIndent + stringIndent + "<owner>" + this.getBoard().getProperty(i).getOwner().getName() + "</owner>\n";
-                s += stringIndent + stringIndent + stringIndent + "<price>" + this.getBoard().getProperty(i).getPrice() + "</price>\n";
                 s += stringIndent + stringIndent + stringIndent + "<index>" + this.getBoard().getProperty(i).getLocation() + "</index>\n";
-
-                //Color as R G B
-                s += stringIndent + stringIndent + stringIndent + "<r>" + this.getBoard().getProperty(i).getColor().getRed() + "</r>\n";
-                s += stringIndent + stringIndent + stringIndent + "<g>" + this.getBoard().getProperty(i).getColor().getGreen() + "</g>\n";
-                s += stringIndent + stringIndent + stringIndent + "<b>" + this.getBoard().getProperty(i).getColor().getBlue() + "</b>\n";
-
-
                 s += stringIndent + stringIndent + stringIndent + "<numHouses>" + this.getBoard().getProperty(i).getNumHouses() + "</numHouses>\n";
                 s += stringIndent + stringIndent + stringIndent + "<numHotels>" + this.getBoard().getProperty(i).getNumHotels() + "</numHotels>\n";
-
                 s += stringIndent + stringIndent + "</Property>\n";
             }
         }
@@ -840,7 +820,7 @@ public class BoardModel {
                 if (railroadNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element railroadElement = (Element) railroadNode;
                     String ownerName = railroadElement.getElementsByTagName("owner").item(0).getTextContent();
-                    int propertyLocation = Integer.parseInt(railroadElement.getElementsByTagName("location").item(0).getTextContent());
+                    int propertyLocation = Integer.parseInt(railroadElement.getElementsByTagName("index").item(0).getTextContent());
                     for (int j = 0; j < players.size(); j++) {
                         if(players.get(j).getName().equals(ownerName)){
                             board.getProperty(propertyLocation).setOwner(players.get(j));
