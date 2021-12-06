@@ -6,8 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f78a620d-a07e-4128-b3f3-6035437516e7" name="Default Changelist" comment="load game bug fixes">
+    <list default="true" id="f78a620d-a07e-4128-b3f3-6035437516e7" name="Default Changelist" comment="No load file message for load implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardConstructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardConstructor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +39,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JAR Application.SYSC3110Monopoly.jar (1)">
+  <component name="RunManager" selected="Application.BoardModel">
     <configuration name="BoardModel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BoardModel" />
       <module name="SYSC3110Monopoly" />
@@ -56,9 +57,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BoardModel" />
         <item itemvalue="JAR Application.SYSC3110Monopoly.jar (1)" />
         <item itemvalue="JAR Application.SYSC3110Monopoly.jar" />
-        <item itemvalue="Application.BoardModel" />
       </list>
     </recent_temporary>
   </component>
@@ -106,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638820653241</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="No load file message for load implemented">
+      <created>1638822525037</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1638822525037</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,6 +134,7 @@
     <MESSAGE value="bux fix for save game" />
     <MESSAGE value="rent pricing tweak for houses" />
     <MESSAGE value="load game bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="load game bug fixes" />
+    <MESSAGE value="No load file message for load implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="No load file message for load implemented" />
   </component>
 </project>

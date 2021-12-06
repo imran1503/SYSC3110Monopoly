@@ -12,6 +12,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.lang.Math;
 
+
 /**
  * Class BoardModel, Model of the board of the game. Has most of the game functionality commands.
  * ArrayList of Players to store all Players in the BoardModel.
@@ -570,7 +571,6 @@ public class BoardModel {
     public String toXML(){
         String s = new String();
         String stringIndent = "    ";
-
         s += stringIndent + "<Monopoly>\n";
         s+= stringIndent + stringIndent + "<CurrentPlayer>" + this.getCurrentPlayer().getName() + "</CurrentPlayer>\n";
         s+= stringIndent + stringIndent + "<CurrentPlayerIndex>" + this.getCurrentPlayerIndex() + "</CurrentPlayerIndex>\n";

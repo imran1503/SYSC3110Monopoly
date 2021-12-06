@@ -68,7 +68,29 @@ public class BoardConstructor {
                 }
                 else{
                     File file = new File(fileName);
-                    doc = db.parse(file);
+                    DocumentBuilderFactory dbf2 = DocumentBuilderFactory.newInstance();
+                    //an instance of builder to parse the specified xml file
+                    DocumentBuilder db2 = dbf2.newDocumentBuilder();
+                    Document doc2 = db2.parse(file);
+                    NodeList currencyList2 = doc2.getElementsByTagName("Currency");
+                    for (int itr = 0; itr < currencyList2.getLength(); itr++) {
+                        if(currencyList2.item(itr).getNodeType() == Node.ELEMENT_NODE){
+                            board.setCurrency(currencyList2.item(itr).getTextContent());
+                        }
+                    }
+                    String currencyOfGame = board.getCurrency();
+                    if(currencyOfGame.equals("IRR ")){
+                        doc = db.parse(this.getClass().getResourceAsStream("board-pe.xml"));
+                    }
+                    else if(currencyOfGame.equals("CAD ")){
+                        doc = db.parse(this.getClass().getResourceAsStream("board-fr.xml"));
+                    }
+                    else if(currencyOfGame.equals("SAR ")){
+                        doc = db.parse(this.getClass().getResourceAsStream("board-ar.xml"));
+                    }
+                    else{
+                        doc = db.parse(this.getClass().getResourceAsStream("board.xml"));
+                    }
                 }
                 doc.getDocumentElement().normalize();
 
@@ -107,8 +129,8 @@ public class BoardConstructor {
                                                                   Integer.parseInt(propertyElement.getElementsByTagName("index").item(0).getTextContent())
                                                                   );
                         if(!newBoard){
-                            newProperty.setNumHouses(Integer.parseInt(propertyElement.getElementsByTagName("numHouses").item(0).getTextContent()));
-                            newProperty.setNumHotels(Integer.parseInt(propertyElement.getElementsByTagName("numHotels").item(0).getTextContent()));
+                            //newProperty.setNumHouses(Integer.parseInt(propertyElement.getElementsByTagName("numHouses").item(0).getTextContent()));
+                            //newProperty.setNumHotels(Integer.parseInt(propertyElement.getElementsByTagName("numHotels").item(0).getTextContent()));
                         }
                         board.setProperty(newProperty.getLocation(), newProperty);
                     }
@@ -234,7 +256,7 @@ public class BoardConstructor {
                 }
 
             } catch (FileNotFoundException | ParserConfigurationException f) {
-                return this.loadBoardFromMapFile("MonopolySaveTest",true);
+
             } catch (SAXException e) {
                 e.printStackTrace();
             } catch (IOException e) {
