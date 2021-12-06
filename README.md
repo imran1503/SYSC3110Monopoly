@@ -81,6 +81,8 @@ An AI will also follow the example turn described above.
 
 
 At any point, any the current player is allowed to press the save button in order to save a copy of their game in order to be played later when they click load.
+If a player presses the load button and there is no file to load in, at the same directory level of the JAR, then there will be an event log telling them that there is no file found.
+When a file is found, then it will load that and overrite the game with the save. 
 ### Important Design Decisions
 We decided that forcing the game to come to an end once all 40 properties are purchased when there are predominantly AI players playing was necessary. As they could go on for a very long time before going bankrupt depending on the state of the board. 
 We also decided to have 4 languages in the game, allowing it to be played by more people.
