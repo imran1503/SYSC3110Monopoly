@@ -67,7 +67,7 @@ public class AIPlayer extends Player {
                 // give a priority boost to decision to purchase if it will complete colorset
                 double priorityBoost = 0;
                 if(purchaseCompletesColorset) {
-                    priorityBoost = 0.5;
+                    priorityBoost = 0.1;
                 }
 
                 // check costBenifitRatio of buying property with different Balance ranges
