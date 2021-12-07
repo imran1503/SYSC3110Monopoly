@@ -22,9 +22,9 @@
 - [Roadmap](#roadmap)
 
 ### Quick Start:
-To play Monopoly, run the main function in BoardView.java, or if you chose to run it from the jar file type:
+To play Monopoly, run the main function in BoardView.java, or if you chose to run it from the jar file type, navigate to the jar and type:
 ```
-java -jar Monopoly.jar
+java -jar SYSC3110Monopoly.jar
 ```
 
 ### Deliverables
