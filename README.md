@@ -42,7 +42,7 @@ Those languages being: English, French, Arabic, and Persian.
 ### Issues
 One issue that can happen on occasion, the game when run with a single human player and 3 other AI players, will occasionally have the human player move after pressing pass and not rolling as if it was an AI. 
 Another issue that can occur is that when 2 players are equally equipped to a very drawn out game, the game struggles to realize a tie, causing a stack overflow.  
-
+Another issue is that for the turn a player wins the game, the game is won and over before the labels are given the chance to update to their final values. 
 
 ### User Manual
 #### Objective
