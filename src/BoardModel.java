@@ -196,6 +196,9 @@ public class BoardModel {
         //Reset number of double rolls of current player
         currentPlayer.setNumOfDoubleRolls(0);
         int indexOfCurrentPlayer = players.indexOf(currentPlayer);
+        if (gameHasEnded()) {   // recursive function's base case
+            operateCommand(Commands.quit);
+        }
         //if current player is last player in list, set next player to first player in players list.
         //else next player is current player index + 1 Player from list
         if(indexOfCurrentPlayer == (players.size() - 1)){
@@ -496,16 +499,20 @@ public class BoardModel {
      */
     public Boolean gameHasEnded() {
         //The game ends if the last active player (not bankrupt)
-        // or
-        // if there are no properties left for purchase. In this case the game ends in a tie between non-bankrupt Players (winnersList).
         if (!checkNumOfActivePlayers()) {
             boardView.setEventLabel3Text("Game has ended.");
             updateWinnersList();
             return true;
         }
-        else { // else the game has not ended yet
-            return false;
+        // if there are no properties left to purchase and the game hasn't already ended, the first player to reach 6000 balance wins
+        if (numPropertiesLeft == 0) {
+            if (currentPlayer.getBalance() >= 3000) {
+                winnersList.clear();
+                winnersList.add(currentPlayer);
+                return true;
+            }
         }
+        return false;
     }
 
     /**
@@ -522,7 +529,8 @@ public class BoardModel {
             Player player = players.get(i);
             if (!player.getBankruptStatus()) {
                 winnersList.add(player);
-            } else {
+            }
+            else {
                 losersList.add(player);
             }
         }

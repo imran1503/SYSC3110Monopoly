@@ -165,6 +165,7 @@ public class AIPlayer extends Player {
         if(this.getBankruptStatus()){
             boardView.getPlayerLists().get(bm.getCurrentPlayerIndex())[this.getPositon()].setVisible(false);
         }
+
         bm.operateCommand(BoardModel.Commands.passTurn);
     }
 }
